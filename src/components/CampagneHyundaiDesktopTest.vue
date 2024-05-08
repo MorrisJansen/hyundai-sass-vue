@@ -234,8 +234,9 @@
           </div>
         </div>
 
-        
-        <x-button :arrowButton="xButton3Props.arrowButton" :className="xButton3Props.className" />
+        <div class="button-container-footer">
+          <x-button :arrowButton="xButton3Props.arrowButton" :className="xButton3Props" />
+        </div>
 
         
       </div>

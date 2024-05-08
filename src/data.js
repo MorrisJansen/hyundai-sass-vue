@@ -842,7 +842,9 @@ export const campagneHyundaiMobielData = {
 
 // vragenvuur
 
-// export const mobielVraag1 = {
+
+
+// export const mobielVraag1Data = {
 //     featuredimage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/featuredimage.png",
 //     vraag1Van5: "Vraag 1 van 5",
 //     hoeveelKmVerwacht: "Hoeveel km verwacht jij te rijden per jaar?",
@@ -863,7 +865,7 @@ export const campagneHyundaiMobielData = {
 //     group1Props: group11Data,
 // };
 
-// export const mobielVraag2 = {
+// export const mobielVraag2Data = {
 //     featuredimage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/featuredimage.png",
 //     address: "5 jaar",
 //     spanText1: "Bekijk de ",
@@ -881,7 +883,7 @@ export const campagneHyundaiMobielData = {
 //     group1Props: group16Data,
 // };
 
-// export const mobielVraag3 = {
+// export const mobielVraag3Data = {
 //     featuredimage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/featuredimage.png",
 //     vraag3Van5: "Vraag 3 van 5",
 //     spanText1: "Welk model heeft jouw voorkeur?<br />",
@@ -904,3 +906,58 @@ export const campagneHyundaiMobielData = {
 //     group2Props: group25Data,
 //     group1Props: group17Data,
 // };
+
+
+// export const mobielVraag4Data = {
+//     featuredimage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/featuredimage.png",
+//     spanText1: "Ja",
+//     spanText2: ", ik wil graag een proefrit maken",
+//     spanText3: "Nee,",
+//     spanText4: " ik hoef geen proefrit te maken",
+//     spanText5: "Bekijk de ",
+//     spanText6: "Privacy",
+//     spanText7: " & ",
+//     spanText8: "voorwaarden",
+//     spanText9: " van deze actie.",
+//     post4: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/post-4-1.png",
+//     frame1152Props: frame11522Data,
+//     frame1233Props: frame12332Data,
+//     group2Props: group23Data,
+//     group1Props: group15Data,
+// };
+
+
+// export const mobielVraag5Data = {
+//     featuredimage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/featuredimage.png",
+//     spanText1: "Bedankt!<br />",
+//     spanText2: "Vul jouw gegevens in en ontvang gratis en vrijblijvend de berekening van jouw leasetarief,",
+//     spanText3: " inclusief speciale aanbieding.",
+//     ellipse3: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/ellipse-3@2x.png",
+//     professional: "Meneer",
+//     ellipse3Copy2: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/ellipse-3@2x.png",
+//     retired: "Mevrouw",
+//     line1: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/line-1@2x.png",
+//     spanText4: "Vul je postcode in en ",
+//     spanText5: "kies een dealer bij jou in de buurt:",
+//     postcode: "Postcode",
+//     kiesEenDealer: "Kies een dealer",
+//     expand_More_Fill0_Wght400_Grad0_Ops: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/expand-more-fill0-wght400-grad0-opsz24-1@2x.png",
+//     deGekozenDealerNe: "De gekozen dealer neemt telefonisch contact met je op voor het bespreken van je wensen voor de berekening.",
+//     aanvraagAfronden: "Aanvraag afronden",
+//     rightarrow: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/color-white--type-button@2x.png",
+//     jouwGegevensWorden: "Jouw gegevens worden alleen gebruikt voor de berekening van jouw leasetarief en worden niet gedeeld met andere partijen. De berekening en uitgebrachte offertes zijn gratis en vrijblijvend, er zijn geen verplichtingen aan verbonden! De uitkomst van de berekening ontvang je telefonisch en/of per e-mail.",
+//     spanText6: "Bekijk de ",
+//     spanText7: "Privacy",
+//     spanText8: " & ",
+//     spanText9: "voorwaarden",
+//     spanText10: " van deze actie.",
+//     post4: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6638c9cbc088d48fd3060663/img/post-4-1.png",
+//     frame12321Props: frame12321Data,
+//     frame12322Props: frame12322Data,
+//     frame12323Props: frame12323Data,
+//     frame12324Props: frame12324Data,
+//     group2Props: group22Data,
+//     group1Props: group14Data,
+// };
+
+

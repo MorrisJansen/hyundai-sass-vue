@@ -23,11 +23,12 @@ export default {
   border-radius: 0.36vw
   display: inline-flex
   flex: 0 0 auto
-  gap: 1.46vw
+  gap: 2vw
   overflow: hidden
   padding: 34px 25px
   position: relative
   border-radius: 7px
+  width: 25vw
 
 
 
@@ -39,6 +40,7 @@ export default {
   position: relative
   width: fit-content
   border-radius: 0.4375rem
+
   color: $white
   font-size: 2rem
   font-family: $font-family-hyundai_sans_head_office-bold
@@ -51,13 +53,12 @@ export default {
   background-color: $primary-blue
   border-radius: 0.36vw
   display: inline-flex
+  flex: 0 0 auto
   gap: 1.46vw
-  height: 5.26vw
-  margin-left: 10.55vw
   overflow: hidden
-  padding: 1.77vw 1.3vw
+  padding: 34px 25px
   position: relative
-  width: 17.19vw
+  border-radius: 7px
 
 .button-4.button-3
   align-items: center
@@ -73,6 +74,10 @@ export default {
   padding: 9.07vw 6.67vw
   position: relative
   width: 88.0vw
+
+
+.button-container-footer
+  margin: 0 auto
 
 
 
