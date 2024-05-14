@@ -357,7 +357,7 @@ export const campagneHyundaiDesktopTestData = {
     ontdekMeer: "ONTDEK MEER",
     arrowLeft: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/arrow-left@2x.png",
     arrowRight: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/arrow-right@2x.png",
-    privateLeaseNuTij: "Private Lease nu tijdelijk<br />vanaf €275 p/m*",
+    privateLeaseNuTij: "Private Lease nu tijdelijk vanaf €275 p/m*",
     deVernieuwdeHyundaiI10: "De vernieuwde<br />Hyundai i10",
     maakEenGrootsStatement: "Maak een groots statement",
     spanText1: "Profiteer nu van een zeer scherpe aanbieding op de rijk uitgeruste i10 Comfort.",

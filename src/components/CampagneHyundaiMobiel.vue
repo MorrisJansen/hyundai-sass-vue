@@ -14,6 +14,7 @@
       </div>
       <div class="overlap-group4">
         <div class="section-header-1">
+          <div class="marge-links">
           <div class="hoofd-titel-tekst-1">
             <div class="nieuw">NIEUW</div>
             <!-- <x-label :nieuw="xLabelProps.nieuw" /> -->
@@ -28,14 +29,16 @@
             class="profiteer-nu-van-een-1 hyundaisansheadoffice-regular-normal-black-16px"
             v-html="profiteerNuVanEen"
           ></p>
+          </div>
           <div class="overlap-group3">
             <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + grootBeeldSlider + ')' }"></div>
             <div class="cta-balk-1">
-              <p
-                class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px"
-                v-html="privateLeaseNuTij"
-              ></p>
-              <x-button2 :vraagOfferteAan="xButton2Props.vraagOfferteAan" :arrow="xButton2Props.arrow" />
+              <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk vanaf €275 p/m* </p>
+              <div class="offerte-knop" onclick="navigateToQuestions()">
+                <div class="vraag-offerte-aan">Vraag offerte aan</div>
+                <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+              </div>
+      
             </div>
           </div>
           <p class="het-maandbedrag-va-1">{{ hetMaandbedragVa }}</p>
@@ -91,7 +94,7 @@
       </div>
       <div class="section-frisse-kijk-slider-1">
         <div class="titel-frisse-kijk-1">
-          <div class="hyundai-i10-2 hyundaisansheadoffice-bold-midnight-blue-24px">{{ hyundaiI102 }}</div>
+          <div class="hyundai-i10-2 hyundaisansheadoffice-bold-midnight-blue-18px">{{ hyundaiI102 }}</div>
           <p class="een-frisse-kijk-op-een-gedurfd-ontwerp-1 hyundaisansheadoffice-bold-midnight-blue-32px">
             {{ eenFrisseKijkOpEenGedurfdOntwerp }}
           </p>
@@ -113,9 +116,15 @@
         <div class="slider-indicator-item-1"></div>
         <div class="slider-indicator-item-1"></div>
       </div>
+
+
+
+
+
       <div class="section-uitvoeringen-tabel-1">
         <div class="overlap-group2-1">
-          <div class="rectangle-2"></div>
+          <div class="rectangle-2">
+          </div>
           <div class="tabel-sectie-1">
             <div class="uitvoeringen-en-hun-functionaliteiten-1 hyundaisansheadoffice-bold-midnight-blue-32px">
               {{ uitvoeringenEnHunFunctionaliteiten }}
@@ -127,9 +136,56 @@
                   <div class="bill-montly-2 hyundaisansheadoffice-bold-white-23-8px">{{ billMontly1 }}</div>
                 </div>
                 <div class="onderdelen-7" :style="{ 'background-image': 'url(' + onderdelen + ')' }">
-                  <img class="frame-9-3" :src="frame9" alt="Frame 9" />
+
+                  <!-- <img class="frame-9-3" :src="frame9" alt="Frame 9" /> -->
+                    <div class="profile-groups">{{ profileGroups }}</div>
+                    <img class="separators" :src="separators1" alt="Separators" />
+                    <div class="frame-9-item">{{ accountViwers }}</div>
+                    <img class="separators" :src="separators2" alt="Separators" />
+                    <div class="frame-9-item">{{ socialMediaDashboa }}</div>
+                    <img class="separators" :src="separators3" alt="Separators" />
+                    <div class="frame-9-item">{{ shopifyDashboard }}</div>
+                    <img class="separators" :src="separators4" alt="Separators" />
+                    <div class="frame-9-item">{{ mixedDragAndDrop }}</div>
+                    <img class="separators" :src="separators5" alt="Separators" />
+                    <div class="frame-9-item">{{ downloadablePdfRep }}</div>
+                    <img class="separators" :src="separators6" alt="Separators" />
+                    <div class="frame-9-item">{{ whiteLabelReports }}</div>
+                    <img class="separators" :src="separators7" alt="Separators" />
+                    <div class="frame-9-item">{{ competitorAnalytics }}</div>
+                    <img class="separators" :src="separators8" alt="Separators" />
+                    <div class="frame-9-item">{{ automatedEmailRepo }}</div>
+                    <img class="separators" :src="separators9" alt="Separators" />
+                    <div class="frame-9-item">{{ roiAnalyticsAndTr }}</div>
+                    <img class="separators" :src="separators10" alt="Separators" />
+                    <div class="frame-9-item">{{ correlationAnalysis }}</div>
+                    <img class="separators" :src="separators11" alt="Separators" />
+                    <p class="frame-9-item">{{ trendDetection1 }}</p>
+                    <img class="separators" :src="separators12" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection2 }}</div>
+                    <img class="separators" :src="separators13" alt="Separators" />
+                    <p class="frame-9-item">{{ trendDetection3 }}</p>
+                    <img class="separators-1" :src="separators14" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection4 }}</div>
+                    <img class="separators-1" :src="separators15" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection5 }}</div>
+                    <img class="separators-1" :src="separators16" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection6 }}</div>
+                    <img class="separators-1" :src="separators17" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection7 }}</div>
+                    <img class="separators-1" :src="separators18" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection8 }}</div>
+                    <img class="separators-1" :src="separators19" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection9 }}</div>
+                    <img class="separators-1" :src="separators20" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection10 }}</div>
+                    <img class="separators-1" :src="separators21" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection11 }}</div>
+                    <img class="separators-1" :src="separators22" alt="Separators" />
+                    <div class="frame-9-item">{{ trendDetection12 }}</div>
                 </div>
               </div>
+
               <div class="tabel-item-2">
                 <div class="titel-12">
                   <div class="overlap-group-3">
@@ -137,6 +193,8 @@
                     <div class="titel-16 hyundaisansheadoffice-bold-port-gore-23-8px">{{ titel2 }}</div>
                   </div>
                 </div>
+
+                
                 <div class="onderdelen-5">
                   <div class="overlap-group1-1">
                     <img class="base-1" :src="base2" alt="Base" />
@@ -238,8 +296,8 @@
                 <div class="titel-12">
                   <img class="base-2" :src="base3" alt="Base" />
                   <div class="titel-17 hyundaisansheadoffice-bold-white-23-8px">
-                    <span class="span0-2 hyundaisansheadoffice-bold-white-23-8px">{{ spanText1 }}</span
-                    ><span class="span1-2">{{ spanText2 }}</span>
+                    <span class="span0-2 hyundaisansheadoffice-bold-white-23-8px">Profiteer nu van een zeer scherpe aanbieding op de rijk uitgeruste i10 Comfort.</span
+                    ><span class="span1-2">Je stapt al in vanaf €275 per maand*</span>
                   </div>
                 </div>
                 <div class="onderdelen-5">
@@ -642,58 +700,85 @@
 
 
 
-            <!-- <x-button :arrowButton="xButton1Props.arrowButton" /> -->
             <div class="group-2"><img class="arrow-4" :src="arrow3" alt="arrow" /></div>
             <div class="group-1-2"><img class="arrow-5" :src="arrow4" alt="arrow" /></div>
+
           </div>
         </div>
+
+
       </div>
 
-      <div class="button-container">
-        <button class="button-4 vraag-offerte-aan knop-midden">Vraag offerte aan
-          <img src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/arrow-9@2x.png" class="arrow"/>
-        </button>
+
+
+      <div class="offerte-knop midden onder" onclick="navigateToQuestions()">
+        <div class="vraag-offerte-aan">Vraag offerte aan</div>
+        <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
       </div>
+
+
+
+
+
+
 
 
       
       <div class="section-prijzentabel-1">
         <div class="prijzentabel-i10-comfort-1 hyundaisansheadoffice-bold-midnight-blue-32px">
-          {{ prijzentabelI10Comfort }}
+          Prijzentabel i10 Comfort
         </div>
+
+        
         <div class="tabel-prijzen-1">
+
+
           <div class="aantal-maanden-1">
             <div class="titel-19" :style="{ 'background-image': 'url(' + titel6 + ')' }">
               <div class="bill-montly-3 hyundaisansheadoffice-bold-white-32px">{{ billMontly2 }}</div>
             </div>
+
+
             <div class="onderdelen-8">
-              <div class="overlap-group-4" :style="{ 'background-image': 'url(' + overlapGroup + ')' }">
-                <frame9 v-bind="frame9Props" />
-              </div>
-            </div>
+              <div class="overlap-group-1-2">
+                <div class="frame-9-1 achtergrond-lichtblauw hyundaisansheadoffice-regular-normal-port-gore-21px">
+                  <div class="profile-groups-1">60 maanden</div>
+                  <img class="separators-5" :src="separators1" alt="Separators" />
+                  <div class="profile-groups-1">60 maanden</div>
+                  <img class="separators-5" :src="separators2" alt="Separators" />
+                  <div class="profile-groups-1">48 maanden</div>
+                  <img class="separators-5" :src="separators3" alt="Separators" />
+                  <div class="profile-groups-1">48 maanden</div>
+                </div>             
+               </div>
+             </div>
           </div>
+          
           <div class="aantal-km">
             <div class="titel-14">
               <div class="overlap-group-5">
-                <img class="base-10" :src="base11" alt="Base" />
                 <div class="titel-20 hyundaisansheadoffice-bold-port-gore-32px">{{ titel7 }}</div>
               </div>
             </div>
-            <div class="onderdelen-6">
-              <div class="overlap-group1-2">
-                <img class="base-11" :src="base12" alt="Base" />
-                <div class="frame-10-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
-                  <div class="profile-groups-3">{{ profileGroups1 }}</div>
-                  <img class="separators-62" :src="separators111" alt="Separators" />
-                  <div class="account-viwers-3">{{ accountViwers1 }}</div>
-                  <img class="separators-12" :src="separators112" alt="Separators" />
-                  <div class="social-media-dashboa-3">{{ socialMediaDashboa1 }}</div>
-                  <img class="separators-12" :src="separators113" alt="Separators" />
-                  <div class="shopify-dashboard-3">{{ shopifyDashboard1 }}</div>
-                </div>
-              </div>
+
+
+            <div class="onderdelen-8">
+              <div class="overlap-group-1-2">
+                <div class="frame-9-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
+                  <div class="profile-groups-1">10.000</div>
+                  <img class="separators-5" :src="separators1" alt="Separators" />
+                  <div class="profile-groups-1">20.000</div>
+                  <img class="separators-5" :src="separators2" alt="Separators" />
+                  <div class="profile-groups-1">10.000</div>
+                  <img class="separators-5" :src="separators3" alt="Separators" />
+                  <div class="profile-groups-1 ">20.000</div>
+                </div>             
+               </div>
             </div>
           </div>
+
+
+
           <div class="maandbedrag">
             <div class="titel-14">
               <img class="base-12" :src="base13" alt="Base" />
@@ -702,25 +787,24 @@
             <div class="onderdelen-6">
               <img class="base-13" :src="base14" alt="Base" />
               <div class="frame-10-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
-                <div class="profile-groups-3">{{ profileGroups2 }}</div>
+                <div class="profile-groups-1">{{ profileGroups2 }}</div>
                 <img class="separators-63" :src="separators114" alt="Separators" />
-                <div class="account-viwers-4">{{ accountViwers2 }}</div>
+                <div class="profile-groups-1">{{ accountViwers2 }}</div>
                 <img class="separators-64" :src="separators115" alt="Separators" />
-                <div class="social-media-dashboa-4">{{ socialMediaDashboa2 }}</div>
+                <div class="profile-groups-1">{{ socialMediaDashboa2 }}</div>
                 <img class="separators-65" :src="separators116" alt="Separators" />
-                <div class="shopify-dashboard-4">{{ shopifyDashboard2 }}</div>
+                <div class="profile-groups-1">{{ shopifyDashboard2 }}</div>
               </div>
             </div>
           </div>
         </div>
 
 
-        <div class="button-container">
-          <button class="button-4 vraag-offerte-aan knop-beneden">Vraag offerte aan
-            <img src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/arrow-9@2x.png" class="arrow"/>
-          </button>
+        <div class="offerte-knop midden" onclick="navigateToQuestions()">
+          <div class="vraag-offerte-aan">Vraag offerte aan</div>
+          <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
         </div>
-        <!-- <x-button :arrowButton="xButton2Props2.arrowButton" :className="xButton2Props2.className" /> -->
+
       </div>
       <footer class="footer-1">
         <img class="line-2-1" :src="line2" alt="Line 2" />
@@ -733,19 +817,13 @@
 <script>
 import Keurmerk from "./Keurmerk";
 import XLabel from "./XLabel";
-import XButton2 from "./XButton2";
 import Voordeel1 from "./Voordeel1";
-import XButton from "./XButton";
-import Frame9 from "./Frame9";
 export default {
   name: "CampagneHyundaiMobiel",
   components: {
     Keurmerk,
     XLabel,
-    XButton2,
     Voordeel1,
-    XButton,
-    Frame9,
   },
   props: [
     "deVernieuwdeHyundaiI10",
@@ -771,7 +849,6 @@ export default {
     "titel1",
     "billMontly1",
     "onderdelen",
-    "frame9",
     "base1",
     "titel2",
     "base2",
@@ -1043,15 +1120,11 @@ export default {
     "bekijkDePrivacy",
     "keurmerkProps",
     "xLabelProps",
-    "xButton2Props",
     "voordeel11Props",
     "voordeel12Props",
     "voordeel13Props",
     "voordeel14Props",
     "voordeel15Props",
-    "xButton1Props",
-    "frame9Props",
-    "xButton2Props2",
   ],
 };
 </script>
@@ -1093,7 +1166,7 @@ export default {
 
 .overlap-group4
   height: 206.93vw
-  margin-top: 13.33vw
+  margin-top: 5vw
   position: relative
   width: 101.07vw
 
@@ -1108,13 +1181,20 @@ export default {
   top: 0
   width: 101.07vw
 
+.marge-links
+  margin-left: 7vw
+
 .hoofd-titel-tekst-1
   align-items: flex-start
   display: inline-flex
   flex-direction: column
   gap: 1.6vw
-  margin-right: 1.07vw
   position: relative
+  letter-spacing: 0
+  line-height: 6.4vw
+  margin-top: 7.2vw
+  min-height: 19.2vw
+  width: 100vw
 
 .nieuw
   display: flex
@@ -1145,7 +1225,7 @@ export default {
 .maak-een-groots-statement-1
   color: $primary-blue
   font-family: $font-family-hyundai_sans_head_office-bold
-  font-size: 6.21vw
+  font-size: 2rem
   font-weight: 700
   letter-spacing: 0
   line-height: 10.96vw
@@ -1156,11 +1236,9 @@ export default {
 .profiteer-nu-van-een-1
   letter-spacing: 0
   line-height: 6.4vw
-  margin-right: 1.07vw
   margin-top: 7.2vw
-  margin-left: 5vw
   min-height: 19.2vw
-  width: 89.33vw
+  max-width: 90vw
 
 .overlap-group3
   height: 107.73vw
@@ -1196,11 +1274,14 @@ export default {
 
 .private-lease-nu-tij-1
   letter-spacing: 0
-  line-height: 9.6vw
+  line-height: 2.25rem
   margin-top: -0.27vw
   position: relative
   text-align: center
   width: fit-content
+
+
+
 
 .het-maandbedrag-va-1
   color: $text-grey
@@ -1210,17 +1291,10 @@ export default {
   letter-spacing: 0
   line-height: 4.27vw
   margin-right: 1.07vw
-  margin-top: 7.2vw
   min-height: 12.8vw
   width: 89.33vw
 
-.navigatie-slider-1
-  align-items: flex-start
-  display: inline-flex
-  gap: 7.06vw
-  left: 78.93vw
-  position: absolute
-  top: 115vw
+
 
 .arrow-2
   height: 4.1vw
@@ -1247,7 +1321,23 @@ export default {
   letter-spacing: 1.32vw
   line-height: normal
   position: absolute
-  top: 115vw
+  top: 123vw
+
+.navigatie-slider-1
+  align-items: flex-start
+  display: inline-flex
+  gap: 7.06vw
+  left: 78.93vw
+  position: absolute
+  top: 123vw
+
+@media (min-width: 500px) and (max-width: 580px)
+  .ontdek-meer-1
+    top: 130vw
+
+  .navigatie-slider-1
+    top: 130vw
+
 
 .section-all-inclusive-1
   align-items: center
@@ -1302,7 +1392,7 @@ export default {
   margin-left: 3vw
 
 .overlap-group-2
-  height: 256.8vw
+  height: 230vw
   position: relative
   width: 100.0vw
 
@@ -2554,6 +2644,11 @@ export default {
   text-align: center
   width: 67.59vw
 
+@media (max-width: 768px)
+  .prijzentabel-i10-comfort-1
+    margin-top: 100px
+
+
 .tabel-prijzen-1
   align-items: flex-start
   display: flex
@@ -2563,22 +2658,15 @@ export default {
   position: relative
   width: 89.87vw
 
-.aantal-maanden-1
-  align-items: flex-start
-  align-self: stretch
-  display: flex
-  flex-direction: column
-  gap: 1.9vw
-  position: relative
-  width: 64.27vw
+
 
 .titel-19
   align-items: center
   background-size: 100% 100%
   display: flex
-  height: 34.4vw
+  height: 150px
   position: relative
-  width: 64.0vw
+  width: 55vw
 
 .bill-montly-3
   flex: 1
@@ -2591,12 +2679,12 @@ export default {
   width: 48.71vw
 
 .onderdelen-8
-  background-color: $light-blue
   flex: 1
   flex-grow: 1
   position: relative
-  width: 64.0vw
+  width: 55vw
 
+  
 .overlap-group-4
   align-items: flex-end
   background-size: 100% 100%
@@ -2612,19 +2700,41 @@ export default {
   display: inline-flex
   flex: 0 0 auto
   flex-direction: column
-  gap: 2.67vw
-  margin-right: -40.3vw
+  gap: 1.9vw
   position: relative
 
+
+
+
+
 .titel-14
-  height: 33.87vw
+  align-items: center
+  background-size: 100% 100%
+  display: flex
+  height: 150px
   position: relative
   width: 64.0vw
+
+
+  display: flex
+  padding: 2.0625rem 1.6015rem 2rem 1.98188rem
+  justify-content: flex-end
+  align-items: center
+  border-radius: 0.625rem
+  border: 1px solid var(--Text-grey, #C1C1C1)
+
+
+
+
+
+
+  
 
 .overlap-group-5
   height: 33.87vw
   position: relative
   width: 50.13vw
+
 
 .base-10
   height: 33.87vw
@@ -2775,4 +2885,76 @@ export default {
   margin-left: -0.53vw
   text-align: center
   width: 32.84vw
+
+
+
+
+
+@media (max-width: 768px)
+  .aantal-maanden-1
+    display: flex
+    flex-direction: column
+    width: 70vw
+    gap: 1.9vw
+    width: 77vw
+    margin-right: 5vw
+    align-self: stretch
+
+    .titel-19,
+    .onderdelen-8
+      width: 100%
+
+
+  .profile-groups-1
+    font-size: 1.3125rem
+    
+
+  .profile-groups-1:first-child
+    margin-top: 3.31rem
+    
+  .profile-groups-1:last-child
+    margin-bottom: 3.31rem
+
+  .profile-groups-1,
+  .separators-5
+    margin-left: 5vw
+
+  .separators-5
+    margin-top: 1.27rem
+    margin-bottom: 1.27rem
+  .achtergrond-lichtblauw
+    background-color: $light-blue
+
+
+  .offerte-knop
+    display: inline-flex
+    padding: 2.125rem 1.5625rem
+    align-items: center
+    gap: 1.75rem
+    align-items: center
+    gap: 2rem
+    width: 80vw  
+    
+
+  .vraag-offerte-aan
+    letter-spacing: 0
+    line-height: normal
+    position: relative
+    width: fit-content
+    border-radius: 0.4375rem
+    color: $white
+    font-family: $font-family-hyundai_sans_head_office-bold
+    text-align: center
+
+    color: var(--White, #FFF)
+    font-size: 6.5vw
+    font-style: normal
+    font-weight: 700
+    line-height: normal
+
+  .midden
+    margin: 0 auto
+
+  .onder
+    margin-top: -150px
 </style>

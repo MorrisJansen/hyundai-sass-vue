@@ -31,6 +31,7 @@ export default {
   padding: 10.67vw 8.0vw
   position: relative
   width: 100%
+  align-items: center
 
 .icons-lease
   height: 10.67vw
@@ -43,6 +44,12 @@ export default {
   margin-top: -0.28vw
   position: relative
   width: fit-content
+
+
+.rijden-in-een-nieuwe-hyundai-1
+  align-items: center
+  align-content: center
+  justify-content: center
 
 .voordeel-2-1.voordeel-2-2 .rijden-in-een-nieuwe-hyundai-1,
 .voordeel-2-1.voordeel-2-3 .rijden-in-een-nieuwe-hyundai-1,

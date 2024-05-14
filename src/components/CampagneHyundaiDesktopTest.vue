@@ -35,8 +35,12 @@
                 class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-24px"
                 v-html="privateLeaseNuTij"
               ></p>
-              <x-button :arrowButton="xButton1Props.arrowButton" />
-            </div>
+                <div class="offerte-knop" onclick="navigateToQuestions()">
+                <div class="vraag-offerte-aan">Vraag offerte aan</div>
+                <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+              </div>
+
+              </div>
           </div>
           <div class="hoofd-titel-tekst">
             <x-label :nieuw="xLabelProps.nieuw" />
@@ -46,9 +50,9 @@
             </div>
           </div>
           <p class="profiteer-nu-van-een bodymedium">
-            <span class="span0 bodymedium">{{ spanText1 }}</span>
+            <span class="span0 bodymedium">Profiteer nu van een zeer scherpe aanbieding op de rijk uitgeruste i10 Comfort.</span>
             <br>
-            <span class="span1">{{ spanText2 }}</span>
+            <span class="span1">Je stapt al in vanaf €275 per maand*</span>
           </p>
           <p class="het-maandbedrag-va hyundaisansheadoffice-regular-normal-silver-16px">{{ hetMaandbedragVa }}</p>
         </div>
@@ -95,7 +99,7 @@
       </div>
       <div class="section-frisse-kijk-slider">
         <div class="titel-frisse-kijk">
-          <div class="hyundai-i10 hyundaisansheadoffice-bold-midnight-blue-32px">{{ hyundaiI102 }}</div>
+          <div class="hyundai-i10 hyundaisansheadoffice-bold-midnight-blue-18px">{{ hyundaiI102 }}</div>
           <p class="een-frisse-kijk-op-een-gedurfd-ontwerp hyundaisansheadoffice-bold-midnight-blue-48px">
             {{ eenFrisseKijkOpEenGedurfdOntwerp }}
           </p>
@@ -117,6 +121,11 @@
           <div class="slider-indicator-item"></div>
         </div>
       </div>
+
+
+
+
+      
       <div class="section-uitvoeringen-tabel">
         <div class="tabel-sectie">
           <div class="uitvoeringen-en-hun-functionaliteiten hyundaisansheadoffice-bold-midnight-blue-48px">
@@ -206,40 +215,110 @@
               <onderdelen :frame12Props="onderdelen2Props2.frame12Props" />
             </div>
           </div>
-          <x-button :arrowButton="xButton2Props.arrowButton" />
+          <div class="offerte-knop" onclick="navigateToQuestions()">
+            <div class="vraag-offerte-aan">Vraag offerte aan</div>
+            <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+          </div>
+
         </div>
       </div>
+
+
+
+
+
+
       <div class="section-prijzentabel">
         <div class="prijzentabel-i10-comfort hyundaisansheadoffice-bold-midnight-blue-48px">
-          {{ prijzentabelI10Comfort }}
+          Prijzentabel i10 Comfort
         </div>
+
+
         <div class="tabel-prijzen">
-          <div class="aantal-maanden">
+          <div class="container-prijzen">
+
             <div class="titel-7">
-              <div class="bill-montly-1 hyundaisansheadoffice-bold-white-32px">{{ billMontly2 }}</div>
+              <div class="bill-montly-1 hyundaisansheadoffice-bold-white-32px">Aantal maanden</div>
             </div>
-            <div class="onderdelen-1"><frame9 v-bind="frame9Props" /></div>
+           <div class="frame-9-1 licht-blauw-achtergrond hyundaisansheadoffice-regular-normal-port-gore-21px">
+              <div class="border-prijzentabel"></div>
+              <div class="profile-groups-1">60 Maanden</div>
+              <img class="separators-5" :src="separators1" alt="Separators" />
+              <div class="account-viwers">60 Maanden</div>
+              <img class="separators-5" :src="separators2" alt="Separators" />
+              <div class="social-media-dashboa">48 Maanden</div>
+              <img class="separators-5" :src="separators3" alt="Separators" />
+              <div class="shopify-dashboard">48 Maanden</div>
+            </div>
           </div>
-          <div class="tabel-prijzen-item">
+
+
+        <div class="container-prijzen">
+          <div class="titel">
+            <div class="titel-8 hyundaisansheadoffice-bold-port-gore-32px">Aantal km</div>
+          </div>
+
+          <div class="frame-9-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
+            <div class="border-prijzentabel"></div>
+            <div class="profile-groups-1">10.000</div>
+            <img class="separators-5" :src="separators1" alt="Separators" />
+            <div class="account-viwers">20.000</div>
+            <img class="separators-5" :src="separators2" alt="Separators" />
+            <div class="social-media-dashboa">10.000</div>
+            <img class="separators-5" :src="separators3" alt="Separators" />
+            <div class="shopify-dashboard">20.000</div>
+          </div>
+        </div>
+
+
+      
+        <div class="container-prijzen">
+          <div class="titel">
+            <div class="titel-9 hyundaisansheadoffice-bold-port-gore-32px">Maandbedrag</div>
+          </div>
+
+        <div class="frame-9-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
+          <div class="border-prijzentabel"></div>
+          <div class="profile-groups-1">€ 312,-</div>
+          <img class="separators-5" :src="separators1" alt="Separators" />
+          <div class="account-viwers">€ 358,11</div>
+          <img class="separators-5" :src="separators2" alt="Separators" />
+          <div class="social-media-dashboa">€ 342,-</div>
+          <img class="separators-5" :src="separators3" alt="Separators" />
+          <div class="shopify-dashboard">€ 385,04</div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+
+
+        <div class="offerte-knop midden-knop" onclick="navigateToQuestions()">
+          <div class="vraag-offerte-aan">Vraag offerte aan</div>
+          <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+        </div>
+
+      
+
+          
+          <!-- <div class="tabel-prijzen-item">
             <div class="titel">
               <div class="titel-8 hyundaisansheadoffice-bold-port-gore-32px">{{ titel3 }}</div>
             </div>
             <onderdelen3 :frame9Props="onderdelen31Props.frame9Props" />
           </div>
+
+          
           <div class="tabel-prijzen-item">
             <div class="titel">
               <div class="titel-9 hyundaisansheadoffice-bold-port-gore-32px">{{ titel4 }}</div>
             </div>
             <onderdelen3 :frame9Props="onderdelen32Props.frame9Props" />
-          </div>
-        </div>
+          </div> -->
 
-        <div class="button-container-footer">
-          <x-button :arrowButton="xButton3Props.arrowButton" :className="xButton3Props" />
-        </div>
 
-        
-      </div>
+
       <footer class="footer">
         <img class="line-2" :src="line2" alt="Line 2" />
         <p class="bekijk-de-privacy hyundaisansheadoffice-regular-normal-silver-16px">{{ bekijkDePrivacy }}</p>
@@ -250,27 +329,20 @@
 
 <script>
 import Keurmerk from "./Keurmerk";
-import XButton from "./XButton";
 import XLabel from "./XLabel";
 import Voordeel2 from "./Voordeel2";
 import Onderdelen from "./Onderdelen";
 import Onderdelen2 from "./Onderdelen2";
 import ComfortSmart from "./ComfortSmart";
-import Frame9 from "./Frame9";
-import Onderdelen3 from "./Onderdelen3";
-import XButton2 from "./XButton2.vue";
 export default {
   name: "CampagneHyundaiDesktopTest",
   components: {
     Keurmerk,
-    XButton,
     XLabel,
     Voordeel2,
     Onderdelen,
     Onderdelen2,
     ComfortSmart,
-    Frame9,
-    Onderdelen3,
   },
   props: [
     "overlapGroup",
@@ -353,7 +425,6 @@ export default {
     "titel4",
     "line2",
     "bekijkDePrivacy",
-    "xButton1Props",
     "xLabelProps",
     "voordeel21Props",
     "voordeel22Props",
@@ -364,11 +435,6 @@ export default {
     "comfortSmart1Props",
     "comfortSmart2Props",
     "onderdelen2Props2",
-    "xButton2Props",
-    "frame9Props",
-    "onderdelen31Props",
-    "onderdelen32Props",
-    "xButton3Props",
   ],
 };
 </script>
@@ -488,19 +554,100 @@ export default {
   position: relative
   width: 1.3vw
 
+
 .cta-balk
+  display: inline-flex
   align-items: center
   background-color: $white
   border-radius: 0.62vw
   box-shadow: 0.0vw 1.61vw 4.22vw #00104c33
-  display: inline-flex
-  gap: 9.43vw
   left: 0
   overflow: hidden
-  padding: 1.09vw 1.25vw
   position: relative
-  top: 33.75vw
-  width: 48vw
+  top: 32vw
+  padding: 2.361vw 2.361vw
+  gap: 12.556vw
+  width: 50vw
+  max-width: 57.3125rem
+  max-height: 12.917vw
+
+
+
+
+    
+
+  @media (min-width: 768px )
+    .vraag-offerte-aan
+      letter-spacing: 0
+      line-height: normal
+      margin-top: -0.1vw
+      position: relative
+      width: fit-content
+      border-radius: 0.4375rem
+      color: $white
+      font-size: 1.375vw
+      font-family: $font-family-hyundai_sans_head_office-bold
+      text-align: center
+
+
+    .offerte-knop
+      width: 22.917vw
+      height: 7.014vw
+      max-width: 20.625rem
+      max-height: 6.3125rem
+
+@media (min-width: 768px) and (max-width: 1150px)
+  .midden-knop
+    margin-top: 75px
+    
+  .offerte-knop
+    width: 22.917vw
+    height: 7.014vw
+  
+  .vraag-offerte-aan
+    font-size: 1.375vw!important
+
+  
+
+
+
+
+
+
+.offerte-knop
+  align-items: center
+  background-color: $primary-blue
+  border-radius: 0.36vw
+  display: inline-flex
+  flex: 0 0 auto
+  overflow: hidden
+  padding: 34px 25px
+  position: relative
+  border-radius: 7px
+  gap: 1.75rem
+
+
+
+.vraag-offerte-aan
+  letter-spacing: 0
+  line-height: normal
+  margin-top: -0.1vw
+  position: relative
+  width: fit-content
+  border-radius: 0.4375rem
+  color: $white
+  font-size: 1.6875rem
+  font-family: $font-family-hyundai_sans_head_office-bold
+  text-align: center
+
+
+.arrow
+  width: 1.5rem
+  height: 0.8125rem
+
+
+
+
 
 .private-lease-nu-tij,
 .rijden-in-een-nieuwe-hyundai
@@ -508,6 +655,7 @@ export default {
   line-height: 1.88vw
   position: relative
   width: fit-content
+  max-width: 17.25rem
 
 .hoofd-titel-tekst
   align-items: flex-start
@@ -517,6 +665,9 @@ export default {
   left: 0
   position: absolute
   top: 6.04vw
+
+
+
 
 .frame-5
   align-items: flex-start
@@ -536,6 +687,7 @@ export default {
   margin-top: -0.05vw
   position: relative
   width: 70.23vw
+
 
 .maak-een-groots-statement
   color: $primary-blue
@@ -570,8 +722,8 @@ export default {
   left: 0.05vw
   letter-spacing: 0
   line-height: 1.25vw
-  position: absolute
-  top: 46.56vw
+  position: relative
+  top: 48vw
   width: 29.95vw
 
 .section-all-inclusive
@@ -747,6 +899,12 @@ export default {
   height: 125.68vw
   margin-top: 9.79vw
   width: 100.0vw
+
+@media (min-width: 768px) and (max-width: 1100px)
+  .section-uitvoeringen-tabel
+    height: 145vw
+
+
 
 .tabel-sectie
   align-items: center
@@ -1016,7 +1174,8 @@ export default {
   border-color: $text-grey
   border-radius: 0.52vw
   display: flex
-  height: 6.61vw
+  height: 6.82vw
+
   position: relative
   width: 12.5vw
 
@@ -1072,5 +1231,100 @@ export default {
 
 .vast-maandbedrag-inc
   list-style-type: disc
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+.account-viwers,
+.social-media-dashboa,
+.shopify-dashboard
+  letter-spacing: 0
+  line-height: normal
+  position: relative
+  width: fit-content
+
+
+
+
+
+
+
+
+.profile-groups-1,
+.account-viwers,
+.social-media-dashboa,
+.shopify-dashboard
+  display: flex
+  flex-direction: row
+  font-size: 0.9vw
+  margin-left: 1.5vw
+
+@media (min-width: 768px)
+  .profile-groups-1
+    margin-top: 3.31rem
+
+.shopify-dashboard
+  margin-bottom: 3.31rem
+
+
+
+.container-prijzen
+  width: 12.55vw
+  display: flex
+  flex-direction: column
+  gap: 0.37vw
+  
+.container-geheel
+  display: flex
+  flex-direction: column
+
+
+
+.frame-9-1
+  border-radius: 0.625rem
+  border: 1px solid var(--Text-grey, #C1C1C1)
+  display: flex
+  flex-direction: column
+  gap: 1.06vw
+  justify-content: left
+
+
+.licht-blauw-achtergrond
+  background: var(--Light-blue, #F2F8FF)
+
+
+.frame-9-1
+  align-items: flex-start
+  flex-direction: column
+
+
+.separators-5
+  width:  9vw
+  height: 0.125rem
+  justify-content: center
+  align-items: center
+  margin: 0 auto
+  margin-left: 1.5vw
+  
+@media (max-width: 768px)
+  .separators-5
+    width: 45vw
+
+
+
+
   
 </style>

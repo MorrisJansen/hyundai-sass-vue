@@ -4,20 +4,26 @@ import CampagneHyundaiDesktopTest from "./components/CampagneHyundaiDesktopTest"
 import CampagneHyundaiMobiel from "./components/CampagneHyundaiMobiel";
 import { campagneHyundaiDesktopTestData, campagneHyundaiMobielData } from "./data";
 
-// Import your mobiel vraag components and their data
-import MobielVraag1 from "./components/mobielVraag1.vue";
-import MobielVraag2 from "./components/mobielVraag2.vue";
-import MobielVraag3 from "./components/mobielVraag3.vue";
-import MobielVraag4 from "./components/mobielVraag4.vue";
-import MobielVraag5 from "./components/mobielVraag5.vue";
+
+import mobielVraag1 from "./components/mobielVraag1.vue";
+import mobielVraag2 from "./components/mobielVraag2.vue";
+import mobielVraag3 from "./components/mobielVraag3.vue";
+import mobielVraag4 from "./components/mobielVraag4.vue";
+import mobielVraag5 from "./components/mobielVraag5.vue";
+
+import desktopVraag1 from "./components/desktopVraag1.vue";
+import desktopVraag2 from "./components/desktopVraag2.vue";
+import desktopVraag3 from "./components/desktopVraag3.vue";
+import desktopVraag4 from "./components/desktopVraag4.vue";
+import desktopVraag5 from "./components/desktopVraag5.vue";
 
 import { 
-   mobielVraag1Data,
-   mobielVraag2Data,
-   mobielVraag3Data,
-   mobielVraag4Data,
-   mobielVraag5Data
-  } from "./data";
+  mobielVraag1Data,
+  mobielVraag2Data,
+  mobielVraag3Data,
+  mobielVraag4Data,
+  mobielVraag5Data
+} from "./data";
 
 Vue.use(Router);
 
@@ -31,54 +37,62 @@ const router = new Router({
       props: { ...campagneHyundaiMobielData },
     },
     {
-      path: "*",
+      path: "/campagne-hyundai-desktop",
       component: CampagneHyundaiDesktopTest,
       props: { ...campagneHyundaiDesktopTestData },
     },
     // Mobiel Vraag routes
     {
-      path: "/mobielVraag1",
-      component: MobielVraag1,
-      props: { ...mobielVraag1Data },
+      path: "/mobielVragen",
+      component: mobielVraag1,
+      children: [
+        { path: "1", component: mobielVraag1, props: { ...mobielVraag1Data } },
+        { path: "2", component: mobielVraag2, props: { ...mobielVraag2Data } },
+        { path: "3", component: mobielVraag3, props: { ...mobielVraag3Data } },
+        { path: "4", component: mobielVraag4, props: { ...mobielVraag4Data } },
+        { path: "5", component: mobielVraag5, props: { ...mobielVraag5Data } },
+      ]
     },
+    // Desktop Vraag routes
     {
-      path: "/mobielVraag2",
-      component: MobielVraag2,
-      props: { ...mobielVraag2Data },
-    },
-    {
-      path: "/mobielVraag3",
-      component: MobielVraag3,
-      props: { ...mobielVraag3Data },
-    },
-    {
-      path: "/mobielVraag4",
-      component: MobielVraag4,
-      props: { ...mobielVraag4Data },
-    },
-    {
-      path: "/mobielVraag5",
-      component: MobielVraag5,
-      props: { ...mobielVraag5Data },
+      path: "/desktopVragen",
+      component: desktopVraag1,
+      children: [
+        { path: "1", component: desktopVraag1, props: { ...campagneHyundaiDesktopTestData } },
+        { path: "2", component: desktopVraag2, props: { ...campagneHyundaiDesktopTestData } },
+        { path: "3", component: desktopVraag3, props: { ...campagneHyundaiDesktopTestData } },
+        { path: "4", component: desktopVraag4, props: { ...campagneHyundaiDesktopTestData } },
+        { path: "5", component: desktopVraag5, props: { ...campagneHyundaiDesktopTestData } },
+      ]
     },
   ],
 });
 
-const resizeHandler = () => {
-  if (window.innerWidth < 768) {
-    if (router.currentRoute.path === "/mobielVraag1") {
-      router.replace("/mobielVraag1");
+const handleRouting = () => {
+  const isMobile = window.innerWidth < 768;
+  const isOnVragenPage = router.currentRoute.path.startsWith("/desktopvragen") || router.currentRoute.path.startsWith("/mobielvragen");
+  const isOnCampagnePage = router.currentRoute.path.startsWith("/campagne-hyundai-mobiel") || router.currentRoute.path.startsWith("/campagne-hyundai-desktop");
+
+  if (isOnVragenPage) {
+    if (isMobile) {
+      router.replace("/mobielVragen");
     } else {
-      router.replace("/campagne-hyundai-mobiel");
+      router.replace("/desktopVragen");
     }
-  } else if (router.currentRoute.path !== "/campagne-hyundai-desktop") {
-    router.replace("/campagne-hyundai-desktop");
+  } else if (isOnCampagnePage) {
+    if (isMobile) {
+      router.replace("/campagne-hyundai-mobiel");
+    } else {
+      router.replace("/campagne-hyundai-desktop");
+    }
   }
 };
 
+// Voeg event listeners toe om handleRouting aan te roepen bij wijziging van de schermgrootte
+window.addEventListener("resize", handleRouting);
+window.addEventListener("load", handleRouting);
 
 
-window.addEventListener("resize", resizeHandler);
-window.addEventListener("load", resizeHandler);
+
 
 export default router;

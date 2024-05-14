@@ -38,21 +38,21 @@ export default {
   computed: {
     toonVolgendeVraagKnop() {
       // Toon de knop voor de volgende vraag behalve als het de laatste vraag is
-      return this.$route.name !== "MobielVraag5";
+      return this.$route.name !== "mobielVragen/2";
     },
     toonVorigeVraagKnop() {
       // Toon de knop voor de vorige vraag behalve als het de eerste vraag is
-      return this.$route.name !== "MobielVraag1";
+      return this.$route.name !== "mobielVragen";
     }
   },
   methods: {
     gaNaarVolgendeVraag() {
       // Hard coderen van de volgende vraag route
-      this.$router.push("/mobielVraag2");
+      this.$router.push("/desktopvragen/2");
     },
     gaNaarVorigeVraag() {
       // Hard coderen van de vorige vraag route
-      this.$router.push("/mobielVraag1");
+      this.$router.push("/desktopVragen");
     }
   }
 };
