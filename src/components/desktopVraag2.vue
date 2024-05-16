@@ -1,4 +1,20 @@
 <template>
+  <!-- <div class="container-center-horizontal">
+
+  <div class="top-balk">
+    <img
+      class="logo-hyundai"
+      src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
+      alt="Logo Hyundai"
+    />
+    <keurmerk />
+  </div>
+
+
+
+
+
+
     <div class="mobiel-vraag">
       <h2>{{ vraag }}</h2>
       <form>
@@ -10,6 +26,8 @@
         <button @click.prevent="gaNaarVorigeVraag" v-if="toonVorigeVraagKnop">Vorige vraag</button>
       </form>
     </div>
+    </div> -->
+    <div>hallo</div>
   </template>
   
   <script>

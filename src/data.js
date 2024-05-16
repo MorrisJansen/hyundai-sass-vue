@@ -353,6 +353,7 @@ export const xButton3Data = {
 
 export const campagneHyundaiDesktopTestData = {
     overlapGroup: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/auto-beeld-1@2x.png",
+    overlayGroup: "img/overlay.png",
     tijdelijkVoorMaar275PM: "Tijdelijk voor<br />maar €275 p/m",
     ontdekMeer: "ONTDEK MEER",
     arrowLeft: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/arrow-left@2x.png",
@@ -835,6 +836,63 @@ export const campagneHyundaiMobielData = {
     xButton1Props: xButton4Data,
     frame9Props: frame94Data,
     xButton2Props2: xButton5Data,
+
+
+
+
+
+
+
+    profileGroups: "Actieve rijbaanassistentie (LKA)",
+    separators1: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png",
+    accountViwers: "Cruise Control met limiet",
+    separators2: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-120@2x.png",
+    socialMediaDashboa: "Noodremassistent (FCA) met voetgangerherkenning",
+    separators3: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-121@2x.png",
+    shopifyDashboard: "eCall (Emergency Call)",
+    separators4: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-122@2x.png",
+    mixedDragAndDrop: "Start/Stop systeem",
+    separators5: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-123@2x.png",
+    downloadablePdfRep: "Achterbank in delen neerklapbaar",
+    separators6: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-124@2x.png",
+    whiteLabelReports: "Zij- en gordijnairbags",
+    separators7: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-125@2x.png",
+    competitorAnalytics: "ABS",
+    separators8: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-126@2x.png",
+    automatedEmailRepo: "Vermoeidheidsherkenning",
+    separators9: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-127@2x.png",
+    roiAnalyticsAndTr: "8 inch multimediascherm",
+    separators10: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png",
+    correlationAnalysis: "USB aansluiting",
+    separators11: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-120@2x.png",
+    trendDetection1: "Android Auto (voorbereiding) / Apple carplay",
+    separators12: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-121@2x.png",
+    trendDetection2: "Airconditioning (manueel)",
+    separators13: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-122@2x.png",
+    trendDetection3: "8 inch multimediascherm met navigatie",
+    separators14: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-123@2x.png",
+    trendDetection4: "Achteruitrijcamera met dynamische hulplijnen",
+    separators15: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-124@2x.png",
+    trendDetection5: "Snelheidsbordenherkenning (ISLW)",
+    separators16: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-125@2x.png",
+    trendDetection6: "Airconditioning (volautomatisch)",
+    separators17: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-126@2x.png",
+    trendDetection7: "Parkeersensoren achter",
+    separators18: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-127@2x.png",
+    trendDetection8: "3D afwerking interieurdelen",
+    separators19: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png",
+    trendDetection9: "16-inch lichtmetalen velgen",
+    separators20: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-120@2x.png",
+    trendDetection10: "Verwarmde stoelen voor",
+    separators21: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-121@2x.png",
+    trendDetection11: "Draadloos telefoon opladen",
+    separators22: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-122@2x.png",
+    trendDetection12: "Verwarmd stuurwiel",
+
+
+
+
+    
 };
 
 

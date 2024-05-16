@@ -1,3 +1,406 @@
+<script>
+import Keurmerk from "./Keurmerk";
+import XLabel from "./XLabel";
+import Voordeel1 from "./Voordeel1";
+import overlayImage from '/img/overlay.png';
+
+export default {
+  name: "CampagneHyundaiMobiel",
+  components: {
+    Keurmerk,
+    XLabel,
+    Voordeel1,
+  },
+  props: [
+    "deVernieuwdeHyundaiI10",
+    "maakEenGrootsStatement",
+    "profiteerNuVanEen",
+    "grootBeeldSlider",
+    "privateLeaseNuTij",
+    "hetMaandbedragVa",
+    "arrow1",
+    "arrow2",
+    "ontdekMeer",
+    "hyundaiI101",
+    "allInclusiveGeniet",
+    "vastMaandbedragInc",
+    "vrouwBlijAuto",
+    "hyundaiI102",
+    "eenFrisseKijkOpEenGedurfdOntwerp",
+    "handMobiel",
+    "binnenAuto",
+    "dashboardAuto",
+    "binnenAuto2",
+    "uitvoeringenEnHunFunctionaliteiten",
+    "titel1",
+    "billMontly1",
+    "onderdelen",
+    "base1",
+    "titel2",
+    "base2",
+    "tabelIcons1",
+    "separators1",
+    "tabelIcons2",
+    "separators2",
+    "tabelIcons3",
+    "separators3",
+    "tabelIcons4",
+    "separators4",
+    "tabelIcons5",
+    "separators5",
+    "tabelIcons6",
+    "separators6",
+    "tabelIcons7",
+    "separators7",
+    "tabelIcons8",
+    "separators8",
+    "tabelIcons9",
+    "separators9",
+    "tabelIcons10",
+    "separators10",
+    "tabelIcons11",
+    "separators11",
+    "tabelIcons12",
+    "separators12",
+    "tabelIcons13",
+    "separators13",
+    "tabelIcons14",
+    "separators14",
+    "tabelIcons15",
+    "separators15",
+    "tabelIcons16",
+    "separators16",
+    "tabelIcons17",
+    "separators17",
+    "tabelIcons18",
+    "separators18",
+    "tabelIcons19",
+    "separators19",
+    "tabelIcons20",
+    "separators20",
+    "tabelIcons21",
+    "separators21",
+    "tabelIcons22",
+    "separators22",
+    "tabelIcons23",
+    "base3",
+    "spanText1",
+    "spanText2",
+    "base4",
+    "tabelIcons24",
+    "separators23",
+    "tabelIcons25",
+    "separators24",
+    "tabelIcons26",
+    "separators25",
+    "tabelIcons27",
+    "separators26",
+    "tabelIcons28",
+    "separators27",
+    "tabelIcons29",
+    "separators28",
+    "tabelIcons30",
+    "separators29",
+    "tabelIcons31",
+    "separators30",
+    "tabelIcons32",
+    "separators31",
+    "tabelIcons33",
+    "separators32",
+    "tabelIcons34",
+    "separators33",
+    "tabelIcons35",
+    "separators34",
+    "tabelIcons36",
+    "separators35",
+    "tabelIcons37",
+    "separators36",
+    "tabelIcons38",
+    "separators37",
+    "tabelIcons39",
+    "separators38",
+    "tabelIcons40",
+    "separators39",
+    "tabelIcons41",
+    "separators40",
+    "tabelIcons42",
+    "separators41",
+    "tabelIcons43",
+    "separators42",
+    "tabelIcons44",
+    "separators43",
+    "tabelIcons45",
+    "separators44",
+    "tabelIcons46",
+    "base5",
+    "titel3",
+    "base6",
+    "tabelIcons47",
+    "separators45",
+    "tabelIcons48",
+    "separators46",
+    "tabelIcons49",
+    "separators47",
+    "tabelIcons50",
+    "separators48",
+    "tabelIcons51",
+    "separators49",
+    "tabelIcons52",
+    "separators50",
+    "tabelIcons53",
+    "separators51",
+    "tabelIcons54",
+    "separators52",
+    "tabelIcons55",
+    "separators53",
+    "tabelIcons56",
+    "separators54",
+    "tabelIcons57",
+    "separators55",
+    "tabelIcons58",
+    "separators56",
+    "tabelIcons59",
+    "separators57",
+    "tabelIcons60",
+    "separators58",
+    "tabelIcons61",
+    "separators59",
+    "tabelIcons62",
+    "separators60",
+    "tabelIcons63",
+    "separators61",
+    "tabelIcons64",
+    "separators62",
+    "tabelIcons65",
+    "separators63",
+    "tabelIcons66",
+    "separators64",
+    "tabelIcons67",
+    "separators65",
+    "tabelIcons68",
+    "separators66",
+    "tabelIcons69",
+    "base7",
+    "titel4",
+    "base8",
+    "tabelIcons70",
+    "separators67",
+    "tabelIcons71",
+    "separators68",
+    "tabelIcons72",
+    "separators69",
+    "tabelIcons73",
+    "separators70",
+    "tabelIcons74",
+    "separators71",
+    "tabelIcons75",
+    "separators72",
+    "tabelIcons76",
+    "separators73",
+    "tabelIcons77",
+    "separators74",
+    "tabelIcons78",
+    "separators75",
+    "tabelIcons79",
+    "separators76",
+    "tabelIcons80",
+    "separators77",
+    "tabelIcons81",
+    "separators78",
+    "tabelIcons82",
+    "separators79",
+    "tabelIcons83",
+    "separators80",
+    "tabelIcons84",
+    "separators81",
+    "tabelIcons85",
+    "separators82",
+    "tabelIcons86",
+    "separators83",
+    "tabelIcons87",
+    "separators84",
+    "tabelIcons88",
+    "separators85",
+    "tabelIcons89",
+    "separators86",
+    "tabelIcons90",
+    "separators87",
+    "tabelIcons91",
+    "separators88",
+    "tabelIcons92",
+    "base9",
+    "titel5",
+    "base10",
+    "tabelIcons93",
+    "separators89",
+    "tabelIcons94",
+    "separators90",
+    "tabelIcons95",
+    "separators91",
+    "tabelIcons96",
+    "separators92",
+    "tabelIcons97",
+    "separators93",
+    "tabelIcons98",
+    "separators94",
+    "tabelIcons99",
+    "separators95",
+    "tabelIcons100",
+    "separators96",
+    "tabelIcons101",
+    "separators97",
+    "tabelIcons102",
+    "separators98",
+    "tabelIcons103",
+    "separators99",
+    "tabelIcons104",
+    "separators100",
+    "tabelIcons105",
+    "separators101",
+    "tabelIcons106",
+    "separators102",
+    "tabelIcons107",
+    "separators103",
+    "tabelIcons108",
+    "separators104",
+    "tabelIcons109",
+    "separators105",
+    "tabelIcons110",
+    "separators106",
+    "tabelIcons111",
+    "separators107",
+    "tabelIcons112",
+    "separators108",
+    "tabelIcons113",
+    "separators109",
+    "tabelIcons114",
+    "separators110",
+    "tabelIcons115",
+    "arrow3",
+    "arrow4",
+    "prijzentabelI10Comfort",
+    "titel6",
+    "billMontly2",
+    "overlapGroup",
+    "base11",
+    "titel7",
+    "base12",
+    "profileGroups",
+    "profileGroups1",
+    "separators111",
+    "accountViwers1",
+    "separators112",
+    "socialMediaDashboa1",
+    "separators113",
+    "shopifyDashboard1",
+    "base13",
+    "titel8",
+    "base14",
+    "profileGroups2",
+    "separators114",
+    "accountViwers2",
+    "separators115",
+    "socialMediaDashboa2",
+    "separators116",
+    "shopifyDashboard2",
+    "line2",
+    "bekijkDePrivacy",
+    "keurmerkProps",
+    "xLabelProps",
+    "voordeel11Props",
+    "voordeel12Props",
+    "voordeel13Props",
+    "voordeel14Props",
+    "voordeel15Props",
+
+
+
+
+
+
+
+
+
+
+
+
+    "profileGroups",
+    "separators1",
+    "accountViwers",
+    "separators2",
+    "socialMediaDashboa",
+    "separators3",
+    "shopifyDashboard",
+    "separators4",
+    "mixedDragAndDrop",
+    "separators5",
+    "downloadablePdfRep",
+    "separators6",
+    "whiteLabelReports",
+    "separators7",
+    "competitorAnalytics",
+    "separators8",
+    "automatedEmailRepo",
+    "separators9",
+    "roiAnalyticsAndTr",
+    "separators10",
+    "correlationAnalysis",
+    "separators11",
+    "trendDetection1",
+    "separators12",
+    "trendDetection2",
+    "separators13",
+    "trendDetection3",
+    "separators14",
+    "trendDetection4",
+    "separators15",
+    "trendDetection5",
+    "separators16",
+    "trendDetection6",
+    "separators17",
+    "trendDetection7",
+    "separators18",
+    "trendDetection8",
+    "separators19",
+    "trendDetection9",
+    "separators20",
+    "trendDetection10",
+    "separators21",
+    "trendDetection11",
+    "separators22",
+    "trendDetection12"
+
+
+
+
+    
+  ],
+  data() {
+    return {
+      currentImage: '',
+      overlayImage: overlayImage
+
+
+    };
+  },
+  created() {
+    this.currentImage = this.grootBeeldSlider;
+  },
+  methods: {
+    toggleImage() {
+    this.currentImage = this.currentImage === this.grootBeeldSlider ? this.overlayImage : this.grootBeeldSlider;
+}
+
+  }
+
+
+};
+</script>
+
+
+
+
+
 <template>
   
   <div class="container-center-horizontal">
@@ -12,16 +415,16 @@
           <keurmerk :className="keurmerkProps.className" />
         </div>
       </div>
+
+
       <div class="overlap-group4">
         <div class="section-header-1">
           <div class="marge-links">
           <div class="hoofd-titel-tekst-1">
             <div class="nieuw">NIEUW</div>
-            <!-- <x-label :nieuw="xLabelProps.nieuw" /> -->
             <div class="frame-5-1">
               <div class="de-vernieuwde-hyundai-i10 hyundaisansheadoffice-bold-midnight-blue-48px">De vernieuwde
                 Hyundai i10</div>
-              <!-- <img class="de-vernieuwde-hyundai-i10-1" :src="deVernieuwdeHyundaiI10" alt="De vernieuwde Hyundai i10" /> -->
               <div class="maak-een-groots-statement-1">{{ maakEenGrootsStatement }}</div>
             </div>
           </div>
@@ -31,11 +434,11 @@
           ></p>
           </div>
           <div class="overlap-group3">
-            <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + grootBeeldSlider + ')' }"></div>
+            <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + currentImage + ')' }"></div>
             <div class="cta-balk-1">
-              <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk vanaf €275 p/m* </p>
-              <div class="offerte-knop" onclick="navigateToQuestions()">
-                <div class="vraag-offerte-aan">Vraag offerte aan</div>
+              <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk<br> vanaf €275 p/m* </p>
+              <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
+                <div class="vraag-offerte-aan eerste-knop-tekst">Vraag offerte aan</div>
                 <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
               </div>
       
@@ -45,7 +448,14 @@
         </div>
 
         <div class="navigatie-slider-1">
-          <img class="arrow-2" :src="arrow1" alt="Arrow" /><img class="arrow-3" :src="arrow2" alt="Arrow" />
+
+          <button class="ontzichtbaar" @click="toggleImage">
+            <img class="arrow-2" :src="arrow1" alt="Arrow" />
+          </button>
+          <button class="ontzichtbaar" @click="toggleImage">
+            <img class="arrow-3" :src="arrow2" alt="Arrow" />
+          </button>
+
         </div>
         <div class="ontdek-meer-1">{{ ontdekMeer }}</div>
       </div>
@@ -92,6 +502,10 @@
           </div>
         </div>
       </div>
+
+
+
+      
       <div class="section-frisse-kijk-slider-1">
         <div class="titel-frisse-kijk-1">
           <div class="hyundai-i10-2 hyundaisansheadoffice-bold-midnight-blue-18px">{{ hyundaiI102 }}</div>
@@ -99,18 +513,15 @@
             {{ eenFrisseKijkOpEenGedurfdOntwerp }}
           </p>
         </div>
+
         <div class="slider-images-1">
-          <img class="hand-mobiel-1" :src="handMobiel" alt="hand mobiel" /><img
-            class="binnen-auto"
-            :src="binnenAuto"
-            alt="binnen auto"
-          /><img class="dashboard-auto" :src="dashboardAuto" alt="dashboard auto" /><img
-            class="binnen-auto-2-1"
-            :src="binnenAuto2"
-            alt="binnen auto 2"
-          />
+          <img class="hand-mobiel-1" :src="handMobiel" alt="hand mobiel" />
+          <img class="binnen-auto"   :src="binnenAuto" alt="binnen auto" />
+          <img class="dashboard-auto" :src="dashboardAuto" alt="dashboard auto" />
+          <img class="binnen-auto-2-1" :src="binnenAuto2"  alt="binnen auto 2"  />
         </div>
       </div>
+
       <div class="slider-indicator-1">
         <div class="x01-1"></div>
         <div class="slider-indicator-item-1"></div>
@@ -136,53 +547,57 @@
                   <div class="bill-montly-2 hyundaisansheadoffice-bold-white-23-8px">{{ billMontly1 }}</div>
                 </div>
                 <div class="onderdelen-7" :style="{ 'background-image': 'url(' + onderdelen + ')' }">
-
+                  
+                  
                   <!-- <img class="frame-9-3" :src="frame9" alt="Frame 9" /> -->
-                    <div class="profile-groups">{{ profileGroups }}</div>
-                    <img class="separators" :src="separators1" alt="Separators" />
-                    <div class="frame-9-item">{{ accountViwers }}</div>
-                    <img class="separators" :src="separators2" alt="Separators" />
-                    <div class="frame-9-item">{{ socialMediaDashboa }}</div>
-                    <img class="separators" :src="separators3" alt="Separators" />
-                    <div class="frame-9-item">{{ shopifyDashboard }}</div>
-                    <img class="separators" :src="separators4" alt="Separators" />
-                    <div class="frame-9-item">{{ mixedDragAndDrop }}</div>
-                    <img class="separators" :src="separators5" alt="Separators" />
-                    <div class="frame-9-item">{{ downloadablePdfRep }}</div>
-                    <img class="separators" :src="separators6" alt="Separators" />
-                    <div class="frame-9-item">{{ whiteLabelReports }}</div>
-                    <img class="separators" :src="separators7" alt="Separators" />
-                    <div class="frame-9-item">{{ competitorAnalytics }}</div>
-                    <img class="separators" :src="separators8" alt="Separators" />
-                    <div class="frame-9-item">{{ automatedEmailRepo }}</div>
-                    <img class="separators" :src="separators9" alt="Separators" />
-                    <div class="frame-9-item">{{ roiAnalyticsAndTr }}</div>
-                    <img class="separators" :src="separators10" alt="Separators" />
-                    <div class="frame-9-item">{{ correlationAnalysis }}</div>
-                    <img class="separators" :src="separators11" alt="Separators" />
-                    <p class="frame-9-item">{{ trendDetection1 }}</p>
-                    <img class="separators" :src="separators12" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection2 }}</div>
-                    <img class="separators" :src="separators13" alt="Separators" />
-                    <p class="frame-9-item">{{ trendDetection3 }}</p>
-                    <img class="separators-1" :src="separators14" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection4 }}</div>
-                    <img class="separators-1" :src="separators15" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection5 }}</div>
-                    <img class="separators-1" :src="separators16" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection6 }}</div>
-                    <img class="separators-1" :src="separators17" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection7 }}</div>
-                    <img class="separators-1" :src="separators18" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection8 }}</div>
-                    <img class="separators-1" :src="separators19" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection9 }}</div>
-                    <img class="separators-1" :src="separators20" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection10 }}</div>
-                    <img class="separators-1" :src="separators21" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection11 }}</div>
-                    <img class="separators-1" :src="separators22" alt="Separators" />
-                    <div class="frame-9-item">{{ trendDetection12 }}</div>
+                  <div class="profile-groups tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ profileGroups }}</div>
+                  <img class="separators tabel-separator" :src="separators1" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ accountViwers }}</div>
+                  <img class="separators tabel-separator" :src="separators2" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ socialMediaDashboa }}</div>
+                  <img class="separators tabel-separator" :src="separators3" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ shopifyDashboard }}</div>
+                  <img class="separators tabel-separator" :src="separators4" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ mixedDragAndDrop }}</div>
+                  <img class="separators tabel-separator" :src="separators5" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ downloadablePdfRep }}</div>
+                  <img class="separators tabel-separator" :src="separators6" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ whiteLabelReports }}</div>
+                  <img class="separators tabel-separator" :src="separators7" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ competitorAnalytics }}</div>
+                  <img class="separators tabel-separator" :src="separators8" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ automatedEmailRepo }}</div>
+                  <img class="separators tabel-separator" :src="separators9" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ roiAnalyticsAndTr }}</div>
+                  <img class="separators tabel-separator" :src="separators10" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ correlationAnalysis }}</div>
+                  <img class="separators tabel-separator" :src="separators11" alt="Separators" />
+                  <p class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection1 }}</p>
+                  <img class="separators tabel-separator" :src="separators12" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection2 }}</div>
+                  <img class="separators tabel-separator" :src="separators13" alt="Separators" />
+                  <p class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection3 }}</p>
+                  <img class="separators-1 tabel-separator" :src="separators14" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection4 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators15" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection5 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators16" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection6 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators17" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection7 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators18" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection8 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators19" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection9 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators20" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection10 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators21" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection11 }}</div>
+                  <img class="separators-1 tabel-separator" :src="separators22" alt="Separators" />
+                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection12 }}</div>
+                  
+                  <!-- <img class="frame-9-3" :src="frame9" alt="Frame 9" /> -->
+
                 </div>
               </div>
 
@@ -707,7 +1122,19 @@
         </div>
 
 
+
+
       </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -814,320 +1241,7 @@
   </div>
 </template>
 
-<script>
-import Keurmerk from "./Keurmerk";
-import XLabel from "./XLabel";
-import Voordeel1 from "./Voordeel1";
-export default {
-  name: "CampagneHyundaiMobiel",
-  components: {
-    Keurmerk,
-    XLabel,
-    Voordeel1,
-  },
-  props: [
-    "deVernieuwdeHyundaiI10",
-    "maakEenGrootsStatement",
-    "profiteerNuVanEen",
-    "grootBeeldSlider",
-    "privateLeaseNuTij",
-    "hetMaandbedragVa",
-    "arrow1",
-    "arrow2",
-    "ontdekMeer",
-    "hyundaiI101",
-    "allInclusiveGeniet",
-    "vastMaandbedragInc",
-    "vrouwBlijAuto",
-    "hyundaiI102",
-    "eenFrisseKijkOpEenGedurfdOntwerp",
-    "handMobiel",
-    "binnenAuto",
-    "dashboardAuto",
-    "binnenAuto2",
-    "uitvoeringenEnHunFunctionaliteiten",
-    "titel1",
-    "billMontly1",
-    "onderdelen",
-    "base1",
-    "titel2",
-    "base2",
-    "tabelIcons1",
-    "separators1",
-    "tabelIcons2",
-    "separators2",
-    "tabelIcons3",
-    "separators3",
-    "tabelIcons4",
-    "separators4",
-    "tabelIcons5",
-    "separators5",
-    "tabelIcons6",
-    "separators6",
-    "tabelIcons7",
-    "separators7",
-    "tabelIcons8",
-    "separators8",
-    "tabelIcons9",
-    "separators9",
-    "tabelIcons10",
-    "separators10",
-    "tabelIcons11",
-    "separators11",
-    "tabelIcons12",
-    "separators12",
-    "tabelIcons13",
-    "separators13",
-    "tabelIcons14",
-    "separators14",
-    "tabelIcons15",
-    "separators15",
-    "tabelIcons16",
-    "separators16",
-    "tabelIcons17",
-    "separators17",
-    "tabelIcons18",
-    "separators18",
-    "tabelIcons19",
-    "separators19",
-    "tabelIcons20",
-    "separators20",
-    "tabelIcons21",
-    "separators21",
-    "tabelIcons22",
-    "separators22",
-    "tabelIcons23",
-    "base3",
-    "spanText1",
-    "spanText2",
-    "base4",
-    "tabelIcons24",
-    "separators23",
-    "tabelIcons25",
-    "separators24",
-    "tabelIcons26",
-    "separators25",
-    "tabelIcons27",
-    "separators26",
-    "tabelIcons28",
-    "separators27",
-    "tabelIcons29",
-    "separators28",
-    "tabelIcons30",
-    "separators29",
-    "tabelIcons31",
-    "separators30",
-    "tabelIcons32",
-    "separators31",
-    "tabelIcons33",
-    "separators32",
-    "tabelIcons34",
-    "separators33",
-    "tabelIcons35",
-    "separators34",
-    "tabelIcons36",
-    "separators35",
-    "tabelIcons37",
-    "separators36",
-    "tabelIcons38",
-    "separators37",
-    "tabelIcons39",
-    "separators38",
-    "tabelIcons40",
-    "separators39",
-    "tabelIcons41",
-    "separators40",
-    "tabelIcons42",
-    "separators41",
-    "tabelIcons43",
-    "separators42",
-    "tabelIcons44",
-    "separators43",
-    "tabelIcons45",
-    "separators44",
-    "tabelIcons46",
-    "base5",
-    "titel3",
-    "base6",
-    "tabelIcons47",
-    "separators45",
-    "tabelIcons48",
-    "separators46",
-    "tabelIcons49",
-    "separators47",
-    "tabelIcons50",
-    "separators48",
-    "tabelIcons51",
-    "separators49",
-    "tabelIcons52",
-    "separators50",
-    "tabelIcons53",
-    "separators51",
-    "tabelIcons54",
-    "separators52",
-    "tabelIcons55",
-    "separators53",
-    "tabelIcons56",
-    "separators54",
-    "tabelIcons57",
-    "separators55",
-    "tabelIcons58",
-    "separators56",
-    "tabelIcons59",
-    "separators57",
-    "tabelIcons60",
-    "separators58",
-    "tabelIcons61",
-    "separators59",
-    "tabelIcons62",
-    "separators60",
-    "tabelIcons63",
-    "separators61",
-    "tabelIcons64",
-    "separators62",
-    "tabelIcons65",
-    "separators63",
-    "tabelIcons66",
-    "separators64",
-    "tabelIcons67",
-    "separators65",
-    "tabelIcons68",
-    "separators66",
-    "tabelIcons69",
-    "base7",
-    "titel4",
-    "base8",
-    "tabelIcons70",
-    "separators67",
-    "tabelIcons71",
-    "separators68",
-    "tabelIcons72",
-    "separators69",
-    "tabelIcons73",
-    "separators70",
-    "tabelIcons74",
-    "separators71",
-    "tabelIcons75",
-    "separators72",
-    "tabelIcons76",
-    "separators73",
-    "tabelIcons77",
-    "separators74",
-    "tabelIcons78",
-    "separators75",
-    "tabelIcons79",
-    "separators76",
-    "tabelIcons80",
-    "separators77",
-    "tabelIcons81",
-    "separators78",
-    "tabelIcons82",
-    "separators79",
-    "tabelIcons83",
-    "separators80",
-    "tabelIcons84",
-    "separators81",
-    "tabelIcons85",
-    "separators82",
-    "tabelIcons86",
-    "separators83",
-    "tabelIcons87",
-    "separators84",
-    "tabelIcons88",
-    "separators85",
-    "tabelIcons89",
-    "separators86",
-    "tabelIcons90",
-    "separators87",
-    "tabelIcons91",
-    "separators88",
-    "tabelIcons92",
-    "base9",
-    "titel5",
-    "base10",
-    "tabelIcons93",
-    "separators89",
-    "tabelIcons94",
-    "separators90",
-    "tabelIcons95",
-    "separators91",
-    "tabelIcons96",
-    "separators92",
-    "tabelIcons97",
-    "separators93",
-    "tabelIcons98",
-    "separators94",
-    "tabelIcons99",
-    "separators95",
-    "tabelIcons100",
-    "separators96",
-    "tabelIcons101",
-    "separators97",
-    "tabelIcons102",
-    "separators98",
-    "tabelIcons103",
-    "separators99",
-    "tabelIcons104",
-    "separators100",
-    "tabelIcons105",
-    "separators101",
-    "tabelIcons106",
-    "separators102",
-    "tabelIcons107",
-    "separators103",
-    "tabelIcons108",
-    "separators104",
-    "tabelIcons109",
-    "separators105",
-    "tabelIcons110",
-    "separators106",
-    "tabelIcons111",
-    "separators107",
-    "tabelIcons112",
-    "separators108",
-    "tabelIcons113",
-    "separators109",
-    "tabelIcons114",
-    "separators110",
-    "tabelIcons115",
-    "arrow3",
-    "arrow4",
-    "prijzentabelI10Comfort",
-    "titel6",
-    "billMontly2",
-    "overlapGroup",
-    "base11",
-    "titel7",
-    "base12",
-    "profileGroups1",
-    "separators111",
-    "accountViwers1",
-    "separators112",
-    "socialMediaDashboa1",
-    "separators113",
-    "shopifyDashboard1",
-    "base13",
-    "titel8",
-    "base14",
-    "profileGroups2",
-    "separators114",
-    "accountViwers2",
-    "separators115",
-    "socialMediaDashboa2",
-    "separators116",
-    "shopifyDashboard2",
-    "line2",
-    "bekijkDePrivacy",
-    "keurmerkProps",
-    "xLabelProps",
-    "voordeel11Props",
-    "voordeel12Props",
-    "voordeel13Props",
-    "voordeel14Props",
-    "voordeel15Props",
-  ],
-};
-</script>
+
 
 <style lang="sass">
 @import '../../variables'
@@ -1182,7 +1296,7 @@ export default {
   width: 101.07vw
 
 .marge-links
-  margin-left: 7vw
+  margin-left:  12vw
 
 .hoofd-titel-tekst-1
   align-items: flex-start
@@ -1579,10 +1693,36 @@ export default {
   background-size: 100% 100%
   border: 0.15vw solid
   border-color: $text-grey
-  display: flex
   height: 249.3vw
   position: relative
   width: 85.3vw
+
+.tabel-tekst:first-child
+  margin-top: 5vw
+
+.tabel-tekst
+  color: #231e41
+  font-family: "Hyundai Sans Head Office"
+  font-size: 1.2rem!important
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  margin-left: 5vw
+  padding: 0.35rem
+  width: fit-content
+  align-content: center
+  justify-content: center
+
+
+.tabel-separator
+  margin-left: 5vw
+  width: 12.20881rem
+  height: 0.04181rem
+  stroke-width: 0.669px
+  stroke: var(--Text-grey, #C1C1C1)
+  margin-bottom: 0.35rem
+
+
 
 .frame-9-3
   height: 234.42vw
@@ -2653,6 +2793,7 @@ export default {
   align-items: flex-start
   display: flex
   gap: 1.9vw
+
   height: 123.47vw
   margin-top: 15.47vw
   position: relative
@@ -2897,7 +3038,6 @@ export default {
     width: 70vw
     gap: 1.9vw
     width: 77vw
-    margin-right: 5vw
     align-self: stretch
 
     .titel-19,
@@ -2924,6 +3064,12 @@ export default {
     margin-bottom: 1.27rem
   .achtergrond-lichtblauw
     background-color: $light-blue
+
+  .eerste-knop
+    width: 70vw!important
+
+  .eerste-knop-tekst
+    font-size: 5.8vw!important
 
 
   .offerte-knop

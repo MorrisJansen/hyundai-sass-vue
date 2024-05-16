@@ -1,8 +1,150 @@
+<script>
+import Keurmerk from "./Keurmerk";
+import XLabel from "./XLabel";
+import Voordeel2 from "./Voordeel2";
+import Onderdelen from "./Onderdelen";
+import Onderdelen2 from "./Onderdelen2";
+import ComfortSmart from "./ComfortSmart";
+import overlayImage from '/img/overlay.png';
+// import Swiper from 'swiper';
+// import 'swiper/swiper-bundle.css';
+
+export default {
+  name: "CampagneHyundaiDesktopTest",
+  components: {
+    Keurmerk,
+    XLabel,
+    Voordeel2,
+    Onderdelen,
+    Onderdelen2,
+    ComfortSmart,
+  },
+  props: [
+    "overlapGroup",
+    "arrowLeft",
+    "arrowRight",
+    "tijdelijkVoorMaar275PM",
+    "ontdekMeer",
+    "privateLeaseNuTij",
+    "deVernieuwdeHyundaiI10",
+    "maakEenGrootsStatement",
+    "spanText1",
+    "spanText2",
+    "hetMaandbedragVa",
+    "vrouwBlijAuto",
+    "stuurwiel",
+    "rijdenInEenNieuweHyundai",
+    "hyundaiI101",
+    "allInclusiveGeniet",
+    "vastMaandbedragInc",
+    "hyundaiI102",
+    "eenFrisseKijkOpEenGedurfdOntwerp",
+    "handMobiel",
+    "binnenAuto",
+    "dashboardAuto",
+    "binnenAuto2",
+    "uitvoeringenEnHunFunctionaliteiten",
+    "billMontly1",
+    "profileGroups",
+    "separators1",
+    "accountViwers",
+    "separators2",
+    "socialMediaDashboa",
+    "separators3",
+    "shopifyDashboard",
+    "separators4",
+    "mixedDragAndDrop",
+    "separators5",
+    "downloadablePdfRep",
+    "separators6",
+    "whiteLabelReports",
+    "separators7",
+    "competitorAnalytics",
+    "separators8",
+    "automatedEmailRepo",
+    "separators9",
+    "roiAnalyticsAndTr",
+    "separators10",
+    "correlationAnalysis",
+    "separators11",
+    "trendDetection1",
+    "separators12",
+    "trendDetection2",
+    "separators13",
+    "trendDetection3",
+    "separators14",
+    "trendDetection4",
+    "separators15",
+    "trendDetection5",
+    "separators16",
+    "trendDetection6",
+    "separators17",
+    "trendDetection7",
+    "separators18",
+    "trendDetection8",
+    "separators19",
+    "trendDetection9",
+    "separators20",
+    "trendDetection10",
+    "separators21",
+    "trendDetection11",
+    "separators22",
+    "trendDetection12",
+    "titel1",
+    "spanText3",
+    "spanText4",
+    "titel2",
+    "prijzentabelI10Comfort",
+    "billMontly2",
+    "titel3",
+    "titel4",
+    "line2",
+    "bekijkDePrivacy",
+    "xLabelProps",
+    "voordeel21Props",
+    "voordeel22Props",
+    "voordeel23Props",
+    "voordeel24Props",
+    "onderdelen1Props",
+    "onderdelen2Props",
+    "comfortSmart1Props",
+    "comfortSmart2Props",
+    "onderdelen2Props2",
+  ],
+  data() {
+    return {
+      currentImage: '',
+      overlayImage: overlayImage
+    };
+  },
+  created() {
+    this.currentImage = this.overlapGroup;
+  },
+  methods: {
+    toggleImage() {
+      this.currentImage = this.currentImage === this.overlapGroup ? this.overlayImage : this.overlapGroup;
+    }
+  }
+};
+
+
+
+
+
+
+
+</script>
+
+
+
+
 <template>
   <div class="container-center-horizontal">
     <div class="campagne-hyundai-desktop-test screen">
       <div class="overlap-group2">
         <div class="group-1">
+          <div class="overlap-group" :style="{'background-image': 'url(' + overlayGroup + ')'}"></div>
+
           <div class="top-balk">
             <img
               class="logo-hyundai"
@@ -12,9 +154,12 @@
             <keurmerk />
           </div>
         </div>
+
+
+
         <div class="section-header">
           <div class="overlap-group1">
-            <div class="overlap-group" :style="{ 'background-image': 'url(' + overlapGroup + ')' }">
+            <div class="overlap-group afbeelding-radius" :style="{ 'background-image': 'url(' + currentImage + ')' }">
               <div class="flex-col">
                 <div
                   class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
@@ -23,22 +168,31 @@
                 <div class="ontdek-meer">{{ ontdekMeer }}</div>
               </div>
               <div class="navigatie-slider">
-                <img class="arrow-left" :src="arrowLeft" alt="Arrow left" /><img
-                  class="arrow-right"
-                  :src="arrowRight"
-                  alt="Arrow right"
-                />
+                <button class="ontzichtbaar" @click="toggleImage">
+                  <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
+                </button>
+                <button class="ontzichtbaar" @click="toggleImage">
+                  <img class="arrow-right" :src="arrowRight" alt="Arrow right" />
+                </button>
               </div>
+              
             </div>
+
+
+
+            
             <div class="cta-balk">
               <p
-                class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-24px"
-                v-html="privateLeaseNuTij"
-              ></p>
-                <div class="offerte-knop" onclick="navigateToQuestions()">
-                <div class="vraag-offerte-aan">Vraag offerte aan</div>
-                <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-              </div>
+                class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-nu-tijdelijk"
+                v-html="privateLeaseNuTij"></p>
+
+                <a href="/desktopVragen">
+                  <button class="offerte-knop">
+                    <div class="vraag-offerte-aan">Vraag offerte aan</div>
+                    <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+                    </button>
+                </a>
+
 
               </div>
           </div>
@@ -97,6 +251,11 @@
           ></p>
         </div>
       </div>
+
+
+
+
+
       <div class="section-frisse-kijk-slider">
         <div class="titel-frisse-kijk">
           <div class="hyundai-i10 hyundaisansheadoffice-bold-midnight-blue-18px">{{ hyundaiI102 }}</div>
@@ -104,22 +263,21 @@
             {{ eenFrisseKijkOpEenGedurfdOntwerp }}
           </p>
         </div>
-        <div class="slider-images">
-          <img class="hand-mobiel" :src="handMobiel" alt="hand mobiel" /><img
-            class="x-auto"
-            :src="binnenAuto"
-            alt="binnen auto"
-          /><img class="x-auto" :src="dashboardAuto" alt="dashboard auto" /><img
-            class="binnen-auto-2"
-            :src="binnenAuto2"
-            alt="binnen auto 2"
-          />
+
+
+        <div class="slider-images" ref="slider">
+          <img class="hand-mobiel" :src="handMobiel" alt="hand mobiel" />
+          <img class="x-auto"      :src="binnenAuto" alt="binnen auto" />
+          <img class="x-auto"      :src="dashboardAuto" alt="dashboard auto" />
+          <img class="binnen-auto-2" :src="binnenAuto2" alt="binnen auto 2" />
         </div>
         <div class="slider-indicator">
           <div class="x01"></div>
           <div class="slider-indicator-item"></div>
           <div class="slider-indicator-item"></div>
         </div>
+
+
       </div>
 
 
@@ -215,10 +373,15 @@
               <onderdelen :frame12Props="onderdelen2Props2.frame12Props" />
             </div>
           </div>
-          <div class="offerte-knop" onclick="navigateToQuestions()">
-            <div class="vraag-offerte-aan">Vraag offerte aan</div>
-            <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-          </div>
+
+          <a href="/desktopVragen">
+            <button class="offerte-knop" onclick="navigateToQuestions()">
+              <div class="vraag-offerte-aan">Vraag offerte aan</div>
+              <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+            </button>
+          </a>
+
+
 
         </div>
       </div>
@@ -293,11 +456,13 @@
     </div>
 
 
+    <a href="/desktopVragen">
+      <button class="offerte-knop midden-knop" onclick="navigateToQuestions()">
+        <div class="vraag-offerte-aan">Vraag offerte aan</div>
+        <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+      </button>
+    </a>
 
-        <div class="offerte-knop midden-knop" onclick="navigateToQuestions()">
-          <div class="vraag-offerte-aan">Vraag offerte aan</div>
-          <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-        </div>
 
       
 
@@ -327,117 +492,7 @@
   </div>
 </template>
 
-<script>
-import Keurmerk from "./Keurmerk";
-import XLabel from "./XLabel";
-import Voordeel2 from "./Voordeel2";
-import Onderdelen from "./Onderdelen";
-import Onderdelen2 from "./Onderdelen2";
-import ComfortSmart from "./ComfortSmart";
-export default {
-  name: "CampagneHyundaiDesktopTest",
-  components: {
-    Keurmerk,
-    XLabel,
-    Voordeel2,
-    Onderdelen,
-    Onderdelen2,
-    ComfortSmart,
-  },
-  props: [
-    "overlapGroup",
-    "tijdelijkVoorMaar275PM",
-    "ontdekMeer",
-    "arrowLeft",
-    "arrowRight",
-    "privateLeaseNuTij",
-    "deVernieuwdeHyundaiI10",
-    "maakEenGrootsStatement",
-    "spanText1",
-    "spanText2",
-    "hetMaandbedragVa",
-    "vrouwBlijAuto",
-    "stuurwiel",
-    "rijdenInEenNieuweHyundai",
-    "hyundaiI101",
-    "allInclusiveGeniet",
-    "vastMaandbedragInc",
-    "hyundaiI102",
-    "eenFrisseKijkOpEenGedurfdOntwerp",
-    "handMobiel",
-    "binnenAuto",
-    "dashboardAuto",
-    "binnenAuto2",
-    "uitvoeringenEnHunFunctionaliteiten",
-    "billMontly1",
-    "profileGroups",
-    "separators1",
-    "accountViwers",
-    "separators2",
-    "socialMediaDashboa",
-    "separators3",
-    "shopifyDashboard",
-    "separators4",
-    "mixedDragAndDrop",
-    "separators5",
-    "downloadablePdfRep",
-    "separators6",
-    "whiteLabelReports",
-    "separators7",
-    "competitorAnalytics",
-    "separators8",
-    "automatedEmailRepo",
-    "separators9",
-    "roiAnalyticsAndTr",
-    "separators10",
-    "correlationAnalysis",
-    "separators11",
-    "trendDetection1",
-    "separators12",
-    "trendDetection2",
-    "separators13",
-    "trendDetection3",
-    "separators14",
-    "trendDetection4",
-    "separators15",
-    "trendDetection5",
-    "separators16",
-    "trendDetection6",
-    "separators17",
-    "trendDetection7",
-    "separators18",
-    "trendDetection8",
-    "separators19",
-    "trendDetection9",
-    "separators20",
-    "trendDetection10",
-    "separators21",
-    "trendDetection11",
-    "separators22",
-    "trendDetection12",
-    "titel1",
-    "spanText3",
-    "spanText4",
-    "titel2",
-    "prijzentabelI10Comfort",
-    "billMontly2",
-    "titel3",
-    "titel4",
-    "line2",
-    "bekijkDePrivacy",
-    "xLabelProps",
-    "voordeel21Props",
-    "voordeel22Props",
-    "voordeel23Props",
-    "voordeel24Props",
-    "onderdelen1Props",
-    "onderdelen2Props",
-    "comfortSmart1Props",
-    "comfortSmart2Props",
-    "onderdelen2Props2",
-  ],
-};
-</script>
+
 
 <style lang="sass">
 @import '../../variables'
@@ -538,6 +593,13 @@ export default {
   margin-bottom: 0.03vw
   position: relative
 
+.ontzichtbaar
+  border: none
+  margin: 0
+  padding: 0
+  background: none
+  cursor: pointer
+
 .arrow-left
   height: 1.3vw
   margin-bottom: -0.09vw
@@ -555,6 +617,11 @@ export default {
   width: 1.3vw
 
 
+
+.afbeelding-radius
+  border-radius: 0rem 0rem 0rem 6.25rem
+
+
 .cta-balk
   display: inline-flex
   align-items: center
@@ -566,7 +633,7 @@ export default {
   position: relative
   top: 32vw
   padding: 2.361vw 2.361vw
-  gap: 12.556vw
+  gap: 8vw
   width: 50vw
   max-width: 57.3125rem
   max-height: 12.917vw
@@ -603,9 +670,15 @@ export default {
   .offerte-knop
     width: 22.917vw
     height: 7.014vw
+    gap: 0.8rem!important
   
   .vraag-offerte-aan
     font-size: 1.375vw!important
+
+
+
+
+
 
   
 
@@ -646,10 +719,15 @@ export default {
   height: 0.8125rem
 
 
+.private-lease-nu-tij
+  letter-spacing: 0
+  line-height: 1.88vw
+  position: relative
+  width: fit-content
 
 
 
-.private-lease-nu-tij,
+
 .rijden-in-een-nieuwe-hyundai
   letter-spacing: 0
   line-height: 1.88vw
@@ -931,6 +1009,7 @@ export default {
   flex: 0 0 auto
   gap: 0.37vw
   position: relative
+  height: 100vw
 
 .functionaliteiten
   align-items: flex-start

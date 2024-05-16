@@ -46,6 +46,11 @@ export default {
   width: fit-content
 
 
+@media (max-width: 768px)
+  .rijden-in-een-nieuwe-hyundai-1
+    line-height: 8vw!important
+
+
 .rijden-in-een-nieuwe-hyundai-1
   align-items: center
   align-content: center
