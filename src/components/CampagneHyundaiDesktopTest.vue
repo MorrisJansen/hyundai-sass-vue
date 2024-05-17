@@ -6,8 +6,8 @@ import Onderdelen from "./Onderdelen";
 import Onderdelen2 from "./Onderdelen2";
 import ComfortSmart from "./ComfortSmart";
 import overlayImage from '/img/overlay.png';
-// import Swiper from 'swiper';
-// import 'swiper/swiper-bundle.css';
+import Carousel from './carousel';
+
 
 export default {
   name: "CampagneHyundaiDesktopTest",
@@ -18,8 +18,10 @@ export default {
     Onderdelen,
     Onderdelen2,
     ComfortSmart,
+    Carousel,
   },
-  props: [
+  props: 
+    [
     "overlapGroup",
     "arrowLeft",
     "arrowRight",
@@ -265,7 +267,11 @@ export default {
         </div>
 
 
-        <div class="slider-images" ref="slider">
+
+
+
+        <!-- carousel -->
+        <!-- <div class="slider-images" ref="slider">
           <img class="hand-mobiel" :src="handMobiel" alt="hand mobiel" />
           <img class="x-auto"      :src="binnenAuto" alt="binnen auto" />
           <img class="x-auto"      :src="dashboardAuto" alt="dashboard auto" />
@@ -275,7 +281,12 @@ export default {
           <div class="x01"></div>
           <div class="slider-indicator-item"></div>
           <div class="slider-indicator-item"></div>
-        </div>
+        </div> -->
+
+        <Carousel></Carousel>
+
+
+
 
 
       </div>

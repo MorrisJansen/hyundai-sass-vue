@@ -3,6 +3,8 @@ import Router from "vue-router";
 import CampagneHyundaiDesktopTest from "./components/CampagneHyundaiDesktopTest";
 import CampagneHyundaiMobiel from "./components/CampagneHyundaiMobiel";
 import { campagneHyundaiDesktopTestData, campagneHyundaiMobielData } from "./data";
+import Carousel from "./components/carousel.vue";
+
 
 
 import mobielVraag1 from "./components/mobielVraag1.vue";
@@ -41,6 +43,11 @@ const router = new Router({
       component: CampagneHyundaiDesktopTest,
       props: { ...campagneHyundaiDesktopTestData },
     },
+    {
+      path: "/carousel",
+      component: Carousel,
+    },
+
     // Mobiel Vraag routes
     {
       path: "/mobielVragen",
