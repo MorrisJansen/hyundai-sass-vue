@@ -963,7 +963,6 @@ export default {
   display: inline-flex
   gap: 0.83vw
   height: 0.42vw
-  margin-left: 38.59vw
   margin-top: 9.22vw
   position: relative
   width: 7.66vw

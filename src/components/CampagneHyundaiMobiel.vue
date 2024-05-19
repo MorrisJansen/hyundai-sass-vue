@@ -3,6 +3,9 @@ import Keurmerk from "./Keurmerk";
 import XLabel from "./XLabel";
 import Voordeel1 from "./Voordeel1";
 import overlayImage from '/img/overlay.png';
+import Carousel from './carousel.vue';
+// import Carousel from './carousel';
+
 
 export default {
   name: "CampagneHyundaiMobiel",
@@ -10,8 +13,10 @@ export default {
     Keurmerk,
     XLabel,
     Voordeel1,
+    Carousel,
   },
-  props: [
+  props: 
+    [
     "deVernieuwdeHyundaiI10",
     "maakEenGrootsStatement",
     "profiteerNuVanEen",
@@ -514,19 +519,24 @@ export default {
           </p>
         </div>
 
-        <div class="slider-images-1">
+        <!-- <div class="slider-images-1">
           <img class="hand-mobiel-1" :src="handMobiel" alt="hand mobiel" />
           <img class="binnen-auto"   :src="binnenAuto" alt="binnen auto" />
           <img class="dashboard-auto" :src="dashboardAuto" alt="dashboard auto" />
           <img class="binnen-auto-2-1" :src="binnenAuto2"  alt="binnen auto 2"  />
-        </div>
+        </div> -->
+
+        <Carousel></Carousel>
+
+
+
       </div>
 
-      <div class="slider-indicator-1">
+      <!-- <div class="slider-indicator-1">
         <div class="x01-1"></div>
         <div class="slider-indicator-item-1"></div>
         <div class="slider-indicator-item-1"></div>
-      </div>
+      </div> -->
 
 
 
