@@ -1,29 +1,4 @@
-<template>
-  <div class="container-center-horizontal">
-    <div class="top-balk">
-      <img
-        class="logo-hyundai"
-        src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
-        alt="Logo Hyundai"
-      />
-      <keurmerk />
-    </div>
-  
-    <div class="background-container">
-      <img :src="achtergrondVraag" class="achtergrondVraag" alt="">
 
-      <div class="vragen-achtergrond">
-        <div class="vraag-hoeveel">Vraag 1 van de 5</div>
-        <div class="vraag">Hoeveel km verwacht jij te rijden per jaar?</div>
-        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
-          <label class="vraag-optie">
-            <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 
 <script>
 import Keurmerk from "./Keurmerk";
@@ -61,7 +36,38 @@ export default {
 };
 </script>
 
+
+
+<template>
+  <div class="container-center-horizontal">
+    <div class="top-balk">
+      <img
+        class="logo-hyundai"
+        src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
+        alt="Logo Hyundai"
+      />
+      <keurmerk />
+    </div>
+  
+    <div class="background-container">
+      <img :src="achtergrondVraag" class="achtergrondVraag" alt="">
+
+      <div class="vragen-achtergrond">
+        <div class="vraag-hoeveel">Vraag 1 van de 5</div>
+        <div class="vraag">Hoeveel km verwacht jij te rijden per jaar?</div>
+        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
+          <label class="vraag-optie">
+            <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
+
+
 .container-center-horizontal {
   display: block;
 }
@@ -92,7 +98,7 @@ export default {
 
 .vraag-hoeveel {
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -104,7 +110,7 @@ export default {
 .vraag {
   width: 38vw;
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family: "Hyundai Sans Head Office-bold", 'Helvetica';
   font-size: 2.8vw;
   font-style: normal;
   font-weight: 700;
@@ -114,7 +120,7 @@ export default {
 
 .vraag-optie {
   color: var(--Text-color-tabel, #231E41);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;

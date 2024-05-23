@@ -68,6 +68,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .container-center-horizontal {
   display: block;
 }
@@ -98,7 +100,7 @@ export default {
 
 .vraag-hoeveel {
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -108,9 +110,9 @@ export default {
 }
 
 .vraag {
-  width: 38vw;
+  width: 45vw;
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family: "Hyundai Sans Head Office-bold", 'Helvetica';
   font-size: 2.8vw;
   font-style: normal;
   font-weight: 700;
@@ -120,7 +122,7 @@ export default {
 
 .vraag-optie {
   color: var(--Text-color-tabel, #231E41);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -167,7 +169,7 @@ export default {
 
 .vorige-tekst {
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;

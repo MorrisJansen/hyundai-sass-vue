@@ -22,6 +22,7 @@
             <input type="checkbox" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdeAntwoorden"> 
             <span class="switcher"></span>
             {{ optie }}
+            <button v-if="optie === 'i10 Comfort'" class="i10-knop">Aanbieding!</button>
           </label>
         </div>
         <div class="pijlen-container">
@@ -38,11 +39,12 @@
             </button>
           </a>
         </div>
-
       </div>
     </div>
   </div>
 </template>
+
+
 
 <script>
 import Keurmerk from "./Keurmerk";
@@ -105,7 +107,7 @@ export default {
 
 .vraag-hoeveel {
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -117,17 +119,18 @@ export default {
 .vraag {
   width: 60vw;
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
   font-size: 2.8vw;
   font-style: normal;
   font-weight: 700;
   line-height: 3.3vw;
+  font-family: "Hyundai Sans Head Office-bold", 'Helvetica';
+
 }
 
 .tussen-haakjes {
   font-size: 1.4vw;
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   margin-bottom: 0.5vw;
 }
 
@@ -135,16 +138,20 @@ export default {
   color: var(--Primary-blue, #002E6B);
   margin-bottom: 2vw;
   font-size: 1vw;
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+
 }
 
 .onderstreept a {
   text-decoration: underline;
   color: var(--Primary-blue, #002E6B);
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+
 }
 
 .vraag-optie {
   color: var(--Text-color-tabel, #231E41);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -152,7 +159,7 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-top: 1.6vw;
+  margin-top: 1.4vw;
   position: relative;
   margin-left: 1.5vw;
 }
@@ -224,7 +231,7 @@ export default {
 
 .vorige-tekst {
   color: var(--Primary-blue, #002E6B);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -247,12 +254,36 @@ export default {
 
 .volgende-tekst {
   color: var(--White, #FFF);
-  font-family: "Hyundai Sans Head Office";
+  font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
   font-size: 1.6875rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
+
+
+
+.i10-knop {
+  margin-left: 20vw;
+  display: inline-flex;
+  padding: 0.625rem 1.875rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2.125rem;
+  background: #002E6B;
+  color: #FFF;
+  font-family: 'Hyundai Sans Head Office-Medium', Helvetica;
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.i10-knop:hover {
+  background-color: darkblue;
+}
+
 
 
 </style>

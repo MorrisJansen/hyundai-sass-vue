@@ -109,7 +109,7 @@ export default {
 
 
 
-        <div class="vrijblijvend-gegevens beneden">
+        <div class="gekozen-dealer beneden">
             De gekozen dealer neemt telefonisch contact met je op voor het bespreken van je wensen voor de berekening.
         </div>
 
@@ -191,8 +191,8 @@ export default {
 
 .bedankt {
     color: var(--Primary-blue, #002E6B);
-    font-family: "Hyundai Sans Head Office";
-    font-size: 1.5rem;
+    font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+    font-size: 1.5vw;
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
@@ -200,8 +200,8 @@ export default {
 
 .vrijblijvend-gegevens {
     color: var(--Primary-blue, #002E6B);
-    font-family: Inter;
-    font-size: 1.5rem;
+    font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+    font-size: 1.5vw;
     font-style: normal;
     font-weight: 500;
     line-height: 150%;
@@ -210,6 +210,7 @@ export default {
 
 .geslacht {
     margin-top: 1.5vw;
+    
 }
 
 
@@ -225,6 +226,7 @@ export default {
 
 .input-formulier::placeholder {
     padding-left: 2vw;    
+    font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
 }
 
 .lijn {
@@ -238,14 +240,24 @@ export default {
     margin-top: 2vw;
 }
 
+
+.gekozen-dealer {
+  color: var(--Primary-blue, #002E6B);
+  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
 .volgende {
     margin-left: 26vw;
     display: inline-flex;
     height: 4.7vw;
-    width: 19vw;
-    padding: 2.125rem 1.5625rem;
+    width: 22vw;
+    padding: 2vw 1.5vw;
     align-items: center;
-    gap: 1vw;
+    gap: 2vw;
     border-radius: 0.4375rem;
     background: var(--Primary-blue, #002E6B);
     margin-top: 1vw;
@@ -253,8 +265,8 @@ export default {
   
   .volgende-tekst {
     color: var(--White, #FFF);
-    font-family: "Hyundai Sans Head Office";
-    font-size: 1.6875rem;
+    font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+    font-size: 1.5vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -262,12 +274,12 @@ export default {
 
 
 .afronding {
-    color: #000A38;
-    font-family: "Hyundai Sans Text Office";
-    font-size: 1.0625rem;
+    color: #002E6B;
+    font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+    font-size: 0.9vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.75rem;
+    line-height: 1.6vw;
     margin-top: 2vw;
 }
 
