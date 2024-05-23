@@ -1,96 +1,176 @@
 <template>
-  <!-- <div class="container-center-horizontal">
-
-  <div class="top-balk">
-    <img
-      class="logo-hyundai"
-      src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
-      alt="Logo Hyundai"
-    />
-    <keurmerk />
-  </div>
-
-
-
-
-
-
-    <div class="mobiel-vraag">
-      <h2>{{ vraag }}</h2>
-      <form>
-        <div v-for="(optie, index) in antwoordOpties" :key="index" class="optie">
-          <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord">
-          <label :for="'optie' + (index + 1)">{{ optie }}</label>
-        </div>
-        <button @click.prevent="gaNaarVolgendeVraag" v-if="toonVolgendeVraagKnop">Volgende vraag</button>
-        <button @click.prevent="gaNaarVorigeVraag" v-if="toonVorigeVraagKnop">Vorige vraag</button>
-      </form>
+  <div class="container-center-horizontal">
+    <div class="top-balk">
+      <img
+        class="logo-hyundai"
+        src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
+        alt="Logo Hyundai"
+      />
+      <keurmerk />
     </div>
-    </div> -->
-    <div>hallo</div>
-  </template>
   
-  <script>
-  export default {
-    name: "MobielVraag",
-    props: {
-      vraag: String,
-      antwoordOpties: {
-        type: Array,
-        default: () => [
-          "Antwoord 1",
-          "Antwoord 2",
-          "Antwoord 3",
-          "Antwoord 4",
-          "Antwoord 5",
-          "Antwoord 6",
-          "Antwoord 7"
-        ]
-      }
-    },
-    data() {
-      return {
-        geselecteerdAntwoord: null
-      };
-    },
-    computed: {
-      toonVolgendeVraagKnop() {
-        // Toon de knop voor de volgende vraag behalve als het de laatste vraag is
-        return this.$route.name !== "MobielVraag5";
-      },
-      toonVorigeVraagKnop() {
-        // Toon de knop voor de vorige vraag behalve als het de eerste vraag is
-        return this.$route.name !== "MobielVraag1";
-      }
-    },
-    methods: {
-      gaNaarVolgendeVraag() {
-        // Hard coderen van de volgende vraag route
-        this.$router.push("/desktopVragen/3");
-      },
-      gaNaarVorigeVraag() {
-        // Hard coderen van de vorige vraag route
-        this.$router.push("/desktopVragen/1");
+    <div class="background-container">
+      <img :src="achtergrondVraag" class="achtergrondVraag" alt="">
+
+      <div class="vragen-achtergrond">
+        <div class="vraag-hoeveel">Vraag 2 van de 5</div>
+        <div class="vraag">Gewenste looptijd leasecontract</div>
+        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
+          <label class="vraag-optie">
+            <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
+          </label>
+        </div>
+        <a href="/vraag1">
+          <button class="terug">
+            <img :src="vragenPijlVorige" alt="">
+            <div class="vorige-tekst">Vorige</div>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+  },
+  data() {
+    return {
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      antwoordOpties: [
+        "3 jaar",
+        "4 jaar",
+        "5 jaar",
+        "6 jaar",
+        "Weet ik nog niet",
+      ],
+      geselecteerdAntwoord: null,
+    };
+  },
+  watch: {
+    geselecteerdAntwoord(newVal) {
+      if (newVal !== null) {
+        setTimeout(() => {
+          this.$router.push('/vraag3');
+        }, 1000);
       }
     }
-  };
-  </script>
-  
-  <style scoped>
-  .mobiel-vraag {
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
-    color: blue;
   }
-  
-  .optie {
-    margin-bottom: 10px;
-    color: purple;
-  }
-  
-  label {
-    margin-left: 5px;
-    color: green;
-  }
-  </style>
-  
+};
+</script>
+
+<style scoped>
+.container-center-horizontal {
+  display: block;
+}
+
+.background-container {
+  height: 75vw;
+}
+
+.achtergrondVraag {
+  width: 100%;
+  height: 75vw;
+  object-fit: cover;
+}
+
+.vragen-achtergrond {
+  padding: 4.028vw  7vw;
+  align-items: center;
+  gap: 0.694vw;
+  width: 61.111vw;
+  height: 66.667vw;
+  background-color: white;
+  margin: 0 auto;
+  position: relative;
+  top: -71.5vw;
+  border-radius: 0.75rem;
+  box-shadow: 0px 31px 81px 0px rgba(0, 17, 77, 0.20);
+}
+
+.vraag-hoeveel {
+  color: var(--Primary-blue, #002E6B);
+  font-family: "Hyundai Sans Head Office";
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+  margin-bottom: 0.5vw;
+}
+
+.vraag {
+  width: 38vw;
+  color: var(--Primary-blue, #002E6B);
+  font-family: "Hyundai Sans Head Office";
+  font-size: 2.8vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.3vw;
+  margin-bottom: 2vw;
+}
+
+.vraag-optie {
+  color: var(--Text-color-tabel, #231E41);
+  font-family: "Hyundai Sans Head Office";
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 1.8vw
+}
+
+.vraag-optie-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vw;
+  background-color: var(--Light-blue, #F2F8FF);
+  width: 46vw; 
+  height: 5vw;
+  flex-shrink: 0;
+  border-radius: 45px;
+}
+
+.vraag-optie input[type="radio"] {
+  transform: scale(1.5); 
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.vraag-optie input[type="radio"]:checked {
+  background-color: green;
+}
+
+.terug {
+  display: inline-flex;
+  gap: 1vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.vorige-tekst {
+  color: var(--Primary-blue, #002E6B);
+  font-family: "Hyundai Sans Head Office";
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+</style>

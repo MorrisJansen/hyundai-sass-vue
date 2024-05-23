@@ -7,6 +7,7 @@ import Onderdelen2 from "./Onderdelen2";
 import ComfortSmart from "./ComfortSmart";
 import overlayImage from '/img/overlay.png';
 import Carousel from './carousel';
+import Tabel from "./tabel.vue";
 
 
 export default {
@@ -19,6 +20,7 @@ export default {
     Onderdelen2,
     ComfortSmart,
     Carousel,
+    Tabel,
   },
   props: 
     [
@@ -188,7 +190,7 @@ export default {
                 class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-nu-tijdelijk"
                 v-html="privateLeaseNuTij"></p>
 
-                <a href="/desktopVragen">
+                <a href="/vraag1">
                   <button class="offerte-knop">
                     <div class="vraag-offerte-aan">Vraag offerte aan</div>
                     <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
@@ -293,9 +295,9 @@ export default {
 
 
 
-
+      <Tabel></Tabel>
       
-      <div class="section-uitvoeringen-tabel">
+      <!-- <div class="section-uitvoeringen-tabel">
         <div class="tabel-sectie">
           <div class="uitvoeringen-en-hun-functionaliteiten hyundaisansheadoffice-bold-midnight-blue-48px">
             {{ uitvoeringenEnHunFunctionaliteiten }}
@@ -395,7 +397,7 @@ export default {
 
 
         </div>
-      </div>
+      </div> -->
 
 
 
@@ -467,7 +469,7 @@ export default {
     </div>
 
 
-    <a href="/desktopVragen">
+    <a href="/vraag1">
       <button class="offerte-knop midden-knop" onclick="navigateToQuestions()">
         <div class="vraag-offerte-aan">Vraag offerte aan</div>
         <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
@@ -981,6 +983,21 @@ export default {
   position: relative
   width: 1.35vw
 
+
+
+
+
+
+
+
+
+
+
+
+//  hier begint de tabel css ::::::::::::::::::::::::::::::::::::::::
+
+
+
 .section-uitvoeringen-tabel
   background-color: $light-blue
   display: flex
@@ -1013,6 +1030,8 @@ export default {
   white-space: nowrap
   width: fit-content
 
+
+
 .tabel
   align-items: flex-start
   display: inline-flex
@@ -1030,46 +1049,46 @@ export default {
   position: relative
 
 .titel-1
-  align-items: center
-  background-color: $primary-blue
-  border: 0.05vw solid
-  border-color: $text-grey
-  border-radius: 0.52vw
   display: flex
-  height: 10.95vw
-  margin-left: -0.05vw
-  margin-right: -0.05vw
-  margin-top: -0.05vw
-  overflow: hidden
-  position: relative
-  width: 28.78vw
+  height: 13.01306rem
+  padding: 0rem 3.67338rem 0rem 4.54575rem
+  align-items: center
+  border-radius: 0.625rem
+  border: 1px solid var(--Text-grey, #C1C1C1)
+  background: var(--Primary-blue, #002E6B)
+  width: 34.4rem
+
 
 .bill-montly
-  flex: 1
-  height: 2.66vw
-  letter-spacing: 0
-  line-height: 2.66vw
-  margin-left: 13.16%
-  margin-right: 11.0%
-  margin-top: -0.08vw
-  width: 21.82vw
+  color: var(--White, #FFF)
+  font-family: "Hyundai Sans Head Office"
+  font-size: 2.5625rem
+  font-style: normal
+  font-weight: 700
+  line-height: 3.1875rem
+  text-align: center
 
 .onderdelen
   background-color: $white
-  border: 0.05vw solid
+  border: 1px solid
   border-color: $text-grey
-  border-radius: 0.52vw
+  border-radius: 0.625rem
   display: flex
-  height: 83.79vw
+  height: 1508px
   overflow: hidden
   position: relative
-  width: 28.67vw
+  width: 34.4rem
 
 .frame-9
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  gap: 1.26956rem
+
   align-items: flex-start
   display: inline-flex
   flex-direction: column
-  gap: 1.06vw
+  gap: 0.954rem
   height: 79.02vw
   margin-left: 1.38vw
   margin-top: 2.76vw
@@ -1079,14 +1098,16 @@ export default {
 .profile-groups
   letter-spacing: 0
   line-height: normal
-  margin-top: -0.05vw
   position: relative
   width: fit-content
+  font-size: 1.3125rem
+
+.profile-groups:nth-child(5)
+  font-size: 19px
 
 .separators
-  height: 0.06vw
-  position: relative
-  width: 17.51vw
+  width: 21.00969rem
+  height: 0.07194rem
 
 .frame-9-item
   letter-spacing: 0
@@ -1094,86 +1115,115 @@ export default {
   position: relative
   width: fit-content
 
-.separators-1
-  height: 0.06vw
-  position: relative
-  width: 17.51vw
+//.separators-1
+//  height: 0.06vw
+ // position: relative
+ // width: 17.51vw
 
 .tabel-item
   align-items: flex-start
-  display: inline-flex
   flex: 0 0 auto
   flex-direction: column
-  gap: 0.36vw
+  gap: 0.44rem
   overflow: hidden
   position: relative
 
 .titel-2
   background-color: $white
-  border: 0.05vw solid
+  border: 1px  solid
   border-color: $text-grey
-  border-radius: 0.52vw
+  border-radius:  0.625rem
   display: flex
-  height: 10.84vw
+  height: 13.01306rem
   position: relative
-  width: 10.79vw
+  width: 12.95rem
 
 .titel-3
-  height: 2.66vw
+  height: 13.01306rem
+  width: 12.95rem
+  justify-content: center
+  align-items: center
   letter-spacing: 0
-  line-height: 2.66vw
-  margin-left: 1.83vw
-  margin-top: 3.42vw
   text-align: center
   white-space: nowrap
-  width: 6.72vw
+  margin-top: 70px
+
+  
 
 .titel-4
   background-color: $primary-blue
-  border: 0.05vw solid
+  border: 1px solid
   border-color: $text-grey
-  border-radius: 0.52vw
-  display: flex
-  height: 10.84vw
-  position: relative
-  width: 10.79vw
+  border-radius: 0.625rem
+  height: 13.01306rem
+  width: 12.95rem
 
 .titel-5
-  height: 3.7vw
-  letter-spacing: 0
-  line-height: 2.14vw
-  margin-left: 0.88vw
-  margin-top: 3.42vw
-  text-align: center
-  width: 8.54vw
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin-top: 90px
 
 .span0-1
-  line-height: 2.66vw
+  color: var(--White, #FFF)
+  text-align: center
+  font-size: 2.5625rem!important
+  font-style: normal
+  font-weight: 700
+  line-height: 0
+
+
+  font-family: "Hyundai Sans Head Office-Bold", Helvetica
+  font-style: normal
+  font-weight: 700
+
 
 .span1-1
-  color: $white
-  font-family: $font-family-hyundai_sans_head_office-regular
-  font-size: $font-size-l
-  font-weight: 400
+  font-weight: 500
+  color: var(--White, #FFF)
+  font-family: "Hyundai Sans Head Office"
+  font-size: 1.3125rem
+  font-style: normal
+  position: relative
 
 .n-line
-  background-color: $white
-  border: 0.05vw solid
-  border-color: $text-grey
-  border-radius: 0.52vw
+
   display: flex
-  height: 10.84vw
+  height: 13.01306rem
   position: relative
-  width: 10.86vw
+  width: 12.95rem
+  justify-content: center
+  border-radius: 0.625rem
+  border: 1px solid var(--Text-grey, #C1C1C1)
+  background: var(--White, #FFF)
 
 .titel-6
-  height: 2.66vw
-  letter-spacing: 0
-  line-height: 2.66vw
-  margin-left: 0.12vw
-  margin-top: 3.42vw
+  color: var(--Text-color-tabel, #231E41)
   text-align: center
-  width: 10.73vw
+  font-family: "Hyundai Sans Head Office"
+  font-size: 2.5625rem
+  font-style: normal
+  font-weight: 700
+  line-height: 3.1875rem
+  margin-top: 65px
+
+// dit is waarschijnlijk het einde van de css voor de tabel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .section-prijzentabel
   display: flex

@@ -5,6 +5,7 @@ import Voordeel1 from "./Voordeel1";
 import overlayImage from '/img/overlay.png';
 import Carousel from './carousel.vue';
 // import Carousel from './carousel';
+import Tabel from "./tabel.vue"
 
 
 export default {
@@ -14,6 +15,8 @@ export default {
     XLabel,
     Voordeel1,
     Carousel,
+    Tabel,
+
   },
   props: 
     [
@@ -542,606 +545,16 @@ export default {
 
 
 
-      <div class="section-uitvoeringen-tabel-1">
-        <div class="overlap-group2-1">
-          <div class="rectangle-2">
-          </div>
-          <div class="tabel-sectie-1">
-            <div class="uitvoeringen-en-hun-functionaliteiten-1 hyundaisansheadoffice-bold-midnight-blue-32px">
-              {{ uitvoeringenEnHunFunctionaliteiten }}
-            </div>
-
-            <div class="tabel-1">
-              <div class="functionaliteiten-1">
-                <div class="titel-15" :style="{ 'background-image': 'url(' + titel1 + ')' }">
-                  <div class="bill-montly-2 hyundaisansheadoffice-bold-white-23-8px">{{ billMontly1 }}</div>
-                </div>
-                <div class="onderdelen-7" :style="{ 'background-image': 'url(' + onderdelen + ')' }">
-                  
-                  
-                  <!-- <img class="frame-9-3" :src="frame9" alt="Frame 9" /> -->
-                  <div class="profile-groups tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ profileGroups }}</div>
-                  <img class="separators tabel-separator" :src="separators1" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ accountViwers }}</div>
-                  <img class="separators tabel-separator" :src="separators2" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ socialMediaDashboa }}</div>
-                  <img class="separators tabel-separator" :src="separators3" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ shopifyDashboard }}</div>
-                  <img class="separators tabel-separator" :src="separators4" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ mixedDragAndDrop }}</div>
-                  <img class="separators tabel-separator" :src="separators5" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ downloadablePdfRep }}</div>
-                  <img class="separators tabel-separator" :src="separators6" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ whiteLabelReports }}</div>
-                  <img class="separators tabel-separator" :src="separators7" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ competitorAnalytics }}</div>
-                  <img class="separators tabel-separator" :src="separators8" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ automatedEmailRepo }}</div>
-                  <img class="separators tabel-separator" :src="separators9" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ roiAnalyticsAndTr }}</div>
-                  <img class="separators tabel-separator" :src="separators10" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ correlationAnalysis }}</div>
-                  <img class="separators tabel-separator" :src="separators11" alt="Separators" />
-                  <p class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection1 }}</p>
-                  <img class="separators tabel-separator" :src="separators12" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection2 }}</div>
-                  <img class="separators tabel-separator" :src="separators13" alt="Separators" />
-                  <p class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection3 }}</p>
-                  <img class="separators-1 tabel-separator" :src="separators14" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection4 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators15" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection5 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators16" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection6 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators17" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection7 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators18" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection8 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators19" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection9 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators20" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection10 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators21" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection11 }}</div>
-                  <img class="separators-1 tabel-separator" :src="separators22" alt="Separators" />
-                  <div class="frame-9-item tabel-tekst hyundaisansheadoffice-regular-normal-port-gore-21px">{{ trendDetection12 }}</div>
-                  
-                  <!-- <img class="frame-9-3" :src="frame9" alt="Frame 9" /> -->
-
-                </div>
-              </div>
-
-              <div class="tabel-item-2">
-                <div class="titel-12">
-                  <div class="overlap-group-3">
-                    <img class="base" :src="base1" alt="Base" />
-                    <div class="titel-16 hyundaisansheadoffice-bold-port-gore-23-8px">{{ titel2 }}</div>
-                  </div>
-                </div>
-
-                
-                <div class="onderdelen-5">
-                  <div class="overlap-group1-1">
-                    <img class="base-1" :src="base2" alt="Base" />
-                    <div class="frame-1-1">
-                      <img class="tabel-icons-6" :src="tabelIcons1" alt="Tabel icons" /><img
-                        class="separators-13"
-                        :src="separators1"
-                        alt="Separators"
-                      /><img class="tabel-icons-7" :src="tabelIcons2" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators2"
-                        alt="Separators"
-                      /><img class="tabel-icons-8" :src="tabelIcons3" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators3"
-                        alt="Separators"
-                      /><img class="tabel-icons-9" :src="tabelIcons4" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators4"
-                        alt="Separators"
-                      /><img class="tabel-icons-10" :src="tabelIcons5" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators5"
-                        alt="Separators"
-                      /><img class="tabel-icons-11" :src="tabelIcons6" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators6"
-                        alt="Separators"
-                      /><img class="tabel-icons-12" :src="tabelIcons7" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators7"
-                        alt="Separators"
-                      /><img class="tabel-icons-13" :src="tabelIcons8" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators8"
-                        alt="Separators"
-                      /><img class="tabel-icons-14" :src="tabelIcons9" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators9"
-                        alt="Separators"
-                      /><img class="tabel-icons-15" :src="tabelIcons10" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators10"
-                        alt="Separators"
-                      /><img class="tabel-icons-16" :src="tabelIcons11" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators11"
-                        alt="Separators"
-                      /><img class="tabel-icons-17" :src="tabelIcons12" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators12"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons13" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators13"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons14" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators14"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons15" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators15"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons16" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators16"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons17" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators17"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons18" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators18"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons19" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators19"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons20" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators20"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons21" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators21"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons22" alt="Tabel icons" /><img
-                        class="separators-7"
-                        :src="separators22"
-                        alt="Separators"
-                      /><img class="tabel-icons-1" :src="tabelIcons23" alt="Tabel icons" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tabel-item-2">
-                <div class="titel-12">
-                  <img class="base-2" :src="base3" alt="Base" />
-                  <div class="titel-17 hyundaisansheadoffice-bold-white-23-8px">
-                    <span class="span0-2 hyundaisansheadoffice-bold-white-23-8px">Profiteer nu van een zeer scherpe aanbieding op de rijk uitgeruste i10 Comfort.</span
-                    ><span class="span1-2">Je stapt al in vanaf €275 per maand*</span>
-                  </div>
-                </div>
-                <div class="onderdelen-5">
-                  <img class="base-3" :src="base4" alt="Base" />
-                  <div class="frame-1-1">
-                    <img class="tabel-icons-18" :src="tabelIcons24" alt="Tabel icons" /><img
-                      class="separators-14"
-                      :src="separators23"
-                      alt="Separators"
-                    /><img class="tabel-icons-19" :src="tabelIcons25" alt="Tabel icons" /><img
-                      class="separators-15"
-                      :src="separators24"
-                      alt="Separators"
-                    /><img class="tabel-icons-20" :src="tabelIcons26" alt="Tabel icons" /><img
-                      class="separators-16"
-                      :src="separators25"
-                      alt="Separators"
-                    /><img class="tabel-icons-21" :src="tabelIcons27" alt="Tabel icons" /><img
-                      class="separators-17"
-                      :src="separators26"
-                      alt="Separators"
-                    /><img class="tabel-icons-22" :src="tabelIcons28" alt="Tabel icons" /><img
-                      class="separators-18"
-                      :src="separators27"
-                      alt="Separators"
-                    /><img class="tabel-icons-23" :src="tabelIcons29" alt="Tabel icons" /><img
-                      class="separators-19"
-                      :src="separators28"
-                      alt="Separators"
-                    /><img class="tabel-icons-24" :src="tabelIcons30" alt="Tabel icons" /><img
-                      class="separators-20"
-                      :src="separators29"
-                      alt="Separators"
-                    /><img class="tabel-icons-25" :src="tabelIcons31" alt="Tabel icons" /><img
-                      class="separators-21"
-                      :src="separators30"
-                      alt="Separators"
-                    /><img class="tabel-icons-26" :src="tabelIcons32" alt="Tabel icons" /><img
-                      class="separators-22"
-                      :src="separators31"
-                      alt="Separators"
-                    /><img class="tabel-icons-27" :src="tabelIcons33" alt="Tabel icons" /><img
-                      class="separators-23"
-                      :src="separators32"
-                      alt="Separators"
-                    /><img class="tabel-icons-28" :src="tabelIcons34" alt="Tabel icons" /><img
-                      class="separators-24"
-                      :src="separators33"
-                      alt="Separators"
-                    /><img class="tabel-icons-29" :src="tabelIcons35" alt="Tabel icons" /><img
-                      class="separators-25"
-                      :src="separators34"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons36" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators35"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons37" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators36"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons38" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators37"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons39" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators38"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons40" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators39"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons41" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators40"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons42" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators41"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons43" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators42"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons44" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators43"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons45" alt="Tabel icons" /><img
-                      class="separators-8"
-                      :src="separators44"
-                      alt="Separators"
-                    /><img class="tabel-icons-2" :src="tabelIcons46" alt="Tabel icons" />
-                  </div>
-                </div>
-              </div>
-              <div class="tabel-item-2">
-                <div class="titel-12">
-                  <img class="base-4" :src="base5" alt="Base" />
-                  <div class="titel-13 hyundaisansheadoffice-bold-port-gore-23-8px">{{ titel3 }}</div>
-                </div>
-                <div class="onderdelen-5">
-                  <img class="base-5" :src="base6" alt="Base" />
-                  <div class="frame-1-1">
-                    <img class="tabel-icons-30" :src="tabelIcons47" alt="Tabel icons" /><img
-                      class="separators-26"
-                      :src="separators45"
-                      alt="Separators"
-                    /><img class="tabel-icons-31" :src="tabelIcons48" alt="Tabel icons" /><img
-                      class="separators-27"
-                      :src="separators46"
-                      alt="Separators"
-                    /><img class="tabel-icons-32" :src="tabelIcons49" alt="Tabel icons" /><img
-                      class="separators-28"
-                      :src="separators47"
-                      alt="Separators"
-                    /><img class="tabel-icons-33" :src="tabelIcons50" alt="Tabel icons" /><img
-                      class="separators-29"
-                      :src="separators48"
-                      alt="Separators"
-                    /><img class="tabel-icons-34" :src="tabelIcons51" alt="Tabel icons" /><img
-                      class="separators-30"
-                      :src="separators49"
-                      alt="Separators"
-                    /><img class="tabel-icons-35" :src="tabelIcons52" alt="Tabel icons" /><img
-                      class="separators-31"
-                      :src="separators50"
-                      alt="Separators"
-                    /><img class="tabel-icons-36" :src="tabelIcons53" alt="Tabel icons" /><img
-                      class="separators-32"
-                      :src="separators51"
-                      alt="Separators"
-                    /><img class="tabel-icons-37" :src="tabelIcons54" alt="Tabel icons" /><img
-                      class="separators-33"
-                      :src="separators52"
-                      alt="Separators"
-                    /><img class="tabel-icons-38" :src="tabelIcons55" alt="Tabel icons" /><img
-                      class="separators-34"
-                      :src="separators53"
-                      alt="Separators"
-                    /><img class="tabel-icons-39" :src="tabelIcons56" alt="Tabel icons" /><img
-                      class="separators-35"
-                      :src="separators54"
-                      alt="Separators"
-                    /><img class="tabel-icons-40" :src="tabelIcons57" alt="Tabel icons" /><img
-                      class="separators-36"
-                      :src="separators55"
-                      alt="Separators"
-                    /><img class="tabel-icons-41" :src="tabelIcons58" alt="Tabel icons" /><img
-                      class="separators-37"
-                      :src="separators56"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons59" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators57"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons60" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators58"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons61" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators59"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons62" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators60"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons63" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators61"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons64" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators62"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons65" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators63"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons66" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators64"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons67" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators65"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons68" alt="Tabel icons" /><img
-                      class="separators-9"
-                      :src="separators66"
-                      alt="Separators"
-                    /><img class="tabel-icons-3" :src="tabelIcons69" alt="Tabel icons" />
-                  </div>
-                </div>
-              </div>
-              <div class="tabel-item-2">
-                <div class="titel-12">
-                  <img class="base-6" :src="base7" alt="Base" />
-                  <div class="titel-13 hyundaisansheadoffice-bold-port-gore-23-8px">{{ titel4 }}</div>
-                </div>
-                <div class="onderdelen-5">
-                  <img class="base-7" :src="base8" alt="Base" />
-                  <div class="frame-1-1">
-                    <img class="tabel-icons-42" :src="tabelIcons70" alt="Tabel icons" /><img
-                      class="separators-38"
-                      :src="separators67"
-                      alt="Separators"
-                    /><img class="tabel-icons-43" :src="tabelIcons71" alt="Tabel icons" /><img
-                      class="separators-39"
-                      :src="separators68"
-                      alt="Separators"
-                    /><img class="tabel-icons-44" :src="tabelIcons72" alt="Tabel icons" /><img
-                      class="separators-40"
-                      :src="separators69"
-                      alt="Separators"
-                    /><img class="tabel-icons-45" :src="tabelIcons73" alt="Tabel icons" /><img
-                      class="separators-41"
-                      :src="separators70"
-                      alt="Separators"
-                    /><img class="tabel-icons-46" :src="tabelIcons74" alt="Tabel icons" /><img
-                      class="separators-42"
-                      :src="separators71"
-                      alt="Separators"
-                    /><img class="tabel-icons-47" :src="tabelIcons75" alt="Tabel icons" /><img
-                      class="separators-43"
-                      :src="separators72"
-                      alt="Separators"
-                    /><img class="tabel-icons-48" :src="tabelIcons76" alt="Tabel icons" /><img
-                      class="separators-44"
-                      :src="separators73"
-                      alt="Separators"
-                    /><img class="tabel-icons-49" :src="tabelIcons77" alt="Tabel icons" /><img
-                      class="separators-45"
-                      :src="separators74"
-                      alt="Separators"
-                    /><img class="tabel-icons-50" :src="tabelIcons78" alt="Tabel icons" /><img
-                      class="separators-46"
-                      :src="separators75"
-                      alt="Separators"
-                    /><img class="tabel-icons-51" :src="tabelIcons79" alt="Tabel icons" /><img
-                      class="separators-47"
-                      :src="separators76"
-                      alt="Separators"
-                    /><img class="tabel-icons-52" :src="tabelIcons80" alt="Tabel icons" /><img
-                      class="separators-48"
-                      :src="separators77"
-                      alt="Separators"
-                    /><img class="tabel-icons-53" :src="tabelIcons81" alt="Tabel icons" /><img
-                      class="separators-49"
-                      :src="separators78"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons82" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators79"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons83" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators80"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons84" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators81"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons85" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators82"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons86" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators83"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons87" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators84"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons88" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators85"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons89" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators86"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons90" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators87"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons91" alt="Tabel icons" /><img
-                      class="separators-10"
-                      :src="separators88"
-                      alt="Separators"
-                    /><img class="tabel-icons-4" :src="tabelIcons92" alt="Tabel icons" />
-                  </div>
-                </div>
-              </div>
-              <div class="tabel-item-2">
-                <div class="n-line-1">
-                  <img class="base-8" :src="base9" alt="Base" />
-                  <div class="titel-18 hyundaisansheadoffice-bold-port-gore-23-8px">{{ titel5 }}</div>
-                </div>
-                <div class="onderdelen-5">
-                  <img class="base-9" :src="base10" alt="Base" />
-                  <div class="frame-16-1">
-                    <img class="tabel-icons-54" :src="tabelIcons93" alt="Tabel icons" /><img
-                      class="separators-50"
-                      :src="separators89"
-                      alt="Separators"
-                    /><img class="tabel-icons-55" :src="tabelIcons94" alt="Tabel icons" /><img
-                      class="separators-51"
-                      :src="separators90"
-                      alt="Separators"
-                    /><img class="tabel-icons-56" :src="tabelIcons95" alt="Tabel icons" /><img
-                      class="separators-52"
-                      :src="separators91"
-                      alt="Separators"
-                    /><img class="tabel-icons-57" :src="tabelIcons96" alt="Tabel icons" /><img
-                      class="separators-53"
-                      :src="separators92"
-                      alt="Separators"
-                    /><img class="tabel-icons-58" :src="tabelIcons97" alt="Tabel icons" /><img
-                      class="separators-54"
-                      :src="separators93"
-                      alt="Separators"
-                    /><img class="tabel-icons-59" :src="tabelIcons98" alt="Tabel icons" /><img
-                      class="separators-55"
-                      :src="separators94"
-                      alt="Separators"
-                    /><img class="tabel-icons-60" :src="tabelIcons99" alt="Tabel icons" /><img
-                      class="separators-56"
-                      :src="separators95"
-                      alt="Separators"
-                    /><img class="tabel-icons-61" :src="tabelIcons100" alt="Tabel icons" /><img
-                      class="separators-57"
-                      :src="separators96"
-                      alt="Separators"
-                    /><img class="tabel-icons-62" :src="tabelIcons101" alt="Tabel icons" /><img
-                      class="separators-58"
-                      :src="separators97"
-                      alt="Separators"
-                    /><img class="tabel-icons-63" :src="tabelIcons102" alt="Tabel icons" /><img
-                      class="separators-59"
-                      :src="separators98"
-                      alt="Separators"
-                    /><img class="tabel-icons-64" :src="tabelIcons103" alt="Tabel icons" /><img
-                      class="separators-60"
-                      :src="separators99"
-                      alt="Separators"
-                    /><img class="tabel-icons-65" :src="tabelIcons104" alt="Tabel icons" /><img
-                      class="separators-61"
-                      :src="separators100"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons105" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators101"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons106" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators102"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons107" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators103"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons108" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators104"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons109" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators105"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons110" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators106"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons111" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators107"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons112" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators108"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons113" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators109"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons114" alt="Tabel icons" /><img
-                      class="separators-11"
-                      :src="separators110"
-                      alt="Separators"
-                    /><img class="tabel-icons-5" :src="tabelIcons115" alt="Tabel icons" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-            <div class="group-2"><img class="arrow-4" :src="arrow3" alt="arrow" /></div>
-            <div class="group-1-2"><img class="arrow-5" :src="arrow4" alt="arrow" /></div>
-
-          </div>
-        </div>
-
-
-
-
+      <div class="scroll-tabel-container">
+      <Tabel></Tabel>
       </div>
 
 
 
 
-
-
-
+<!-- 
+      <div class="group-2"><img class="arrow-4" :src="arrow3" alt="arrow" /></div>
+      <div class="group-1-2"><img class="arrow-5" :src="arrow4" alt="arrow" /></div> -->
 
 
 
@@ -1630,6 +1043,36 @@ export default {
   position: relative
   width: 7.07vw
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  // hier begint de styling van de tabel
+
 .section-uitvoeringen-tabel-1
   align-items: flex-start
   display: flex
@@ -1640,6 +1083,8 @@ export default {
   height: 390.4vw
   position: relative
   width: 256.8vw
+
+
 
 .rectangle-2
   background-color: $light-blue
@@ -2941,6 +2386,49 @@ export default {
   position: relative
   width: 21.27vw
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 .account-viwers-3,
 .social-media-dashboa-3,
 .shopify-dashboard-3,
@@ -3113,4 +2601,9 @@ export default {
 
   .onder
     margin-top: -150px
+
+
+  .scroll-tabel-container
+    width: 100%
+    overflow-x: auto
 </style>
