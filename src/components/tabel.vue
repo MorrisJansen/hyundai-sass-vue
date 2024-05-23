@@ -165,6 +165,10 @@
     margin-top: 0.44rem
 
 
+
+.span1-1 
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica!important
+  margin-top: 0.3vw
   
   </style>
   

@@ -151,4 +151,10 @@ export default {
 .vraag-optie input[type="radio"]:checked {
   background-color: green;
 }
+
+
+
+@media (max-width: 768px) {
+  
+}
 </style>
