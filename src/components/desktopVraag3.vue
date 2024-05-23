@@ -1,3 +1,57 @@
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
+
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+  },
+  data() {
+    return {
+      vragenPijlVolgende: vragenPijlVolgende,
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      antwoordOpties: [
+        "i10 i-Drive",
+        "i10 Comfort",
+        "i10 Comfort Smart",
+        "i10 Premium",
+        "i10 N Line",
+        "Weet ik nog niet",
+      ],
+      geselecteerdeAntwoorden: [], // Array om geselecteerde antwoorden bij te houden
+      antwoorden: [], // Voeg dit toe
+
+    };
+  },
+  methods: {
+    goToNextQuestion() {
+      // Push geselecteerde antwoorden naar de antwoorden array
+      this.antwoorden.push(...this.geselecteerdeAntwoorden);
+      // Navigeer naar de volgende vraag
+      this.$router.push('/vraag4');
+    }
+  }
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -46,35 +100,7 @@
 
 
 
-<script>
-import Keurmerk from "./Keurmerk";
-import achtergrondVraag from "/img/achtergrondVraag.png";
-import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
-import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
 
-export default {
-  name: "DesktopVraag",
-  components: {
-    Keurmerk,
-  },
-  data() {
-    return {
-      vragenPijlVolgende: vragenPijlVolgende,
-      vragenPijlVorige: vragenPijlVorige,
-      achtergrondVraag: achtergrondVraag,
-      antwoordOpties: [
-        "i10 i-Drive",
-        "i10 Comfort",
-        "i10 Comfort Smart",
-        "i10 Premium",
-        "i10 N Line",
-        "Weet ik nog niet",
-      ],
-      geselecteerdeAntwoorden: [],
-    };
-  },
-};
-</script>
 
 <style scoped>
 .container-center-horizontal {

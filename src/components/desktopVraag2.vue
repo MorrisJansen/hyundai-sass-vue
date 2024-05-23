@@ -1,3 +1,43 @@
+
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+  },
+  data() {
+    return {
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      antwoordOpties: [
+        "3 jaar",
+        "4 jaar",
+        "5 jaar",
+        "6 jaar",
+        "Weet ik nog niet",
+      ],
+      geselecteerdAntwoord: null,
+      antwoorden: [] // Voeg dit toe om de antwoorden bij te houden
+    };
+  },
+  watch: {
+    geselecteerdAntwoord(newVal) {
+      if (newVal !== null) {
+        setTimeout(() => {
+          this.$router.push('/vraag3');
+        }, 1000);
+      }
+    }
+  }
+};
+</script>
+
+
+
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -31,41 +71,9 @@
   </div>
 </template>
 
-<script>
-import Keurmerk from "./Keurmerk";
-import achtergrondVraag from "/img/achtergrondVraag.png";
-import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
 
-export default {
-  name: "DesktopVraag",
-  components: {
-    Keurmerk,
-  },
-  data() {
-    return {
-      vragenPijlVorige: vragenPijlVorige,
-      achtergrondVraag: achtergrondVraag,
-      antwoordOpties: [
-        "3 jaar",
-        "4 jaar",
-        "5 jaar",
-        "6 jaar",
-        "Weet ik nog niet",
-      ],
-      geselecteerdAntwoord: null,
-    };
-  },
-  watch: {
-    geselecteerdAntwoord(newVal) {
-      if (newVal !== null) {
-        setTimeout(() => {
-          this.$router.push('/vraag3');
-        }, 1000);
-      }
-    }
-  }
-};
-</script>
+
+
 
 <style scoped>
 

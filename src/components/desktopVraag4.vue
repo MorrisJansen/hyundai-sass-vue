@@ -1,40 +1,42 @@
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
 
-  
-  <script>
-  import Keurmerk from "./Keurmerk";
-  import achtergrondVraag from "/img/achtergrondVraag.png";
-  import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
-  
-  export default {
-    name: "DesktopVraag",
-    components: {
-      Keurmerk,
-    },
-    data() {
-      return {
-        vragenPijlVorige: vragenPijlVorige,
-        achtergrondVraag: achtergrondVraag,
-        antwoordOpties: [
-          "Zo snel mogelijk",
-          "Binnen 3 maanden",
-          "Binnen 3 tot 6 maanden",
-          "In overleg",
-          "Weet ik nog niet",
-        ],
-        geselecteerdAntwoord: null,
-      };
-    },
-    watch: {
-  geselecteerdAntwoord(newVal) {
-    if (newVal !== null) {
-      setTimeout(() => {
-        this.$router.push('/vraag5');
-      }, 1000);
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+  },
+  data() {
+    return {
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      antwoordOpties: [
+        "Zo snel mogelijk",
+        "Binnen 3 maanden",
+        "Binnen 3 tot 6 maanden",
+        "In overleg",
+        "Weet ik nog niet",
+      ],
+      geselecteerdAntwoord: null,
+      antwoorden: [],
+
+    };
+  },
+  watch: {
+    geselecteerdAntwoord(newVal) {
+      if (newVal !== null) {
+        this.antwoorden.push(newVal);
+        setTimeout(() => {
+          this.$router.push('/vraag5');
+        }, 1000);
+      }
     }
   }
-}
-  };
-  </script>
+};
+</script>
+
 
 
 

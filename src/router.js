@@ -10,6 +10,7 @@ import vraag3 from "./components/desktopVraag3.vue";
 import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
+import Bedankt from "./components/bedankt.vue"
 
 import { 
   campagneHyundaiDesktopTestData, 
@@ -61,7 +62,12 @@ const routes = [
     path: "/formulier",
     component: Formulier,
     name: 'formulier'
-  }
+  },
+  {
+    path: "/bedankt",
+    component: Bedankt,
+    name: 'bedankt'
+  },
 ];
 
 const router = new Router({

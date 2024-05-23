@@ -1,9 +1,7 @@
-
-
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
-import vragenPijlVorige from "/img/vragen-pijl-vorige.svg"
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
 
 export default {
   name: "DesktopVraag",
@@ -19,19 +17,27 @@ export default {
         "Nee, ik hoef geen proefrit te maken",
       ],
       geselecteerdAntwoord: null,
+      antwoorden: [] // Voeg een lege array toe om de antwoorden bij te houden
     };
   },
   watch: {
-  geselecteerdAntwoord(newVal) {
-    if (newVal !== null) {
-      setTimeout(() => {
-        this.$router.push('/formulier');
-      }, 1000);
+    geselecteerdAntwoord(newVal) {
+      if (newVal !== null) {
+        // Push het geselecteerde antwoord naar de antwoorden array
+        this.antwoorden.push(newVal);
+        setTimeout(() => {
+          this.$router.push('/formulier');
+        }, 1000);
+      }
     }
+  },
+  created() {
+    // Toon de antwoorden in de console wanneer het component wordt aangemaakt
+    console.log("Antwoorden tot nu toe:", this.antwoorden);
   }
-}
 };
 </script>
+
 
 
 

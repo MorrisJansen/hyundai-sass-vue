@@ -1,5 +1,3 @@
-
-
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
@@ -22,11 +20,14 @@ export default {
         "Weet ik nog niet"
       ],
       geselecteerdAntwoord: null,
+      antwoorden: [] // Voeg dit toe om de antwoorden bij te houden
     };
   },
   watch: {
     geselecteerdAntwoord(newVal) {
       if (newVal !== null) {
+        // Voeg het geselecteerde antwoord toe aan de antwoorden array
+        this.antwoorden.push(newVal);
         setTimeout(() => {
           this.$router.push('/vraag2');
         }, 1000);
@@ -35,6 +36,8 @@ export default {
   }
 };
 </script>
+
+
 
 
 
@@ -155,6 +158,6 @@ export default {
 
 
 @media (max-width: 768px) {
-  
+
 }
 </style>
