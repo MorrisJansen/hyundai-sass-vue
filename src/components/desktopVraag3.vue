@@ -3,11 +3,14 @@ import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
 import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
+import Tabel from "./tabel.vue";
+import { addAntwoord } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
   components: {
     Keurmerk,
+    Tabel,
   },
   data() {
     return {
@@ -15,28 +18,45 @@ export default {
       vragenPijlVorige: vragenPijlVorige,
       achtergrondVraag: achtergrondVraag,
       antwoordOpties: [
-        "i10 i-Drive",
-        "i10 Comfort",
-        "i10 Comfort Smart",
-        "i10 Premium",
-        "i10 N Line",
-        "Weet ik nog niet",
+        { id: 4750, answer: "i10 i-Drive" },
+        { id: 4753, answer: "i10 Comfort" },
+        { id: 4759, answer: "i10 Comfort Smart" },
+        { id: 4762, answer: "i10 Premium" },
+        { id: 4765, answer: "i10 N Line" },
+        { id: 4774, answer: "Weet ik nog niet" }
       ],
-      geselecteerdeAntwoorden: [], // Array om geselecteerde antwoorden bij te houden
-      antwoorden: [], // Voeg dit toe
-
+      geselecteerdeAntwoorden: [], // We hebben de naam gewijzigd naar geselecteerdeAntwoorden om beter weer te geven dat het de volledige antwoorden zijn
+      showPopup: false
     };
   },
   methods: {
     goToNextQuestion() {
-      // Push geselecteerde antwoorden naar de antwoorden array
-      this.antwoorden.push(...this.geselecteerdeAntwoorden);
-      // Navigeer naar de volgende vraag
+      // Controleren of minstens één antwoord is aangevinkt
+      if (this.geselecteerdeAntwoorden.length === 0) {
+        alert("Selecteer minstens één antwoord.");
+        return; // Stop de functie als geen antwoord is geselecteerd
+      }
+
+      // Geselecteerde antwoorden doorgeven aan antwoorden.js
+      this.geselecteerdeAntwoorden.forEach((antwoord) => {
+        addAntwoord(antwoord.id); // Alleen de ID doorgeven
+      });
+
+      // Doorgaan naar de volgende vraag
       this.$router.push('/vraag4');
+    },
+    openPopup() {
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
     }
   }
 };
 </script>
+
+
+
 
 
 
@@ -73,12 +93,13 @@ export default {
         <div class="onderstreept">Bekijk <a href="/link-naar-functionaliteiten" class="link">hier</a> de functionaliteiten per model</div>
         <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
           <label class="vraag-optie">
-            <input type="checkbox" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdeAntwoorden"> 
+            <input type="checkbox" :id="'optie' + (index + 1)" :value="{ id: optie.id, answer: optie.answer }" v-model="geselecteerdeAntwoorden"> 
             <span class="switcher"></span>
-            {{ optie }}
-            <button v-if="optie === 'i10 Comfort'" class="i10-knop">Aanbieding!</button>
+            {{ optie.answer }}
+            <button v-if="optie.answer === 'i10 Comfort'" class="i10-knop" @click="openPopup">Aanbieding!</button>
           </label>
         </div>
+        
         <div class="pijlen-container">
           <a href="/vraag2">
             <button class="terug">
@@ -86,14 +107,21 @@ export default {
               <div class="vorige-tekst">Vorige</div>
             </button>
           </a>
-          <a href="/vraag4">
-            <button class="volgende">
-              <div class="volgende-tekst">Volgende</div>
-              <img :src="vragenPijlVolgende" class="pijl-omdraaien" alt="">
-            </button>
-          </a>
+          <button class="volgende" @click="goToNextQuestion">
+            <div class="volgende-tekst">Volgende</div>
+            <img :src="vragenPijlVolgende" class="pijl-omdraaien" alt="">
+          </button>
         </div>
       </div>
+      
+      <div v-if="showPopup" class="popup-overlay" @click="closePopup">
+        <div class="popup" @click.stop>
+          <div class="popup-content">
+            <Tabel />
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -133,7 +161,7 @@ export default {
 
 .vraag-hoeveel {
   color: var(--Primary-blue, #002E6B);
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -150,13 +178,12 @@ export default {
   font-weight: 700;
   line-height: 3.3vw;
   font-family: "Hyundai Sans Head Office-bold", 'Helvetica';
-
 }
 
 .tussen-haakjes {
   font-size: 1.4vw;
   color: var(--Primary-blue, #002E6B);
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   margin-bottom: 0.5vw;
 }
 
@@ -164,20 +191,18 @@ export default {
   color: var(--Primary-blue, #002E6B);
   margin-bottom: 2vw;
   font-size: 1vw;
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
-
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
 }
 
 .onderstreept a {
   text-decoration: underline;
   color: var(--Primary-blue, #002E6B);
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
-
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
 }
 
 .vraag-optie {
   color: var(--Text-color-tabel, #231E41);
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -237,7 +262,6 @@ export default {
   transform: translateX(2vw);
 }
 
-
 .pijlen-container {
   display: inline-flex;
 }
@@ -245,7 +269,6 @@ export default {
 .terug {
   display: inline-flex;
   gap: 1vw;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -257,14 +280,12 @@ export default {
 
 .vorige-tekst {
   color: var(--Primary-blue, #002E6B);
-  font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-
-
 
 .volgende {
   margin-left: 26vw;
@@ -280,14 +301,12 @@ export default {
 
 .volgende-tekst {
   color: var(--White, #FFF);
-  font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
   font-size: 1.6875rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
-
-
 
 .i10-knop {
   margin-left: 20vw;
@@ -310,6 +329,37 @@ export default {
   background-color: darkblue;
 }
 
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  height: 60%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* Add scrolling capability */
+}
 
+.popup-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 </style>

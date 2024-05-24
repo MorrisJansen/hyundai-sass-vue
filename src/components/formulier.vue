@@ -3,6 +3,7 @@ import axios from 'axios';
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import pijlVoren from "/img/vragen-pijl-volgende.svg";
+import { getAntwoorden } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
@@ -22,10 +23,10 @@ export default {
         postcode: '',
         dealer: '',
         landcode: '',
-        language: 'nl',
-        publisher_id: 'IDMorrisDePublisher',  
+        language: 'nl_NL',
+        publisher_id: 'Hyundai',  
         site_custom_url: window.location.href, 
-        site_custom_name: 'Hyundai', 
+        site_custom_name: 'Hyundai-i10', 
         ip: '',  
         answers: [] 
       },
@@ -48,6 +49,9 @@ export default {
       .catch(error => {
         console.error('Fout bij ophalen van IP-adres:', error);
       });
+
+    this.formData.answers = getAntwoorden();
+    console.log("Antwoorden:", this.formData.answers);
   },
   methods: {
     validateGeslacht() {
@@ -149,6 +153,13 @@ export default {
       if (this.validateForm()) {
         console.log("Form is valid, submitting...");
         console.log("Form data:", this.formData);
+
+        // Reset the answers array and add hardcoded value
+        this.formData.answers = getAntwoorden();
+        this.formData.answers.push(4659);
+
+        console.log("Antwoord-IDs:", this.formData.answers);
+
         const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
         axios.post(
           'https://leadgen.republish.nl/api/sponsors/2358/leads',
@@ -186,6 +197,7 @@ export default {
 
 
 
+
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -202,7 +214,7 @@ export default {
 
       <div class="vragen-achtergrond">
         <div class="bedankt hyundaisansheadoffice-bold-midnight-blue-32px">Bedankt!</div>
-        <div class="vrijblijvend-gegevens">Vul jouw gegevens in en ontvang gratis en <span id="dik" class="dik hyundaisansheadoffice-bold-midnight-blue-24px">vrijblijvend de berekening van jouw leasetarief,</span> inclusief speciale aanbieding.</div>
+        <div class="vrijblijvend-gegevens">Vul jouw gegevens in en ontvang gratis en <span class="dik">vrijblijvend de berekening van jouw leasetarief,</span> inclusief speciale aanbieding.</div>
 
         <div class="geslacht">
           <label class="hyundaisansheadoffice-regular-midnight-blue-16px">
@@ -239,13 +251,10 @@ export default {
         <div class="Telefoonnummer">
             <label for="Telefoonnummer"></label>
             <div class="telefoonnummer-input">
-              <select id="Landcode" name="Landcode" v-model="formData.landcode" class="input-formulier landcode-select">
-                <option value="" disabled>Selecteer een landcode</option>
-                <option value="NL-mobiel">NL (+316)</option>
-                <option value="NL">NL (+31)</option>
-                <option value="BE-mobiel">BE (+324)</option>
-                <option value="BE">BE (+32)</option>
-              </select>
+
+              
+              <input type="text" class="input-formulier landcode-select" value="+316" readonly>
+
               <input class="input-formulier telefoonnummer" type="text" id="Telefoonnummer" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer" :maxlength="formData.landcode === 'NL' ? 10 : 9">
             </div>
             <div class="error">{{ errors.telefoonnummer }}</div>
@@ -256,7 +265,7 @@ export default {
         
         <div class="lijn"></div>
 
-        <div class="vrijblijvend-gegevens beneden">Vul je postcode in en <span id="dik" class="dik hyundaisansheadoffice-bold-midnight-blue-24px">kies een dealer</span> bij jou in de buurt:</div>
+        <div class="vrijblijvend-gegevens beneden">Vul je postcode in en <span class="dik">kies een dealer</span> bij jou in de buurt:</div>
 
         <div class="Postcode">
             <label for="Postcode">
@@ -398,13 +407,19 @@ export default {
 }
 
 
+
+.dik {
+  font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+}
+
+
 .gekozen-dealer {
   color: var(--Primary-blue, #002E6B);
   font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 150%;  
 }
 
 .volgende {

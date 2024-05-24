@@ -2,6 +2,7 @@
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+import { addAntwoord } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
@@ -13,32 +14,33 @@ export default {
       vragenPijlVorige: vragenPijlVorige,
       achtergrondVraag: achtergrondVraag,
       antwoordOpties: [
-        "Zo snel mogelijk",
-        "Binnen 3 maanden",
-        "Binnen 3 tot 6 maanden",
-        "In overleg",
-        "Weet ik nog niet",
+        { id: 4795, answer: "Zo snel mogelijk" },
+        { id: 4798, answer: "Binnen 3 maanden" },
+        { id: 4801, answer: "Binnen 3 tot 6 maanden" },
+        { id: 4804, answer: "In overleg" },
+        { id: 4807, answer: "Weet ik nog niet" },
       ],
-      geselecteerdAntwoord: null,
-      antwoorden: [],
-
+      geselecteerdAntwoordId: null, // Opslaan van het geselecteerde antwoord-ID
     };
   },
-  watch: {
-    geselecteerdAntwoord(newVal) {
-      if (newVal !== null) {
-        this.antwoorden.push(newVal);
+  methods: {
+    goToNextQuestion() {
+      if (this.geselecteerdAntwoordId !== null) {
+        addAntwoord(this.geselecteerdAntwoordId); // Doorsturen van het geselecteerde antwoord-ID naar antwoorden.js
         setTimeout(() => {
           this.$router.push('/vraag5');
         }, 1000);
+
       }
+    },
+  },
+  watch: {
+    geselecteerdAntwoordId() {
+      this.goToNextQuestion();
     }
   }
 };
 </script>
-
-
-
 
 <template>
     <div class="container-center-horizontal">
@@ -59,19 +61,21 @@ export default {
           <div class="vraag">Indien je kiest voor de Hyundai i10, wanneer zou jij erin willen rijden?</div>
           <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
             <label class="vraag-optie">
-              <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
+              <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoordId"> {{ optie.answer }}
             </label>
           </div>
-          <a href="/vraag3">
-            <button class="terug">
-              <img :src="vragenPijlVorige" alt="">
-              <div class="vorige-tekst">Vorige</div>
-            </button>
-          </a>
+          
+          <button class="terug">
+            <img :src="vragenPijlVorige" alt="">
+            <div class="vorige-tekst">Vorige</div>
+          </button>
         </div>
       </div>
     </div>
-  </template>
+</template>
+
+
+
 
 
 

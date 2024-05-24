@@ -1,6 +1,7 @@
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
+import { addAntwoord } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
@@ -11,23 +12,21 @@ export default {
     return {
       achtergrondVraag: achtergrondVraag,
       antwoordOpties: [
-        "0 - 5000 km",
-        "5000 - 10.000 km",
-        "10.000 - 20.000 km",
-        "20.000 - 30.000 km",
-        "30.000 - 40.000 km",
-        "Meer dan 40.000 km",
-        "Weet ik nog niet"
+        { id: 4777, answer: "0 - 5.000 km" },
+        { id: 5054, answer: "5.000 - 10.000 km" },
+        { id: 4780, answer: "10.000 - 20.000 km" },
+        { id: 4783, answer: "20.000 - 30.000 km" },
+        { id: 4786, answer: "30.000 - 40.000 km" },
+        { id: 4789, answer: "Meer dan 40.000 km" },
+        { id: 4792, answer: "Weet ik nog niet" }
       ],
-      geselecteerdAntwoord: null,
-      antwoorden: [] // Voeg dit toe om de antwoorden bij te houden
+      geselecteerdAntwoordId: null, 
     };
   },
   watch: {
-    geselecteerdAntwoord(newVal) {
+    geselecteerdAntwoordId(newVal) {
       if (newVal !== null) {
-        // Voeg het geselecteerde antwoord toe aan de antwoorden array
-        this.antwoorden.push(newVal);
+        addAntwoord(newVal);
         setTimeout(() => {
           this.$router.push('/vraag2');
         }, 1000);
@@ -36,6 +35,7 @@ export default {
   }
 };
 </script>
+
 
 
 
@@ -58,15 +58,20 @@ export default {
       <div class="vragen-achtergrond">
         <div class="vraag-hoeveel">Vraag 1 van de 5</div>
         <div class="vraag">Hoeveel km verwacht jij te rijden per jaar?</div>
-        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
-          <label class="vraag-optie">
-            <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
+        <div v-for="(optie, index) in antwoordOpties" :key="index" class="vraag-optie-container" :class="{ 'selected': geselecteerdAntwoord && geselecteerdAntwoord.id === optie.id }">
+          <label :for="'optie' + (index + 1)" class="vraag-optie">
+            <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoordId">
+            {{ optie.answer }}
           </label>
         </div>
+        
+        
       </div>
     </div>
   </div>
 </template>
+
+
 
 <style scoped>
 

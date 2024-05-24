@@ -1,8 +1,8 @@
-
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+import { addAntwoord } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
@@ -14,19 +14,20 @@ export default {
       vragenPijlVorige: vragenPijlVorige,
       achtergrondVraag: achtergrondVraag,
       antwoordOpties: [
-        "3 jaar",
-        "4 jaar",
-        "5 jaar",
-        "6 jaar",
-        "Weet ik nog niet",
+      { id: 4990, answer: "3 jaar" },
+      { id: 4993, answer: "4 jaar" },
+      { id: 4996, answer: "5 jaar" },
+      { id: 4999, answer: "6 jaar" },
+      { id: 5002, answer: "Weet ik nog niet" }
+
       ],
       geselecteerdAntwoord: null,
-      antwoorden: [] // Voeg dit toe om de antwoorden bij te houden
     };
   },
   watch: {
     geselecteerdAntwoord(newVal) {
       if (newVal !== null) {
+        addAntwoord(newVal);
         setTimeout(() => {
           this.$router.push('/vraag3');
         }, 1000);
@@ -35,6 +36,7 @@ export default {
   }
 };
 </script>
+
 
 
 
@@ -55,11 +57,14 @@ export default {
       <div class="vragen-achtergrond">
         <div class="vraag-hoeveel">Vraag 2 van de 5</div>
         <div class="vraag">Gewenste looptijd leasecontract</div>
-        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
-          <label class="vraag-optie">
-            <input type="radio" :id="'optie' + (index + 1)" :value="optie" v-model="geselecteerdAntwoord"> {{ optie }}
+        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index" :class="{ 'selected': geselecteerdAntwoord && geselecteerdAntwoord.id === optie.id }">
+          <label :for="'optie' + (index + 1)" class="vraag-optie">
+            <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoord">
+            {{ optie.answer }}
           </label>
         </div>
+        
+
         <a href="/vraag1">
           <button class="terug">
             <img :src="vragenPijlVorige" alt="">
