@@ -11,6 +11,7 @@ import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
 import Bedankt from "./components/bedankt.vue"
+import Postcode from "./components/postcode.vue"
 
 import { 
   campagneHyundaiDesktopTestData, 
