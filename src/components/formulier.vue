@@ -157,34 +157,29 @@ export default {
       return true;
     },
     validateAndFormatPhoneNumber(phoneNumber) {
-      // Verwijder eventuele niet-numerieke tekens behalve het plusteken aan het begin
-      phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
+  phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
 
-      // Controleer of het telefoonnummer begint met '+31'
-      if (phoneNumber.startsWith('+31')) {
-        // Zorg ervoor dat het nummer exact 12 tekens lang is (inclusief +31)
-        if (phoneNumber.length !== 12) {
-          console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
-          return null; // Ongeldig nummer
-        }
-      } else {
-        // Voeg +31 toe als het niet aanwezig is en het nummer begint met 0
-        if (phoneNumber.startsWith('0')) {
-          phoneNumber = '+31' + phoneNumber.slice(1);
-        } else if (!phoneNumber.startsWith('+31')) {
-          // Voeg +31 toe als het niet aanwezig is en het nummer niet begint met 0
-          phoneNumber = '+31' + phoneNumber;
-        }
+  if (phoneNumber.startsWith('+31')) {
+    phoneNumber = phoneNumber.replace('+31', '');
+  }
 
-        // Zorg ervoor dat het nummer exact 12 tekens lang is (inclusief +31)
-        if (phoneNumber.length !== 12) {
-          console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
-          return null; // Ongeldig nummer
-        }
-      }
+  phoneNumber = phoneNumber.replace(/^0+/, '');
 
-      return phoneNumber;
-    },
+  if (phoneNumber.length === 9) {
+    phoneNumber = '+31' + phoneNumber;
+  } else {
+    console.error('Telefoonnummer moet 9 cijfers lang zijn na verwerking.');
+    return null; 
+  }
+
+  if (phoneNumber.length !== 12) {
+    console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
+    return null;
+  }
+
+  return phoneNumber;
+},
+
     validateTelefoonnummer() {
       console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
       const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
@@ -213,8 +208,17 @@ export default {
         return false;
       }
       this.errors.dealer = '';
+
+      const dealerAnswer = this.formData.dealer.id;
+      const dealerAnswerIndex = this.formData.answers.findIndex(answer => answer === dealerAnswer);
+      if (dealerAnswerIndex === -1) {
+        this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
+        this.formData.answers.push(dealerAnswer);
+      }
+
       return true;
     },
+
     async findNearestDealers() {
       try {
         const apiKey = 'pk.6c8d6a1e3fe6468f0ceab205affad3d7';
@@ -267,61 +271,76 @@ export default {
       return isValid;
     },
     submitForm() {
-      console.log("Submitting form...");
-      if (this.validateForm()) {
-        console.log("Form is valid, submitting...");
-        console.log("Form data before processing:", this.formData);
+  console.log("Submitting form...");
+  if (this.validateForm()) {
+    console.log("Form is valid, submitting...");
+    console.log("Form data before processing:", this.formData);
 
-        // Voeg de antwoorden en het specifieke antwoord toe voor het telefoonnummer
-        this.formData.answers = getAntwoorden();
-        this.formData.answers.push(4659);
+    // Voeg de antwoorden en het specifieke antwoord toe voor het telefoonnummer
+    this.formData.answers = getAntwoorden();
+    this.formData.answers.push(4659);
 
-        // Voeg de voornaam, achternaam en telefoonnummer toe aan this.formData met de juiste veldnamen
-        this.formData.firstname = this.formData.voornaam;
-        this.formData.lastname = this.formData.achternaam;
+    // Zet de voornaam en achternaam naar de juiste velden
+    this.formData.firstname = this.formData.voornaam;
+    this.formData.lastname = this.formData.achternaam;
 
-        // Valideer en formatteer het telefoonnummer
-        const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
-        if (!formattedPhoneNumber) {
-          console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
-          return;
-        }
-        this.formData.phone_number = formattedPhoneNumber;
-
-        // Verwijder voornaam, achternaam en telefoonnummer uit this
-// Verwijder voornaam, achternaam en telefoonnummer uit this.formData omdat ze al zijn toegevoegd met de juiste veldnamen
-delete this.formData.voornaam;
-        delete this.formData.achternaam;
-        delete this.formData.telefoonnummer;
-
-        console.log("Form data after processing:", JSON.stringify(this.formData));
-
-        const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
-        axios.post(
-          'https://leadgen.republish.nl/api/sponsors/2358/leads',
-          this.formData,
-          {
-            headers: { 
-              'Authorization': authHeader,
-              'Content-Type': 'application/json; charset=utf-8'
-            }
-          }
-        )
-        .then(response => {
-          console.log('Formulier succesvol verstuurd', response.data);
-          this.$router.push('/bedankt');
-        })
-        .catch(error => {
-          console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
-          if (error.response) {
-            // De server heeft gereageerd met een statuscode die valt buiten de range van 2xx
-            console.error('Server response:', error.response.data);
-          }
-        });
-      } else {
-        console.log("Form is invalid, not submitting.");
-      }
+    // Valideer en formatteer het telefoonnummer
+    const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+    if (!formattedPhoneNumber) {
+      console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
+      return;
     }
+    this.formData.phone_number = formattedPhoneNumber;
+
+    // Zet de gender naar male of female gebaseerd op de selectie
+    this.formData.gender = this.formData.geslacht;
+
+    // Voeg alleen de geselecteerde dealer toe aan de answers array
+    const dealerAnswer = this.formData.dealer.id;
+    this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
+    this.formData.answers.push(dealerAnswer);
+
+    // Verwijder de tijdelijke velden uit formData
+    delete this.formData.voornaam;
+    delete this.formData.achternaam;
+    delete this.formData.telefoonnummer;
+    delete this.formData.geslacht; // Verwijder dit veld als het niet nodig is
+
+    console.log("Form data after processing:", JSON.stringify(this.formData));
+
+    const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
+    axios.post(
+      'https://leadgen.republish.nl/api/sponsors/2358/leads',
+      this.formData,
+      {
+        headers: { 
+          'Authorization': authHeader,
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      }
+    )
+    .then(response => {
+      console.log('Formulier succesvol verstuurd', response.data);
+      this.$router.push('/bedankt');
+    })
+    .catch(error => {
+      console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
+      if (error.response) {
+        // De server heeft gereageerd met een statuscode die valt buiten de range van 2xx
+        console.error('Server response:', error.response.data);
+      }
+    });
+  } else {
+    console.log("Form is invalid, not submitting.");
+  }
+}
+
+
+
+
+
+
+    
   }
 };
 </script>
@@ -343,11 +362,13 @@ delete this.formData.voornaam;
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
-      <img
-        class="logo-hyundai"
-        src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
-        alt="Logo Hyundai"
-      />
+      <a href="/campagne-hyundai-desktop">
+        <img
+          class="logo-hyundai"
+          src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
+          alt="Logo Hyundai"
+        />
+        </a>
       <keurmerk />
     </div>
   
@@ -358,15 +379,20 @@ delete this.formData.voornaam;
         <div class="bedankt hyundaisansheadoffice-bold-midnight-blue-32px">Bedankt!</div>
         <div class="vrijblijvend-gegevens">Vul jouw gegevens in en ontvang gratis en <span class="dik">vrijblijvend de berekening van jouw leasetarief,</span> inclusief speciale aanbieding.</div>
 
-        <div class="geslacht">
-          <label class="hyundaisansheadoffice-regular-midnight-blue-16px">
-            <input type="radio" name="geslacht" value="meneer" v-model="formData.geslacht" /> Meneer
-          </label>
-          <label class="hyundaisansheadoffice-regular-midnight-blue-16px">
-            <input type="radio" name="geslacht" value="mevrouw" v-model="formData.geslacht" /> Mevrouw
-          </label>
-          <div class="error">{{ errors.geslacht }}</div>
-        </div>
+        <template>
+          <div>
+            <label>
+              <input type="radio" v-model="formData.geslacht" value="male">
+              Meneer
+            </label>
+            <label>
+              <input type="radio" v-model="formData.geslacht" value="female">
+              Mevrouw
+            </label>
+          </div>
+        </template>
+        
+    
         
         <div class="Voornaam">
             <label for="Voornaam">
