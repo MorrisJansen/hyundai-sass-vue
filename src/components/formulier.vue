@@ -276,15 +276,12 @@ export default {
     console.log("Form is valid, submitting...");
     console.log("Form data before processing:", this.formData);
 
-    // Voeg de antwoorden en het specifieke antwoord toe voor het telefoonnummer
     this.formData.answers = getAntwoorden();
     this.formData.answers.push(4659);
 
-    // Zet de voornaam en achternaam naar de juiste velden
     this.formData.firstname = this.formData.voornaam;
     this.formData.lastname = this.formData.achternaam;
 
-    // Valideer en formatteer het telefoonnummer
     const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
     if (!formattedPhoneNumber) {
       console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
@@ -292,19 +289,16 @@ export default {
     }
     this.formData.phone_number = formattedPhoneNumber;
 
-    // Zet de gender naar male of female gebaseerd op de selectie
     this.formData.gender = this.formData.geslacht;
 
-    // Voeg alleen de geselecteerde dealer toe aan de answers array
     const dealerAnswer = this.formData.dealer.id;
     this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
     this.formData.answers.push(dealerAnswer);
 
-    // Verwijder de tijdelijke velden uit formData
     delete this.formData.voornaam;
     delete this.formData.achternaam;
     delete this.formData.telefoonnummer;
-    delete this.formData.geslacht; // Verwijder dit veld als het niet nodig is
+    delete this.formData.geslacht;
 
     console.log("Form data after processing:", JSON.stringify(this.formData));
 
@@ -326,7 +320,6 @@ export default {
     .catch(error => {
       console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
       if (error.response) {
-        // De server heeft gereageerd met een statuscode die valt buiten de range van 2xx
         console.error('Server response:', error.response.data);
       }
     });
