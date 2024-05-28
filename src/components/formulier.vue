@@ -5,9 +5,6 @@ import achtergrondVraag from "/img/achtergrondVraag.png";
 import pijlVoren from "/img/vragen-pijl-volgende.svg";
 import { getAntwoorden } from "/src/antwoorden.js";
 
-
-
-
 const dealers = [
     { "id": 4816, "name": "Van Mossel Hyundai Leeuwarden", "latitude": 53.200770023103, "longitude": 5.8407729035167 },
     { "id": 4819, "name": "Van Mossel Hyundai Groningen", "latitude": 53.220721988724, "longitude": 6.6111767146783 },
@@ -159,46 +156,102 @@ export default {
       this.errors.email = '';
       return true;
     },
+    validateAndFormatPhoneNumber(phoneNumber) {
+      // Verwijder eventuele niet-numerieke tekens behalve het plusteken aan het begin
+      phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
+
+      // Controleer of het telefoonnummer begint met '+31'
+      if (phoneNumber.startsWith('+31')) {
+        // Zorg ervoor dat het nummer exact 12 tekens lang is (inclusief +31)
+        if (phoneNumber.length !== 12) {
+          console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
+          return null; // Ongeldig nummer
+        }
+      } else {
+        // Voeg +31 toe als het niet aanwezig is en het nummer begint met 0
+        if (phoneNumber.startsWith('0')) {
+          phoneNumber = '+31' + phoneNumber.slice(1);
+        } else if (!phoneNumber.startsWith('+31')) {
+          // Voeg +31 toe als het niet aanwezig is en het nummer niet begint met 0
+          phoneNumber = '+31' + phoneNumber;
+        }
+
+        // Zorg ervoor dat het nummer exact 12 tekens lang is (inclusief +31)
+        if (phoneNumber.length !== 12) {
+          console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
+          return null; // Ongeldig nummer
+        }
+      }
+
+      return phoneNumber;
+    },
     validateTelefoonnummer() {
       console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
-      let nummer = this.formData.telefoonnummer.replace(/[-\s]/g, '');
-      const landcode = this.formData.landcode;
-
-      const regexNL = /^[0-9]{10}$/;  
-      const regexBE = /^[0-9]{9}$/;
-
-      if ((landcode === 'NL' && !regexNL.test(nummer)) || (landcode === 'BE' && !regexBE.test(nummer))) {
+      const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+      if (!formattedPhoneNumber) {
         this.errors.telefoonnummer = 'Ongeldig telefoonnummer.';
         return false;
       }
-
-      if (landcode === 'BE' && nummer.startsWith('0')) {
-        nummer = '+' + nummer;
-      }
-
       this.errors.telefoonnummer = '';
-      this.formData.telefoonnummer = nummer;
+      this.formData.telefoonnummer = formattedPhoneNumber;
       return true;
     },
-    validatePostcode() {
-      console.log("Validating postcode:", this.formData.postcode);
-      const regexNL = /^[1-9][0-9]{3}\s?[A-Za-z]{2}$/;
-      const regexBE = /^[1-9][0-9]{3}$/;
-      if (!(this.formData.postcode.match(regexNL) || this.formData.postcode.match(regexBE))) {
-        this.errors.postcode = 'Ongeldige postcode.';
-        return false;
+    async checkPostcode() {
+      if (this.postcode.length === 6) {
+        const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
+        if (postcodeRegex.test(this.postcode)) {
+          await this.findNearestDealers();
+        } else {
+          this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
+        }
       }
-      this.errors.postcode = '';
-      return true;
     },
     validateDealer() {
-      console.log("Validating dealer:", this.formData.dealer);
-      if (this.formData.dealer === '') {
+      console.log("Validating dealer:", this.formData.dealer.id);
+      if (!this.formData.dealer || !this.formData.dealer.id) {
         this.errors.dealer = 'Selecteer een dealer.';
         return false;
       }
       this.errors.dealer = '';
       return true;
+    },
+    async findNearestDealers() {
+      try {
+        const apiKey = 'pk.6c8d6a1e3fe6468f0ceab205affad3d7';
+        const response = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${apiKey}&q=${this.postcode}&format=json`);
+
+        if (response.data && response.data.length > 0) {
+          const { lat, lon } = response.data[0];
+          const dealersWithDistance = dealers.map(dealer => {
+            const distance = this.calculateDistance(lat, lon, dealer.latitude, dealer.longitude);
+            return { ...dealer, distance };
+          });
+          this.nearestDealers = dealersWithDistance.sort((a, b) => a.distance - b.distance).slice(0, 5);
+        } else {
+          this.errors.postcode = 'Geen gegevens gevonden voor de opgegeven postcode.';
+        }
+      } catch (error) {
+        console.error('Fout bij het ophalen van de coördinaten voor de postcode:', error);
+        this.errors.postcode = 'Fout bij het ophalen van de coördinaten voor de postcode.';
+      }
+    },
+    calculateDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = this.deg2rad(lat2 - lat1);
+      const dLon = this.deg2rad(lon2 - lon1);
+      const a = 
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+          Math.sin(dLon / 2) * Math.sin(dLon / 2); 
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+      const distance = R * c;
+      return distance;
+    },
+    deg2rad(deg) {
+      return deg * (Math.PI/180);
+    },
+    clearErrors() {
+      this.errors.postcode = '';
     },
     validateForm() {
       console.log("Validating form...");
@@ -208,7 +261,6 @@ export default {
         this.validateAchternaam() &&
         this.validateEmail() &&
         this.validateTelefoonnummer() &&
-        this.validatePostcode() &&
         this.validateDealer()
       );
       console.log("Form valid:", isValid);
@@ -218,12 +270,31 @@ export default {
       console.log("Submitting form...");
       if (this.validateForm()) {
         console.log("Form is valid, submitting...");
-        console.log("Form data:", this.formData);
+        console.log("Form data before processing:", this.formData);
 
+        // Voeg de antwoorden en het specifieke antwoord toe voor het telefoonnummer
         this.formData.answers = getAntwoorden();
         this.formData.answers.push(4659);
 
-        console.log("Antwoord-IDs:", this.formData.answers);
+        // Voeg de voornaam, achternaam en telefoonnummer toe aan this.formData met de juiste veldnamen
+        this.formData.firstname = this.formData.voornaam;
+        this.formData.lastname = this.formData.achternaam;
+
+        // Valideer en formatteer het telefoonnummer
+        const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+        if (!formattedPhoneNumber) {
+          console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
+          return;
+        }
+        this.formData.phone_number = formattedPhoneNumber;
+
+        // Verwijder voornaam, achternaam en telefoonnummer uit this
+// Verwijder voornaam, achternaam en telefoonnummer uit this.formData omdat ze al zijn toegevoegd met de juiste veldnamen
+delete this.formData.voornaam;
+        delete this.formData.achternaam;
+        delete this.formData.telefoonnummer;
+
+        console.log("Form data after processing:", JSON.stringify(this.formData));
 
         const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
         axios.post(
@@ -242,62 +313,19 @@ export default {
         })
         .catch(error => {
           console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
+          if (error.response) {
+            // De server heeft gereageerd met een statuscode die valt buiten de range van 2xx
+            console.error('Server response:', error.response.data);
+          }
         });
       } else {
         console.log("Form is invalid, not submitting.");
       }
-    },
-    async checkPostcode() {
-        if (this.postcode.length === 6) {
-          const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
-          if (postcodeRegex.test(this.postcode)) {
-            await this.findNearestDealers();
-          } else {
-            this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
-          }
-        }
-      },
-      async findNearestDealers() {
-        try {
-          const apiKey = 'pk.6c8d6a1e3fe6468f0ceab205affad3d7';
-          const response = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${apiKey}&q=${this.postcode}&format=json`);
-  
-          if (response.data && response.data.length > 0) {
-            const { lat, lon } = response.data[0];
-            const dealersWithDistance = dealers.map(dealer => {
-              const distance = this.calculateDistance(lat, lon, dealer.latitude, dealer.longitude);
-              return { ...dealer, distance };
-            });
-            this.nearestDealers = dealersWithDistance.sort((a, b) => a.distance - b.distance).slice(0, 5);
-          } else {
-            this.errors.postcode = 'Geen gegevens gevonden voor de opgegeven postcode.';
-          }
-        } catch (error) {
-          console.error('Fout bij het ophalen van de coördinaten voor de postcode:', error);
-          this.errors.postcode = 'Fout bij het ophalen van de coördinaten voor de postcode.';
-        }
-      },
-      calculateDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371;
-        const dLat = this.deg2rad(lat2 - lat1);
-        const dLon = this.deg2rad(lon2 - lon1);
-        const a = 
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
-            Math.sin(dLon / 2) * Math.sin(dLon / 2); 
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
-        const distance = R * c;
-        return distance;
-      },
-      deg2rad(deg) {
-        return deg * (Math.PI/180);
-      },
-      clearErrors() {
-        this.errors.postcode = '';
-      },
+    }
   }
 };
 </script>
+
 
 
 
@@ -374,24 +402,6 @@ export default {
 
         <div class="vrijblijvend-gegevens beneden">Vul je postcode in en <span class="dik">kies een dealer</span> bij jou in de buurt:</div>
 
-        <!-- <div class="Postcode">
-            <label for="Postcode">
-                <input class="input-formulier" type="text" id="Postcode" name="Postcode" placeholder="Postcode" v-model="formData.postcode">
-            </label>
-            <div class="error">{{ errors.postcode }}</div>
-        </div>
-
-        <div class="Kies-een-dealer">
-          <label for="Kies-een-dealer">
-            <select class="input-formulier" id="Kies-een-dealer" name="Kies-een-dealer" v-model="formData.dealer">
-              <option value="" disabled>Selecteer een dealer</option>
-              <option>Rotterdam</option>
-              <option>Rotterdam-Noord</option>
-            </select>
-          </label>
-          <div class="error">{{ errors.dealer }}</div>
-        </div> -->
-
 
         <div>
           <div class="Postcode">
@@ -402,15 +412,15 @@ export default {
           </div>
       
           <div class="Kies-een-dealer">
-            <label for="Kies-een-dealer">
-              <select class="input-formulier" id="Kies-een-dealer" name="Kies-een-dealer" v-model="selectedDealer">
-                <option value="" disabled>Selecteer een dealer</option>
-                <option v-for="dealer in nearestDealers" :key="dealer.id" :value="dealer.id">{{ dealer.name }}</option>
-              </select>
-            </label>
+            <label for="Kies-een-dealer"></label>
+            <select class="input-formulier" id="Kies-een-dealer" name="Kies-een-dealer" v-model="formData.dealer">
+              <option value="" disabled>Selecteer een dealer</option>
+              <option v-for="dealer in nearestDealers" :key="dealer.id" :value="dealer">{{ dealer.name }}</option>
+            </select>
             <div class="error">{{ errors.dealer }}</div>
           </div>
-        </div>
+          </div>
+          
 
         <div class="gekozen-dealer beneden">
           De gekozen dealer neemt telefonisch contact met je op voor het bespreken van je wensen voor de berekening.
