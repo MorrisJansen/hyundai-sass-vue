@@ -445,10 +445,10 @@ export default {
             <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + currentImage + ')' }"></div>
             <div class="cta-balk-1">
               <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk<br> vanaf €275 p/m* </p>
-              <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
+              <!-- <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
                 <div class="vraag-offerte-aan eerste-knop-tekst">Vraag offerte aan</div>
                 <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-              </div>
+              </div> -->
       
             </div>
           </div>
@@ -550,6 +550,7 @@ export default {
       </div>
 
 
+      
 
 
 <!-- 
@@ -560,11 +561,12 @@ export default {
 
 
 
-
-      <div class="offerte-knop midden onder" onclick="navigateToQuestions()">
+    <a href="/vraag1">
+      <div class="offerte-knop midden onder knop-onder-tabel" onclick="navigateToQuestions()">
         <div class="vraag-offerte-aan">Vraag offerte aan</div>
         <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
       </div>
+    </a>
 
 
 
@@ -580,6 +582,7 @@ export default {
         </div>
 
         
+      <div class="scroll-container">
         <div class="tabel-prijzen-1">
 
 
@@ -593,11 +596,11 @@ export default {
               <div class="overlap-group-1-2">
                 <div class="frame-9-1 achtergrond-lichtblauw hyundaisansheadoffice-regular-normal-port-gore-21px">
                   <div class="profile-groups-1">60 maanden</div>
-                  <img class="separators-5" :src="separators1" alt="Separators" />
+                  <img class="separators-2" :src="separators1" alt="Separators" />
                   <div class="profile-groups-1">60 maanden</div>
-                  <img class="separators-5" :src="separators2" alt="Separators" />
+                  <img class="separators-2" :src="separators2" alt="Separators" />
                   <div class="profile-groups-1">48 maanden</div>
-                  <img class="separators-5" :src="separators3" alt="Separators" />
+                  <img class="separators-2" :src="separators3" alt="Separators" />
                   <div class="profile-groups-1">48 maanden</div>
                 </div>             
                </div>
@@ -607,20 +610,20 @@ export default {
           <div class="aantal-km">
             <div class="titel-14">
               <div class="overlap-group-5">
-                <div class="titel-20 hyundaisansheadoffice-bold-port-gore-32px">{{ titel7 }}</div>
+                <div class="titel-20 tweede-kolom-titel hyundaisansheadoffice-bold-port-gore-32px">{{ titel7 }}</div>
               </div>
             </div>
 
 
             <div class="onderdelen-8">
               <div class="overlap-group-1-2">
-                <div class="frame-9-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
+                <div class="frame-9-1 tweede-kolom-onderkant hyundaisansheadoffice-regular-normal-port-gore-21px">
                   <div class="profile-groups-1">10.000</div>
-                  <img class="separators-5" :src="separators1" alt="Separators" />
+                  <img class="separators-2" :src="separators1" alt="Separators" />
                   <div class="profile-groups-1">20.000</div>
-                  <img class="separators-5" :src="separators2" alt="Separators" />
+                  <img class="separators-2" :src="separators2" alt="Separators" />
                   <div class="profile-groups-1">10.000</div>
-                  <img class="separators-5" :src="separators3" alt="Separators" />
+                  <img class="separators-2" :src="separators3" alt="Separators" />
                   <div class="profile-groups-1 ">20.000</div>
                 </div>             
                </div>
@@ -629,33 +632,48 @@ export default {
 
 
 
-          <div class="maandbedrag">
+          <div class="aantal-km">
             <div class="titel-14">
-              <img class="base-12" :src="base13" alt="Base" />
-              <div class="titel-21 hyundaisansheadoffice-bold-port-gore-32px">{{ titel8 }}</div>
-            </div>
-            <div class="onderdelen-6">
-              <img class="base-13" :src="base14" alt="Base" />
-              <div class="frame-10-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
-                <div class="profile-groups-1">{{ profileGroups2 }}</div>
-                <img class="separators-63" :src="separators114" alt="Separators" />
-                <div class="profile-groups-1">{{ accountViwers2 }}</div>
-                <img class="separators-64" :src="separators115" alt="Separators" />
-                <div class="profile-groups-1">{{ socialMediaDashboa2 }}</div>
-                <img class="separators-65" :src="separators116" alt="Separators" />
-                <div class="profile-groups-1">{{ shopifyDashboard2 }}</div>
+              <div class="overlap-group-5">
+                <div class="titel-20 hyundaisansheadoffice-bold-port-gore-32px">{{ titel8 }}</div>
               </div>
             </div>
+
+
+
+
+            <div class="onderdelen-8">
+              <div class="overlap-group-1-2">
+                <div class="frame-9-1 hyundaisansheadoffice-regular-normal-port-gore-21px">
+                  <div class="profile-groups-1">€ 312,-</div>
+                  <img class="separators-2" :src="separators1" alt="Separators" />
+                  <div class="profile-groups-1">€ 358,11</div>
+                  <img class="separators-2" :src="separators2" alt="Separators" />
+                  <div class="profile-groups-1">€ 342,-</div>
+                  <img class="separators-2" :src="separators3" alt="Separators" />
+                  <div class="profile-groups-1 ">€ 385,04
+                  </div>
+                </div>             
+               </div>
+            </div>
           </div>
+
+          
+
         </div>
+      </div>
 
-
-        <div class="offerte-knop midden" onclick="navigateToQuestions()">
+      <a href="/vraag1">
+        <div class="offerte-knop midden knop-onder-kleine-tabel"  onclick="navigateToQuestions()">
           <div class="vraag-offerte-aan">Vraag offerte aan</div>
           <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
         </div>
+      </a>
+
 
       </div>
+
+      
       <footer class="footer-1">
         <img class="line-2-1" :src="line2" alt="Line 2" />
         <p class="bekijk-de-privacy-1 hyundaisansheadoffice-regular-normal-silver-16px">{{ bekijkDePrivacy }}</p>
@@ -1045,6 +1063,10 @@ export default {
 
 
 
+.onderdelen 
+  height: 1465px
+
+
 
 
 
@@ -1071,1321 +1093,105 @@ export default {
 
 
 
-  // hier begint de styling van de tabel
+  // hier begint de styling van de tabel tabelmobiel
 
-.section-uitvoeringen-tabel-1
-  align-items: flex-start
-  display: flex
-  margin-top: 18.4vw
-  min-width: 256.8vw
-
-.overlap-group2-1
-  height: 390.4vw
-  position: relative
-  width: 256.8vw
-
-
-
-.rectangle-2
-  background-color: $light-blue
-  height: 390.4vw
-  left: 0
-  position: absolute
-  top: 0
-  width: 100.0vw
-
-.tabel-sectie-1
-  align-items: flex-start
-  display: inline-flex
-  flex-direction: column
-  gap: 16.8vw
-  left: 5.33vw
-  position: absolute
-  top: 16.27vw
-
-.uitvoeringen-en-hun-functionaliteiten-1
-  letter-spacing: 0
-  line-height: 8.53vw
-  margin-top: -0.27vw
-  position: relative
-  text-align: center
-  width: 89.33vw
-
-.tabel-1
-  align-items: flex-start
-  display: inline-flex
-  flex: 0 0 auto
-  gap: 1.1vw
-  position: relative
-
-.functionaliteiten-1
-  align-items: flex-start
-  display: inline-flex
-  flex: 0 0 auto
-  flex-direction: column
-  gap: 1.1vw
-  position: relative
-
-.titel-15
-  align-items: center
-  background-size: 100% 100%
-  display: flex
-  height: 32.26vw
-  position: relative
-  width: 85.3vw
-
-.bill-montly-2
-  flex: 1
-  height: 8.0vw
-  letter-spacing: 0
-  line-height: 7.89vw
-  margin-left: 13.21%
-  margin-right: 10.68%
-  margin-top: 0.16vw
-  width: 64.93vw
-
-.onderdelen-7
-  background-size: 100% 100%
-  border: 0.15vw solid
-  border-color: $text-grey
-  height: 249.3vw
-  position: relative
-  width: 85.3vw
-
-.tabel-tekst:first-child
-  margin-top: 5vw
-
-.tabel-tekst
-  color: #231e41
-  font-family: "Hyundai Sans Head Office"
-  font-size: 1.2rem!important
-  font-style: normal
-  font-weight: 400
-  line-height: normal
-  margin-left: 5vw
-  padding: 0.35rem
-  width: fit-content
-  align-content: center
-  justify-content: center
-
-
-.tabel-separator
-  margin-left: 5vw
-  width: 12.20881rem
-  height: 0.04181rem
-  stroke-width: 0.669px
-  stroke: var(--Text-grey, #C1C1C1)
-  margin-bottom: 0.35rem
-
-
-
-.frame-9-3
-  height: 234.42vw
-  margin-left: 4.08vw
-  margin-top: 8.21vw
-  position: relative
-  width: 78.13vw
-
-.tabel-item-2
-  align-items: flex-start
-  display: inline-flex
-  flex: 0 0 auto
-  flex-direction: column
-  gap: 1.09vw
-  overflow: hidden
-  position: relative
-
-.titel-12
-  height: 32.26vw
-  position: relative
-  width: 32.11vw
-
-.overlap-group-3
-  height: 32.27vw
-  position: relative
-  width: 25.33vw
-
-.base
-  height: 32.27vw
-  left: 0
-  position: absolute
-  top: 0
-  width: 8.27vw
-
-.titel-16
-  left: 5.33vw
-  letter-spacing: 0
-  line-height: 7.89vw
-  position: absolute
-  text-align: center
-  top: 10.13vw
-  white-space: nowrap
-
-.onderdelen-5
-  height: 249.3vw
-  position: relative
-  width: 32.11vw
-
-.overlap-group1-1
-  height: 249.33vw
-  position: relative
-  width: 28.8vw
-
-.base-1
-  height: 249.33vw
-  left: 0
-  position: absolute
-  top: 0
-  width: 8.27vw
-
-.frame-1-1
-  align-items: center
-  display: inline-flex
-  flex-direction: column
-  gap: 2.99vw
-  left: 3.47vw
-  position: absolute
-  top: 7.73vw
-
-.tabel-icons-6
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -123.73vw
-  position: relative
-  width: 4.28vw
-
-.separators-13
-  height: 0.27vw
-  position: relative
-  width: 4.59vw
-
-.tabel-icons-7
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -113.11vw
-  position: relative
-  width: 4.28vw
-
-.separators-7
-  height: 0.27vw
-  position: relative
-  width: 4.68vw
-
-.tabel-icons-8
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -102.67vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-9
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -92.23vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-10
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -81.79vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-11
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -71.35vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-12
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -60.91vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-13
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -50.47vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-14
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -40.02vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-15
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -29.58vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-16
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -19.14vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-17
-  height: 4.28vw
-  margin-right: -1180.65vw
-  margin-top: -8.7vw
-  position: relative
-  width: 4.28vw
-
-.tabel-icons-1
-  height: 4.28vw
-  margin-right: -1180.65vw
-  position: relative
-  width: 4.28vw
-
-.base-2
-  height: 32.27vw
-  left: 1161.33vw
-  position: absolute
-  top: -82.67vw
-  width: 32.0vw
-
-.titel-17
-  left: 2.67vw
-  letter-spacing: 0
-  line-height: 6.35vw
-  position: absolute
-  text-align: center
-  top: 10.13vw
-
-.span0-2
-  line-height: 7.89vw
-
-.span1-2
-  color: $white
-  font-family: $font-family-hyundai_sans_head_office-regular
-  font-size: 3.25vw
-  font-weight: 400
-
-.base-3
-  height: 249.33vw
-  left: 1161.33vw
-  position: absolute
-  top: -116.0vw
-  width: 32.0vw
-
-.tabel-icons-18
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -123.73vw
-  position: relative
-  width: 4.28vw
-
-.separators-14
-  height: 0.36vw
-  margin-right: -1157.99vw
-  margin-top: -116.46vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-19
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -113.11vw
-  position: relative
-  width: 4.28vw
-
-.separators-15
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -105.84vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-20
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -102.67vw
-  position: relative
-  width: 4.28vw
-
-.separators-16
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -95.4vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-21
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -92.23vw
-  position: relative
-  width: 4.28vw
-
-.separators-17
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -84.95vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-22
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -81.79vw
-  position: relative
-  width: 4.28vw
-
-.separators-18
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -74.51vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-23
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -71.35vw
-  position: relative
-  width: 4.28vw
-
-.separators-19
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -64.07vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-24
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -60.91vw
-  position: relative
-  width: 4.28vw
-
-.separators-20
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -53.63vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-25
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -50.47vw
-  position: relative
-  width: 4.28vw
-
-.separators-21
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -43.19vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-26
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -40.02vw
-  position: relative
-  width: 4.28vw
-
-.separators-22
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -32.75vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-27
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -29.58vw
-  position: relative
-  width: 4.28vw
-
-.separators-23
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -22.31vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-28
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -19.14vw
-  position: relative
-  width: 4.28vw
-
-.separators-24
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -11.87vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-29
-  height: 4.28vw
-  margin-right: -1147.55vw
-  margin-top: -8.7vw
-  position: relative
-  width: 4.28vw
-
-.separators-25
-  height: 0.27vw
-  margin-right: -1157.99vw
-  margin-top: -1.43vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-2
-  height: 4.28vw
-  margin-right: -1147.55vw
-  position: relative
-  width: 4.28vw
-
-.separators-8
-  height: 0.27vw
-  margin-right: -1157.99vw
-  position: relative
-  width: 25.15vw
-
-.base-4
-  height: 32.27vw
-  left: 1128.27vw
-  position: absolute
-  top: -82.67vw
-  width: 32.0vw
-
-.titel-13
-  left: 0
-  letter-spacing: 0
-  line-height: 7.89vw
-  position: absolute
-  text-align: center
-  top: 10.13vw
-  width: 32.0vw
-
-.base-5
-  height: 249.33vw
-  left: 1128.27vw
-  position: absolute
-  top: -116.0vw
-  width: 32.0vw
-
-.tabel-icons-30
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -123.73vw
-  position: relative
-  width: 4.28vw
-
-.separators-26
-  height: 0.36vw
-  margin-right: -1124.78vw
-  margin-top: -116.46vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-31
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -113.11vw
-  position: relative
-  width: 4.28vw
-
-.separators-27
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -105.84vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-32
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -102.67vw
-  position: relative
-  width: 4.28vw
-
-.separators-28
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -95.4vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-33
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -92.23vw
-  position: relative
-  width: 4.28vw
-
-.separators-29
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -84.95vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-34
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -81.79vw
-  position: relative
-  width: 4.28vw
-
-.separators-30
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -74.51vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-35
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -71.35vw
-  position: relative
-  width: 4.28vw
-
-.separators-31
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -64.07vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-36
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -60.91vw
-  position: relative
-  width: 4.28vw
-
-.separators-32
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -53.63vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-37
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -50.47vw
-  position: relative
-  width: 4.28vw
-
-.separators-33
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -43.19vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-38
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -40.02vw
-  position: relative
-  width: 4.28vw
-
-.separators-34
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -32.75vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-39
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -29.58vw
-  position: relative
-  width: 4.28vw
-
-.separators-35
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -22.31vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-40
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -19.14vw
-  position: relative
-  width: 4.28vw
-
-.separators-36
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -11.87vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-41
-  height: 4.28vw
-  margin-right: -1114.35vw
-  margin-top: -8.7vw
-  position: relative
-  width: 4.28vw
-
-.separators-37
-  height: 0.27vw
-  margin-right: -1124.78vw
-  margin-top: -1.43vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-3
-  height: 4.28vw
-  margin-right: -1114.35vw
-  position: relative
-  width: 4.28vw
-
-.separators-9
-  height: 0.27vw
-  margin-right: -1124.78vw
-  position: relative
-  width: 25.15vw
-
-.base-6
-  height: 32.27vw
-  left: 1094.93vw
-  position: absolute
-  top: -82.67vw
-  width: 32.0vw
-
-.base-7
-  height: 249.33vw
-  left: 1094.93vw
-  position: absolute
-  top: -116.0vw
-  width: 32.0vw
-
-.tabel-icons-42
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -123.73vw
-  position: relative
-  width: 4.28vw
-
-.separators-38
-  height: 0.36vw
-  margin-right: -1091.57vw
-  margin-top: -116.46vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-43
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -113.11vw
-  position: relative
-  width: 4.28vw
-
-.separators-39
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -105.84vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-44
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -102.67vw
-  position: relative
-  width: 4.28vw
-
-.separators-40
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -95.4vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-45
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -92.23vw
-  position: relative
-  width: 4.28vw
-
-.separators-41
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -84.95vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-46
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -81.79vw
-  position: relative
-  width: 4.28vw
-
-.separators-42
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -74.51vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-47
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -71.35vw
-  position: relative
-  width: 4.28vw
-
-.separators-43
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -64.07vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-48
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -60.91vw
-  position: relative
-  width: 4.28vw
-
-.separators-44
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -53.63vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-49
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -50.47vw
-  position: relative
-  width: 4.28vw
-
-.separators-45
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -43.19vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-50
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -40.02vw
-  position: relative
-  width: 4.28vw
-
-.separators-46
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -32.75vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-51
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -29.58vw
-  position: relative
-  width: 4.28vw
-
-.separators-47
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -22.31vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-52
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -19.14vw
-  position: relative
-  width: 4.28vw
-
-.separators-48
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -11.87vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-53
-  height: 4.28vw
-  margin-right: -1081.14vw
-  margin-top: -8.7vw
-  position: relative
-  width: 4.28vw
-
-.separators-49
-  height: 0.27vw
-  margin-right: -1091.57vw
-  margin-top: -1.43vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-4
-  height: 4.28vw
-  margin-right: -1081.14vw
-  position: relative
-  width: 4.28vw
-
-.separators-10
-  height: 0.27vw
-  margin-right: -1091.57vw
-  position: relative
-  width: 25.15vw
-
-.n-line-1
-  height: 32.26vw
-  position: relative
-  width: 32.3vw
-
-.base-8
-  height: 32.27vw
-  left: 1061.87vw
-  position: absolute
-  top: -82.67vw
-  width: 32.0vw
-
-.titel-18
-  left: 0.27vw
-  letter-spacing: 0
-  line-height: 7.89vw
-  position: absolute
-  text-align: center
-  top: 10.13vw
-  width: 32.0vw
-
-.base-9
-  height: 249.33vw
-  left: 1061.87vw
-  position: absolute
-  top: -116.0vw
-  width: 32.0vw
-
-.frame-16-1
-  align-items: center
-  display: inline-flex
-  flex-direction: column
-  gap: 2.99vw
-  left: 3.73vw
-  position: absolute
-  top: 7.73vw
-
-.tabel-icons-54
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -123.73vw
-  position: relative
-  width: 4.28vw
-
-.separators-50
-  height: 0.36vw
-  margin-right: -1058.05vw
-  margin-top: -116.46vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-55
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -113.11vw
-  position: relative
-  width: 4.28vw
-
-.separators-51
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -105.84vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-56
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -102.67vw
-  position: relative
-  width: 4.28vw
-
-.separators-52
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -95.4vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-57
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -92.23vw
-  position: relative
-  width: 4.28vw
-
-.separators-53
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -84.95vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-58
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -81.79vw
-  position: relative
-  width: 4.28vw
-
-.separators-54
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -74.51vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-59
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -71.35vw
-  position: relative
-  width: 4.28vw
-
-.separators-55
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -64.07vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-60
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -60.91vw
-  position: relative
-  width: 4.28vw
-
-.separators-56
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -53.63vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-61
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -50.47vw
-  position: relative
-  width: 4.28vw
-
-.separators-57
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -43.19vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-62
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -40.02vw
-  position: relative
-  width: 4.28vw
-
-.separators-58
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -32.75vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-63
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -29.58vw
-  position: relative
-  width: 4.28vw
-
-.separators-59
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -22.31vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-64
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -19.14vw
-  position: relative
-  width: 4.28vw
-
-.separators-60
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -11.87vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-65
-  height: 4.28vw
-  margin-right: -1047.61vw
-  margin-top: -8.7vw
-  position: relative
-  width: 4.28vw
-
-.separators-61
-  height: 0.27vw
-  margin-right: -1058.05vw
-  margin-top: -1.43vw
-  position: relative
-  width: 25.15vw
-
-.tabel-icons-5
-  height: 4.28vw
-  margin-right: -1047.61vw
-  position: relative
-  width: 4.28vw
-
-.separators-11
-  height: 0.27vw
-  margin-right: -1058.05vw
-  position: relative
-  width: 25.15vw
-
-.group-2
-  background-color: $primary-blue
-  border-radius: 5.33vw
-  display: flex
-  height: 10.67vw
-  left: 67.47vw
-  position: absolute
-  top: 311.73vw
-  width: 10.67vw
-
-
-.button-container
-  display: flex
-  width: 100vw
-  align-items: center
-  justify-content: center
-
-
-.knop-midden
-  position: relative
-  bottom: 35vw
-
-.knop-beneden
-  margin-top: 15vw
-  margin-right: 5vw
-
-
-.arrow-4
-  height: 3.75vw
-  margin-left: 3.2vw
-  margin-top: 3.47vw
-  width: 3.71vw
-
-.group-1-2
-  background-color: $primary-blue
-  border-radius: 5.33vw
-  display: flex
-  height: 10.67vw
-  left: 53.07vw
-  position: absolute
-  top: 311.73vw
-  width: 10.67vw
-
-.arrow-5
-  height: 3.75vw
-  margin-left: 3.76vw
-  margin-top: 3.47vw
-  width: 3.71vw
-
-.section-prijzentabel-1
-  align-self: center
-  display: flex
-  flex-direction: column
-  height: 199.73vw
-  margin-left: 1.07vw
-  margin-top: 17.33vw
-  position: relative
-  width: 90.4vw
-
-.prijzentabel-i10-comfort-1
-  height: 17.07vw
-  letter-spacing: 0
-  line-height: 8.53vw
-  margin-left: 11.15vw
-  text-align: center
-  width: 67.59vw
 
 @media (max-width: 768px)
-  .prijzentabel-i10-comfort-1
-    margin-top: 100px
 
+  .scroll-tabel-container
+    width: 95vw
+    height: 1750px
 
-.tabel-prijzen-1
-  align-items: flex-start
-  display: flex
-  gap: 1.9vw
+  .section-uitvoeringen-tabel
+    background-color: $white!important
 
-  height: 123.47vw
-  margin-top: 15.47vw
-  position: relative
-  width: 89.87vw
+  .uitvoeringen-en-hun-functionaliteiten
+    margin-left: 400px
 
+  .inhoud-tabel-container
+    margin-top: 2px
+    height: 1325px
+    
+    
+  .tabel
+    position: relative
+    left: 550px
+    height: 1200px
 
+  .profile-groups
+    display: inline-flex
+    width:  470px
 
-.titel-19
-  align-items: center
-  background-size: 100% 100%
-  display: flex
-  height: 150px
-  position: relative
-  width: 55vw
+  .profile-groups:first-child
+    margin-top: 2.484rem
 
-.bill-montly-3
-  flex: 1
-  height: 17.07vw
-  letter-spacing: 0
-  line-height: 8.53vw
-  margin-left: 13.21%
-  margin-right: 10.68%
-  margin-top: 0.27vw
-  width: 48.71vw
-
-.onderdelen-8
-  flex: 1
-  flex-grow: 1
-  position: relative
-  width: 55vw
-
-  
-.overlap-group-4
-  align-items: flex-end
-  background-size: 100% 100%
-  display: flex
-  height: 87.2vw
-  min-width: 64.0vw
-  padding: 11.76vw 7.04vw
-  position: relative
-
-.aantal-km
-  align-items: flex-start
-  align-self: stretch
-  display: inline-flex
-  flex: 0 0 auto
-  flex-direction: column
-  gap: 1.9vw
-  position: relative
+  .separator-3:last-child
+    display: none
 
 
 
+  .onderdelen
+    margin: 0
+    padding: 0
+    width: 34.4rem
+    height: 1325px
 
 
-.titel-14
-  align-items: center
-  background-size: 100% 100%
-  display: flex
-  height: 150px
-  position: relative
-  width: 64.0vw
+  .tabel-icons,
+  .separators-3
+    position: relative
+    bottom: 420px
+    gap: 0.954rem
 
+  .tabel-icons 
+    width: 1.72681rem
+    height: 1.72681rem
+    margin-left: 70px
+    margin-top: 3.25px
+    margin-bottom: 2.5px
 
-  display: flex
-  padding: 2.0625rem 1.6015rem 2rem 1.98188rem
-  justify-content: flex-end
-  align-items: center
-  border-radius: 0.625rem
-  border: 1px solid var(--Text-grey, #C1C1C1)
+  .tabel-icons:last-child
+    display: none
+  .onderdelen
+    .separators-3:last-of-type
+       display: none
 
 
 
 
+  .frame12
+    gap: 1rem
 
 
+  .separators-3
+    width: 10.14513rem!important
+    height: 0.07194rem!important
   
 
-.overlap-group-5
-  height: 33.87vw
-  position: relative
-  width: 50.13vw
+  .inhoud-tabel-container
+    position: relative
 
 
-.base-10
-  height: 33.87vw
-  left: 0
-  position: absolute
-  top: 0
-  width: 28.53vw
 
-.titel-20
-  left: 8.0vw
-  letter-spacing: 0
-  line-height: 8.53vw
-  position: absolute
-  text-align: center
-  top: 11.47vw
-  white-space: nowrap
 
-.onderdelen-6
-  height: 86.93vw
-  position: relative
-  width: 64.0vw
+  .titel-3,
+  .titel-6
+    font-size: 2.5rem!important
+    color: #002e6b!important
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica
 
-.overlap-group1-2
-  height: 86.93vw
-  position: relative
-  width: 56.8vw
+  .span0-1
+    font-size: 2.5rem!important
+    color: white!important
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica
 
-.base-11
-  height: 86.93vw
-  left: 0
-  position: absolute
-  top: 0
-  width: 28.53vw
+ 
 
-.frame-10-1
-  align-items: flex-start
-  display: inline-flex
-  flex-direction: column
-  gap: 5.42vw
-  left: 7.2vw
-  position: absolute
-  top: 12.8vw
+@media (max-width: 768px)
+  .offerte-knop
 
-.profile-groups-3
-  letter-spacing: 0
-  line-height: normal
-  margin-top: -0.27vw
-  position: relative
-  width: fit-content
-
-.separators-62
-  height: 0.31vw
-  position: relative
-  width: 21.27vw
-
+  .tabel-icoon:last-child 
+    margin: 0 auto
 
 
 
@@ -2529,18 +1335,37 @@ export default {
 
 
 
+
 @media (max-width: 768px)
+
+
+  .section-prijzentabel-1
+    margin-top: 50%
+
+  .scroll-container
+    margin-top: 10%
+    width: 90vw
+    position: absolute
+    left: 10px
+
+
+  .tabel-prijzen-1
+    display: flex
+    flex-direction: row
+    overflow-x: auto
+
+
+
+  .prijzentabel-i10-comfort-1
+    width: 110%
+    margin-left: 90px
+
   .aantal-maanden-1
     display: flex
     flex-direction: column
     width: 70vw
     gap: 1.9vw
-    width: 77vw
-    align-self: stretch
-
-    .titel-19,
-    .onderdelen-8
-      width: 100%
+    width: 900px
 
 
   .profile-groups-1
@@ -2560,6 +1385,7 @@ export default {
   .separators-5
     margin-top: 1.27rem
     margin-bottom: 1.27rem
+
   .achtergrond-lichtblauw
     background-color: $light-blue
 
@@ -2578,7 +1404,18 @@ export default {
     align-items: center
     gap: 2rem
     width: 80vw  
-    
+
+  .knop-onder-tabel
+    position: relative
+    top: 200px
+
+
+  .knop-onder-kleine-tabel
+    position: relative
+    top: 650px
+    margin-left: 11%!important
+
+
 
   .vraag-offerte-aan
     letter-spacing: 0
@@ -2604,6 +1441,102 @@ export default {
 
 
   .scroll-tabel-container
-    width: 100%
     overflow-x: auto
+    position: relative
+
+
+  .aantal-maanden-1
+    gap: 0.5rem
+
+  .titel-19
+    width: 15rem
+    height: 8rem
+    flex-shrink: 0
+
+    border-radius: 0.625rem
+    background: var(--Primary-blue, #002E6B)
+    border: none!important
+
+  .bill-montly-3
+    color: var(--White, #FFF)
+    font-family: "Hyundai Sans Head Office"
+    margin-left: 15%
+    font-size: 2rem
+    font-style: normal
+    font-weight: 700
+    line-height: 2rem
+    display: flex
+    margin-top: 10%
+    justify-content: center
+    border: none!important
+  
+
+
+  .titel-20
+    display: flex
+    width: 15rem
+
+    height: 8rem
+    align-items: center
+    justify-content: center
+    margin-bottom: 0.5rem
+
+    border-radius: 0.625rem
+    border: 1px solid var(--Text-grey, #C1C1C1)
+    background: var(--White, #FFF)
+    color: #002E6B!important
+
+
+  .tweede-kolom-titel
+    margin-left: 0.5rem
+
+
+  .tweede-kolom-onderkant
+    width: 15rem
+    margin: 0 0.5rem
+
+
+  .profile-groups-1
+    margin: 0 auto
+
+  
+  .separators-2
+    width: 80%
+    margin: 1.27rem auto
+    
+    
+
+  
+
+  .titel-21
+    display: flex
+    width: 15rem
+
+    height: 8rem
+    align-items: center
+    justify-content: center
+    margin-bottom: 0.5rem
+    color: var(--Primary-blue, #002E6B)
+
+
+    border-radius: 0.625rem
+    border: 1px solid var(--Text-grey, #C1C1C1)
+    background: var(--White, #FFF)
+
+
+
+
+
+
+
+
+
+
+  .footer-1
+    position: absolute
+    top: -250px
+
+
+
+
 </style>

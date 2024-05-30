@@ -98,6 +98,69 @@ export default {
     line-height: 3.3vw;
     margin-bottom: 2vw;
   }
+
+
+
+@media (max-width: 768px) {
+
+  .top-balk {
+    background-color: white;
+    box-shadow: 0.0vw 8.27vw 21.6vw #00104c33;
+    display: flex;
+    gap: 23.33vw;
+    height: 30vw;
+    position: relative;
+    width: 100.0vw;
+  }
+
+  .group-1 {
+    display: flex;
+    height: 36.8vw;
+    width: 100.0vw;
+  }
+  
+  
+  .logo-hyundai {
+    height: 7.04vw;
+    margin-left: 5.33vw;
+    margin-top: 12vw;
+    width: 50.67vw;
+  }
+  
+  .keurmerk {
+    height: 10.68vw;
+    margin-top: 10.5vw;
+    width: 9.33vw;
+  }
+
+
+
+
+
+  .achtergrondVraag {
+    height: 34rem;
+  }
+
+  .vragen-achtergrond {
+    height: 20rem;
+    width: 90vw;
+    position: relative;
+    top: -32rem;
+  }
+
+  .vraag {
+    font-size: 2rem;
+    width: 100%;
+    line-height: 1.2;
+  }
+
+  .vraag-hoeveel {
+    font-size: 1.4rem;
+  }
+
+
+
+}
   
 
   

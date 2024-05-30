@@ -274,19 +274,6 @@ export default {
 
 
 
-        <!-- carousel -->
-        <!-- <div class="slider-images" ref="slider">
-          <img class="hand-mobiel" :src="handMobiel" alt="hand mobiel" />
-          <img class="x-auto"      :src="binnenAuto" alt="binnen auto" />
-          <img class="x-auto"      :src="dashboardAuto" alt="dashboard auto" />
-          <img class="binnen-auto-2" :src="binnenAuto2" alt="binnen auto 2" />
-        </div>
-        <div class="slider-indicator">
-          <div class="x01"></div>
-          <div class="slider-indicator-item"></div>
-          <div class="slider-indicator-item"></div>
-        </div> -->
-
         <Carousel></Carousel>
 
 
@@ -299,108 +286,6 @@ export default {
 
       <Tabel></Tabel>
       
-      <!-- <div class="section-uitvoeringen-tabel">
-        <div class="tabel-sectie">
-          <div class="uitvoeringen-en-hun-functionaliteiten hyundaisansheadoffice-bold-midnight-blue-48px">
-            {{ uitvoeringenEnHunFunctionaliteiten }}
-          </div>
-          <div class="tabel">
-            <div class="functionaliteiten">
-              <div class="titel-1">
-                <div class="bill-montly hyundaisansheadoffice-bold-white-41px">{{ billMontly1 }}</div>
-              </div>
-              <div class="onderdelen">
-                <div class="frame-9 hyundaisansheadoffice-regular-normal-port-gore-21px">
-                  <div class="profile-groups">{{ profileGroups }}</div>
-                  <img class="separators" :src="separators1" alt="Separators" />
-                  <div class="frame-9-item">{{ accountViwers }}</div>
-                  <img class="separators" :src="separators2" alt="Separators" />
-                  <div class="frame-9-item">{{ socialMediaDashboa }}</div>
-                  <img class="separators" :src="separators3" alt="Separators" />
-                  <div class="frame-9-item">{{ shopifyDashboard }}</div>
-                  <img class="separators" :src="separators4" alt="Separators" />
-                  <div class="frame-9-item">{{ mixedDragAndDrop }}</div>
-                  <img class="separators" :src="separators5" alt="Separators" />
-                  <div class="frame-9-item">{{ downloadablePdfRep }}</div>
-                  <img class="separators" :src="separators6" alt="Separators" />
-                  <div class="frame-9-item">{{ whiteLabelReports }}</div>
-                  <img class="separators" :src="separators7" alt="Separators" />
-                  <div class="frame-9-item">{{ competitorAnalytics }}</div>
-                  <img class="separators" :src="separators8" alt="Separators" />
-                  <div class="frame-9-item">{{ automatedEmailRepo }}</div>
-                  <img class="separators" :src="separators9" alt="Separators" />
-                  <div class="frame-9-item">{{ roiAnalyticsAndTr }}</div>
-                  <img class="separators" :src="separators10" alt="Separators" />
-                  <div class="frame-9-item">{{ correlationAnalysis }}</div>
-                  <img class="separators" :src="separators11" alt="Separators" />
-                  <p class="frame-9-item">{{ trendDetection1 }}</p>
-                  <img class="separators" :src="separators12" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection2 }}</div>
-                  <img class="separators" :src="separators13" alt="Separators" />
-                  <p class="frame-9-item">{{ trendDetection3 }}</p>
-                  <img class="separators-1" :src="separators14" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection4 }}</div>
-                  <img class="separators-1" :src="separators15" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection5 }}</div>
-                  <img class="separators-1" :src="separators16" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection6 }}</div>
-                  <img class="separators-1" :src="separators17" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection7 }}</div>
-                  <img class="separators-1" :src="separators18" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection8 }}</div>
-                  <img class="separators-1" :src="separators19" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection9 }}</div>
-                  <img class="separators-1" :src="separators20" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection10 }}</div>
-                  <img class="separators-1" :src="separators21" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection11 }}</div>
-                  <img class="separators-1" :src="separators22" alt="Separators" />
-                  <div class="frame-9-item">{{ trendDetection12 }}</div>
-                </div>
-              </div>
-            </div>
-            <div class="tabel-item">
-              <div class="titel-2">
-                <div class="titel-3 hyundaisansheadoffice-bold-port-gore-41px">{{ titel1 }}</div>
-              </div>
-              <onderdelen :frame12Props="onderdelen1Props.frame12Props" />
-            </div>
-            <div class="tabel-item">
-              <div class="titel-4">
-                <div class="titel-5 hyundaisansheadoffice-bold-white-41px">
-                  <span class="span0-1 hyundaisansheadoffice-bold-white-41px">{{ spanText3 }}</span>
-                  <br>
-                  <span class="span1-1">{{ spanText4 }}</span>
-                </div>
-              </div>
-              <onderdelen2 :frame12Props="onderdelen2Props.frame12Props" />
-            </div>
-            <comfort-smart :titel="comfortSmart1Props.titel" :onderdelen2Props="comfortSmart1Props.onderdelen2Props" />
-            <comfort-smart
-              :titel="comfortSmart2Props.titel"
-              :className="comfortSmart2Props.className"
-              :onderdelen2Props="comfortSmart2Props.onderdelen2Props"
-            />
-            <div class="tabel-item">
-              <div class="n-line">
-                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">{{ titel2 }}</div>
-              </div>
-              <onderdelen :frame12Props="onderdelen2Props2.frame12Props" />
-            </div>
-          </div>
-
-          <a href="/desktopVragen">
-            <button class="offerte-knop" onclick="navigateToQuestions()">
-              <div class="vraag-offerte-aan">Vraag offerte aan</div>
-              <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-            </button>
-          </a>
-
-
-
-        </div>
-      </div> -->
-
 
 
 
@@ -477,25 +362,6 @@ export default {
         <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
       </button>
     </a>
-
-
-      
-
-          
-          <!-- <div class="tabel-prijzen-item">
-            <div class="titel">
-              <div class="titel-8 hyundaisansheadoffice-bold-port-gore-32px">{{ titel3 }}</div>
-            </div>
-            <onderdelen3 :frame9Props="onderdelen31Props.frame9Props" />
-          </div>
-
-          
-          <div class="tabel-prijzen-item">
-            <div class="titel">
-              <div class="titel-9 hyundaisansheadoffice-bold-port-gore-32px">{{ titel4 }}</div>
-            </div>
-            <onderdelen3 :frame9Props="onderdelen32Props.frame9Props" />
-          </div> -->
 
 
 
@@ -1007,6 +873,7 @@ export default {
   margin-top: 9.79vw
   width: 100.0vw
 
+
 @media (min-width: 768px) and (max-width: 1100px)
   .section-uitvoeringen-tabel
     height: 145vw
@@ -1117,11 +984,6 @@ export default {
   position: relative
   width: fit-content
 
-//.separators-1
-//  height: 0.06vw
- // position: relative
- // width: 17.51vw
-
 .tabel-item
   align-items: flex-start
   flex: 0 0 auto
@@ -1161,11 +1023,21 @@ export default {
   width: 12.95rem
 
 .titel-5
-  display: flex
-  flex-direction: column
+  margin-left: 10%
+  display: inline
   justify-content: center
   align-items: center
-  margin-top: 90px
+  position: relative
+  top: 32%
+
+@media (min-width: 768px)
+  .titel-5
+    position: relative!important
+    bottom: 30px
+
+  .titel-4
+    padding-top: 2rem
+
 
 .span0-1
   color: var(--White, #FFF)
@@ -1188,6 +1060,7 @@ export default {
   font-size: 1.3125rem
   font-style: normal
   position: relative
+  margin-left: 10%
 
 .n-line
 
@@ -1210,7 +1083,11 @@ export default {
   line-height: 3.1875rem
   margin-top: 65px
 
-// dit is waarschijnlijk het einde van de css voor de tabel
+
+@media (min-width: 768px)
+  .profile-groups
+    margin: 2.5px 0
+
 
 
 

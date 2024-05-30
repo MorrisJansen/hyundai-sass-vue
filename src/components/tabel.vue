@@ -54,10 +54,11 @@
                 <div class="profile-groups">Verwarmde stoelen voor</div>
                 <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
                 <div class="profile-groups">Draadloos telefoon opladen</div>
+                <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
+
               </div>
             </div>
           </div>
-          <!-- Gebruik containers voor elke kolom -->
           <div class="tabel-item-container">
             <div class="tabel-item">
               <div class="titel-2">
@@ -114,12 +115,12 @@
           </div>
         </div>
   
-        <a href="/vraag1">
+        <!-- <a href="/vraag1">
           <button class="offerte-knop" onclick="navigateToQuestions()">
             <div class="vraag-offerte-aan">Vraag offerte aan</div>
             <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
           </button>
-        </a>
+        </a> -->
       </div>
     </div>
   </template>
@@ -134,12 +135,12 @@
     data() {
       return {
         separatorsImage: "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png",
-        frame12Icons1: Array(25).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 9),
-        frame12Icons2: Array(25).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 13),
-        frame12Icons3: Array(25).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 16),
-        frame12Icons4: Array(25).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 18),
-        frame12Icons5: Array(25).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png")
-      };
+    frame12Icons1: Array(22).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 9),
+    frame12Icons2: Array(22).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 13),
+    frame12Icons3: Array(22).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 16),
+    frame12Icons4: Array(22).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 18),
+    frame12Icons5: Array(22).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png")
+  };
     }
   };
   </script>
@@ -150,6 +151,7 @@
     flex-direction: column
     align-items: center
     justify-content: center
+    width: 1200px
     .tabel-sectie
       width: 100%
 
@@ -168,7 +170,10 @@
 
 .span1-1 
   font-family: 'Hyundai Sans Head Office-Regular', Helvetica!important
-  margin-top: 0.3vw
+  margin-bottom: 5%
+
+
+
   
   </style>
   

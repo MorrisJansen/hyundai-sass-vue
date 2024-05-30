@@ -25,24 +25,21 @@ export default {
         { id: 4765, answer: "i10 N Line" },
         { id: 4774, answer: "Weet ik nog niet" }
       ],
-      geselecteerdeAntwoorden: [], // We hebben de naam gewijzigd naar geselecteerdeAntwoorden om beter weer te geven dat het de volledige antwoorden zijn
+      geselecteerdeAntwoorden: [], 
       showPopup: false
     };
   },
   methods: {
     goToNextQuestion() {
-      // Controleren of minstens één antwoord is aangevinkt
       if (this.geselecteerdeAntwoorden.length === 0) {
         alert("Selecteer minstens één antwoord.");
-        return; // Stop de functie als geen antwoord is geselecteerd
+        return; 
       }
 
-      // Geselecteerde antwoorden doorgeven aan antwoorden.js
       this.geselecteerdeAntwoorden.forEach((antwoord) => {
-        addAntwoord(antwoord.id); // Alleen de ID doorgeven
+        addAntwoord(antwoord.id); 
       });
 
-      // Doorgaan naar de volgende vraag
       this.$router.push('/vraag4');
     },
     openPopup() {
@@ -71,7 +68,6 @@ export default {
 
 
 
-
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -81,7 +77,7 @@ export default {
           src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
           alt="Logo Hyundai"
         />
-        </a>
+      </a>
       <keurmerk />
     </div>
   
@@ -94,11 +90,25 @@ export default {
         <div class="tussen-haakjes">(meerdere antwoorden mogelijk)</div>
         <div class="onderstreept">Bekijk <a href="/link-naar-functionaliteiten" class="link">hier</a> de functionaliteiten per model</div>
         <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
-          <label class="vraag-optie">
-            <input type="checkbox" :id="'optie' + (index + 1)" :value="{ id: optie.id, answer: optie.answer }" v-model="geselecteerdeAntwoorden"> 
+          <label 
+            class="vraag-optie" 
+            :class="{ 'i10-comfort': optie.answer === 'i10 Comfort' }"
+          >
+            <input 
+              type="checkbox" 
+              :id="'optie' + (index + 1)" 
+              :value="{ id: optie.id, answer: optie.answer }" 
+              v-model="geselecteerdeAntwoorden"
+            > 
             <span class="switcher"></span>
             {{ optie.answer }}
-            <button v-if="optie.answer === 'i10 Comfort'" class="i10-knop" @click="openPopup">Aanbieding!</button>
+            <button 
+              v-if="optie.answer === 'i10 Comfort'" 
+              class="i10-knop" 
+              @click="openPopup"
+            >
+              Aanbieding!
+            </button>
           </label>
         </div>
         
@@ -127,6 +137,7 @@ export default {
     </div>
   </div>
 </template>
+
 
 
 
@@ -346,7 +357,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto; /* Add scrolling capability */
+  overflow-y: auto;
 }
 
 .popup-content {
@@ -364,4 +375,217 @@ export default {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+
+
+  .top-balk {
+    background-color: white;
+    box-shadow: 0.0vw 8.27vw 21.6vw #00104c33;
+    display: flex;
+    gap: 23.33vw;
+    height: 30vw;
+    position: relative;
+    width: 100.0vw;
+  }
+
+  .group-1 {
+    display: flex;
+    height: 36.8vw;
+    width: 100.0vw;
+  }
+  
+  
+  .logo-hyundai {
+    height: 7.04vw;
+    margin-left: 5.33vw;
+    margin-top: 12vw;
+    width: 50.67vw;
+  }
+  
+  .keurmerk {
+    height: 10.68vw;
+    margin-top: 10.5vw;
+    width: 9.33vw;
+  }
+
+
+
+
+
+  .achtergrondVraag {
+    height: 67rem;
+  }
+
+  .vragen-achtergrond {
+    height: 63rem;
+    width: 90vw;
+    position: relative;
+    top: -65rem;
+  }
+
+
+
+  .vraag-hoeveel {
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+    color: var(--Primary-blue, #002E6B);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 95%;
+  }
+
+  .vraag {
+    width:  90%;
+    color: var(--Primary-blue, #002E6B);
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+    margin-bottom: 0.5rem;
+    
+
+  }
+
+
+
+
+
+  .i10-comfort {
+    margin-top: 1px!important;
+  }
+
+
+  .i10-knop {
+
+    margin-left: 0;
+    width: 40%;
+    
+  }
+
+  .vraag-optie:nth-child(2) {
+    margin-top: 0rem!important;
+  }
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px; 
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 5rem;
+
+
+
+  }
+
+  .vraag-optie {
+    font-size: 1.3rem;
+    margin-top: 1.7rem;
+    margin-left: 0rem;
+    gap: 1rem;
+  }
+
+
+
+  .terug {
+    width: 35%;
+    margin-left: 2rem;
+    margin-top: 15px;
+  }
+
+
+  .vorige-tekst {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
+
+  }
+
+  .vorige-afbeelding {
+    width: 50%;
+  }
+  
+  .volgende {
+    margin-left: 5%;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) and (max-width: 768px) {
+    .volgende {
+        margin-left: 35%;
+    }
+}
+
+
+
+  .tussen-haakjes {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .onderstreept {
+    display: none;
+  }
+
+  .popup {
+    display: none;
+  }
+
+
+  .switcher {
+    width: 3rem; 
+    height: 1.4rem; 
+    border-radius: 35px;
+
+
+  }
+
+  .switcher::before {
+    width: 1.5rem;
+    height: 1.45rem;
+    left: 0.1vw;
+    bottom: 0.1vw;
+    border-radius: 35px;
+  }
+
+  .vraag-optie input[type="checkbox"]:checked + .switcher::before {
+    transform: translateX(1.48rem);
+  }
+
+
+
+  .vraag-optie.i10-comfort {
+    margin-bottom: 30px!important;
+    position: relative;
+    top: 15px;
+    font-size: 1.3rem;
+
+  }
+
+  .vraag-optie.i10-comfort .i10-knop {
+    width: 40%;
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
 </style>

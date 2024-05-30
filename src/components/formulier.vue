@@ -375,12 +375,16 @@ export default {
         <template>
           <div>
             <label>
+              <div class="geslacht-container">
               <input type="radio" v-model="formData.geslacht" value="male">
-              Meneer
+              <div class="geslacht"> Meneer </div>
+              </div>
             </label>
             <label>
+              <div class="geslacht-container">
               <input type="radio" v-model="formData.geslacht" value="female">
-              Mevrouw
+              <div class="geslacht"> Mevrouw </div>
+              </div>
             </label>
           </div>
         </template>
@@ -433,7 +437,7 @@ export default {
           <div class="Kies-een-dealer">
             <label for="Kies-een-dealer"></label>
             <select class="input-formulier" id="Kies-een-dealer" name="Kies-een-dealer" v-model="formData.dealer">
-              <option value="" disabled>Selecteer een dealer</option>
+              <option class="selecteer-een-dealer" value="" disabled>Selecteer een dealer</option>
               <option v-for="dealer in nearestDealers" :key="dealer.id" :value="dealer">{{ dealer.name }}</option>
             </select>
             <div class="error">{{ errors.dealer }}</div>
@@ -618,6 +622,191 @@ export default {
 
 .landcode-select {
   width: 8vw;
+}
+
+
+.geslacht-container {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+.geslacht {
+  color: #002e6b!important;
+  font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+  margin-top: 5px;
+  margin-left: 0.8rem;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+
+
+  .top-balk {
+    background-color: white;
+    box-shadow: 0.0vw 8.27vw 21.6vw #00104c33;
+    display: flex;
+    gap: 23.33vw;
+    height: 30vw;
+    position: relative;
+    width: 100.0vw;
+  }
+
+  .group-1 {
+    display: flex;
+    height: 36.8vw;
+    width: 100.0vw;
+  }
+  
+  
+  .logo-hyundai {
+    height: 7.04vw;
+    margin-left: 5.33vw;
+    margin-top: 12vw;
+    width: 50.67vw;
+  }
+  
+  .keurmerk {
+    height: 10.68vw;
+    margin-top: 10.5vw;
+    width: 9.33vw;
+  }
+
+
+
+
+
+  .achtergrondVraag {
+    height: 88rem;
+  }
+
+  .vragen-achtergrond {
+    padding: 3rem;
+    height: 84rem;
+    width: 90vw;
+    position: relative;
+    top: -86rem;
+  }
+
+  .bedankt {
+    font-size: 2rem
+  }
+
+  .vrijblijvend-gegevens {
+    font-size: 1.3rem;
+    line-height: 1.7;
+  }
+
+  .geslacht-container {
+    display: inline-flex;
+    margin-right: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .geslacht {
+    font-size: 1.2rem;
+    color: #002e6b!important;
+    font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
+
+
+  }
+
+  .input-formulier {
+    width: 100%;
+    height: 3.75rem;
+  }
+
+  .input-formulier:placeholder-shown {
+    font-size: 1rem
+  }
+
+  .input-formulier[value="+31"] {
+    font-size: 1rem;
+  }
+
+  .telefoonnummer-input {
+    width: 100%;
+  }
+
+  .telefoonnummer {
+    width: 400%;
+  }
+.input-formulier {
+  font-size: 1rem;
+}
+
+.input-formulier,
+.input-formulier option {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.lijn {
+  width: 100%;
+  margin: 7% 0;
+}
+
+.gekozen-dealer {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#verzendknop {
+  width: 90%;
+  font-size: 1rem;
+  padding: 2rem 0;
+  margin-right: 200px;
+}
+
+.volgende {
+  margin-left: 0;
+}
+
+.volgende-tekst {
+  font-size: 1.3rem; 
+  margin-left: 2rem;
+  
+}
+
+.pijl-omdraaien {
+  margin-left: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+
+.afronding {
+  font-size: 14px;
+  line-height: 2;
+  
+}
+
+.dik {
+  text-decoration: none;
+/* font-family: 'Hyundai Sans Head Office-Regular', Helvetica; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

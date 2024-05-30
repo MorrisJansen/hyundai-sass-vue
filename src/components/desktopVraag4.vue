@@ -68,8 +68,10 @@ export default {
           </div>
           
           <button class="terug">
+            <a href="/vraag3">
             <img :src="vragenPijlVorige" alt="">
             <div class="vorige-tekst">Vorige</div>
+            </a>
           </button>
         </div>
       </div>
@@ -200,6 +202,143 @@ export default {
     font-weight: 400;
     line-height: normal;
   }
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+
+
+  .top-balk {
+    background-color: white;
+    box-shadow: 0.0vw 8.27vw 21.6vw #00104c33;
+    display: flex;
+    gap: 23.33vw;
+    height: 30vw;
+    position: relative;
+    width: 100.0vw;
+  }
+
+  .group-1 {
+    display: flex;
+    height: 36.8vw;
+    width: 100.0vw;
+  }
+  
+  
+  .logo-hyundai {
+    height: 7.04vw;
+    margin-left: 5.33vw;
+    margin-top: 12vw;
+    width: 50.67vw;
+  }
+  
+  .keurmerk {
+    height: 10.68vw;
+    margin-top: 10.5vw;
+    width: 9.33vw;
+  }
+
+
+
+
+
+  .achtergrondVraag {
+    height: 64rem;
+  }
+
+  .vragen-achtergrond {
+    height: 60rem;
+    width: 90vw;
+    position: relative;
+    top: -62rem;
+  }
+
+
+
+  .vraag-hoeveel {
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+    color: var(--Primary-blue, #002E6B);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 95%;
+  }
+
+  .vraag {
+    width:  100%;
+    color: var(--Primary-blue, #002E6B);
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+    margin-bottom: 3rem;
+  }
+
+
+
+
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 5rem;
+
+
+  }
+
+  .vraag-optie {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+
+  .vraag-optie input[type="radio"] {
+    transform: scale(1.5);
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  .terug {
+    width: 35%;
+    display: flex!important;
+    flex-direction: row;
+  }
+
+  .terug a {
+    text-decoration: none;
+    display: inline-flex;
+  }
+
+
+  .vorige-tekst {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
+
+  }
+
+  .vorige-afbeelding {
+    width: 50%;
+  }
+
+
+
+}
+
   
   </style>
   

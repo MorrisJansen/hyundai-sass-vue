@@ -2,10 +2,13 @@
   <div :class="[`frame-12`, className || ``]">
     <div v-for="(icon, index) in icons" :key="index" class="icoon-container">
       <img class="tabel-icons" :src="icon" alt="Tabel icons" />
-      <img class="separators-3" :src="separators1" alt="Separators" v-if="index !== icons.length - 1" />
+      <img v-if="index < icons.length - 0" class="separators-3" :src="separators1" alt="Separators" />
     </div>
+    <img v-if="extraIcon" class="tabel-icons" :src="extraIcon" alt="Extra Tabel icon" />
+    <img v-for="missingSeparatorIndex in 21 - (icons.length = 21)" :key="'separator-' + missingSeparatorIndex" class="separators-3" :src="separators1" alt="Separators" />
   </div>
 </template>
+
 
 <script>
 export default {
@@ -16,7 +19,8 @@ export default {
       required: true
     },
     separators1: String,
-    className: String
+    className: String,
+    extraIcon: String
   }
 };
 </script>
@@ -32,9 +36,6 @@ export default {
   position: relative
   width: 8.45vw
 
-
-  
-
 .tabel-icons
   height: 1.44vw
   position: relative
@@ -49,15 +50,8 @@ export default {
   position: relative
   width: 8.45vw
 
-.frame-12.frame-1
-  margin-left: 1.16vw
+.tabel-icons:last-child
+  margin-right: 60px
 
-.frame-12.frame-16
-  margin-left: 1.27vw
-  
-
-
-  
-  
 
 </style>
