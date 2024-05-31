@@ -165,32 +165,42 @@ export default {
 
   phoneNumber = phoneNumber.replace(/^0+/, '');
 
-  if (phoneNumber.length === 9) {
+
+  if (phoneNumber.startsWith('0') && (phoneNumber.length === 10 || phoneNumber.length === 11)) {
+    phoneNumber = '+31' + phoneNumber;
+  }
+  else if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
     phoneNumber = '+31' + phoneNumber;
   } else {
-    console.error('Telefoonnummer moet 9 cijfers lang zijn na verwerking.');
+    console.error('Ongeldig telefoonnummer');
     return null; 
   }
 
-  if (phoneNumber.length !== 12) {
+  if (phoneNumber.length !== 12 || !phoneNumber.match(/^\+316\d{8}$/)) {
     console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
     return null;
   }
 
   return phoneNumber;
 },
+validateTelefoonnummer() {
+  console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
+  const phoneNumber = this.formData.telefoonnummer.replace(/[^0-9]/g, '');
 
-    validateTelefoonnummer() {
-      console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
-      const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
-      if (!formattedPhoneNumber) {
-        this.errors.telefoonnummer = 'Ongeldig telefoonnummer.';
-        return false;
-      }
-      this.errors.telefoonnummer = '';
-      this.formData.telefoonnummer = formattedPhoneNumber;
-      return true;
-    },
+  if (phoneNumber.startsWith('0') && phoneNumber.length <= 10) {
+    return true;
+  }
+
+  if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
+    return true; 
+  }
+
+  console.error('Ongeldig telefoonnummer.');
+  this.errors.telefoonnummer = 'Ongeldig telefoonnummer.';
+  return false;
+},
+
+
     async checkPostcode() {
       if (this.postcode.length === 6) {
         const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
@@ -355,7 +365,7 @@ export default {
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
-      <a href="/campagne-hyundai-desktop">
+      <a href="/">
         <img
           class="logo-hyundai"
           src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -416,7 +426,7 @@ export default {
             <label for="Telefoonnummer"></label>
             <div class="telefoonnummer-input">
               <input type="text" class="input-formulier landcode-select" value="+31" readonly>
-              <input class="input-formulier telefoonnummer" type="text" id="Telefoonnummer" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer" :maxlength="formData.landcode === 'NL' ? 10 : 9">
+              <input class="input-formulier telefoonnummer" type="text" id="Telefoonnummer" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer">
             </div>
             <div class="error">{{ errors.telefoonnummer }}</div>
           </div>
@@ -725,7 +735,10 @@ export default {
 
   .input-formulier[value="+31"] {
     font-size: 1rem;
+    padding-left: 1rem;
   }
+
+  
 
   .telefoonnummer-input {
     width: 100%;
@@ -794,7 +807,9 @@ export default {
 
 
 
-
+.geslacht:first-child {
+  margin-right: 10px;
+}
 
 
 

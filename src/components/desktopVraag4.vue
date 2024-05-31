@@ -20,13 +20,13 @@ export default {
         { id: 4804, answer: "In overleg" },
         { id: 4807, answer: "Weet ik nog niet" },
       ],
-      geselecteerdAntwoordId: null, // Opslaan van het geselecteerde antwoord-ID
+      geselecteerdAntwoordId: null,
     };
   },
   methods: {
     goToNextQuestion() {
       if (this.geselecteerdAntwoordId !== null) {
-        addAntwoord(this.geselecteerdAntwoordId); // Doorsturen van het geselecteerde antwoord-ID naar antwoorden.js
+        addAntwoord(this.geselecteerdAntwoordId); 
         setTimeout(() => {
           this.$router.push('/vraag5');
         }, 1000);
@@ -45,7 +45,7 @@ export default {
 <template>
     <div class="container-center-horizontal">
       <div class="top-balk">
-        <a href="/campagne-hyundai-desktop">
+        <a href="/">
           <img
             class="logo-hyundai"
             src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -67,12 +67,13 @@ export default {
             </label>
           </div>
           
-          <button class="terug">
             <a href="/vraag3">
+              <button class="terug">
             <img :src="vragenPijlVorige" alt="">
             <div class="vorige-tekst">Vorige</div>
-            </a>
           </button>
+        </a>
+
         </div>
       </div>
     </div>
@@ -313,13 +314,12 @@ export default {
   }
 
   .terug {
-    width: 35%;
-    display: flex!important;
-    flex-direction: row;
+    display: inline-flex!important;
+    
   }
 
-  .terug a {
-    text-decoration: none;
+   a {
+    text-decoration: none!important;
     display: inline-flex;
   }
 
@@ -328,12 +328,13 @@ export default {
     font-size: 1.5rem;
     margin-left: 1.5rem;
     font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
-
+    text-decoration: none!important;
   }
 
   .vorige-afbeelding {
     width: 50%;
   }
+
 
 
 

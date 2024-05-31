@@ -36,6 +36,10 @@ export default {
   position: relative
   width: 8.45vw
 
+@media (max-width: 480px)
+  .frame-12
+    height: 190vw!important
+
 .tabel-icons
   height: 1.44vw
   position: relative

@@ -23,7 +23,7 @@ export default {
   methods: {
     goToNextQuestion() {
       if (this.geselecteerdAntwoordId !== null) {
-        addAntwoord(this.geselecteerdAntwoordId); // Doorsturen van het geselecteerde antwoord-ID naar antwoorden.js
+        addAntwoord(this.geselecteerdAntwoordId);
         setTimeout(() => {
           this.$router.push('/formulier');
         }, 1000);
@@ -43,7 +43,7 @@ export default {
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
-      <a href="/campagne-hyundai-desktop">
+      <a href="/">
         <img
           class="logo-hyundai"
           src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -64,10 +64,12 @@ export default {
             <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoordId"> {{ optie.answer }}
           </label>
         </div>
-        <button class="terug" @click="goToNextQuestion">
+        <a href="/vraag4">
+        <button class="terug">
           <img :src="vragenPijlVorige" alt="">
           <div class="vorige-tekst">Vorige</div>
         </button>
+      </a>
       </div>
     </div>
   </div>

@@ -445,10 +445,12 @@ export default {
             <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + currentImage + ')' }"></div>
             <div class="cta-balk-1">
               <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk<br> vanaf €275 p/m* </p>
-              <!-- <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
+            <a href="/vraag1">
+              <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
                 <div class="vraag-offerte-aan eerste-knop-tekst">Vraag offerte aan</div>
                 <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-              </div> -->
+              </div>
+            </a>
       
             </div>
           </div>
@@ -774,8 +776,7 @@ export default {
 .de-vernieuwde-hyundai-i10-1
   flex: 0 0 auto
   position: relative
-  width: 70.33vw
-  background-color: transparent
+  width: 100vw
 
 .maak-een-groots-statement-1
   color: $primary-blue
@@ -785,8 +786,7 @@ export default {
   letter-spacing: 0
   line-height: 10.96vw
   position: relative
-  white-space: nowrap
-  width: fit-content
+  width: 100vw
 
 .profiteer-nu-van-een-1
   letter-spacing: 0
@@ -848,6 +848,7 @@ export default {
   margin-right: 1.07vw
   min-height: 12.8vw
   width: 89.33vw
+  margin-top: 7vw
 
 
 
@@ -915,6 +916,19 @@ export default {
   position: relative
   width: 90.67vw
 
+
+@media (max-width: 480px)
+  .frame-19-1
+    margin-top: 39vw!important
+
+  .eerste-knop
+    height: 20vw
+
+  .section-uitvoeringen-tabel
+    position: relative
+    left: 8vw
+
+
 .titel-all-inclusive-1
   align-items: flex-start
   align-self: stretch
@@ -977,6 +991,14 @@ export default {
   margin-top: 10.93vw
   width: 320.0vw
 
+
+@media (max-width: 768px)
+  .section-frisse-kijk-slider-1
+    gap: 20
+
+  .slider-indicator-item
+    width: 35px    
+
 .titel-frisse-kijk-1
   align-items: center
   display: flex
@@ -1036,16 +1058,22 @@ export default {
   position: relative
   width: 73.99vw
 
-.slider-indicator-1
-  align-items: flex-start
-  align-self: center
-  display: flex
-  gap: 4.35vw
-  height: 2.13vw
-  margin-left: 0.27vw
-  margin-top: 9.87vw
-  position: relative
-  width: 40.0vw
+
+  
+
+.slider-indicator-item 
+  background-color: #d3d3d3
+  border-radius: 2.08vw
+  height: 0.5rem
+  width: 3rem!important
+  cursor: pointer
+  
+  
+.slider-indicator-item.active 
+  background-color: #002e6b
+  width: 6rem!important
+  
+  
 
 .x01-1
   background-color: $primary-blue
@@ -1054,17 +1082,10 @@ export default {
   position: relative
   width: 17.14vw
 
-.slider-indicator-item-1
-  background-color: $text-grey
-  border-radius: 10.89vw
-  height: 2.18vw
-  position: relative
-  width: 7.07vw
 
 
 
-.onderdelen 
-  height: 1465px
+
 
 
 
@@ -1100,7 +1121,15 @@ export default {
 
   .scroll-tabel-container
     width: 95vw
-    height: 1750px
+    height: 1700px
+    margin-top: 100px
+    overflow-y: hidden
+    position: relative
+    left: 5vw
+
+  .tabel
+    overflow-y: hidden
+    height: 1700px
 
   .section-uitvoeringen-tabel
     background-color: $white!important
@@ -1110,13 +1139,13 @@ export default {
 
   .inhoud-tabel-container
     margin-top: 2px
-    height: 1325px
+    height: 1700px
     
-    
+  .tabel-icoon
   .tabel
     position: relative
     left: 550px
-    height: 1200px
+    height: 1700px
 
   .profile-groups
     display: inline-flex
@@ -1147,7 +1176,7 @@ export default {
     width: 1.72681rem
     height: 1.72681rem
     margin-left: 70px
-    margin-top: 3.25px
+    margin-top: 4.25px
     margin-bottom: 2.5px
 
   .tabel-icons:last-child
@@ -1332,7 +1361,10 @@ export default {
   width: 32.84vw
 
 
-
+@media (max-width: 480px)
+  .prijzentabel-i10-comfort-1
+    margin-left: 7vw!important
+    margin-top: 10vw
 
 
 
@@ -1359,6 +1391,8 @@ export default {
   .prijzentabel-i10-comfort-1
     width: 110%
     margin-left: 90px
+
+
 
   .aantal-maanden-1
     display: flex

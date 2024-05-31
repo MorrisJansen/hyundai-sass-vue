@@ -150,7 +150,7 @@ export default {
           <div class="overlap-group" :style="{'background-image': 'url(' + overlayGroup + ')'}"></div>
 
           <div class="top-balk">
-            <a href="/campagne-hyundai-desktop">
+            <a href="/">
             <img
               class="logo-hyundai"
               src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -283,8 +283,18 @@ export default {
       </div>
 
 
+      <div class="tabel-container-groot">
+        <Tabel></Tabel>
+      </div>
 
-      <Tabel></Tabel>
+
+      <a href="/vraag1">
+        <button class="offerte-knop middelste-knop-groot">
+          <div class="vraag-offerte-aan">Vraag offerte aan</div>
+          <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+          </button>
+      </a>
+      
       
 
 
@@ -516,8 +526,6 @@ export default {
   padding: 2.361vw 2.361vw
   gap: 8vw
   width: 50vw
-  max-width: 57.3125rem
-  max-height: 12.917vw
 
 
 
@@ -541,8 +549,7 @@ export default {
     .offerte-knop
       width: 22.917vw
       height: 7.014vw
-      max-width: 20.625rem
-      max-height: 6.3125rem
+
 
 @media (min-width: 768px) and (max-width: 1150px)
   .midden-knop
@@ -580,6 +587,10 @@ export default {
   border-radius: 7px
   gap: 1.75rem
 
+.middelste-knop-groot
+  position: relative
+  bottom: 8vw
+
 
 
 .vraag-offerte-aan
@@ -605,6 +616,7 @@ export default {
   line-height: 1.88vw
   position: relative
   width: fit-content
+  
 
 
 
@@ -829,13 +841,19 @@ export default {
   width: 6.77vw
 
 .slider-indicator
-  align-items: flex-start
   display: inline-flex
   gap: 0.83vw
   height: 0.42vw
   margin-top: 9.22vw
   position: relative
   width: 7.66vw
+
+@media (max-width: 768px)
+  .slider-indicator
+    width: 14rem!important
+    gap: 1rem!important
+    margin-left: 27vw!important
+
 
 .x01
   background-color: $primary-blue
@@ -863,7 +881,7 @@ export default {
 
 
 //  hier begint de tabel css ::::::::::::::::::::::::::::::::::::::::
-
+// @media (min-width: )
 
 
 .section-uitvoeringen-tabel
@@ -876,7 +894,6 @@ export default {
 
 @media (min-width: 768px) and (max-width: 1100px)
   .section-uitvoeringen-tabel
-    height: 145vw
 
 
 
@@ -890,6 +907,11 @@ export default {
   margin-top: 7.55vw
   position: relative
   width: 84.54vw
+
+
+
+
+
 
 .uitvoeringen-en-hun-functionaliteiten
   letter-spacing: 0
@@ -908,14 +930,8 @@ export default {
   gap: 0.37vw
   position: relative
   height: 100vw
+  overflow-y: auto
 
-.functionaliteiten
-  align-items: flex-start
-  display: inline-flex
-  flex: 0 0 auto
-  flex-direction: column
-  gap: 0.37vw
-  position: relative
 
 .titel-1
   display: flex
@@ -937,16 +953,26 @@ export default {
   line-height: 3.1875rem
   text-align: center
 
+.functionaliteiten
+  align-items: flex
+  display: inline-flex
+  flex: 0 1 auto
+  flex-direction: column
+  gap: 0.37vw
+  position: relative
+
+  
+
 .onderdelen
   background-color: $white
   border: 1px solid
   border-color: $text-grey
   border-radius: 0.625rem
   display: flex
-  height: 1508px
   overflow: hidden
   position: relative
   width: 34.4rem
+  height: 81.5vw
 
 .frame-9
   display: flex
@@ -1038,15 +1064,29 @@ export default {
   .titel-4
     padding-top: 2rem
 
+@media (max-width: 1650px) and (min-width: 768px)
+  .tabel-container-groot
+    overflow: auto
+    
+  .tabel
+    position: relative
+    left: 400px
+
 
 .span0-1
   color: var(--White, #FFF)
   text-align: center
-  font-size: 2.5625rem!important
+  font-size: 2vw!important
+  margin: 0 auto
+  display: flex
+  align-items: center
+  justify-content: center
+
   font-style: normal
   font-weight: 700
   line-height: 0
-
+  position: relative
+  bottom:  2vw
 
   font-family: "Hyundai Sans Head Office-Bold", Helvetica
   font-style: normal
@@ -1061,6 +1101,8 @@ export default {
   font-style: normal
   position: relative
   margin-left: 10%
+  position: relative
+  bottom:  2vw
 
 .n-line
 
@@ -1126,7 +1168,7 @@ export default {
   align-items: flex-start
   display: inline-flex
   gap: 0.37vw
-  height: 24.11vw
+  height: 11vw
   position: relative
   width: 38.29vw
 

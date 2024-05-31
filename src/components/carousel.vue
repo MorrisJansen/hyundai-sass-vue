@@ -1,122 +1,114 @@
 <template>
   <div>
     <div class="carousel">
-      <div class="inner" ref="inner" :style="innerStyles">
-        <img
-          v-for="(image, index) in visibleImages"
-          :key="index"
-          :src="image.src"
-          :alt="image.alt"
-          :class="[getClass(index), getSpecialClass(index)]"
-        />
+      <div class="inner" ref="inner" :style="innerStyles" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
+        <div class="card" v-for="(card, index) in visibleCards" :key="index">
+          <img :src="card.src" :alt="card.alt" class="carousel-image" />
+        </div>
       </div>
     </div>
     <div class="slider-indicator">
       <div
-        v-for="(image, index) in images"
+        v-for="(card, index) in cards"
         :key="index"
-        :class="['slider-indicator-item', { 'active': index === currentIndex }]"
-        @click="goToSlide(index, true)"
+        :class="['slider-indicator-item', { 'active': currentIndex === index % 4 }]"
+        @click="goToSlide(index % 4)"
       ></div>
     </div>
   </div>
 </template>
 
 <script>
-import binnenAuto2 from '/img/binnen-auto-2.png';
-
 export default {
   data() {
     return {
-      images: [
+      cards: [
         { src: require('/img/hand-mobiel-1@2x.png'), alt: 'hand mobiel' },
         { src: require('/img/binnen-auto-1@2x.png'), alt: 'binnen auto' },
         { src: require('/img/dashboard-auto-1@2x.png'), alt: 'dashboard auto' },
-        { src: binnenAuto2, alt: 'binnen auto 2' }
+        { src: require('/img/binnen-auto-2.png'), alt: 'binnen auto 2' },
       ],
-      visibleImages: [],
-      step: '',
-      animating: false,
       currentIndex: 0,
-      timer: null,
+      step: 0,
       innerStyles: {},
+      transitioning: false,
+      startX: 0,
+      endX: 0,
+      timer: null
     };
   },
-
+  computed: {
+    visibleCards() {
+      return [...this.cards, ...this.cards];
+    }
+  },
   mounted() {
     this.setStep();
-    this.updateVisibleImages();
-    this.startAnimationLoop();
+    this.startTimer();
   },
-
+  beforeDestroy() {
+    clearInterval(this.timer);
+  },
   methods: {
-    setStep() {
-      const innerWidth = this.$refs.inner.scrollWidth;
-      const totalImages = this.images.length;
-      this.step = `${innerWidth / totalImages}px`;
-    },
-
-    startAnimationLoop() {
+    startTimer() {
       this.timer = setInterval(() => {
-        if (!this.animating) {
-          this.next();
-        }
+        this.next();
       }, 3000);
     },
 
+    setStep() {
+      const totalWidth = this.$refs.inner.clientWidth;
+      this.step = totalWidth / 3.9;
+    },
+
     next() {
-      this.resetTimer();
-      this.animating = true;
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-      this.updateVisibleImages();
-      setTimeout(() => {
-        this.animating = false;
-      }, 500);
+      if (this.transitioning) return;
+      this.transitioning = true;
+      this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+      this.scrollToCurrentIndex();
     },
 
-    prev() {
-      this.resetTimer();
-      this.animating = true;
-      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-      this.updateVisibleImages();
-      setTimeout(() => {
-        this.animating = false;
-      }, 500);
-    },
-
-    goToSlide(index, instant = false) {
-      if (this.animating || index === this.currentIndex) return;
-      this.resetTimer();
-      this.animating = true;
+    goToSlide(index) {
+      if (this.transitioning) return;
+      this.transitioning = true;
       this.currentIndex = index;
-      this.updateVisibleImages();
-      setTimeout(() => {
-        this.animating = false;
-      }, instant ? 0 : 500);
-    },
-
-    updateVisibleImages() {
-      this.visibleImages = [
-        this.images[this.currentIndex],
-        this.images[(this.currentIndex + 1) % this.images.length],
-        this.images[(this.currentIndex + 2) % this.images.length],
-        this.images[(this.currentIndex + 3) % this.images.length]
-      ];
-    },
-
-    resetTimer() {
+      this.scrollToCurrentIndex();
       clearInterval(this.timer);
-      this.startAnimationLoop();
+      this.startTimer();
     },
 
-    getClass(index) {
-      return index === 3 ? 'fourth-style' : 'default-style';
+    scrollToCurrentIndex() {
+      let offset;
+      if (window.innerWidth >= 768) {
+        offset = this.step * this.currentIndex;
+      } else {
+        offset = this.step * this.currentIndex * 1;
+      }
+      this.innerStyles = {
+        transform: `translateX(-${offset}px)`,
+        transition: 'transform 0.5s ease',
+      };
+      setTimeout(() => {
+        this.transitioning = false;
+      }, 500);
     },
 
-    getSpecialClass(index) {
-      return index === 1 ? 'partially-visible' : '';
-    }
-  }
+    onTouchStart(event) {
+      this.startX = event.touches[0].clientX;
+    },
+
+    onTouchMove(event) {
+      this.endX = event.touches[0].clientX;
+    },
+
+    onTouchEnd() {
+      if (this.startX > this.endX + 50) {
+        this.next();
+      } else if (this.startX < this.endX - 50) {
+        this.prev();
+      }
+    },
+  },
 };
 </script>
 
@@ -124,116 +116,53 @@ export default {
 .carousel {
   width: 100%;
   overflow: hidden;
+  position: relative;
   margin-top: 20px;
 }
 
 .inner {
   display: flex;
+  transition: transform 0.5s ease;
 }
 
-.default-style {
-  height: 32.97vw;
-  width: 26.35vw;
-  object-fit: cover;
-  position: relative;
+.card {
+  flex: 0 0 25%;
+  width: 25vw;
+  margin-right: 1vw;
+  display: inline-flex;
   border-radius: 1.875rem;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .default-style {
-    margin-right: 3.3rem;
-  }
-}
-
-.fourth-style {
-  height: 32.97vw;
-  width: 6.77vw;
+.carousel-image {
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  border-radius: inherit;
+}
+
+.slider-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.83vw;
+  height: 0.42vw;
+  margin-top: 9.22vw;
+  width: 7.66vw;
   position: relative;
-  margin-right: 3.3rem;
-  border-radius: 1.875rem;
+  margin-left: 40vw;
 }
 
-img {
-  aspect-ratio: 1 / 1;
+.slider-indicator-item {
+  background-color: #d3d3d3;
+  border-radius: 2.08vw;
+  height: 0.5rem;
+  width: 1.625rem;
+  cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  .slider-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.83vw;
-    height: 0.42vw;
-    margin-top: 9.22vw;
-    width: 7.66vw;
-    position: relative;
-    margin-left: 40vw;
-  }
-  
-  .slider-indicator-item {
-    background-color: #d3d3d3;
-    border-radius: 2.08vw;
-    height: 0.5rem;
-    position: relative;
-    width: 1.625rem;
-    cursor: pointer;
-  }
-  
-  .slider-indicator-item.active {
-    background-color: #002e6b;
-    width: 3.9375rem;
-  }
-
-}
-
-
-
-@media (max-width: 768px) {
-  .inner {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  .default-style,
-  .fourth-style {
-    width: 17.34175rem;
-    height: 21.69431rem;
-    flex-shrink: 0;
-  }
-
-  .inner img:first-child,
-  .inner img:nth-child(3) {
-    margin-left: 3.3rem;
-  }
-
-  .partially-visible {
-    margin-left: 1.88rem;
-  }
-
-  .inner img:nth-child(4) {
-    display: none;
-  }
-
-
-  .slider-indicator {
-    margin-left: 35vw;
-  }
-
-
-  .slider-indicator-item {
-    width: 1.65819rem;
-    height: 0.51019rem;
-    flex-shrink: 0;
-    margin-right: 1rem;
-  }
-
-  .slider-indicator-item.active {
-    width: 4.01788rem;
-    height: 0.51019rem;
-    flex-shrink: 0;
-    background-color: #002e6b;
-
-  }
+.slider-indicator-item.active {
+  background-color: #002e6b;
+  width: 3.9375rem;
 }
 </style>

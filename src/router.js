@@ -11,7 +11,6 @@ import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
 import Bedankt from "./components/bedankt.vue"
-import Postcode from "./components/postcode.vue"
 
 import { 
   campagneHyundaiDesktopTestData, 
@@ -21,19 +20,17 @@ import {
 Vue.use(Router);
 
 const routes = [
-  // Campagne routes
   {
     path: "/campagne-hyundai-mobiel",
     component: CampagneHyundaiMobiel,
     props: { ...campagneHyundaiMobielData },
   },
   {
-    path: "/campagne-hyundai-desktop",
+    path: "/",
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
   },
 
-  // Vraag routes
   {
     path: "/vraag1",
     component: vraag1,
@@ -75,26 +72,29 @@ const router = new Router({
   mode: "history",
   routes,
 });
-
 const handleRouting = () => {
   const isMobile = window.innerWidth < 768;
-  const isOnVragenPage = router.currentRoute.path.startsWith("/desktopVragen");
-  const isOnCampagnePage = router.currentRoute.path.startsWith("/campagne-hyundai-mobiel") || router.currentRoute.path.startsWith("/campagne-hyundai-desktop");
+  const currentPath = router.currentRoute.path;
+
+  const isOnVragenPage = currentPath.startsWith("/desktopVragen") || currentPath === "/";
+  const isOnCampagnePage = currentPath.startsWith("/campagne-hyundai-mobiel");
 
   if (isOnVragenPage) {
     if (isMobile) {
       router.replace("/campagne-hyundai-mobiel");
     } else {
-      router.replace(router.currentRoute.path);
+      router.replace(currentPath);
     }
   } else if (isOnCampagnePage) {
     if (isMobile) {
       router.replace("/campagne-hyundai-mobiel");
     } else {
-      router.replace("/campagne-hyundai-desktop");
+      router.replace("/");
     }
   }
 };
+
+
 
 window.addEventListener("resize", handleRouting);
 window.addEventListener("load", handleRouting);
