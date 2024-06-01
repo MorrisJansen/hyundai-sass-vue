@@ -582,6 +582,60 @@ export default {
 
 
 
+@media (max-width: 480px) {
+  .achtergrondVraag {
+    height: 69rem;
+  }
+
+  .vragen-achtergrond {
+    height: 66rem;
+    width: 90vw;
+    position: relative;
+    top: -68rem;
+  }
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px; 
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 5rem;
+  }
+
+  .i10-knop {
+    font-size: 0.7rem;
+    width: 80px!important;
+  }
+
+  .vraag-optie {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-left:  0;
+    gap: 1rem;
+  }
+
+  .vorige-tekst {
+    font-size: 1rem;
+    margin-left: 0.8rem;
+  }
+
+  .volgende {
+    margin-left: 0;
+  }
+
+  .volgende-tekst {
+    font-size: 1rem;
+  }
+
+
+}
+
+
+
+
+
 
 
 

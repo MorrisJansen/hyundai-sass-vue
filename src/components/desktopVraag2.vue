@@ -316,4 +316,48 @@ export default {
     width: 50%;
   }
 }
+
+
+
+
+@media (max-width: 480px) {
+  .achtergrondVraag {
+    height: 69rem;
+  }
+
+  .vragen-achtergrond {
+    height: 66rem;
+    width: 90vw;
+    position: relative;
+    top: -68rem;
+  }
+
+  .vraag {
+    font-size: 2rem;
+  }
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px; 
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 5rem;
+
+
+  }
+
+  .vraag-optie {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+
+  .vorige-tekst {
+    font-size: 1rem;
+  }
+
+}
 </style>

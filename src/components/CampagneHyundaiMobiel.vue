@@ -876,7 +876,7 @@ export default {
   left: 5.33vw
   letter-spacing: 1.32vw
   line-height: normal
-  position: absolute
+  position: relative
   top: 123vw
 
 .navigatie-slider-1
@@ -1437,7 +1437,7 @@ export default {
     gap: 1.75rem
     align-items: center
     gap: 2rem
-    width: 80vw  
+
 
   .knop-onder-tabel
     position: relative
@@ -1567,10 +1567,64 @@ export default {
 
 
   .footer-1
-    position: absolute
-    top: -250px
+    display: block
+    position: relative
+    top: 700px
+    left: 32%
+
+  .ontzichtbaar
+    z-index: 999
+
+  .campagne-hyundai-mobiel
+    height: 7250px
 
 
+
+
+
+@media (max-width: 480px)
+
+
+  .campagne-hyundai-mobiel
+    height: 6750px
+
+  .ontdek-meer-1
+    position: relative
+    top: 205vw
+
+  .navigatie-slider-1
+    position: relative
+    top: 210vw
+
+  .uitvoeringen-en-hun-functionaliteiten
+    margin-left:  120vw
+
+  .onderdelen 
+    position: relative
+    left: 8vw
+
+  .tabel-icons,
+  .separators-3
+    position: relative
+    bottom: 468px
+
+  .tabel-icons
+    margin-top: 4px
+    margin-bottom: 3px
+
+
+  .section-all-inclusive-1
+    margin-top: 100vw
+
+  .frame-19-1
+    margin-top: 0!important
+
+
+  .footer-1
+    display: block
+    position: relative
+    top: 700px
+    left: 32%
 
 
 </style>

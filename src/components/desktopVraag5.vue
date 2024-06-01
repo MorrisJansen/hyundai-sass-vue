@@ -322,4 +322,41 @@ export default {
 
 
 }
+
+
+
+
+@media (max-width: 480px) {
+
+
+  .vraag {
+    font-size: 2rem;
+  }
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px; 
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 5rem;
+
+
+  }
+
+  .vraag-optie {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+
+  .vorige-tekst {
+    font-size: 1rem;
+  }
+
+}
+
+
 </style>

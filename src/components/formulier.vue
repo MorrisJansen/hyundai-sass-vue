@@ -811,14 +811,43 @@ validateTelefoonnummer() {
   margin-right: 10px;
 }
 
+}
 
 
 
+@media (max-width: 480px) {
+
+  .achtergrondVraag {
+    height: 108rem;
+  }
+
+  .vragen-achtergrond {
+    padding: 3rem;
+    height: 103rem;
+    width: 90vw;
+    position: relative;
+    top: -106rem;
+  }
+  
+  .geslacht  {
+    margin-right: 0.2rem;
+  }
 
 
+  .volgende-tekst {
+    font-size: 1rem;
+    margin-left: 0.5rem;
 
+  }
 
+  .volgende {
+    margin-bottom: 1rem;
 
+  }
+
+  .pijl-omdraaien {
+    margin: 0;
+  }
 
 
 

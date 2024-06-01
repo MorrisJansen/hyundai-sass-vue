@@ -261,10 +261,49 @@ export default {
   }
 
   .vraag-optie input[type="radio"] {
-    transform: scale(1.5); /* Terugzetten naar standaardschaal voor mobiele weergave */
-    margin-left: 1rem; /* Aanpassing van de marge voor mobiele weergave */
-    margin-right: 0.5rem; /* Aanpassing van de marge voor mobiele weergave */
+    transform: scale(1.5); 
+    margin-left: 1rem; 
+    margin-right: 0.5rem;
   }
+
+}
+
+@media (max-width: 480px) {
+  .achtergrondVraag {
+    height: 69rem;
+  }
+
+  .vragen-achtergrond {
+    height: 66rem;
+    width: 90vw;
+    position: relative;
+    top: -68rem;
+  }
+
+  .vraag {
+    font-size: 2rem;
+  }
+
+
+
+  .vraag-optie-container {
+    height: auto; 
+    border-radius: 35px; 
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 5rem;
+
+
+  }
+
+  .vraag-optie {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+
+
 
 }
 </style>
