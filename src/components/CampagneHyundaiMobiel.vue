@@ -1596,6 +1596,9 @@ export default {
     position: relative
     top: 210vw
 
+  .het-maandbedrag-va-1
+    font-size: 0.8rem
+
   .uitvoeringen-en-hun-functionaliteiten
     margin-left:  120vw
 

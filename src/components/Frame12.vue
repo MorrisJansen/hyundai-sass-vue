@@ -41,9 +41,9 @@ export default {
     height: 190vw!important
 
 .tabel-icons
-  height: 1.44vw
+  height: 2.15rem
   position: relative
-  width: 1.44vw
+  width: 2rem
   justify-content: center
   align-items: center
   margin: 0 auto

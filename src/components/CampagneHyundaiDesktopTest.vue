@@ -941,7 +941,7 @@ export default {
   border-radius: 0.625rem
   border: 1px solid var(--Text-grey, #C1C1C1)
   background: var(--Primary-blue, #002E6B)
-  width: 34.4rem
+  min-width: 34.4rem
 
 
 .bill-montly
@@ -971,7 +971,7 @@ export default {
   display: flex
   overflow: hidden
   position: relative
-  width: 34.4rem
+  min-width: 34.4rem
   height: 81.5vw
 
 .frame-9
@@ -1026,7 +1026,7 @@ export default {
   display: flex
   height: 13.01306rem
   position: relative
-  width: 12.95rem
+  min-width: 12.95rem
 
 .titel-3
   height: 13.01306rem
@@ -1046,7 +1046,7 @@ export default {
   border-color: $text-grey
   border-radius: 0.625rem
   height: 13.01306rem
-  width: 12.95rem
+  min-width: 12.95rem
 
 .titel-5
   margin-left: 10%
@@ -1086,8 +1086,7 @@ export default {
   font-weight: 700
   line-height: 0
   position: relative
-  bottom:  2vw
-
+  
   font-family: "Hyundai Sans Head Office-Bold", Helvetica
   font-style: normal
   font-weight: 700
@@ -1102,14 +1101,25 @@ export default {
   position: relative
   margin-left: 10%
   position: relative
-  bottom:  2vw
+  top: 0.5vw
+
+
+  @media (max-width: 2700px)
+    .span1-1
+      bottom:  2vw
+
+    .span0-1
+      bottom: 2vw
+
+
+
 
 .n-line
 
   display: flex
   height: 13.01306rem
   position: relative
-  width: 12.95rem
+  min-width: 12.95rem
   justify-content: center
   border-radius: 0.625rem
   border: 1px solid var(--Text-grey, #C1C1C1)
@@ -1131,6 +1141,104 @@ export default {
     margin: 2.5px 0
 
 
+@media (max-width: 2824px) and (min-width: 2000px)
+  .kleiner-tabel
+    font-size: 1.55rem!important
+
+  .kleiner-profile
+    font-size: 1.7s5rem!important
+
+
+  .profile-groups
+    font-size: 1.8rem
+
+
+
+  
+
+
+@media (min-width: 2000px)
+  .profile-groups,
+  .profile-groups:nth-child(5)
+    font-size: 1.8rem
+    padding: 1.6rem
+
+
+
+
+  .tabel-icons
+    margin-bottom: 2.05rem
+    margin-top: 2.25rem
+
+  .icoon-container:first-child
+    margin-top: 4.2rem
+
+
+  .frame-12
+    gap: 0
+    margin-top: 0
+    height: auto
+
+  .separators-3
+    width: 6.5vw
+    margin-left: 1vw
+
+  .titel-1,
+  .titel-2,
+  .titel-4,
+  .n-line
+    height: 20rem
+
+  .titel-3
+    padding: 2.2rem 0 0 2rem
+
+  .titel-6
+    margin-top: 6.6rem
+
+  .titel-6:first-child
+    line-height: 1
+
+  .span1-1
+    font-size: 0.8vw
+
+  .tabel-container-groot
+    height: 4500px
+
+  .section-uitvoeringen-tabel
+    height: 4500px
+
+  .tabel-sectie
+    height: 100%
+
+  .tabel
+    height: 3500px
+
+  .onderdelen 
+    height: 3000px
+    
+  .frame-12 
+    height: 3000px
+
+
+
+  .arrow
+    width: 4.5rem
+    height: 2rem
+    margin-left: 5rem
+  
+  .vraag-offerte-aan
+    margin-left: 3rem
+    font-size: 3rem
+  
+  .offerte-knop
+    height: 10rem
+    width: 50rem
+  
+  .middelste-knop-groot
+    margin-top: 100px
+
+    
+    
 
 
 

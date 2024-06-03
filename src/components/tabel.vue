@@ -39,7 +39,7 @@
                 <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
                 <div class="profile-groups">8 inch multimediascherm met navigatie</div>
                 <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
-                <div class="profile-groups">Achteruitrijcamera met dynamische hulplijnen</div>
+                <div class="profile-groups kleiner-profile">Achteruitrijcamera met dynamische hulplijnen</div>
                 <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
                 <div class="profile-groups">Snelheidsbordenherkenning (ISLW)</div>
                 <img class="separators" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/separators-119@2x.png" alt="Separators" />
@@ -86,7 +86,7 @@
           <div class="tabel-item-container">
             <div class="tabel-item">
               <div class="n-line">
-                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">Comfort Smart</div>
+                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">Comfort <br> Smart</div>
               </div>
               <div class="inhoud-tabel-container">
               <Frame12 :icons="frame12Icons3" :separators1="separatorsImage" />
