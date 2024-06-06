@@ -157,12 +157,23 @@ export default {
   background-color: #d3d3d3;
   border-radius: 2.08vw;
   height: 0.5rem;
-  width: 1.625rem;
   cursor: pointer;
 }
 
 .slider-indicator-item.active {
   background-color: #002e6b;
-  width: 3.9375rem;
+  width: 13rem;
 }
+
+@media (max-width: 768px) {
+  .slider-indicator {
+    width: 14rem;
+    gap: 1rem;
+    margin-left: 27vw;
+  }
+}
+
+
+
+  
 </style>

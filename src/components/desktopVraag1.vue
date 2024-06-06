@@ -165,6 +165,20 @@ export default {
 
 
 
+@media (min-width: 2000px) {
+  .pijl {
+    width: 1.3vw;
+  }
+  .vraag-optie input[type="radio"] {
+    transform: scale(2.5); 
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+}
+
+
+
+
 
 
 @media (max-width: 768px) {

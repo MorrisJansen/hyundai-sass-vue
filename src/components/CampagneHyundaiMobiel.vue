@@ -5,7 +5,7 @@ import Voordeel1 from "./Voordeel1";
 import overlayImage from '/img/overlay.png';
 import Carousel from './carousel.vue';
 // import Carousel from './carousel';
-import Tabel from "./tabel.vue"
+import Tabel2 from "./tabel2.vue"
 
 
 export default {
@@ -15,7 +15,7 @@ export default {
     XLabel,
     Voordeel1,
     Carousel,
-    Tabel,
+    Tabel2,
 
   },
   props: 
@@ -547,9 +547,7 @@ export default {
 
 
 
-      <div class="scroll-tabel-container">
-      <Tabel></Tabel>
-      </div>
+      <Tabel2></Tabel2>
 
 
       
@@ -697,8 +695,6 @@ export default {
   background-color: $white
   display: flex
   flex-direction: column
-  height: 1554.93vw
-  overflow: hidden
   width: 100.0vw
 
 .group-1-1
@@ -731,10 +727,8 @@ export default {
   align-items: center
   display: flex
   flex-direction: column
-  left: 0
-  min-height: 206.93vw
+  // min-height: 206.93vw
   padding: 0 0.0vw
-  position: absolute
   top: 0
   width: 101.07vw
 
@@ -876,7 +870,7 @@ export default {
   left: 5.33vw
   letter-spacing: 1.32vw
   line-height: normal
-  position: relative
+  position: absolute
   top: 123vw
 
 .navigatie-slider-1
@@ -894,6 +888,9 @@ export default {
   .navigatie-slider-1
     top: 130vw
 
+@media (max-width: 480px)
+  ontdek-meer-1
+
 
 .section-all-inclusive-1
   align-items: center
@@ -902,10 +899,15 @@ export default {
   flex-direction: column
   gap: 7.2vw
   margin-top: 9.6vw
-  min-height: 380.4vw
+  // min-height: 380.4vw
   padding: 9.07vw 0
   width: 100.0vw
 
+
+
+@media (max-width: 480px)
+  .section-all-inclusive-1
+    margin-top: 320px
 
 .frame-19-1
   align-items: flex-start
@@ -1364,8 +1366,7 @@ export default {
 @media (max-width: 480px)
   .prijzentabel-i10-comfort-1
     margin-left: 7vw!important
-    margin-top: 10vw
-
+    margin-top: 30vw
 
 
 @media (max-width: 768px)
@@ -1586,15 +1587,19 @@ export default {
 
 
   .campagne-hyundai-mobiel
-    height: 6750px
+    height: auto!important
+
+  .eerste-knop-tekst
+    font-size: 18px!important
 
   .ontdek-meer-1
     position: relative
-    top: 205vw
+    top: -345px
+
 
   .navigatie-slider-1
     position: relative
-    top: 210vw
+    top: -328px
 
   .het-maandbedrag-va-1
     font-size: 0.8rem
@@ -1616,8 +1621,6 @@ export default {
     margin-bottom: 3px
 
 
-  .section-all-inclusive-1
-    margin-top: 100vw
 
   .frame-19-1
     margin-top: 0!important

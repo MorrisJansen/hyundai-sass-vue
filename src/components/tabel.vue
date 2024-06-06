@@ -61,7 +61,7 @@
           </div>
           <div class="tabel-item-container">
             <div class="tabel-item">
-              <div class="titel-2">
+              <div class="titel-2 titel-boven">
                 <div class="titel-3 hyundaisansheadoffice-bold-port-gore-41px">i-Drive</div>
               </div>
               <div class="inhoud-tabel-container">
@@ -71,7 +71,7 @@
           </div>
           <div class="tabel-item-container">
             <div class="tabel-item">
-              <div class="titel-4">
+              <div class="titel-4 titel-boven">
                 <div class="titel-5">
                   <span class="span0-1 hyundaisansheadoffice-bold-white-41px">Comfort</span>
                   <br>
@@ -86,7 +86,7 @@
           <div class="tabel-item-container">
             <div class="tabel-item">
               <div class="n-line">
-                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">Comfort <br> Smart</div>
+                <div class="titel-6 titel-boven hyundaisansheadoffice-bold-port-gore-41px">Comfort <br> Smart</div>
               </div>
               <div class="inhoud-tabel-container">
               <Frame12 :icons="frame12Icons3" :separators1="separatorsImage" />
@@ -96,7 +96,7 @@
           <div class="tabel-item-container">
             <div class="tabel-item">
               <div class="n-line">
-                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">Premium</div>
+                <div class="titel-6 titel-boven hyundaisansheadoffice-bold-port-gore-41px">Premium</div>
               </div>
               <div class="inhoud-tabel-container">
               <Frame12 :icons="frame12Icons4" :separators1="separatorsImage" />
@@ -106,7 +106,7 @@
           <div class="tabel-item-container">
             <div class="tabel-item">
               <div class="n-line">
-                <div class="titel-6 hyundaisansheadoffice-bold-port-gore-41px">N line</div>
+                <div class="titel-6 titel-boven hyundaisansheadoffice-bold-port-gore-41px">N line</div>
               </div>
               <div class="inhoud-tabel-container">
               <Frame12 :icons="frame12Icons5" :separators1="separatorsImage" />
@@ -114,13 +114,6 @@
             </div>
           </div>
         </div>
-  
-        <!-- <a href="/vraag1">
-          <button class="offerte-knop" onclick="navigateToQuestions()">
-            <div class="vraag-offerte-aan">Vraag offerte aan</div>
-            <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
-          </button>
-        </a> -->
       </div>
     </div>
   </template>
@@ -168,9 +161,43 @@
 
 
 
+
+
 .span1-1 
   font-family: 'Hyundai Sans Head Office-Regular', Helvetica!important
-  margin-bottom: 5%
+
+
+.titel-boven
+  width: 12vw
+
+.titel-3
+  margin-left:  1.2rem!important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 

@@ -642,9 +642,25 @@ validateTelefoonnummer() {
 
 .geslacht {
   color: #002e6b!important;
-  font-family: 'Hyundai Sans Head Office-Bold', Helvetica;
+  font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   margin-top: 5px;
   margin-left: 0.8rem;
+  font-size: 1.5rem;
+}
+
+
+.selecteer-een-dealer {
+  margin-left: 2rem;
+}
+
+
+#kies-een-dealer {
+  margin-left: 1rem;
+}
+
+
+.selecteer-een-dealer {
+  margin-left: 1rem;
 }
 
 
@@ -855,6 +871,28 @@ validateTelefoonnummer() {
 
 
 
+@media (min-width: 2000px) {
+  .geslacht {
+    font-size: 1.2vw;
+    margin-top: 1rem;
+    color: #002E6B;
+  }
 
+  .pijl-omdraaien {
+    width: 2vw;
+  }
+
+  .geslacht-container input[type="radio"] {
+    transform: scale(2);
+    margin-top: 0.3vw;
+  }
+  
+
+
+  
+
+
+
+}
 
 </style>

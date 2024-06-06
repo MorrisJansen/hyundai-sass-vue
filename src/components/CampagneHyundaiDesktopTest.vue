@@ -7,7 +7,7 @@ import Onderdelen2 from "./Onderdelen2";
 import ComfortSmart from "./ComfortSmart";
 import overlayImage from '/img/overlay.png';
 import Carousel from './carousel';
-import Tabel from "./tabel.vue";
+import Tabel2 from "./tabel2.vue";
 
 
 export default {
@@ -20,7 +20,7 @@ export default {
     Onderdelen2,
     ComfortSmart,
     Carousel,
-    Tabel,
+    Tabel2,
   },
   props: 
     [
@@ -162,7 +162,7 @@ export default {
         </div>
 
 
-
+      <div class="overkoepelende-container-header">
         <div class="section-header">
           <div class="overlap-group1">
             <div class="overlap-group afbeelding-radius" :style="{ 'background-image': 'url(' + currentImage + ')' }">
@@ -217,6 +217,12 @@ export default {
           <p class="het-maandbedrag-va hyundaisansheadoffice-regular-normal-silver-16px">{{ hetMaandbedragVa }}</p>
         </div>
       </div>
+      </div>
+
+
+
+
+
       <div class="section-all-inclusive">
         <div class="overlap-group-1">
           <img class="vrouw-blij-auto" :src="vrouwBlijAuto" alt="vrouw blij auto" />
@@ -283,9 +289,7 @@ export default {
       </div>
 
 
-      <div class="tabel-container-groot">
-        <Tabel></Tabel>
-      </div>
+        <Tabel2></Tabel2>
 
 
       <a href="/vraag1">
@@ -393,12 +397,12 @@ export default {
   background-color: $white
   display: flex
   flex-direction: column
-  height: 387.29vw
+  height: auto
   overflow: hidden
   width: 100.0vw
 
 .overlap-group2
-  height: 58.59vw
+  height: 62.59vw
   margin-left: 0.21vw
   position: relative
   width: 100.21vw
@@ -426,15 +430,21 @@ export default {
   margin-top: 2.5vw
   width: 16.04vw
 
+
+.overkoepelende-container-header
+  height: 54vw!important
+  display: block
+
 .section-header
-  height: 51.41vw
+  height: 61.41vw!important
   left: 7.6vw
   position: absolute
   top: 7.19vw
   width: 92.6vw
+  display: block
 
 .overlap-group1
-  height: 51.41vw
+  height: 1.41vw
   left: 0.05vw
   position: absolute
   top: 0
@@ -524,8 +534,8 @@ export default {
   position: relative
   top: 32vw
   padding: 2.361vw 2.361vw
-  gap: 8vw
   width: 50vw
+  height: 9vw
 
 
 
@@ -568,7 +578,6 @@ export default {
 
 
 
-  
 
 
 
@@ -589,7 +598,7 @@ export default {
 
 .middelste-knop-groot
   position: relative
-  bottom: 8vw
+  bottom: 14vw
 
 
 
@@ -608,7 +617,6 @@ export default {
 
 .arrow
   width: 1.5rem
-  height: 0.8125rem
 
 
 .private-lease-nu-tij
@@ -705,9 +713,9 @@ export default {
   width: 100.0vw
 
 .overlap-group-1
-  height: 47.14vw
+  height: 51vw
   left: 0
-  position: absolute
+  display: block
   top: 5.83vw
   width: 91.41vw
 
@@ -725,7 +733,8 @@ export default {
   gap: 0.7vw
   left: 8.33vw
   position: absolute
-  top: 31.87vw
+  top: 32.87vw
+
 
 .voordeel-1
   align-items: flex-start
@@ -752,7 +761,7 @@ export default {
   gap: 1.98vw
   left: 50.36vw
   position: absolute
-  top: 10.05vw
+  top: 6vw
 
 .titel-all-inclusive
   align-items: flex-start
@@ -791,9 +800,9 @@ export default {
   align-self: flex-end
   display: flex
   flex-direction: column
-  height: 52.24vw
+  height: 60vw
   margin-right: -19.58vw
-  margin-top: 8.18vw
+  margin-top: 8vw
   width: 114.01vw
 
 .titel-frisse-kijk
@@ -840,19 +849,10 @@ export default {
   position: relative
   width: 6.77vw
 
-.slider-indicator
-  display: inline-flex
-  gap: 0.83vw
-  height: 0.42vw
-  margin-top: 9.22vw
-  position: relative
-  width: 7.66vw
 
-@media (max-width: 768px)
-  .slider-indicator
-    width: 14rem!important
-    gap: 1rem!important
-    margin-left: 27vw!important
+  
+
+
 
 
 .x01
@@ -862,12 +862,7 @@ export default {
   position: relative
   width: 3.28vw
 
-.slider-indicator-item
-  background-color: $text-grey
-  border-radius: 2.08vw
-  height: 0.42vw
-  position: relative
-  width: 1.35vw
+
 
 
 
@@ -887,8 +882,7 @@ export default {
 .section-uitvoeringen-tabel
   background-color: $light-blue
   display: flex
-  height: 125.68vw
-  margin-top: 9.79vw
+
   width: 100.0vw
 
 
@@ -1086,22 +1080,37 @@ export default {
   font-weight: 700
   line-height: 0
   position: relative
-  
+  bottom: 12px
+
   font-family: "Hyundai Sans Head Office-Bold", Helvetica
   font-style: normal
   font-weight: 700
 
+@media (max-width 768px)
+  .span1-1
+    font-weight: 500
+    color: var(--White, #FFF)
+    font-family: "Hyundai Sans Head Office"
+    font-size: 1.2rem
+    font-style: normal
+    position: relative
+    display: inline-block
+    bottom: 12px
+    width: 100%
+    left: 35px!important
 
+
+@media (min-width: 768px)
 .span1-1
   font-weight: 500
   color: var(--White, #FFF)
   font-family: "Hyundai Sans Head Office"
-  font-size: 1.3125rem
+  font-size: 1.2rem
   font-style: normal
-  position: relative
-  margin-left: 10%
-  position: relative
-  top: 0.5vw
+  display: inline-block
+  width: 100%
+  margin-left: 16%
+
 
 
   @media (max-width: 2700px)
@@ -1141,6 +1150,11 @@ export default {
     margin: 2.5px 0
 
 
+@media (max-width: 2900px) and (min-width: 2000px)
+  .midden-knop
+    margin-top: 400px
+
+
 @media (max-width: 2824px) and (min-width: 2000px)
   .kleiner-tabel
     font-size: 1.55rem!important
@@ -1157,7 +1171,7 @@ export default {
   
 
 
-@media (min-width: 2000px)
+@media (min-width: 2530px)
   .profile-groups,
   .profile-groups:nth-child(5)
     font-size: 1.8rem
@@ -1167,11 +1181,11 @@ export default {
 
 
   .tabel-icons
-    margin-bottom: 2.05rem
-    margin-top: 2.25rem
+    margin-bottom: 2.1rem
+    margin-top: 2.3rem
 
   .icoon-container:first-child
-    margin-top: 4.2rem
+    margin-top: 3.8rem
 
 
   .frame-12
@@ -1202,10 +1216,10 @@ export default {
     font-size: 0.8vw
 
   .tabel-container-groot
-    height: 4500px
+    height: 4200px
 
   .section-uitvoeringen-tabel
-    height: 4500px
+    height: 4200px
 
   .tabel-sectie
     height: 100%
@@ -1214,16 +1228,15 @@ export default {
     height: 3500px
 
   .onderdelen 
-    height: 3000px
+    height: 2825px
     
   .frame-12 
-    height: 3000px
+    height: 2825px
 
 
 
   .arrow
     width: 4.5rem
-    height: 2rem
     margin-left: 5rem
   
   .vraag-offerte-aan
@@ -1231,12 +1244,17 @@ export default {
     font-size: 3rem
   
   .offerte-knop
-    height: 10rem
-    width: 50rem
+    height: 15rem
+    width: 45rem
+    border-radius: 25px
   
   .middelste-knop-groot
     margin-top: 100px
 
+
+
+
+  
     
     
 

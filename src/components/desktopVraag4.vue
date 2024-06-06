@@ -69,7 +69,7 @@ export default {
           
             <a href="/vraag3">
               <button class="terug">
-            <img :src="vragenPijlVorige" alt="">
+            <img class="pijl" :src="vragenPijlVorige" alt="">
             <div class="vorige-tekst">Vorige</div>
           </button>
         </a>
@@ -204,6 +204,18 @@ export default {
     line-height: normal;
   }
 
+
+
+@media (min-width: 2000px) {
+  .pijl {
+    width: 1.3vw;
+  }
+  .vraag-optie input[type="radio"] {
+    transform: scale(2.5); 
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+}
 
 
 
@@ -380,6 +392,9 @@ export default {
   .vorige-tekst {
     font-size: 1rem;
   }
+
+
+  
 
 }
 

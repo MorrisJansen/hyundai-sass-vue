@@ -115,13 +115,13 @@ export default {
         <div class="pijlen-container">
           <a href="/vraag2">
             <button class="terug">
-              <img :src="vragenPijlVorige" alt="">
+              <img class="pijl" :src="vragenPijlVorige" alt="">
               <div class="vorige-tekst">Vorige</div>
             </button>
           </a>
           <button class="volgende" @click="goToNextQuestion">
             <div class="volgende-tekst">Volgende</div>
-            <img :src="vragenPijlVolgende" class="pijl-omdraaien" alt="">
+            <img :src="vragenPijlVolgende" class="pijl-omdraaien pijl" alt="">
           </button>
         </div>
       </div>
@@ -228,6 +228,16 @@ export default {
   margin-left: 1.5vw;
 }
 
+@media (min-width: 2000px) {
+  .i10-comfort {
+    margin-top: 0.8vw!important;
+  }
+
+  .volgende-tekst {
+    font-size:  2.6rem!important;
+  }
+}
+
 .vraag-optie-container {
   display: flex;
   flex-direction: column;
@@ -301,15 +311,40 @@ export default {
 }
 
 .volgende {
-  margin-left: 26vw;
+  margin-left: 100%;
   display: inline-flex;
   height: 4.7vw;
   width: 14vw;
-  padding: 2.125rem 1.5625rem;
   align-items: center;
   gap: 3vw;
   border-radius: 0.4375rem;
   background: var(--Primary-blue, #002E6B);
+}
+
+@media (max-width: 1550px) {
+  .volgende {
+    margin-left: 115%;
+    min-width: 70%;
+    overflow: hidden;
+  }
+  .volgende-tekst {
+    display: block;    
+  }
+  .pijl-omdraaien {
+    display: block;
+    overflow: hidden;
+    min-width: 1rem;
+    max-width: 100%;
+
+  }
+}
+
+@media (max-width: 1060px) {
+  .i10-knop {
+    padding: 0.3rem 0.6rem!important;
+  }
+
+
 }
 
 .volgende-tekst {
@@ -377,7 +412,48 @@ export default {
 }
 
 
+.terug {
+  margin-top: 1vw;
 
+}
+
+
+
+
+.vraag-optie:nth-child(3) {
+  font-size: 1.3rem;
+  margin-left: 0rem;
+  gap: 1rem;
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+@media (min-width:  2000px) {
+  .i10-knop {
+    width: 10vw;
+    height: 3vw;
+    border-radius: 45px;
+    margin-left: 22vw;
+    margin-bottom: 1vw;
+  }
+
+  .vraag-optie-container {
+    border-radius: 55px;
+  }
+
+
+  .pijl {
+    width: 1.3vw;
+  }
+
+
+}
 
 
 

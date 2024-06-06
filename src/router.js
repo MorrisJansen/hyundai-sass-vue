@@ -11,6 +11,7 @@ import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
 import Bedankt from "./components/bedankt.vue"
+import Tabel2 from "./components/tabel2.vue"
 
 import { 
   campagneHyundaiDesktopTestData, 
@@ -30,6 +31,7 @@ const routes = [
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
   },
+
 
   {
     path: "/vraag1",
@@ -66,12 +68,19 @@ const routes = [
     component: Bedankt,
     name: 'bedankt'
   },
+  {
+    path: "/tabel2",
+    component: Tabel2,
+    name: 'tabel2'
+  },
+  
 ];
 
 const router = new Router({
   mode: "history",
   routes,
 });
+
 const handleRouting = () => {
   const isMobile = window.innerWidth < 768;
   const currentPath = router.currentRoute.path;
@@ -94,9 +103,21 @@ const handleRouting = () => {
   }
 };
 
+const debounce = (func, wait) => {
+  let timeout;
+  return function(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func.apply(this, args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
+const debouncedHandleRouting = debounce(handleRouting);
 
-window.addEventListener("resize", handleRouting);
-window.addEventListener("load", handleRouting);
+window.addEventListener("resize", debouncedHandleRouting);
+document.addEventListener("DOMContentLoaded", handleRouting);
 
 export default router;
