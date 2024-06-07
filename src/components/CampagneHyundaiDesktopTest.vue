@@ -118,7 +118,8 @@ export default {
   data() {
     return {
       currentImage: '',
-      overlayImage: overlayImage
+      overlayImage: overlayImage,
+      showOverlay: false
     };
   },
   created() {
@@ -126,7 +127,14 @@ export default {
   },
   methods: {
     toggleImage() {
-      this.currentImage = this.currentImage === this.overlapGroup ? this.overlayImage : this.overlapGroup;
+      this.showOverlay = !this.showOverlay;
+      if (this.showOverlay) {
+        this.currentImage = this.overlayImage;
+      } else {
+        setTimeout(() => {
+          this.currentImage = this.overlapGroup; 
+        });
+      }
     }
   }
 };
@@ -165,24 +173,34 @@ export default {
       <div class="overkoepelende-container-header">
         <div class="section-header">
           <div class="overlap-group1">
-            <div class="overlap-group afbeelding-radius" :style="{ 'background-image': 'url(' + currentImage + ')' }">
-              <div class="flex-col">
+
+            
+            <div class="overlap-group1">
+              <transition name="image-slide" mode="out-in">
                 <div
-                  class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
-                  v-html="tijdelijkVoorMaar275PM"
-                ></div>
-                <div class="ontdek-meer">{{ ontdekMeer }}</div>
-              </div>
-              <div class="navigatie-slider">
-                <button class="ontzichtbaar" @click="toggleImage">
-                  <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
-                </button>
-                <button class="ontzichtbaar" @click="toggleImage">
-                  <img class="arrow-right" :src="arrowRight" alt="Arrow right" />
-                </button>
-              </div>
-              
+                  class="overlap-group afbeelding-radius"
+                  :key="currentImage"
+                  :style="{ 'background-image': 'url(' + currentImage + ')' }"
+                >
+                  <div class="flex-col">
+                    <div
+                      class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
+                      v-html="tijdelijkVoorMaar275PM"
+                    ></div>
+                    <div class="ontdek-meer">{{ ontdekMeer }}</div>
+                  </div>
+                  <div class="navigatie-slider">
+                    <button class="ontzichtbaar" @click="toggleImage">
+                      <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
+                    </button>
+                    <button class="ontzichtbaar" @click="toggleImage">
+                      <img class="arrow-right" :src="arrowRight" alt="Arrow right" />
+                    </button>
+                  </div>
+                </div>
+              </transition>
             </div>
+            
 
 
 
@@ -521,6 +539,50 @@ export default {
 
 .afbeelding-radius
   border-radius: 0rem 0rem 0rem 6.25rem
+  transition: transform 0.5s ease, opacity 0.5s ease
+
+
+.image-slide-enter-active,
+.image-slide-leave-active
+  transition: none
+
+.image-slide-enter,
+.image-slide-leave-to
+  transform: translateX(0)
+  transition: transform 0.5s ease, opacity 0.5s ease
+
+.image-slide-enter-to
+  transform: translateX(100%)
+
+.image-slide-leave
+  opacity: 1
+  transition: opacity 0.5s ease
+
+.image-slide-leave-to
+  opacity: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .cta-balk
@@ -532,10 +594,10 @@ export default {
   left: 0
   overflow: hidden
   position: relative
-  top: 32vw
+  top: 34.5vw
   padding: 2.361vw 2.361vw
-  width: 50vw
-  height: 9vw
+  width: 45vw
+  height: 7vw
 
 
 
@@ -557,8 +619,10 @@ export default {
 
 
     .offerte-knop
-      width: 22.917vw
-      height: 7.014vw
+      height: 5vw
+
+    .vraag-offerte-aan
+      font-size: 27px
 
 
 @media (min-width: 768px) and (max-width: 1150px)
@@ -800,7 +864,7 @@ export default {
   align-self: flex-end
   display: flex
   flex-direction: column
-  height: 60vw
+  height: 55vw
   margin-right: -19.58vw
   margin-top: 8vw
   width: 114.01vw

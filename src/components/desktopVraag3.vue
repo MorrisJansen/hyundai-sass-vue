@@ -128,6 +128,7 @@ export default {
       
       <div v-if="showPopup" class="popup-overlay" @click="closePopup">
         <div class="popup" @click.stop>
+          <button class="close-button" @click="closePopup">&times;</button> <!-- Toegevoegde close-button -->
           <div class="popup-content">
             <Tabel />
           </div>
@@ -137,6 +138,7 @@ export default {
     </div>
   </div>
 </template>
+
 
 
 
@@ -593,7 +595,7 @@ export default {
   
   .volgende {
     margin-left: 5%;
-    width: 100%;
+    height: 20%;
   }
 
   @media (min-width: 640px) and (max-width: 768px) {
@@ -699,15 +701,72 @@ export default {
 
   .volgende {
     margin-left: 0;
+    margin-top: 0;
+
   }
 
   .volgende-tekst {
     font-size: 1rem;
   }
 
+  .pijlen-container {
+    height: 30%;
+  }
 
 }
 
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  padding: 2vw;
+  border-radius: 1vw;
+  box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.3);
+  width: 100vw; /* Vergroot de breedte van de popup */
+  height: 90vh; /* Vergroot de hoogte van de popup */
+  position: relative;
+  z-index: 1001;
+  overflow: auto; /* Zorg ervoor dat de inhoud gescrold kan worden als deze te groot is */
+}
+
+.popup-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Horizontale centrering */
+  align-items: flex-start; /* Verticale top-uitlijning */
+  padding-top: 2vh; /* Voegt extra ruimte aan de bovenkant toe */
+}
+
+
+.close-button {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  background: none;
+  border: none;
+  font-size: 5vw;
+  cursor: pointer;
+}
+
+
+
+.section-uitvoeringen-tabel {
+  background-color: white;
+}
 
 
 

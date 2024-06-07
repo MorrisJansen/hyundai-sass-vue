@@ -33,7 +33,6 @@ export default {
   .label,
   .label-1
     display: flex
-    padding: 0.198vw 1.091vw
     justify-content: center
     align-items: center
     border-radius:  2.183vw
@@ -42,11 +41,12 @@ export default {
   .nieuw,
   .nieuw-1
     letter-spacing: 0
-    margin-top: -0.04vw
     white-space: nowrap
     width: fit-content
     font-size: $font-size-l
-
+    position: relative
+    top: 0.1vw
+    
 
     
 

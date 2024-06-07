@@ -147,7 +147,7 @@ export default {
   align-items: center;
   gap: 0.83vw;
   height: 0.42vw;
-  margin-top: 9.22vw;
+  margin-top: 6vw;
   width: 7.66vw;
   position: relative;
   margin-left: 40vw;

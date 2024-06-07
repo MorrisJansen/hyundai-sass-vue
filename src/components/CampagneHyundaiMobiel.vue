@@ -431,7 +431,7 @@ export default {
           <div class="hoofd-titel-tekst-1">
             <div class="nieuw">NIEUW</div>
             <div class="frame-5-1">
-              <div class="de-vernieuwde-hyundai-i10 hyundaisansheadoffice-bold-midnight-blue-48px">De vernieuwde
+              <div class="de-vernieuwde-hyundai-i10-1 hyundaisansheadoffice-bold-midnight-blue-48px">De vernieuwde
                 Hyundai i10</div>
               <div class="maak-een-groots-statement-1">{{ maakEenGrootsStatement }}</div>
             </div>
@@ -441,8 +441,11 @@ export default {
             v-html="profiteerNuVanEen"
           ></p>
           </div>
-          <div class="overlap-group3">
-            <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + currentImage + ')' }"></div>
+
+          <div class="overlap-group3">  
+            <transition name="image-slide">
+              <div class="groot-beeld-slider" :style="{ 'background-image': 'url(' + currentImage + ')' }"></div>
+            </transition>
             <div class="cta-balk-1">
               <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk<br> vanaf €275 p/m* </p>
             <a href="/vraag1">
@@ -587,7 +590,7 @@ export default {
 
 
           <div class="aantal-maanden-1">
-            <div class="titel-19" :style="{ 'background-image': 'url(' + titel6 + ')' }">
+            <div class="titel-19" >
               <div class="bill-montly-3 hyundaisansheadoffice-bold-white-32px">{{ billMontly2 }}</div>
             </div>
 
@@ -673,11 +676,14 @@ export default {
 
       </div>
 
-      
+
       <footer class="footer-1">
-        <img class="line-2-1" :src="line2" alt="Line 2" />
         <p class="bekijk-de-privacy-1 hyundaisansheadoffice-regular-normal-silver-16px">{{ bekijkDePrivacy }}</p>
+        <div class="onderkant-footer-1"></div>
       </footer>
+      <img class="line-2-1" :src="line2" alt="Line 2" />
+      <div class="lijn-1"></div>
+
     </div>
   </div>
 </template>
@@ -769,13 +775,14 @@ export default {
 
 .de-vernieuwde-hyundai-i10-1
   flex: 0 0 auto
-  position: relative
   width: 100vw
+  font-size: 2.33906rem!important
+
 
 .maak-een-groots-statement-1
   color: $primary-blue
   font-family: $font-family-hyundai_sans_head_office-bold
-  font-size: 2rem
+  font-size: 1.45481rem!important
   font-weight: 700
   letter-spacing: 0
   line-height: 10.96vw
@@ -788,6 +795,7 @@ export default {
   margin-top: 7.2vw
   min-height: 19.2vw
   max-width: 90vw
+  font-size: 1rem!important
 
 .overlap-group3
   height: 107.73vw
@@ -881,6 +889,10 @@ export default {
   position: absolute
   top: 123vw
 
+
+
+  
+
 @media (min-width: 500px) and (max-width: 580px)
   .ontdek-meer-1
     top: 130vw
@@ -898,7 +910,7 @@ export default {
   display: flex
   flex-direction: column
   gap: 7.2vw
-  margin-top: 9.6vw
+  margin-top: 9vw
   // min-height: 380.4vw
   padding: 9.07vw 0
   width: 100.0vw
@@ -906,8 +918,11 @@ export default {
 
 
 @media (max-width: 480px)
-  .section-all-inclusive-1
-    margin-top: 320px
+  .section-all-inclusive-1  
+    padding-bottom: 100px
+
+  li
+    font-size: 18px!important
 
 .frame-19-1
   align-items: flex-start
@@ -1348,19 +1363,27 @@ export default {
   width: 100.53vw
 
 .line-2-1
-  height: 0.27vw
-  margin-left: -0.53vw
-  margin-top: -0.27vw
+  height: 1px
   object-fit: cover
   width: 100.0vw
 
 .bekijk-de-privacy-1
   height: 25.6vw
+  padding-bottom: 20%
   letter-spacing: 0
-  line-height: 6.4vw
+  line-height: 1.5!important
   margin-left: -0.53vw
   text-align: center
   width: 32.84vw
+
+.lijn-1
+  width: 100vw
+  height: 1px
+  display: block
+
+
+.onderkant-footer-1
+  height: 40%
 
 
 @media (max-width: 480px)
@@ -1448,7 +1471,7 @@ export default {
   .knop-onder-kleine-tabel
     position: relative
     top: 650px
-    margin-left: 11%!important
+    margin-left: 8%!important
 
 
 

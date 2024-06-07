@@ -277,7 +277,9 @@ export default {
 
 @media (max-width: 768px)
   .section-uitvoeringen-tabel-correct
-    padding: 10rem 0 10rem 0.5rem
+
+    padding: 0 0 10rem 0.5rem
+    margin-top: 10rem
 
 .titel-item-correct:nth-child(4) .titel-tekst-container-correct 
   margin-top: 9% 
@@ -291,6 +293,7 @@ export default {
 @media (max-width: 480px)
   .uitvoeringen-en-hun-functionaliteiten-correct
     font-size: 2rem
+    margin-top: 20vw
 
   .onder
     margin-top: -350px!important
