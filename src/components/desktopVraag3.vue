@@ -1,73 +1,3 @@
-<script>
-import Keurmerk from "./Keurmerk";
-import achtergrondVraag from "/img/achtergrondVraag.png";
-import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
-import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
-import Tabel from "./tabel.vue";
-import { addAntwoord } from "/src/antwoorden.js";
-
-export default {
-  name: "DesktopVraag",
-  components: {
-    Keurmerk,
-    Tabel,
-  },
-  data() {
-    return {
-      vragenPijlVolgende: vragenPijlVolgende,
-      vragenPijlVorige: vragenPijlVorige,
-      achtergrondVraag: achtergrondVraag,
-      antwoordOpties: [
-        { id: 4750, answer: "i10 i-Drive" },
-        { id: 4753, answer: "i10 Comfort" },
-        { id: 4759, answer: "i10 Comfort Smart" },
-        { id: 4762, answer: "i10 Premium" },
-        { id: 4765, answer: "i10 N Line" },
-        { id: 4774, answer: "Weet ik nog niet" }
-      ],
-      geselecteerdeAntwoorden: [], 
-      showPopup: false
-    };
-  },
-  methods: {
-    goToNextQuestion() {
-      if (this.geselecteerdeAntwoorden.length === 0) {
-        alert("Selecteer minstens één antwoord.");
-        return; 
-      }
-
-      this.geselecteerdeAntwoorden.forEach((antwoord) => {
-        addAntwoord(antwoord.id); 
-      });
-
-      this.$router.push('/vraag4');
-    },
-    openPopup() {
-      this.showPopup = true;
-    },
-    closePopup() {
-      this.showPopup = false;
-    }
-  }
-};
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -127,8 +57,8 @@ export default {
       </div>
       
       <div v-if="showPopup" class="popup-overlay" @click="closePopup">
-        <div class="popup" @click.stop>
-          <button class="close-button" @click="closePopup">&times;</button> <!-- Toegevoegde close-button -->
+        <div class="popup">
+          <button class="close-button" @click="closePopup">&times;</button> <!-- Close-button werkt nu -->
           <div class="popup-content">
             <Tabel />
           </div>
@@ -138,6 +68,60 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
+import Tabel from "./tabel.vue";
+import { addAntwoord } from "/src/antwoorden.js";
+
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+    Tabel,
+  },
+  data() {
+    return {
+      vragenPijlVolgende: vragenPijlVolgende,
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      antwoordOpties: [
+        { id: 4750, answer: "i10 i-Drive" },
+        { id: 4753, answer: "i10 Comfort" },
+        { id: 4759, answer: "i10 Comfort Smart" },
+        { id: 4762, answer: "i10 Premium" },
+        { id: 4765, answer: "i10 N Line" },
+        { id: 4774, answer: "Weet ik nog niet" }
+      ],
+      geselecteerdeAntwoorden: [], 
+      showPopup: false
+    };
+  },
+  methods: {
+    goToNextQuestion() {
+      if (this.geselecteerdeAntwoorden.length === 0) {
+        alert("Selecteer minstens één antwoord.");
+        return; 
+      }
+
+      this.geselecteerdeAntwoorden.forEach((antwoord) => {
+        addAntwoord(antwoord.id); 
+      });
+
+      this.$router.push('/vraag4');
+    },
+    openPopup() {
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
+    }
+  }
+};
+</script>
 
 
 
@@ -759,6 +743,10 @@ export default {
   background: none;
   border: none;
   font-size: 5vw;
+  z-index: 999;
+}
+
+.close-button:hover {
   cursor: pointer;
 }
 

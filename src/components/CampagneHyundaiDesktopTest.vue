@@ -600,6 +600,10 @@ export default {
   height: 7vw
 
 
+@media (min-width: 1900px)
+  .private-lease-nu-tij
+    width: 50%!important
+    margin-right: 10%!important
 
 
     

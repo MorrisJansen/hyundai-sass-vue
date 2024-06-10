@@ -739,7 +739,8 @@ export default {
   width: 101.07vw
 
 .marge-links
-  margin-left:  12vw
+  padding-left:  12vw
+  max-width: 100vw
 
 .hoofd-titel-tekst-1
   align-items: flex-start
@@ -752,6 +753,21 @@ export default {
   margin-top: 7.2vw
   min-height: 19.2vw
   width: 100vw
+
+
+@media (max-width: 480px)
+  .hoofd-titel-tekst-1
+    width: 100%
+
+  .de-vernieuwde-hyundai-i10-1
+    width: 100%!important
+    max-width: 300px
+
+  .maak-een-groots-statement-1
+    max-width: 320px
+
+  .marge-links
+    padding-left: 2vw
 
 .nieuw
   display: flex
@@ -771,6 +787,10 @@ export default {
   flex-direction: column
   gap: 0.61vw
   position: relative
+
+@media (max-width: 480px)
+  .frame-5-1
+    max-width: 100vw!Important
 
 
 .de-vernieuwde-hyundai-i10-1
@@ -901,7 +921,8 @@ export default {
     top: 130vw
 
 @media (max-width: 480px)
-  ontdek-meer-1
+  .ontdek-meer-1
+    max-width: 60vw!important
 
 
 .section-all-inclusive-1
@@ -1006,7 +1027,8 @@ export default {
   gap: 24.08vw
   height: 146.93vw
   margin-top: 10.93vw
-  width: 320.0vw
+  // width: 320.0vw
+  width: 100vw
 
 
 @media (max-width: 768px)
@@ -1388,9 +1410,14 @@ export default {
 
 @media (max-width: 480px)
   .prijzentabel-i10-comfort-1
-    margin-left: 7vw!important
+    // margin-left: 7vw!important
     margin-top: 30vw
-
+    position: relative
+    width: 70%!important
+    max-width: 480px
+    margin-left: 0!important
+    text-align: center
+    margin-left: 15%!important
 
 @media (max-width: 768px)
 
@@ -1613,7 +1640,7 @@ export default {
     height: auto!important
 
   .eerste-knop-tekst
-    font-size: 18px!important
+    font-size: 16px!important
 
   .ontdek-meer-1
     position: relative
@@ -1650,10 +1677,7 @@ export default {
 
 
   .footer-1
-    display: block
-    position: relative
-    top: 700px
-    left: 32%
-
-
+    display: flex
+    max-width: 480px
+    left: 0
 </style>

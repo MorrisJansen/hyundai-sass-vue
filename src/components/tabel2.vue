@@ -148,6 +148,18 @@ export default {
   width: 100%
   box-sizing: border-box
 
+@media (min-width: 1900px)
+  .tabel-correct
+    max-width: 100vw
+    margin: 0 auto
+    display: flex
+    align-content: center
+    justify-content: center
+    align-items: center 
+
+  .section-uitvoeringen-tabel-correct
+    padding: 20% 0 20% 0!important
+
 .titels-container-correct
   display: flex
   width: 100%
@@ -299,7 +311,15 @@ export default {
     margin-top: -350px!important
 
   .section-uitvoeringen-tabel-correct
-    padding-bottom: 12rem
+    padding-bottom: 16rem
+    zoom: 70%
+
+
+  .knop-onder-tabel
+    margin-top: -90%!important
+
+  .prijzentabel-i10-comfort-1
+    width:  100%!important
 
 
 </style>

@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <div class="carousel">
@@ -81,7 +82,10 @@ export default {
       let offset;
       if (window.innerWidth >= 768) {
         offset = this.step * this.currentIndex;
-      } else {
+      } else if (window.innerWidth <= 480) {
+          offset = this.step * this.currentIndex * 3
+      }   
+      else {
         offset = this.step * this.currentIndex * 1;
       }
       this.innerStyles = {
@@ -111,6 +115,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 .carousel {
@@ -173,6 +178,21 @@ export default {
   }
 }
 
+@media  (max-width: 480px)  {
+  .carousel-image {
+    width: 80vw!important;
+  }
+
+
+  .card {
+    flex: 0 0 75%;
+    width: 75vw;
+    margin-right: 1vw;
+    display: inline-flex;
+    border-radius: 1.875rem;
+    overflow: hidden;
+  }
+}
 
 
   
