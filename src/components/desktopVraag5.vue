@@ -97,16 +97,16 @@ export default {
 <style scoped>
 
 .vraag-optie {
-  display: block;
 }
 
+
 .gelijke-tekst {
-  display:  flex;
+  display:  inline-flex;
 }
 
 .ja-nee {
   font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
-  display: inline-flex;
+  display: contents;
 }
 
 
@@ -383,12 +383,16 @@ export default {
   }
 
 
+  .vraag-optie input[type="radio"] {
+    margin-left: 1vw;
+    margin-right: 6vw;
+  }
 
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
     margin-bottom: 1.2rem;
-    width: 100%;
+    width: 90%;
     height: 3rem;
 
 
@@ -438,7 +442,7 @@ export default {
       font-size: 1rem;
       margin-top: 0.34rem;
       margin-left: 1rem;
-      gap: 0; /* Verwijder de ruimte tussen de opties */
+      gap: 0;
     }
   }
 }
