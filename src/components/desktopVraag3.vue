@@ -58,7 +58,7 @@
       
       <div v-if="showPopup" class="popup-overlay" @click="closePopup">
         <div class="popup">
-          <button class="close-button" @click="closePopup">&times;</button> <!-- Close-button werkt nu -->
+          <button class="close-button" @click="closePopup">&times;</button>
           <div class="popup-content">
             <Tabel />
           </div>
@@ -66,6 +66,13 @@
       </div>
       
     </div>
+
+
+  <div class="footer-vragen-achtergrond">
+    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+  </div>
+
+
   </div>
 </template>
 
@@ -350,6 +357,7 @@ export default {
   align-items: center;
   gap: 0.625rem;
   border-radius: 2.125rem;
+  border: 0;
   background: #002E6B;
   color: #FFF;
   font-family: 'Hyundai Sans Head Office-Medium', Helvetica;
@@ -646,14 +654,23 @@ export default {
 
 @media (max-width: 480px) {
   .achtergrondVraag {
-    height: 69rem;
+    height: 50rem;
   }
 
   .vragen-achtergrond {
-    height: 66rem;
+    height: 43rem;
     width: 90vw;
     position: relative;
-    top: -68rem;
+    top: -48rem;
+  }
+
+  .vraag {
+    font-size: 2rem;
+    width: 90vw;
+  }
+
+  .tussen-haakjes {
+    font-size: 1rem;
   }
 
 
@@ -661,31 +678,47 @@ export default {
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     width: 100%;
-    height: 5rem;
-  }
+    height: 3rem;
 
-  .i10-knop {
-    font-size: 0.7rem;
-    width: 80px!important;
+
   }
 
   .vraag-optie {
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
-    margin-left:  0;
-    gap: 1rem;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    margin-left: 0em;
+    gap: 0.4rem;
+    top: 0.2rem!important;
   }
+
+  .vraag-optie-tekst {
+    margin-top: 0.28rem;
+  }
+
+  .i10-comfort {
+    font-size: 1rem!important;
+    top: 10px!important;
+    margin: 0!important;
+  }
+
+  .i10-knop {
+    font-size: 1rem;
+    width: 38%!important;
+    left: 10px;
+  }
+
 
   .vorige-tekst {
     font-size: 1rem;
-    margin-left: 0.8rem;
   }
+
 
   .volgende {
     margin-left: 0;
-    margin-top: 0;
+    margin-top: 10px;
+    border: none;
 
   }
 
@@ -696,6 +729,28 @@ export default {
   .pijlen-container {
     height: 30%;
   }
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 160vw;
+  }
+
+
 
 }
 
@@ -719,20 +774,20 @@ export default {
   padding: 2vw;
   border-radius: 1vw;
   box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.3);
-  width: 100vw; /* Vergroot de breedte van de popup */
-  height: 90vh; /* Vergroot de hoogte van de popup */
+  width: 100vw;
+  height: 90vh;
   position: relative;
   z-index: 1001;
-  overflow: auto; /* Zorg ervoor dat de inhoud gescrold kan worden als deze te groot is */
+  overflow: auto;
 }
 
 .popup-content {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center; /* Horizontale centrering */
-  align-items: flex-start; /* Verticale top-uitlijning */
-  padding-top: 2vh; /* Voegt extra ruimte aan de bovenkant toe */
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2vh;
 }
 
 

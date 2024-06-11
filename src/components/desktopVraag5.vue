@@ -1,3 +1,55 @@
+<template>
+  <div class="container-center-horizontal">
+    <div class="top-balk">
+      <a href="/">
+        <img
+          class="logo-hyundai"
+          src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
+          alt="Logo Hyundai"
+        />
+      </a>
+      <keurmerk />
+    </div>
+
+    <div class="background-container">
+      <img :src="achtergrondVraag" class="achtergrondVraag" alt="">
+
+      <div class="vragen-achtergrond">
+        <div class="vraag-hoeveel">Vraag 5 van de 5</div>
+        <div class="vraag">Wil jij graag een proefrit maken bij een dealer in jouw regio?</div>
+        <div class="vraag-optie-container">
+          <label class="vraag-optie">
+            <input type="radio" id="ja" value="4810" v-model="geselecteerdAntwoordId">
+            <div class="gelijke-tekst">
+              <div class="ja-nee">Ja,</div> ik wil graag een proefrit maken
+            </div>
+          </label>
+        </div>
+        <div class="vraag-optie-container">
+          <label class="vraag-optie">
+            <input type="radio" id="nee" value="4813" v-model="geselecteerdAntwoordId">
+            <div class="gelijke-tekst">
+              <div class="ja-nee">Nee,</div> ik hoef geen proefrit te maken
+            </div>
+          </label>
+        </div>
+        
+        
+        <a href="/vraag4">
+          <button class="terug">
+            <img class="pijl" :src="vragenPijlVorige" alt="">
+            <div class="vorige-tekst">Vorige</div>
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-vragen-achtergrond">
+      <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+    </div>
+  </div>
+</template>
+
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
@@ -13,10 +65,6 @@ export default {
     return {
       vragenPijlVorige: vragenPijlVorige,
       achtergrondVraag: achtergrondVraag,
-      antwoordOpties: [
-        { id: 4810, answer: "Ja, ik wil graag een proefrit maken" },
-        { id: 4813, answer: "Nee, ik hoef geen proefrit te maken" },
-      ],
       geselecteerdAntwoordId: null,
     };
   },
@@ -27,7 +75,6 @@ export default {
         setTimeout(() => {
           this.$router.push('/formulier');
         }, 1000);
-
       }
     },
   },
@@ -37,46 +84,7 @@ export default {
     }
   }
 };
-
 </script>
-
-<template>
-  <div class="container-center-horizontal">
-    <div class="top-balk">
-      <a href="/">
-        <img
-          class="logo-hyundai"
-          src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
-          alt="Logo Hyundai"
-        />
-        </a>
-      <keurmerk />
-    </div>
-  
-    <div class="background-container">
-      <img :src="achtergrondVraag" class="achtergrondVraag" alt="">
-
-      <div class="vragen-achtergrond">
-        <div class="vraag-hoeveel">Vraag 5 van de 5</div>
-        <div class="vraag">Wil jij graag een proefrit maken bij een dealer in jouw regio?</div>
-        <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
-          <label class="vraag-optie">
-            <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoordId"> {{ optie.answer }}
-          </label>
-        </div>
-        <a href="/vraag4">
-        <button class="terug">
-          <img class="pijl" :src="vragenPijlVorige" alt="">
-          <div class="vorige-tekst">Vorige</div>
-        </button>
-      </a>
-      </div>
-    </div>
-  </div>
-</template>
-
-
-
 
 
 
@@ -87,6 +95,25 @@ export default {
 
 
 <style scoped>
+
+.vraag-optie {
+  display: block;
+}
+
+.gelijke-tekst {
+  display:  flex;
+}
+
+.ja-nee {
+  font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+  display: inline-flex;
+}
+
+
+
+
+
+
 .container-center-horizontal {
   display: block;
 }
@@ -339,9 +366,17 @@ export default {
 
 
 
-
 @media (max-width: 480px) {
+  .achtergrondVraag {
+    height: 34rem;
+  }
 
+  .vragen-achtergrond {
+    height: 28rem;
+    width: 90vw;
+    position: relative;
+    top: -32rem;
+  }
 
   .vraag {
     font-size: 2rem;
@@ -352,24 +387,60 @@ export default {
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
 
 
   }
 
   .vraag-optie {
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
+    font-size: 1rem;
+    margin-top: 0.34rem;
     margin-left: 1rem;
     gap: 1rem;
   }
+
+  .vraag-optie-tekst {
+    margin-top: 0.28rem;
+    width: 70vw;
+  }
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 80vw;
+  }
+
+  
+
 
   .vorige-tekst {
     font-size: 1rem;
   }
 
+  @media (max-width: 480px) {
+    .vraag-optie {
+      font-size: 1rem;
+      margin-top: 0.34rem;
+      margin-left: 1rem;
+      gap: 0; /* Verwijder de ruimte tussen de opties */
+    }
+  }
 }
 
 

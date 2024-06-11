@@ -76,6 +76,13 @@ export default {
 
         </div>
       </div>
+
+
+  <div class="footer-vragen-achtergrond">
+    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+  </div>
+
+
     </div>
 </template>
 
@@ -356,14 +363,14 @@ export default {
 
 @media (max-width: 480px) {
   .achtergrondVraag {
-    height: 69rem;
+    height: 46rem;
   }
 
   .vragen-achtergrond {
-    height: 66rem;
+    height: 41rem;
     width: 90vw;
     position: relative;
-    top: -68rem;
+    top: -44rem;
   }
 
   .vraag {
@@ -375,30 +382,52 @@ export default {
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
 
 
   }
 
   .vraag-optie {
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
+    font-size: 1rem;
+    margin-top: 0.9rem;
     margin-left: 1rem;
     gap: 1rem;
   }
+
+  .vraag-optie-tekst {
+    margin-top: 0.88rem!important;
+  }
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 140vw;
+  }
+
 
   .vorige-tekst {
     font-size: 1rem;
   }
 
 
-  
 
 }
+</style>
 
-
-  
-  </style>
   

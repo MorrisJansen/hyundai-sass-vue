@@ -773,6 +773,7 @@ export default {
   top: 48vw
   width: 29.95vw
 
+
 .section-all-inclusive
   background-color: $light-blue
   height: 60.26vw
@@ -1463,6 +1464,7 @@ export default {
   height: 3.85vw
   margin-left: 0.16vw
   margin-top: 10.1vw
+  padding-bottom: 7vw
   width: 91.3vw
 
 .line-2

@@ -4,8 +4,8 @@
       <div class="uitvoeringen-en-hun-functionaliteiten-correct">
         Uitvoeringen en hun Functionaliteiten
       </div>
-      <div class="tabel-wrapper-correct">
-        <div class="tabel-correct">
+      <div class="tabel-wrapper-correct" ref="tabelWrapper">
+        <div class="tabel-correct" ref="tabel">
           <div class="titels-container-correct">
             <div class="titel-item-correct titel-functionaliteiten-correct">Functionaliteiten</div>
             <div v-for="(uitvoering, index) in uitvoeringen" :key="index" class="titel-item-correct">
@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="kolommen-container-correct">
+          <div class="kolommen-container-correct" ref="kolommen">
             <div class="functionaliteiten-correct kolom-item-correct">
               <div class="functionaliteit-item-container-correct">
                 <div v-for="(functionaliteit, index) in functionaliteiten" :key="index" class="functionaliteit-item-correct">
@@ -37,13 +37,17 @@
         </div>
       </div>
     </div>
+    <div class="tabel-slider">
+      <img @click="scrollLeft" :src="TabelSliderTerug" class="tabel-slider-item" alt="achteruit">
+      <img @click="scrollRight" :src="TabelSlider" class="tabel-slider-item" alt="vooruit">
+    </div>
   </div>
 </template>
 
-
-
-
 <script>
+import TabelSlider from "/img/tabel-slider.svg";
+import TabelSliderTerug from "/img/tabel-slider-terug.svg";
+
 export default {
   data() {
     return {
@@ -73,27 +77,43 @@ export default {
         "Draadloos telefoon opladen",
         "Verwarmd stuurwiel"
       ],
+      TabelSlider: TabelSlider,
+      TabelSliderTerug: TabelSliderTerug,
+      firstScroll: true,
+      kolomBreedte: 195,
       uitvoeringen: [
         {
           naam: "i-Drive",
           class: "titel-i-drive",
-          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 9)
+          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill(
+            "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png",
+            9
+          )
         },
         {
           naam: "Comfort",
           prijs: "vanaf €275 p/m",
           class: "titel-comfort",
-          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 13)
+          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill(
+            "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png",
+            13
+          )
         },
         {
           naam: "Comfort Smart",
           class: "titel-comfort-smart",
-          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 16)
+          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill(
+            "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png",
+            16
+          )
         },
         {
           naam: "Premium",
           class: "titel-premium",
-          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png", 18)
+          icons: Array(23).fill("https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/tabel-icons-199@2x.png").fill(
+            "https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ee5a175a57da77384a62/img/tabel-icons-68@2x.png",
+            18
+          )
         },
         {
           naam: "N Line",
@@ -103,8 +123,30 @@ export default {
       ]
     };
   },
+  methods: {
+  scrollLeft() {
+    const tabelWrapper = this.$refs.tabelWrapper;
+    tabelWrapper.scrollLeft -= this.kolomBreedte;
+    
+    if (tabelWrapper.scrollLeft === 0) {
+      this.firstScroll = true;
+    }
+  },
+  scrollRight() {
+    const tabelWrapper = this.$refs.tabelWrapper;
+    if (this.firstScroll) {
+      tabelWrapper.scrollLeft += 144;
+      this.firstScroll = false; 
+    } else {
+      tabelWrapper.scrollLeft += this.kolomBreedte;
+    }
+  }
+}
+
+
 };
 </script>
+
 
 
 <style lang="sass">
@@ -112,6 +154,9 @@ export default {
 :root
   --separator-margin: 16px
   --icon-margin: 8px
+
+.tabel-slider
+  display: none
 
 .section-uitvoeringen-tabel-correct
   display: flex
@@ -303,6 +348,11 @@ export default {
 
 
 @media (max-width: 480px)
+
+  .tabel-sectie-correct
+    margin-top: 2rem
+
+
   .uitvoeringen-en-hun-functionaliteiten-correct
     font-size: 2rem
     margin-top: 20vw
@@ -311,8 +361,9 @@ export default {
     margin-top: -350px!important
 
   .section-uitvoeringen-tabel-correct
-    padding-bottom: 16rem
-    zoom: 70%
+    margin-top: 75vw
+    padding-bottom: 21rem
+    zoom: 55%
 
 
   .knop-onder-tabel
@@ -320,6 +371,19 @@ export default {
 
   .prijzentabel-i10-comfort-1
     width:  100%!important
+
+  .tabel-slider 
+    display: flex
+    margin-left: 33%
+
+  .tabel-slider-item
+    height: 90px
+    position: relative
+    top: -40%
+    z-index: 999
+
+  .tabel-slider-item:first-child
+    margin-right: 10%
 
 
 </style>

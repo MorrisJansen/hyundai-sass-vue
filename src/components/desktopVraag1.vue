@@ -63,13 +63,20 @@ export default {
         <div v-for="(optie, index) in antwoordOpties" :key="index" class="vraag-optie-container" :class="{ 'selected': geselecteerdAntwoord && geselecteerdAntwoord.id === optie.id }">
           <label :for="'optie' + (index + 1)" class="vraag-optie">
             <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoordId">
-            {{ optie.answer }}
+            <span class="vraag-optie-tekst">{{ optie.answer }}</span>
           </label>
         </div>
+
         
         
       </div>
     </div>
+  
+  <div class="footer-vragen-achtergrond">
+    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <span class="footer-klein-scherm"><br></span> van deze actie.</div>
+  </div>
+
+
   </div>
 </template>
 
@@ -160,6 +167,20 @@ export default {
 
 .vraag-optie input[type="radio"]:checked {
   background-color: green;
+}
+
+
+.footer-vragen {
+  color: var(--Text-grey, #C1C1C1);
+  text-align: center;
+  font-family: "Hyundai Sans Head Office";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.footer-vragen-achtergrond {
 }
 
 
@@ -284,14 +305,14 @@ export default {
 
 @media (max-width: 480px) {
   .achtergrondVraag {
-    height: 69rem;
+    height: 48rem;
   }
 
   .vragen-achtergrond {
-    height: 66rem;
+    height: 44rem;
     width: 90vw;
     position: relative;
-    top: -68rem;
+    top: -46rem;
   }
 
   .vraag {
@@ -303,21 +324,49 @@ export default {
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
 
 
   }
 
   .vraag-optie {
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
+    font-size: 1rem;
+    margin-top: 0.7rem;
     margin-left: 1rem;
     gap: 1rem;
   }
 
+  .vraag-optie-tekst {
+    margin-top: 0.38rem;
+  }
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 160vw;
+  }
+
+
+
 
 
 }
+
+
 </style>

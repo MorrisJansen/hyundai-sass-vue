@@ -35,7 +35,7 @@ export default {
     }
   }
 };
-</script>
+</script>1
 
 
 
@@ -62,7 +62,9 @@ export default {
         <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index" :class="{ 'selected': geselecteerdAntwoord && geselecteerdAntwoord.id === optie.id }">
           <label :for="'optie' + (index + 1)" class="vraag-optie">
             <input type="radio" :id="'optie' + (index + 1)" :value="optie.id" v-model="geselecteerdAntwoord">
-            {{ optie.answer }}
+            <span class="vraag-optie-tekst">
+              {{ optie.answer }}
+            </span>
           </label>
         </div>
         
@@ -75,6 +77,13 @@ export default {
         </a>
       </div>
     </div>
+
+
+    <div class="footer-vragen-achtergrond">
+      <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+    </div>
+  
+
   </div>
 </template>
 
@@ -336,20 +345,22 @@ export default {
 
 
 
+
 @media (max-width: 480px) {
   .achtergrondVraag {
-    height: 69rem;
+    height: 43rem;
   }
 
   .vragen-achtergrond {
-    height: 66rem;
+    height: 36rem;
     width: 90vw;
     position: relative;
-    top: -68rem;
+    top: -41rem;
   }
 
   .vraag {
     font-size: 2rem;
+    width: 90vw;
   }
 
 
@@ -357,19 +368,44 @@ export default {
   .vraag-optie-container {
     height: auto; 
     border-radius: 35px; 
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
 
 
   }
 
   .vraag-optie {
     font-size: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     margin-left: 1rem;
     gap: 1rem;
   }
+
+  .vraag-optie-tekst {
+    margin-top: 0.4rem!important;
+  }
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 130vw;
+  }
+
 
   .vorige-tekst {
     font-size: 1rem;

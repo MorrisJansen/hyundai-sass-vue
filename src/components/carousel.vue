@@ -83,7 +83,7 @@ export default {
       if (window.innerWidth >= 768) {
         offset = this.step * this.currentIndex;
       } else if (window.innerWidth <= 480) {
-          offset = this.step * this.currentIndex * 3
+          offset = this.step * this.currentIndex * 3.25
       }   
       else {
         offset = this.step * this.currentIndex * 1;
@@ -187,7 +187,7 @@ export default {
   .card {
     flex: 0 0 75%;
     width: 75vw;
-    margin-right: 1vw;
+    margin-right: 8vw;
     display: inline-flex;
     border-radius: 1.875rem;
     overflow: hidden;

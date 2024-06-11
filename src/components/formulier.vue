@@ -469,6 +469,13 @@ validateTelefoonnummer() {
         </div>
       </div>
     </div>
+
+
+  <div class="footer-vragen-achtergrond">
+    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+  </div>
+
+
   </div>
 </template>
 
@@ -831,22 +838,49 @@ validateTelefoonnummer() {
 
 
 
+
+
+
+@media (min-width: 2000px) {
+  .geslacht {
+    font-size: 1.2vw;
+    margin-top: 1rem;
+    color: #002E6B;
+  }
+
+  .pijl-omdraaien {
+    width: 2vw;
+  }
+
+  .geslacht-container input[type="radio"] {
+    transform: scale(2);
+    margin-top: 0.3vw;
+  }
+}
+
+
+
 @media (max-width: 480px) {
 
   .achtergrondVraag {
-    height: 108rem;
+    height: 88rem;
   }
 
   .vragen-achtergrond {
-    padding: 3rem;
-    height: 103rem;
+    padding: 3rem 3rem 3rem 2rem;
+    height: 84rem;
     width: 90vw;
     position: relative;
-    top: -106rem;
+    top: -86rem;
   }
   
   .geslacht  {
     margin-right: 0.2rem;
+    font-size: 1rem;
+  }
+
+  .input-formulier {
+    margin-bottom: 0;
   }
 
 
@@ -866,33 +900,39 @@ validateTelefoonnummer() {
   }
 
 
+  .vrijblijvend-gegevens {
+    line-height: 1.2;
+    width: 75vw;
+  }
+
+  .afronding {
+    line-height: 1.4;
+  }
+
+
+
+  .footer-vragen-achtergrond {
+    display: block;
+    background-color: white;
+    height: 20vw;
+  }
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 335vw;
+  }
+
+
 
 }
 
-
-
-@media (min-width: 2000px) {
-  .geslacht {
-    font-size: 1.2vw;
-    margin-top: 1rem;
-    color: #002E6B;
-  }
-
-  .pijl-omdraaien {
-    width: 2vw;
-  }
-
-  .geslacht-container input[type="radio"] {
-    transform: scale(2);
-    margin-top: 0.3vw;
-  }
-  
-
-
-  
-
-
-
-}
 
 </style>

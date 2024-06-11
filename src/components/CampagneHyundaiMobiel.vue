@@ -814,7 +814,7 @@ export default {
   line-height: 6.4vw
   margin-top: 7.2vw
   min-height: 19.2vw
-  max-width: 90vw
+  max-width: 95vw
   font-size: 1rem!important
 
 .overlap-group3
@@ -920,9 +920,8 @@ export default {
   .navigatie-slider-1
     top: 130vw
 
-@media (max-width: 480px)
-  .ontdek-meer-1
-    max-width: 60vw!important
+
+
 
 
 .section-all-inclusive-1
@@ -1401,8 +1400,6 @@ export default {
 .lijn-1
   width: 100vw
   height: 1px
-  display: block
-
 
 .onderkant-footer-1
   height: 40%
@@ -1410,7 +1407,6 @@ export default {
 
 @media (max-width: 480px)
   .prijzentabel-i10-comfort-1
-    // margin-left: 7vw!important
     margin-top: 30vw
     position: relative
     width: 70%!important
@@ -1419,9 +1415,13 @@ export default {
     text-align: center
     margin-left: 15%!important
 
+  .line-2-1
+    position: relative
+    top: 9.2%
+
+
+
 @media (max-width: 768px)
-
-
   .section-prijzentabel-1
     margin-top: 50%
 
@@ -1644,15 +1644,20 @@ export default {
 
   .ontdek-meer-1
     position: relative
-    top: -345px
+    top: -43%
+    max-width: 60vw!important
 
 
   .navigatie-slider-1
     position: relative
-    top: -328px
+    top: -40.5%
 
   .het-maandbedrag-va-1
     font-size: 0.8rem
+
+@media (max-width: 480px)
+  .section-all-inclusive-1
+    margin-top: 18%!important
 
   .uitvoeringen-en-hun-functionaliteiten
     margin-left:  120vw
