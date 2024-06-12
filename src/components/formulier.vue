@@ -129,86 +129,111 @@ export default {
     validateVoornaam() {
       console.log("Validating voornaam:", this.formData.voornaam);
       const regex = /^[a-zA-Z\s.,'-]{1,}$/;
+      const inputElement = document.querySelector('#voornaam-input');
+
       if (!this.formData.voornaam.match(regex)) {
         this.errors.voornaam = 'Ongeldige voornaam. Gebruik alleen letters, spaties en leestekens.';
+        inputElement.classList.add('error-input');
         return false;
       }
+
       this.errors.voornaam = '';
+      inputElement.classList.remove('error-input');
       return true;
     },
-    validateAchternaam() {
-      console.log("Validating achternaam:", this.formData.achternaam);
-      const regex = /^[a-zA-Z\s.,'-]{1,}$/;
-      if (!this.formData.achternaam.match(regex)) {
-        this.errors.achternaam = 'Ongeldige achternaam. Gebruik alleen letters, spaties en leestekens.';
-        return false;
-      }
-      this.errors.achternaam = '';
-      return true;
-    },
-    validateEmail() {
-      console.log("Validating email:", this.formData.email);
-      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!this.formData.email.match(regex)) {
-        this.errors.email = 'Ongeldig e-mailadres.';
-        return false;
-      }
-      this.errors.email = '';
-      return true;
-    },
-    validateAndFormatPhoneNumber(phoneNumber) {
-  phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
 
-  if (phoneNumber.startsWith('+31')) {
-    phoneNumber = phoneNumber.replace('+31', '');
-  }
+  validateAchternaam() {
+    console.log("Validating achternaam:", this.formData.achternaam);
+    const regex = /^[a-zA-Z\s.,'-]{1,}$/;
+    const inputElement = document.querySelector('#achternaam-input');
 
-  phoneNumber = phoneNumber.replace(/^0+/, '');
+    if (!this.formData.achternaam.match(regex)) {
+      this.errors.achternaam = 'Ongeldige achternaam. Gebruik alleen letters, spaties en leestekens.';
+      inputElement.classList.add('error-input');
+      return false;
+    }
 
-
-  if (phoneNumber.startsWith('0') && (phoneNumber.length === 10 || phoneNumber.length === 11)) {
-    phoneNumber = '+31' + phoneNumber;
-  }
-  else if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
-    phoneNumber = '+31' + phoneNumber;
-  } else {
-    console.error('Ongeldig telefoonnummer');
-    return null; 
-  }
-
-  if (phoneNumber.length !== 12 || !phoneNumber.match(/^\+316\d{8}$/)) {
-    console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
-    return null;
-  }
-
-  return phoneNumber;
-},
-validateTelefoonnummer() {
-  console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
-  const phoneNumber = this.formData.telefoonnummer.replace(/[^0-9]/g, '');
-
-  if (phoneNumber.startsWith('0') && phoneNumber.length <= 10) {
+    this.errors.achternaam = '';
+    inputElement.classList.remove('error-input');
     return true;
-  }
+  },
+  validateEmail() {
+    console.log("Validating email:", this.formData.email);
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const inputElement = document.querySelector('#email-input');
 
-  if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
-    return true; 
-  }
+    if (!this.formData.email.match(regex)) {
+      this.errors.email = 'Ongeldig e-mailadres.';
+      inputElement.classList.add('error-input');
+      return false;
+    }
 
-  console.error('Ongeldig telefoonnummer.');
-  this.errors.telefoonnummer = 'Ongeldig telefoonnummer.';
-  return false;
-},
+    this.errors.email = '';
+    inputElement.classList.remove('error-input');
+    return true;
+  },
+  validateAndFormatPhoneNumber(phoneNumber) {
+    phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
 
+    if (phoneNumber.startsWith('+31')) {
+      phoneNumber = phoneNumber.replace('+31', '');
+    }
 
-    async checkPostcode() {
+    phoneNumber = phoneNumber.replace(/^0+/, '');
+
+    if (phoneNumber.startsWith('0') && (phoneNumber.length === 10 || phoneNumber.length === 11)) {
+      phoneNumber = '+31' + phoneNumber;
+    } else if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
+      phoneNumber = '+31' + phoneNumber;
+    } else {
+      console.error('Ongeldig telefoonnummer');
+      return null;
+    }
+
+    if (phoneNumber.length !== 12 || !phoneNumber.match(/^\+316\d{8}$/)) {
+      console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
+      return null;
+    }
+
+    return phoneNumber;
+  },
+
+  validateTelefoonnummer() {
+    console.log("Validating telefoonnummer:", this.formData.telefoonnummer);
+    const phoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+
+    if (!phoneNumber) {
+      console.error('Ongeldig telefoonnummer.');
+      this.errors.telefoonnummer = 'Ongeldig telefoonnummer.';
+      const inputElement = document.querySelector('#telefoonnummer-input');
+      inputElement.classList.add('error-input');
+      return false;
+    }
+
+    this.errors.telefoonnummer = '';
+    const inputElement = document.querySelector('#telefoonnummer-input');
+    inputElement.classList.remove('error-input');
+    return true;
+  },  
+
+  async checkPostcode() {
       if (this.postcode.length === 6) {
         const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
         if (postcodeRegex.test(this.postcode)) {
+          // Hier wordt de functionaliteit uitgevoerd als de postcode correct is
           await this.findNearestDealers();
+          // Wis de foutmelding als de postcode correct is
+          this.errors.postcode = '';
         } else {
+          // Toon foutmelding voor ongeldige postcode
           this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
         }
+      } else if (this.postcode.length > 0) {
+        // Toon foutmelding als postcode niet de juiste lengte heeft
+        this.errors.postcode = 'Een postcode moet 6 tekens bevatten.';
+      } else {
+        // Wis de foutmelding als het postcodeveld leeg is
+        this.errors.postcode = '';
       }
     },
     validateDealer() {
@@ -325,7 +350,6 @@ validateTelefoonnummer() {
     )
     .then(response => {
       console.log('Formulier succesvol verstuurd', response.data);
-      window.scrollTo(0, 0);
       this.$router.push('/bedankt');
     })
     .catch(error => {
@@ -387,50 +411,56 @@ validateTelefoonnummer() {
           <div>
             <label>
               <div class="geslacht-container">
-              <input type="radio" v-model="formData.geslacht" value="male">
-              <div class="geslacht"> Meneer </div>
+                <input type="radio" v-model="formData.geslacht" value="male">
+                <div class="geslacht"> Meneer </div>
               </div>
             </label>
             <label>
               <div class="geslacht-container">
-              <input type="radio" v-model="formData.geslacht" value="female">
-              <div class="geslacht"> Mevrouw </div>
+                <input type="radio" v-model="formData.geslacht" value="female">
+                <div class="geslacht"> Mevrouw </div>
               </div>
             </label>
+            <div class="error-message" v-if="errors.geslacht">{{ errors.geslacht }}</div>
           </div>
         </template>
-        
-    
-        
+
         <div class="Voornaam">
-            <label for="Voornaam">
-                <input class="input-formulier" type="text" id="Voornaam" name="Voornaam" placeholder="Voornaam" v-model="formData.voornaam">
-            </label>
-            <div class="error">{{ errors.voornaam }}</div>
+          <label for="voornaam-input"></label>
+          <input 
+            class="input-formulier" 
+            :class="{'error-input': errors.voornaam}" 
+            id="voornaam-input" 
+            v-model="formData.voornaam" 
+            type="text" 
+            placeholder="Voornaam" 
+            @blur="validateVoornaam" 
+          />
+          <div class="error-message" v-if="errors.voornaam">{{ errors.voornaam }}</div>
         </div>
-
+        
+        
         <div class="Achternaam">
-            <label for="Achternaam">
-                <input class="input-formulier" type="text" id="Achternaam" name="Achternaam" placeholder="Achternaam" v-model="formData.achternaam">
-            </label>
-            <div class="error">{{ errors.achternaam }}</div>
+          <label for="achternaam-input"></label>
+          <input class="input-formulier" id="achternaam-input" v-model="formData.achternaam" type="text" placeholder="Achternaam" @blur="validateAchternaam()" />
+          <div class="error-message" v-if="errors.achternaam">{{ errors.achternaam }}</div>
         </div>
-
+        
         <div class="E-mailadres">
-            <label for="E-mailadres">
-                <input class="input-formulier" type="text" id="E-mailadres" name="E-mailadres" placeholder="E-mailadres" v-model="formData.email">
-            </label>
-            <div class="error">{{ errors.email }}</div>
+          <label for="email-input"></label>
+          <input class="input-formulier" type="email" id="email-input" name="E-mailadres" placeholder="E-mailadres" v-model="formData.email" @blur="validateEmail">
+          <div class="error-message" v-if="errors.email">{{ errors.email }}</div>
+        </div>
+        
+        <div class="Telefoonnummer">
+          <label for="telefoonnummer-input"></label>
+          <div class="telefoonnummer-input">
+            <input type="text" class="input-formulier landcode-select" value="+31" readonly>
+            <input class="input-formulier telefoonnummer" type="text" id="telefoonnummer-input" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer" @blur="validateTelefoonnummer">
+          </div>
+          <div class="error-message" v-if="errors.telefoonnummer">{{ errors.telefoonnummer }}</div>
         </div>
 
-        <div class="Telefoonnummer">
-            <label for="Telefoonnummer"></label>
-            <div class="telefoonnummer-input">
-              <input type="text" class="input-formulier landcode-select" value="+31" readonly>
-              <input class="input-formulier telefoonnummer" type="text" id="Telefoonnummer" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer">
-            </div>
-            <div class="error">{{ errors.telefoonnummer }}</div>
-          </div>
           
         <div class="lijn"></div>
 
@@ -440,7 +470,7 @@ validateTelefoonnummer() {
         <div>
           <div class="Postcode">
             <label for="Postcode">
-              <input class="input-formulier" type="text" id="Postcode" name="Postcode" placeholder="Postcode" v-model="postcode" @input="checkPostcode">
+              <input class="input-formulier" type="text" id="Postcode" name="Postcode" placeholder="Postcode" v-model="postcode" @blur="checkPostcode">
             </label>
             <div class="error">{{ errors.postcode }}</div>
           </div>
@@ -472,10 +502,9 @@ validateTelefoonnummer() {
     </div>
 
 
-    <div class="footer-vragen-achtergrond">
-      <div class="footer-vragen-1">Bekijk de Privacy & voorwaarden <span class="footer-klein-scherm"><br></span> van deze actie.</div>
-      <div class="footer-vragen">Bekijk de Privacy & voorwaarden van deze actie.</div>
-    </div>
+  <div class="footer-vragen-achtergrond">
+    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+  </div>
 
 
   </div>
@@ -496,9 +525,21 @@ validateTelefoonnummer() {
 <style scoped>
 
 
-.top-balk {
-  width: 99vw;
+.error-input {
+  border: 2px solid red!important;
 }
+
+
+.error-message {
+  font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+  margin-top: 1rem;
+}
+
+.error {
+  font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
+  margin-top: 1rem;
+}
+
 
 
 .container-center-horizontal {
@@ -680,23 +721,6 @@ validateTelefoonnummer() {
 }
 
 
-.footer-vragen {
-  display: block;
-  z-index: 999;
-  color: var(--Text-grey, #C1C1C1);
-  text-align: center;
-  font-family: "Hyundai Sans Head Office-Regular";
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5;
-  padding-top: 2vw;
-  padding-bottom: 2vw
-}
-
-.footer-vragen-1 {
-  display: none ;
-}
 
 
 
@@ -889,15 +913,15 @@ validateTelefoonnummer() {
 @media (max-width: 480px) {
 
   .achtergrondVraag {
-    height: 88rem;
+    height: 92rem;
   }
 
   .vragen-achtergrond {
     padding: 3rem 3rem 3rem 2rem;
-    height: 84rem;
+    height: 88rem;
     width: 90vw;
     position: relative;
-    top: -86rem;
+    top: -90rem;
   }
   
   .geslacht  {
@@ -943,7 +967,7 @@ validateTelefoonnummer() {
     height: 20vw;
   }
 
-  .footer-vragen-1 {
+  .footer-vragen {
     display: block;
     z-index: 999;
     color: var(--Text-grey, #C1C1C1);
@@ -953,14 +977,8 @@ validateTelefoonnummer() {
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 335vw;
+    margin-top: 350vw;
   }
-
-  .footer-vragen {
-    display: none;
-  }
-
-
 
 
 
