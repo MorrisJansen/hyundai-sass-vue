@@ -678,11 +678,16 @@ export default {
 
 
       <footer class="footer-1">
-        <p class="bekijk-de-privacy-1 hyundaisansheadoffice-regular-normal-silver-16px">{{ bekijkDePrivacy }}</p>
-        <div class="onderkant-footer-1"></div>
+        <img class="line-2-1" :src="line2" alt="Line 2" />
+
+        <div class="footer-vragen-achtergrond">
+          <div class="footer-vragen-1">
+            Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+          </div>
+       
+        </div>
+        
       </footer>
-      <img class="line-2-1" :src="line2" alt="Line 2" />
-      <div class="lijn-1"></div>
 
     </div>
   </div>
@@ -694,6 +699,19 @@ export default {
 @import '../../variables'
 
 
+
+.footer-vragen-1
+  display: block
+  z-index: 999
+  color: var(--Text-grey, #C1C1C1)
+  text-align: center
+  font-family: "Hyundai Sans Head Office-Regular"
+  font-size: 1rem
+  font-style: normal
+  font-weight: 500
+  line-height: 1.5
+  padding-top: 2vw
+  padding-bottom: 2vw
 
 
 .campagne-hyundai-mobiel

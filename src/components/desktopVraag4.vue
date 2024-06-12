@@ -26,11 +26,12 @@ export default {
   methods: {
     goToNextQuestion() {
       if (this.geselecteerdAntwoordId !== null) {
-        addAntwoord(this.geselecteerdAntwoordId); 
+        addAntwoord(this.geselecteerdAntwoordId);
         setTimeout(() => {
-          this.$router.push('/vraag5');
+          this.$router.push('/vraag5').then(() => {
+            window.scrollTo(0, 0);
+          });
         }, 1000);
-
       }
     },
   },
@@ -41,6 +42,7 @@ export default {
   }
 };
 </script>
+
 
 <template>
     <div class="container-center-horizontal">
@@ -78,9 +80,14 @@ export default {
       </div>
 
 
-  <div class="footer-vragen-achtergrond">
-    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
-  </div>
+      <div class="footer-vragen-achtergrond">
+        <div class="footer-vragen-1">
+          Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+        </div>
+        <div class="footer-vragen">
+          Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+        </div>
+      </div>
 
 
     </div>
@@ -100,6 +107,13 @@ export default {
 
 
   <style scoped>
+
+
+  .top-balk {
+    width: 99vw;
+  }
+
+
   .container-center-horizontal {
     display: block;
   }
@@ -209,6 +223,27 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+
+  .footer-vragen {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-vragen-1 {
+      display: none;
+    }
   }
 
 
@@ -354,6 +389,10 @@ export default {
     width: 50%;
   }
 
+  .footer-vragen {
+    display: none;
+  }
+
 
 
 
@@ -407,7 +446,7 @@ export default {
     height: 20vw;
   }
 
-  .footer-vragen {
+  .footer-vragen-1 {
     display: block;
     z-index: 999;
     color: var(--Text-grey, #C1C1C1);
@@ -417,12 +456,22 @@ export default {
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 140vw;
+    margin-top: 130vw;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+  }
+
+  .footer-vragen {
+    display: none;
   }
 
 
   .vorige-tekst {
     font-size: 1rem;
+  }
+
+  .footer-vragen {
+    display: none;
   }
 
 

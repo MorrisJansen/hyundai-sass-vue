@@ -325,6 +325,7 @@ validateTelefoonnummer() {
     )
     .then(response => {
       console.log('Formulier succesvol verstuurd', response.data);
+      window.scrollTo(0, 0);
       this.$router.push('/bedankt');
     })
     .catch(error => {
@@ -471,9 +472,10 @@ validateTelefoonnummer() {
     </div>
 
 
-  <div class="footer-vragen-achtergrond">
-    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
-  </div>
+    <div class="footer-vragen-achtergrond">
+      <div class="footer-vragen-1">Bekijk de Privacy & voorwaarden <span class="footer-klein-scherm"><br></span> van deze actie.</div>
+      <div class="footer-vragen">Bekijk de Privacy & voorwaarden van deze actie.</div>
+    </div>
 
 
   </div>
@@ -492,6 +494,13 @@ validateTelefoonnummer() {
 
 
 <style scoped>
+
+
+.top-balk {
+  width: 99vw;
+}
+
+
 .container-center-horizontal {
   display: block;
 }
@@ -671,6 +680,23 @@ validateTelefoonnummer() {
 }
 
 
+.footer-vragen {
+  display: block;
+  z-index: 999;
+  color: var(--Text-grey, #C1C1C1);
+  text-align: center;
+  font-family: "Hyundai Sans Head Office-Regular";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-top: 2vw;
+  padding-bottom: 2vw
+}
+
+.footer-vragen-1 {
+  display: none ;
+}
 
 
 
@@ -917,7 +943,7 @@ validateTelefoonnummer() {
     height: 20vw;
   }
 
-  .footer-vragen {
+  .footer-vragen-1 {
     display: block;
     z-index: 999;
     color: var(--Text-grey, #C1C1C1);
@@ -929,6 +955,12 @@ validateTelefoonnummer() {
     line-height: 1.5;
     margin-top: 335vw;
   }
+
+  .footer-vragen {
+    display: none;
+  }
+
+
 
 
 

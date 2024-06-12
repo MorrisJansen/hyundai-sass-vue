@@ -28,6 +28,7 @@ export default {
       if (newVal !== null) {
         addAntwoord(newVal);
         setTimeout(() => {
+          window.scrollTo(0, 0);
           this.$router.push('/vraag2');
         }, 1000);
       }
@@ -71,10 +72,14 @@ export default {
         
       </div>
     </div>
-  
-  <div class="footer-vragen-achtergrond">
-    <div class="footer-vragen">Bekijk de Privacy & voorwaarden <span class="footer-klein-scherm"><br></span> van deze actie.</div>
-  </div>
+    <div class="footer-vragen-achtergrond">
+      <div class="footer-vragen-1">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+      </div>
+      <div class="footer-vragen">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+      </div>
+    </div>
 
 
   </div>
@@ -83,6 +88,10 @@ export default {
 
 
 <style scoped>
+
+.top-balk {
+  width: 99vw;
+}
 
 
 .container-center-horizontal {
@@ -171,17 +180,26 @@ export default {
 
 
 .footer-vragen {
+  display: block;
+  z-index: 999;
   color: var(--Text-grey, #C1C1C1);
   text-align: center;
-  font-family: "Hyundai Sans Head Office";
+  font-family: "Hyundai Sans Head Office-Regular";
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 1.5;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
 }
 
-.footer-vragen-achtergrond {
+@media (min-width: 768px) {
+  .footer-vragen-1 {
+    display: none;
+  }
 }
+
+
 
 
 
@@ -301,6 +319,20 @@ export default {
     margin-right: 0.5rem;
   }
 
+  .footer-vragen-1 {
+    display: block;
+    z-index: 999;
+    color: var(--Text-grey, #C1C1C1);
+    text-align: center;
+    font-family: "Hyundai Sans Head Office-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -349,7 +381,7 @@ export default {
     height: 20vw;
   }
 
-  .footer-vragen {
+  .footer-vragen-1 {
     display: block;
     z-index: 999;
     color: var(--Text-grey, #C1C1C1);
@@ -359,7 +391,13 @@ export default {
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 160vw;
+    margin-top: 150vw;
+    padding-bottom: 2rem;
+  }
+
+
+  .footer-vragen {
+    display: none
   }
 
 

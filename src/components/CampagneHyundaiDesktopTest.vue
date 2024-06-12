@@ -117,9 +117,9 @@ export default {
   ],
   data() {
     return {
-      currentImage: '',
+      currentImage: "",
       overlayImage: overlayImage,
-      showOverlay: false
+      showOverlay: false,
     };
   },
   created() {
@@ -129,17 +129,16 @@ export default {
     toggleImage() {
       this.showOverlay = !this.showOverlay;
       if (this.showOverlay) {
+        // Zet de nieuwe afbeelding direct
         this.currentImage = this.overlayImage;
+        // Start de timeout voor het laten verdwijnen van de oude afbeelding
       } else {
-        setTimeout(() => {
-          this.currentImage = this.overlapGroup; 
-        });
+        // Zet de oude afbeelding direct
+        this.currentImage = this.overlapGroup;
       }
-    }
-  }
+    },
+  },
 };
-
-
 
 
 
@@ -175,10 +174,39 @@ export default {
           <div class="overlap-group1">
 
             
+
+
+
             <div class="overlap-group1">
               <transition name="image-slide" mode="out-in">
                 <div
-                  class="overlap-group afbeelding-radius"
+                  v-if="showOverlay"
+                  class="overlap-group new-image afbeelding-radius"
+                  :key="currentImage"
+                  :style="{ 'background-image': 'url(' + currentImage + ')' }"
+                >
+                  <div class="flex-col">
+                    <div
+                      class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
+                      v-html="tijdelijkVoorMaar275PM"
+                    ></div>
+                    <div class="ontdek-meer">{{ ontdekMeer }}</div>
+                  </div>
+                  <div class="navigatie-slider">
+                    <button class="ontzichtbaar" @click="toggleImage">
+                      <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
+                    </button>
+                    <button class="ontzichtbaar" @click="toggleImage">
+                      <img class="arrow-right" :src="arrowRight" alt="Arrow right" />
+                    </button>
+                  </div>
+                </div>
+              </transition>
+            
+              <transition name="image-slide" mode="out-in">
+                <div
+                  v-if="!showOverlay"
+                  class="overlap-group old-image afbeelding-radius"
                   :key="currentImage"
                   :style="{ 'background-image': 'url(' + currentImage + ')' }"
                 >
@@ -201,10 +229,18 @@ export default {
               </transition>
             </div>
             
-
+            
 
 
             
+
+
+
+
+
+
+
+
             <div class="cta-balk">
               <p
                 class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-nu-tijdelijk"
@@ -396,11 +432,19 @@ export default {
     </a>
 
 
+    <img class="line-2" :src="line2" alt="Line 2" />
 
-      <footer class="footer">
-        <img class="line-2" :src="line2" alt="Line 2" />
-        <p class="bekijk-de-privacy hyundaisansheadoffice-regular-normal-silver-16px">{{ bekijkDePrivacy }}</p>
-      </footer>
+
+    <div class="footer-vragen-achtergrond">
+      <div class="footer-vragen-1">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+      </div>
+      <div class="footer-vragen">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+      </div>
+    </div>
+    
+
     </div>
   </div>
 </template>
@@ -409,6 +453,128 @@ export default {
 
 <style lang="sass">
 @import '../../variables'
+
+
+
+
+.top-balk 
+  width: 99vw
+
+
+.footer-vragen-1
+  display: none
+
+.line-2
+  margin-top: 4rem!important
+
+
+.footer-vragen
+  display: block
+  z-index: 999
+  color: var(--Text-grey, #C1C1C1)
+  text-align: center
+  font-family: "Hyundai Sans Head Office-Regular"
+  font-size: 1rem
+  font-style: normal
+  font-weight: 500
+  line-height: 1.5
+  padding-top: 2vw
+  padding-bottom: 2vw
+
+
+.footer-link
+  color: var(--Text-grey, #C1C1C1)
+  text-decoration: underline!important
+  display: initial!important
+
+
+.overlap-group1
+  position: relative
+  width: 100%
+  height: 100%
+
+.overlap-group
+  background-size: cover
+  background-position: center
+  position: absolute
+  top: 0
+  left: 0
+
+.old-image
+  z-index: 1
+  transition: opacity 4s ease-in-out // Overgang van oude afbeelding
+
+.new-image-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  overflow: hidden // Beheer overflow voor de nieuwe afbeelding
+
+.new-image
+  z-index: 1111
+  position: absolute
+  top: 0
+  left: 100% // Start buiten het zicht
+  transition: left 4s ease-in-out, opacity 4s ease-in-out // Voeg opacity toe
+
+.image-slide-enter-active
+  left: 0 // Beweeg naar links om zichtbaar te worden
+  transition-delay: 0.5s // Voeg een vertraging toe zodat de nieuwe afbeelding later begint te schuiven
+
+.image-slide-leave-to
+  left: -100%
+  opacity: 0 // Vervaag de oude afbeelding tijdens het vertrek
+
+.ontzichtbaar
+  background: none
+  border: none
+  padding: 0
+
+.arrow-left,
+.arrow-right
+  cursor: pointer
+
+
+
+
+
+
+
+
+
+
+.cta-balk
+  z-index: 2000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .campagne-hyundai-desktop-test
   align-items: center

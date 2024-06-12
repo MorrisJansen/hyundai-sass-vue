@@ -45,8 +45,15 @@
     </div>
 
     <div class="footer-vragen-achtergrond">
-      <div class="footer-vragen">Bekijk de Privacy & voorwaarden <br> van deze actie.</div>
+      <div class="footer-vragen-1">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+      </div>
+      <div class="footer-vragen">
+        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+      </div>
     </div>
+
+
   </div>
 </template>
 
@@ -73,6 +80,7 @@ export default {
       if (this.geselecteerdAntwoordId !== null) {
         addAntwoord(this.geselecteerdAntwoordId);
         setTimeout(() => {
+          window.scrollTo(0, 0);
           this.$router.push('/formulier');
         }, 1000);
       }
@@ -96,7 +104,9 @@ export default {
 
 <style scoped>
 
-.vraag-optie {
+
+.top-balk {
+  width: 99vw;
 }
 
 
@@ -119,12 +129,12 @@ export default {
 }
 
 .background-container {
-  height: 75vw;
+  height: 55vw;
 }
 
 .achtergrondVraag {
   width: 100%;
-  height: 75vw;
+  height: 55vw;
   object-fit: cover;
 }
 
@@ -133,11 +143,11 @@ export default {
   align-items: center;
   gap: 0.694vw;
   width: 61.111vw;
-  height: 66.667vw;
+  height: 35vw;
   background-color: white;
   margin: 0 auto;
   position: relative;
-  top: -71.5vw;
+  top: -50vw;
   border-radius: 0.75rem;
   box-shadow: 0px 31px 81px 0px rgba(0, 17, 77, 0.20);
 }
@@ -220,6 +230,26 @@ export default {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.footer-vragen {
+  display: block;
+  z-index: 999;
+  color: var(--Text-grey, #C1C1C1);
+  text-align: center;
+  font-family: "Hyundai Sans Head Office-Regular";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+}
+
+@media (min-width: 768px) {
+  .footer-vragen-1 {
+    display: none;
+  }
 }
 
 
@@ -372,7 +402,7 @@ export default {
   }
 
   .vragen-achtergrond {
-    height: 28rem;
+    height: 29rem;
     width: 90vw;
     position: relative;
     top: -32rem;
@@ -418,6 +448,10 @@ export default {
   }
 
   .footer-vragen {
+    display: none;
+  }
+
+  .footer-vragen-1 {
     display: block;
     z-index: 999;
     color: var(--Text-grey, #C1C1C1);
@@ -427,7 +461,8 @@ export default {
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
-    margin-top: 80vw;
+    margin-top: 100vw;
+    padding: 9vw 0;
   }
 
   
