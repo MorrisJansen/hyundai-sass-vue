@@ -1131,7 +1131,6 @@ export default {
 
 
 @media (min-width: 768px) and (max-width: 1100px)
-  .section-uitvoeringen-tabel
 
 
 

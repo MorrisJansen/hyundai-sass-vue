@@ -1197,7 +1197,7 @@ export default {
     margin-top: 2px
     height: 1700px
     
-  .tabel-icoon
+  .tabel-icoon,
   .tabel
     position: relative
     left: 550px
@@ -1273,7 +1273,6 @@ export default {
  
 
 @media (max-width: 768px)
-  .offerte-knop
 
   .tabel-icoon:last-child 
     margin: 0 auto
