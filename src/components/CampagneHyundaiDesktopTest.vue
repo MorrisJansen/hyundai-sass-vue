@@ -247,7 +247,7 @@ export default {
                 v-html="privateLeaseNuTij"></p>
 
                 <a href="/vraag1">
-                  <button class="offerte-knop">
+                  <button class="offerte-knop cta-offerte-knop">
                     <div class="vraag-offerte-aan">Vraag offerte aan</div>
                     <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
                     </button>
@@ -455,7 +455,13 @@ export default {
 @import '../../variables'
 
 
+.tabel-wrapper-correct
+  zoom: 85%
 
+
+@media (min-width: 768px) 
+  .footer-vragen-1
+    display: none!important
 
 .top-balk 
   width: 99vw
@@ -502,7 +508,7 @@ export default {
 
 .old-image
   z-index: 1
-  transition: opacity 4s ease-in-out // Overgang van oude afbeelding
+  transition: opacity 4s ease-in-out
 
 .new-image-container
   position: absolute
@@ -510,22 +516,22 @@ export default {
   left: 0
   width: 100%
   height: 100%
-  overflow: hidden // Beheer overflow voor de nieuwe afbeelding
+  overflow: hidden
 
 .new-image
   z-index: 1111
   position: absolute
   top: 0
-  left: 100% // Start buiten het zicht
-  transition: left 4s ease-in-out, opacity 4s ease-in-out // Voeg opacity toe
+  left: 100% 
+  transition: left 4s ease-in-out, opacity 4s ease-in-out 
 
 .image-slide-enter-active
-  left: 0 // Beweeg naar links om zichtbaar te worden
-  transition-delay: 0.5s // Voeg een vertraging toe zodat de nieuwe afbeelding later begint te schuiven
+  left: 0 
+  transition-delay: 0.5s
 
 .image-slide-leave-to
   left: -100%
-  opacity: 0 // Vervaag de oude afbeelding tijdens het vertrek
+  opacity: 0 
 
 .ontzichtbaar
   background: none
@@ -548,6 +554,9 @@ export default {
 .cta-balk
   z-index: 2000
 
+.cta-offerte-knop
+  height: 5rem
+  padding: 0 0.5rem!important
 
 
 

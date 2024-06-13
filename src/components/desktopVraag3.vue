@@ -785,6 +785,7 @@ export default {
     margin-left: 0;
     margin-top: 10px;
     border: none;
+    width: 50px;
 
   }
 

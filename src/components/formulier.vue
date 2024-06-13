@@ -475,14 +475,22 @@ export default {
             <div class="error">{{ errors.postcode }}</div>
           </div>
       
-          <div class="Kies-een-dealer">
-            <label for="Kies-een-dealer"></label>
-            <select class="input-formulier" id="Kies-een-dealer" name="Kies-een-dealer" v-model="formData.dealer">
-              <option class="selecteer-een-dealer" value="" disabled>Selecteer een dealer</option>
-              <option v-for="dealer in nearestDealers" :key="dealer.id" :value="dealer">{{ dealer.name }}</option>
-            </select>
-            <div class="error">{{ errors.dealer }}</div>
-          </div>
+            <div>
+              <div class="Kies-een-dealer">
+                <label for="Kies-een-dealer"></label>
+                <select 
+                  class="input-formulier dealer-select"
+                  id="Kies-een-dealer" 
+                  name="Kies-een-dealer" 
+                  v-model="formData.dealer" 
+                  @change="validateDealer"
+                >
+                  <option class="selecteer-een-dealer" value="" disabled> <span class="input-rechts">Selecteer een dealer</span></option>
+                  <option v-for="dealer in nearestDealers" :key="dealer.id" :value="dealer">{{ dealer.name }}</option>
+                </select>
+                <div class="error">{{ errors.dealer }}</div>
+              </div>
+            </div>
           </div>
           
 
@@ -524,10 +532,24 @@ export default {
 
 <style scoped>
 
+.dealer-select:first-child {
+  margin-left: 30px!important;
+}
+
+
+.input-rechts {
+  margin-left: 30px;
+}
+
+.selecteer-een-dealer {
+  margin-left: 20px;
+}
+
 
 .error-input {
   border: 2px solid red!important;
 }
+
 
 
 .error-message {
