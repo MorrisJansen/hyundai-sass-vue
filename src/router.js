@@ -129,4 +129,3 @@ window.addEventListener("resize", debouncedHandleRouting);
 document.addEventListener("DOMContentLoaded", handleRouting);
 
 export default router;
-
