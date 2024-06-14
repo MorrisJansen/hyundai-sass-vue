@@ -10,8 +10,8 @@ import vraag3 from "./components/desktopVraag3.vue";
 import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
-import Bedankt from "./components/bedankt.vue"
-import Tabel2 from "./components/tabel2.vue"
+import Bedankt from "./components/bedankt.vue";
+import Tabel2 from "./components/tabel2.vue";
 
 import { 
   campagneHyundaiDesktopTestData, 
@@ -31,49 +31,46 @@ const routes = [
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
   },
-
-
   {
     path: "/vraag1",
     component: vraag1,
-    name: 'vraag1',
+    name: "vraag1",
   },
   {
     path: "/vraag2",
     component: vraag2,
-    name: 'vraag2',
+    name: "vraag2",
   },
   {
     path: "/vraag3",
     component: vraag3,
-    name: 'vraag3',
+    name: "vraag3",
   },
   {
     path: "/vraag4",
     component: vraag4,
-    name: 'vraag4',
+    name: "vraag4",
   },
   {
     path: "/vraag5",
     component: vraag5,
-    name: 'vraag5',
+    name: "vraag5",
   },
   {
     path: "/formulier",
     component: Formulier,
-    name: 'formulier'
+    name: "formulier"
   },
   {
     path: "/bedankt",
     component: Bedankt,
-    name: 'bedankt'
+    name: "bedankt"
   },
   {
     path: "/tabel2",
     component: Tabel2,
-    name: 'tabel2'
+    name: "tabel2"
   },
-  
 ];
 
 const router = new Router({
@@ -115,7 +112,7 @@ const debounce = (func, wait) => {
   };
 };
 
-const debouncedHandleRouting = debounce(handleRouting);
+const debouncedHandleRouting = debounce(handleRouting, 200);
 
 window.addEventListener("resize", debouncedHandleRouting);
 document.addEventListener("DOMContentLoaded", handleRouting);

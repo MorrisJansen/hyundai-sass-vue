@@ -1,11 +1,6 @@
-module.exports = {
-  publicPath : './'
-}
 
 module.exports = {
-  configureWebpack: {
-    optimization: {
-      minimize: false
-    }
-  }
-};
+  publicPath: process.env.NODE_ENV === 'production' ? '/hyundai-sass-vue/' : '/'
+}
+
+
