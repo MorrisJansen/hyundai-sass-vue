@@ -37,47 +37,47 @@ const routes = [
     props: { ...campagneHyundaiMobielData },
   },
   {
-    path: '/hyundai-sass-vue/vraag1',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/vraag1',
     component: vraag1,
     name: 'vraag1',
   },
   {
-    path: '/hyundai-sass-vue/vraag2',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/hyundai-sass-vue/vraag2',
     component: vraag2,
     name: 'vraag2',
   },
   {
-    path: '/hyundai-sass-vue/vraag3',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/vraag3',
     component: vraag3,
     name: 'vraag3',
   },
   {
-    path: '/hyundai-sass-vue/vraag4',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/vraag4',
     component: vraag4,
     name: 'vraag4',
   },
   {
-    path: '/hyundai-sass-vue/vraag5',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/vraag5',
     component: vraag5,
     name: 'vraag5',
   },
   {
-    path: '/hyundai-sass-vue/formulier',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/formulier',
     component: Formulier,
     name: 'formulier'
   },
   {
-    path: '/hyundai-sass-vue/bedankt',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/bedankt',
     component: Bedankt,
     name: 'bedankt'
   },
   {
-    path: '/hyundai-sass-vue/tabel2',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/tabel2',
     component: Tabel2,
     name: 'tabel2'
   },
   {
-    path: '/hyundai-sass-vue/:queryParams(.*)',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/:queryParams(.*)',
     name: 'Result',
     component: CampagneHyundaiDesktopTest,
     props: true
@@ -86,7 +86,6 @@ const routes = [
 
 const router = new Router({
   mode: 'history',
-  base: '/hyundai-sass-vue/',
   routes,
 });
 
@@ -94,20 +93,20 @@ const handleRouting = () => {
   const isMobile = window.innerWidth < 768;
   const currentPath = router.currentRoute.path;
 
-  const isOnVragenPage = currentPath.startsWith("/hyundai-sass-vue/desktopVragen") || currentPath === "/hyundai-sass-vue/";
-  const isOnCampagnePage = currentPath.startsWith("/hyundai-sass-vue/campagne-hyundai-mobiel");
+  const isOnVragenPage = currentPath.startsWith("https://morrisjansen.github.io/hyundai-sass-vue/desktopVragen") || currentPath === "https://morrisjansen.github.io/hyundai-sass-vue/hyundai-sass-vue/";
+  const isOnCampagnePage = currentPath.startsWith("https://morrisjansen.github.io/hyundai-sass-vue/campagne-hyundai-mobiel");
 
   if (isOnVragenPage) {
     if (isMobile) {
-      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      router.replace("https://morrisjansen.github.io/hyundai-sass-vue/campagne-hyundai-mobiel");
     } else {
       router.replace(currentPath);
     }
   } else if (isOnCampagnePage) {
     if (isMobile) {
-      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      router.replace("https://morrisjansen.github.io/hyundai-sass-vue/campagne-hyundai-mobiel");
     } else {
-      router.replace("/hyundai-sass-vue/");
+      router.replace("https://morrisjansen.github.io/hyundai-sass-vue/");
     }
   }
 };
