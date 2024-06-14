@@ -22,59 +22,70 @@ Vue.use(Router);
 
 const routes = [
   {
-    path: "/campagne-hyundai-mobiel",
-    component: CampagneHyundaiMobiel,
-    props: { ...campagneHyundaiMobielData },
+    path: '/',
+    redirect: { name: 'Home' }
   },
   {
-    path: "/",
+    path: '/hyundai-sass-vue/',
+    name: 'Home',
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
   },
   {
-    path: "/vraag1",
+    path: '/hyundai-sass-vue/campagne-hyundai-mobiel',
+    component: CampagneHyundaiMobiel,
+    props: { ...campagneHyundaiMobielData },
+  },
+  {
+    path: '/hyundai-sass-vue/vraag1',
     component: vraag1,
-    name: "vraag1",
+    name: 'vraag1',
   },
   {
-    path: "/vraag2",
+    path: '/hyundai-sass-vue/vraag2',
     component: vraag2,
-    name: "vraag2",
+    name: 'vraag2',
   },
   {
-    path: "/vraag3",
+    path: '/hyundai-sass-vue/vraag3',
     component: vraag3,
-    name: "vraag3",
+    name: 'vraag3',
   },
   {
-    path: "/vraag4",
+    path: '/hyundai-sass-vue/vraag4',
     component: vraag4,
-    name: "vraag4",
+    name: 'vraag4',
   },
   {
-    path: "/vraag5",
+    path: '/hyundai-sass-vue/vraag5',
     component: vraag5,
-    name: "vraag5",
+    name: 'vraag5',
   },
   {
-    path: "/formulier",
+    path: '/hyundai-sass-vue/formulier',
     component: Formulier,
-    name: "formulier"
+    name: 'formulier'
   },
   {
-    path: "/bedankt",
+    path: '/hyundai-sass-vue/bedankt',
     component: Bedankt,
-    name: "bedankt"
+    name: 'bedankt'
   },
   {
-    path: "/tabel2",
+    path: '/hyundai-sass-vue/tabel2',
     component: Tabel2,
-    name: "tabel2"
+    name: 'tabel2'
   },
+  {
+    path: '/hyundai-sass-vue/:queryParams(.*)',
+    name: 'Result',
+    component: CampagneHyundaiDesktopTest,
+    props: true
+  }
 ];
 
 const router = new Router({
-  mode: "history",
+  mode: 'history',
   routes,
 });
 
@@ -82,20 +93,20 @@ const handleRouting = () => {
   const isMobile = window.innerWidth < 768;
   const currentPath = router.currentRoute.path;
 
-  const isOnVragenPage = currentPath.startsWith("/desktopVragen") || currentPath === "/";
-  const isOnCampagnePage = currentPath.startsWith("/campagne-hyundai-mobiel");
+  const isOnVragenPage = currentPath.startsWith("/desktopVragen") || currentPath === "/hyundai-sass-vue/";
+  const isOnCampagnePage = currentPath.startsWith("/hyundai-sass-vue/campagne-hyundai-mobiel");
 
   if (isOnVragenPage) {
     if (isMobile) {
-      router.replace("/campagne-hyundai-mobiel");
+      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
     } else {
       router.replace(currentPath);
     }
   } else if (isOnCampagnePage) {
     if (isMobile) {
-      router.replace("/campagne-hyundai-mobiel");
+      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
     } else {
-      router.replace("/");
+      router.replace("/hyundai-sass-vue/");
     }
   }
 };
@@ -118,3 +129,4 @@ window.addEventListener("resize", debouncedHandleRouting);
 document.addEventListener("DOMContentLoaded", handleRouting);
 
 export default router;
+
