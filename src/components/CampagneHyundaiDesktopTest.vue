@@ -157,7 +157,7 @@ export default {
           <div class="overlap-group" :style="{'background-image': 'url(' + overlayGroup + ')'}"></div>
 
           <div class="top-balk">
-            <a href="/">
+            <a href="https://morrisjansen.github.io/hyundai-sass-vue/">
             <img
               class="logo-hyundai"
               src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -246,7 +246,7 @@ export default {
                 class="private-lease-nu-tij hyundaisansheadoffice-bold-midnight-blue-nu-tijdelijk"
                 v-html="privateLeaseNuTij"></p>
 
-                <a href="/vraag1">
+                <a href="https://morrisjansen.github.io/hyundai-sass-vue/vraag1">
                   <button class="offerte-knop cta-offerte-knop">
                     <div class="vraag-offerte-aan">Vraag offerte aan</div>
                     <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
