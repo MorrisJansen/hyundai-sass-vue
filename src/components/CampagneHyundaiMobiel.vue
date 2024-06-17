@@ -1175,6 +1175,9 @@ export default {
 
 @media (max-width: 768px)
 
+  .tabel-wrapper-correct
+    zoom: 85%
+
   .scroll-tabel-container
     width: 95vw
     height: 1700px

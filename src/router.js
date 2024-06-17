@@ -26,7 +26,7 @@ const routes = [
     redirect: { name: 'Home' }
   },
   {
-    path: '/https://morrisjansen.github.io/hyundai-sass-vue/',
+    path: '/hyundai-sass-vue/',
     name: 'Home',
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
@@ -93,20 +93,28 @@ const handleRouting = () => {
   const isMobile = window.innerWidth < 768;
   const currentPath = router.currentRoute.path;
 
-  const isOnVragenPage = currentPath.startsWith("/desktopVragen") || currentPath === "/hyundai-sass-vue/";
+  const isOnVragenPage = currentPath.startsWith("/hyundai-sass-vue/desktopVragen") || currentPath === "/hyundai-sass-vue/";
   const isOnCampagnePage = currentPath.startsWith("/hyundai-sass-vue/campagne-hyundai-mobiel");
 
   if (isOnVragenPage) {
     if (isMobile) {
-      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      if (currentPath !== "/hyundai-sass-vue/campagne-hyundai-mobiel") {
+        router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      }
     } else {
-      router.replace(currentPath);
+      if (currentPath !== currentPath) {
+        router.replace(currentPath);
+      }
     }
   } else if (isOnCampagnePage) {
     if (isMobile) {
-      router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      if (currentPath !== "/hyundai-sass-vue/campagne-hyundai-mobiel") {
+        router.replace("/hyundai-sass-vue/campagne-hyundai-mobiel");
+      }
     } else {
-      router.replace("/hyundai-sass-vue/");
+      if (currentPath !== "/hyundai-sass-vue/") {
+        router.replace("/hyundai-sass-vue/");
+      }
     }
   }
 };
