@@ -344,12 +344,13 @@ export default {
         <Tabel2></Tabel2>
 
 
-      <a href="/hyundai-sass-vue/vraag1">
-        <button class="offerte-knop middelste-knop-groot">
-          <div class="vraag-offerte-aan">Vraag offerte aan</div>
-          <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+        <router-link to="/hyundai-sass-vue/vraag1">
+          <button class="offerte-knop middelste-knop-groot">
+            <div class="vraag-offerte-aan">Vraag offerte aan</div>
+            <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
           </button>
-      </a>
+        </router-link>
+        
       
       
 
@@ -422,12 +423,13 @@ export default {
     </div>
 
 
-    <a href="/hyundai-sass-vue/vraag1">
-      <button class="offerte-knop midden-knop" onclick="navigateToQuestions()">
+    <router-link to="/hyundai-sass-vue/vraag1">
+      <button class="offerte-knop midden-knop">
         <div class="vraag-offerte-aan">Vraag offerte aan</div>
         <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
       </button>
-    </a>
+    </router-link>
+    
 
 
     <img class="line-2" :src="line2" alt="Line 2" />
