@@ -122,7 +122,7 @@ export default {
         addAntwoord(antwoord.id); 
       });
       window.scrollTo(0, 0);
-      this.$router.push('/hyundai-sass-vue/vraag2');
+      this.$router.push('/hyundai-sass-vue/vraag4');
     },
     openPopup() {
       this.showPopup = true;
