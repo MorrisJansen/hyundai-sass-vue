@@ -1,7 +1,52 @@
+
+
+<script>
+import Keurmerk from "./Keurmerk";
+import achtergrondVraag from "/img/achtergrondVraag.png";
+import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
+import { addAntwoord } from "/src/antwoorden.js";
+
+export default {
+  name: "DesktopVraag",
+  components: {
+    Keurmerk,
+  },
+  data() {
+    return {
+      vragenPijlVorige: vragenPijlVorige,
+      achtergrondVraag: achtergrondVraag,
+      geselecteerdAntwoordId: null,
+    };
+  },
+  methods: {
+    goToNextQuestion() {
+      if (this.geselecteerdAntwoordId !== null) {
+        addAntwoord(this.geselecteerdAntwoordId);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          this.$router.push('/formulier');
+        }, 1000);
+      }
+    },
+  },
+  watch: {
+    geselecteerdAntwoordId() {
+      this.goToNextQuestion();
+    }
+  }
+};
+</script>
+
+
+
+
+
+
+
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
-      <a href="/">
+      <a href="/hyundai-sass-vue/">
         <img
           class="logo-hyundai"
           src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630e80d3963d74fbfb4822c/img/logo-hyundai-1.svg"
@@ -56,44 +101,6 @@
 
   </div>
 </template>
-
-<script>
-import Keurmerk from "./Keurmerk";
-import achtergrondVraag from "/img/achtergrondVraag.png";
-import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
-import { addAntwoord } from "/src/antwoorden.js";
-
-export default {
-  name: "DesktopVraag",
-  components: {
-    Keurmerk,
-  },
-  data() {
-    return {
-      vragenPijlVorige: vragenPijlVorige,
-      achtergrondVraag: achtergrondVraag,
-      geselecteerdAntwoordId: null,
-    };
-  },
-  methods: {
-    goToNextQuestion() {
-      if (this.geselecteerdAntwoordId !== null) {
-        addAntwoord(this.geselecteerdAntwoordId);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          this.$router.push('/formulier');
-        }, 1000);
-      }
-    },
-  },
-  watch: {
-    geselecteerdAntwoordId() {
-      this.goToNextQuestion();
-    }
-  }
-};
-</script>
-
 
 
 

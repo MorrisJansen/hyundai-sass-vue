@@ -448,7 +448,7 @@ export default {
             </transition>
             <div class="cta-balk-1">
               <p class="private-lease-nu-tij-1 hyundaisansheadoffice-bold-midnight-blue-24px">Private Lease nu tijdelijk<br> vanaf €275 p/m* </p>
-            <a href="/vraag1">
+            <a href="/hyundai-sass-vue/vraag1">
               <div class="offerte-knop eerste-knop" onclick="navigateToQuestions()">
                 <div class="vraag-offerte-aan eerste-knop-tekst">Vraag offerte aan</div>
                 <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
@@ -564,7 +564,7 @@ export default {
 
 
 
-    <a href="/vraag1">
+    <a href="/hyundai-sass-vue/vraag1">
       <div class="offerte-knop midden onder knop-onder-tabel" onclick="navigateToQuestions()">
         <div class="vraag-offerte-aan">Vraag offerte aan</div>
         <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
@@ -666,7 +666,7 @@ export default {
         </div>
       </div>
 
-      <a href="/vraag1">
+      <a href="/hyundai-sass-vue/vraag1">
         <div class="offerte-knop midden knop-onder-kleine-tabel"  onclick="navigateToQuestions()">
           <div class="vraag-offerte-aan">Vraag offerte aan</div>
           <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
