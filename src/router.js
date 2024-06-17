@@ -26,13 +26,13 @@ const routes = [
     redirect: { name: 'Home' }
   },
   {
-    path: '/hyundai-sass-vue/',
-    name: 'Home',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/',
+    name: 'Home', 
     component: CampagneHyundaiDesktopTest,
     props: { ...campagneHyundaiDesktopTestData },
   },
   {
-    path: '/hyundai-sass-vue/campagne-hyundai-mobiel',
+    path: 'https://morrisjansen.github.io/hyundai-sass-vue/campagne-hyundai-mobiel',
     component: CampagneHyundaiMobiel,
     props: { ...campagneHyundaiMobielData },
   },
