@@ -28,7 +28,7 @@ export default {
       if (this.geselecteerdAntwoordId !== null) {
         addAntwoord(this.geselecteerdAntwoordId);
         setTimeout(() => {
-          this.$router.push('/vraag5').then(() => {
+          this.$router.push('/hyundai-sass-vue/vraag5').then(() => {
             window.scrollTo(0, 0);
           });
         }, 1000);

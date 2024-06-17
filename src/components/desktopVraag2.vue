@@ -30,7 +30,7 @@ export default {
         addAntwoord(newVal);
         setTimeout(() => {
           window.scrollTo(0, 0);
-          this.$router.push('/vraag3');
+          this.$router.push('/hyundai-sass-vue/vraag3');
         }, 1000);
       }
     }

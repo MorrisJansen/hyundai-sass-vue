@@ -24,7 +24,7 @@ export default {
         addAntwoord(this.geselecteerdAntwoordId);
         setTimeout(() => {
           window.scrollTo(0, 0);
-          this.$router.push('/formulier');
+          this.$router.push('/hyundai-sass-vue/formulier');
         }, 1000);
       }
     },
