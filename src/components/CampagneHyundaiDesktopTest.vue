@@ -129,12 +129,9 @@ export default {
     toggleImage() {
       this.showOverlay = !this.showOverlay;
       if (this.showOverlay) {
-        // Zet de nieuwe afbeelding direct
         this.currentImage = this.overlayImage;
-        // Start de timeout voor het laten verdwijnen van de oude afbeelding
       } else {
-        // Zet de oude afbeelding direct
-        this.currentImage = this.overlapGroup;
+         this.currentImage = this.overlapGroup;
       }
     },
   },
