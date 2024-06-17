@@ -72,11 +72,6 @@ const routes = [
     name: 'bedankt'
   },
   {
-    path: '/hyundai-sass-vue/tabel2',
-    component: Tabel2,
-    name: 'tabel2'
-  },
-  {
     path: '/hyundai-sass-vue/:queryParams(.*)',
     name: 'Result',
     component: CampagneHyundaiDesktopTest,

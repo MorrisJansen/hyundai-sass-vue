@@ -220,19 +220,14 @@ export default {
       if (this.postcode.length === 6) {
         const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
         if (postcodeRegex.test(this.postcode)) {
-          // Hier wordt de functionaliteit uitgevoerd als de postcode correct is
           await this.findNearestDealers();
-          // Wis de foutmelding als de postcode correct is
           this.errors.postcode = '';
         } else {
-          // Toon foutmelding voor ongeldige postcode
           this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
         }
       } else if (this.postcode.length > 0) {
-        // Toon foutmelding als postcode niet de juiste lengte heeft
         this.errors.postcode = 'Een postcode moet 6 tekens bevatten.';
       } else {
-        // Wis de foutmelding als het postcodeveld leeg is
         this.errors.postcode = '';
       }
     },
