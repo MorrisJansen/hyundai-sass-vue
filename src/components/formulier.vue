@@ -350,7 +350,7 @@ export default {
     )
     .then(response => {
       console.log('Formulier succesvol verstuurd', response.data);
-      this.$router.push('/bedankt');
+      this.$router.push('/hyundai-sass-vue/bedankt');
     })
     .catch(error => {
       console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
