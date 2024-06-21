@@ -7,7 +7,7 @@
       <div class="tabel-wrapper-correct" ref="tabelWrapper">
         <div class="tabel-correct" ref="tabel">
           <div class="titels-container-correct">
-            <div class="titel-item-correct titel-functionaliteiten-correct">Functionaliteiten</div>
+            <div class="titel-item-correct titel-functionaliteiten-correct">functionaliteiten</div>
             <div v-for="(uitvoering, index) in uitvoeringen" :key="index" class="titel-item-correct">
               <div class="titel-tekst-container-correct">
                 {{ uitvoering.naam }}
@@ -364,6 +364,20 @@ export default {
     margin-top: 75vw
     padding-bottom: 21rem
     zoom: 55%
+
+@media (max-width: 500px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 35%
+    margin-left: 5%
+
+@media (max-width: 750px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 50%
+    margin-left: 5%
+
+
+
+  
 
 
   .knop-onder-tabel

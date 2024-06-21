@@ -802,7 +802,7 @@ export default {
   .private-lease-nu-tij
     width: 50%!important
     margin-right: 10%!important
-    font-size: 4rem
+    font-size: 3rem!important
 
 
     
@@ -892,7 +892,7 @@ export default {
   position: relative
   width: fit-content
   margin-right: 10%
-  font-size: 22px!important
+  font-size: 22px
   
 
 
