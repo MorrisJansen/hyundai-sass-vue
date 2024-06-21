@@ -125,17 +125,40 @@ export default {
   created() {
     this.currentImage = this.overlapGroup;
   },
+  mounted() {
+    this.startImageToggleTimer();
+  },
+  beforeDestroy() {
+    this.stopImageToggleTimer();
+  },
   methods: {
     toggleImage() {
       this.showOverlay = !this.showOverlay;
       if (this.showOverlay) {
         this.currentImage = this.overlayImage;
       } else {
-         this.currentImage = this.overlapGroup;
+        this.currentImage = this.overlapGroup;
       }
     },
-  },
+    startImageToggleTimer() {
+      this.intervalId = setInterval(() => {
+        this.toggleImage();
+      }, 5000);
+    },
+    stopImageToggleTimer() {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+      }
+    },
+    scrollToSection() {
+      const element = document.getElementById('target-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 };
+
 
 
 
@@ -187,8 +210,7 @@ export default {
                       class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
                       v-html="tijdelijkVoorMaar275PM"
                     ></div>
-                    <div class="ontdek-meer">{{ ontdekMeer }}</div>
-                  </div>
+                    <div class="ontdek-meer" @click="scrollToSection">ONTDEK MEER</div>                  </div>
                   <div class="navigatie-slider">
                     <button class="ontzichtbaar" @click="toggleImage">
                       <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
@@ -212,8 +234,7 @@ export default {
                       class="tijdelijk-voor-maar-275-pm hyundaisansheadoffice-bold-white-41px"
                       v-html="tijdelijkVoorMaar275PM"
                     ></div>
-                    <div class="ontdek-meer">{{ ontdekMeer }}</div>
-                  </div>
+                    <div class="ontdek-meer" @click="scrollToSection">ONTDEK MEER</div>                  </div>
                   <div class="navigatie-slider">
                     <button class="ontzichtbaar" @click="toggleImage">
                       <img class="arrow-left" :src="arrowLeft" alt="Arrow left" />
@@ -275,7 +296,7 @@ export default {
 
 
 
-      <div class="section-all-inclusive">
+      <div class="section-all-inclusive" id="target-section">
         <div class="overlap-group-1">
           <img class="vrouw-blij-auto" :src="vrouwBlijAuto" alt="vrouw blij auto" />
           <div class="voordelen-blokken">
@@ -555,7 +576,7 @@ export default {
 
 .cta-offerte-knop
   height: 5rem
-  padding: 0 0.5rem!important
+  padding: 0 1.4rem!important
 
 
 
@@ -678,6 +699,9 @@ export default {
   letter-spacing: 0.36vw
   line-height: normal
   min-height: 1.15vw
+
+.ontdek-meer:hover
+  cursor: pointer
 
 .navigatie-slider
   align-items: flex-start
@@ -852,7 +876,7 @@ export default {
   width: fit-content
   border-radius: 0.4375rem
   color: $white
-  font-size: 1.6875rem
+  font-size: 22px
   font-family: $font-family-hyundai_sans_head_office-bold
   text-align: center
 
@@ -866,6 +890,8 @@ export default {
   line-height: 1.88vw
   position: relative
   width: fit-content
+  margin-right: 10%
+  font-size: 22px!important
   
 
 
@@ -950,17 +976,17 @@ export default {
 
 .section-all-inclusive
   background-color: $light-blue
-  height: 60.26vw
+  height: 70vw
   margin-top: 6.77vw
   position: relative
   width: 100.0vw
 
 .overlap-group-1
   height: 51vw
-  left: 0
   display: block
-  top: 5.83vw
   width: 91.41vw
+  position: relative
+  top: 10vw
 
 .vrouw-blij-auto
   height: 47.14vw
@@ -1003,8 +1029,9 @@ export default {
   flex-direction: column
   gap: 1.98vw
   left: 50.36vw
-  position: absolute
   top: 6vw
+  position: relative
+  top: -37vw
 
 .titel-all-inclusive
   align-items: flex-start
@@ -1038,6 +1065,19 @@ export default {
   line-height: 1.25vw
   position: relative
   width: 36.2vw
+
+
+.vast-maandbedrag-inc li 
+  list-style-position: outside
+  padding-left: 20px 
+
+.vast-maandbedrag-inc li::marker
+  margin-right: 30px
+
+.vast-maandbedrag-inc li 
+  line-height: 1.7
+
+
 
 .section-frisse-kijk-slider
   align-self: flex-end
