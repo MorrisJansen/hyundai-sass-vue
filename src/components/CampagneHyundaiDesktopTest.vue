@@ -802,6 +802,7 @@ export default {
   .private-lease-nu-tij
     width: 50%!important
     margin-right: 10%!important
+    font-size: 4rem
 
 
     
