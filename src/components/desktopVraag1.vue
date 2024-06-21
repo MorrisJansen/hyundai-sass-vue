@@ -338,14 +338,14 @@ export default {
 
 @media (max-width: 480px) {
   .achtergrondVraag {
-    height: 48rem;
+    height: 46rem;
   }
 
   .vragen-achtergrond {
     height: 44rem;
     width: 90vw;
     position: relative;
-    top: -46rem;
+    top: -56rem;
   }
 
   .vraag {

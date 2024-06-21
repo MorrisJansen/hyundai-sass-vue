@@ -885,15 +885,24 @@ export default {
 .arrow
   width: 1.5rem
 
+@media (min-width 1700px)
+  .private-lease-nu-tij
+    font-size: 3rem!important
 
-.private-lease-nu-tij
+
+
+.private-lease-nu-tij p
   letter-spacing: 0
   line-height: 1.88vw
   position: relative
   width: fit-content
   margin-right: 10%
   font-size: 22px
+
   
+
+
+
 
 
 
