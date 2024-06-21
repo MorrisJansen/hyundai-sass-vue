@@ -79,9 +79,14 @@ const routes = [
   }
 ];
 
+
+
 const router = new Router({
   mode: 'history',
   routes,
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
 
 const handleRouting = () => {
@@ -125,6 +130,8 @@ const debounce = (func, wait) => {
     timeout = setTimeout(later, wait);
   };
 };
+
+
 
 const debouncedHandleRouting = debounce(handleRouting, 200);
 

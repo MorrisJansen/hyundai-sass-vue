@@ -393,13 +393,13 @@ export default {
             </div>
            <div class="frame-9-1 licht-blauw-achtergrond hyundaisansheadoffice-regular-normal-port-gore-21px">
               <div class="border-prijzentabel"></div>
-              <div class="profile-groups-1">60 Maanden</div>
+              <div class="profile-groups-1">60 maanden</div>
               <img class="separators-5" :src="separators1" alt="Separators" />
-              <div class="account-viwers">60 Maanden</div>
+              <div class="account-viwers">60 maanden</div>
               <img class="separators-5" :src="separators2" alt="Separators" />
-              <div class="social-media-dashboa">48 Maanden</div>
+              <div class="social-media-dashboa">48 maanden</div>
               <img class="separators-5" :src="separators3" alt="Separators" />
-              <div class="shopify-dashboard">48 Maanden</div>
+              <div class="shopify-dashboard">48 maanden</div>
             </div>
           </div>
 

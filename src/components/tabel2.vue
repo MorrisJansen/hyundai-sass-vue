@@ -294,7 +294,7 @@ export default {
 
 .functionaliteit-item-correct
   font-family: 'Hyundai Sans Head Office-Regular', Helvetica
-  color: #002e6b
+  color: black
   font-size: 22px
   display: flex
   flex-direction: column
@@ -345,6 +345,13 @@ export default {
 .titel-item-correct:nth-child(5) .titel-tekst-container-correct,
 .titel-item-correct:nth-child(6) .titel-tekst-container-correct
   margin-bottom: 11%
+
+
+.titel-item-correct:nth-child(2) .titel-tekst-container-correct,
+.titel-item-correct:nth-child(4) .titel-tekst-container-correct,
+.titel-item-correct:nth-child(5) .titel-tekst-container-correct,
+.titel-item-correct:nth-child(6) .titel-tekst-container-correct
+  color: black
 
 
 @media (max-width: 480px)
