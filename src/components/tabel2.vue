@@ -365,18 +365,67 @@ export default {
     padding-bottom: 21rem
     zoom: 55%
 
-@media (max-width: 500px)
+    .section-uitvoeringen-tabel-correct
+    margin-left: 5%
+    margin-right: 5%
+  
+  
+
+    
+@media (min-width: 501px) and (max-width: 625px)
   .section-uitvoeringen-tabel-correct
     zoom: 35%
     margin-left: 5%
 
-@media (max-width: 750px)
+@media (min-width: 626px) and (max-width: 750px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 40%
+    margin-left: 5%
+    
+@media (min-width: 751px) and (max-width: 875px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 45%
+    margin-left: 5%
+    
+@media (min-width: 876px) and (max-width: 1000px)
   .section-uitvoeringen-tabel-correct
     zoom: 50%
     margin-left: 5%
-
-
-
+    
+@media (min-width: 1001px) and (max-width: 1125px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 58%
+    margin-left: 5%
+    
+@media (min-width: 1126px) and (max-width: 1250px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 65%
+    margin-left: 5%
+    
+@media (min-width: 1251px) and (max-width: 1375px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 70%
+    margin-left: 5%
+    
+@media (min-width: 1376px) and (max-width: 1500px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 75%
+    margin-left: 5%
+    
+@media (min-width: 1501px) and (max-width: 1625px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 80%
+    margin-left: 5%
+    
+@media (min-width: 1626px) and (max-width: 1750px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 85%
+    margin-left: 5%
+    
+@media (min-width: 1751px) and (max-width: 1875px)
+  .section-uitvoeringen-tabel-correct
+    zoom: 90%
+    margin-left: 5%
   
 
 

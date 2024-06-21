@@ -479,7 +479,7 @@ export default {
 
 
 
-@media (min-width: 768px) 
+@media (max-width: 768px) 
   .footer-vragen-1
     display: none!important
 
