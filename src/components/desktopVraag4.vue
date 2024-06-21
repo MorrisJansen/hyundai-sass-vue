@@ -137,9 +137,10 @@ export default {
     background-color: white;
     margin: 0 auto;
     position: relative;
-    top: -71.5vw;
+    top: -90vw;
     border-radius: 0.75rem;
     box-shadow: 0px 31px 81px 0px rgba(0, 17, 77, 0.20);
+    zoom: 80%;
   }
   
   .vraag-hoeveel {
@@ -182,7 +183,7 @@ export default {
   .vraag-optie-container {
     display: flex;
     flex-direction: column;
-    margin-bottom:  2vw;
+    margin-bottom:  1vw;
     background-color: var(--Light-blue, #F2F8FF);
     width: 46vw; 
     height: 5vw;
@@ -224,6 +225,8 @@ export default {
     font-weight: 400;
     line-height: normal;
   }
+
+
 
 
   .footer-vragen {
@@ -473,7 +476,6 @@ export default {
   .footer-vragen {
     display: none;
   }
-
 
 
 }

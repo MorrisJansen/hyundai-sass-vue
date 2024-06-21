@@ -99,12 +99,12 @@ export default {
 }
 
 .background-container {
-  height: 75vw;
+  height: 61vw;
 }
 
 .achtergrondVraag {
   width: 100%;
-  height: 75vw;
+  height: 58vw;
   object-fit: cover;
 }
 
@@ -113,13 +113,14 @@ export default {
   align-items: center;
   gap: 0.694vw;
   width: 61.111vw;
-  height: 66.667vw;
+  height: 61vw;
   background-color: white;
   margin: 0 auto;
   position: relative;
-  top: -71.5vw;
+  top: -70vw;
   border-radius: 0.75rem;
   box-shadow: 0px 31px 81px 0px rgba(0, 17, 77, 0.20);
+  zoom: 80%
 }
 
 .vraag-hoeveel {
@@ -160,7 +161,7 @@ export default {
 .vraag-optie-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
   background-color: var(--Light-blue, #F2F8FF);
   width: 46vw; 
   height: 5vw;
@@ -189,7 +190,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: 1.5;
-  margin-top: 3vw;
+  margin-top: 0vw;
   margin-bottom: 3vw;
 }
 

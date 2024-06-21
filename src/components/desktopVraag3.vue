@@ -158,12 +158,12 @@ export default {
 }
 
 .background-container {
-  height: 75vw;
+  height: 68vw;
 }
 
 .achtergrondVraag {
   width: 100%;
-  height: 75vw;
+  height: 68vw;
   object-fit: cover;
 }
 
@@ -172,13 +172,14 @@ export default {
   align-items: center;
   gap: 0.694vw;
   width: 61.111vw;
-  height: 66.667vw;
+  height: 65vw;
   background-color: white;
   margin: 0 auto;
   position: relative;
-  top: -71.5vw;
+  top: -82vw;
   border-radius: 0.75rem;
   box-shadow: 0px 31px 81px 0px rgba(0, 17, 77, 0.20);
+  zoom: 80%;
 }
 
 .vraag-hoeveel {
@@ -454,6 +455,29 @@ export default {
   margin-top: 1vw;
 
 }
+
+
+.vraag-optie {
+  display: flex;
+  align-items: center;
+}
+
+.i10-comfort {
+  display: flex;
+  align-items: center;
+}
+
+.i10-knop {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.i10-comfort {
+  position: relative;
+  top: -0.4vw;
+}
+
+
 
 
 
