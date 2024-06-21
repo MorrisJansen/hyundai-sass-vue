@@ -296,9 +296,9 @@ export default {
 
 
 
-      <div class="section-all-inclusive" id="target-section">
+      <div class="section-all-inclusive">
         <div class="overlap-group-1">
-          <img class="vrouw-blij-auto" :src="vrouwBlijAuto" alt="vrouw blij auto" />
+          <img class="vrouw-blij-auto" id="target-section" :src="vrouwBlijAuto" alt="vrouw blij auto" />
           <div class="voordelen-blokken">
             <div class="voordeel-1">
               <img class="stuurwiel" :src="stuurwiel" alt="stuurwiel" />
