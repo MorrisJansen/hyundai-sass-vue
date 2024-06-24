@@ -160,9 +160,11 @@ export default {
   validateEmail() {
     console.log("Validating email:", this.formData.email);
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const containsApostrophe = /'/;
+
     const inputElement = document.querySelector('#email-input');
 
-    if (!this.formData.email.match(regex)) {
+    if (!this.formData.email.match(regex) || this.formData.email.match(containsApostrophe)) {
       this.errors.email = 'Ongeldig e-mailadres.';
       inputElement.classList.add('error-input');
       return false;
@@ -175,23 +177,31 @@ export default {
   validateAndFormatPhoneNumber(phoneNumber) {
     phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
 
-    if (phoneNumber.startsWith('+31')) {
-      phoneNumber = phoneNumber.replace('+31', '');
+    const dutchRegex = /^(06[0-9]{8}|[+]{0,1}31[0]?[0-9]{9,10}|0031[0]?[0-9]{9,10})$/;
+    
+    if (!phoneNumber.match(dutchRegex)) {
+      console.error('Ongeldig telefoonnummer');
+      return null;
     }
 
     phoneNumber = phoneNumber.replace(/^0+/, '');
 
     if (phoneNumber.startsWith('0') && (phoneNumber.length === 10 || phoneNumber.length === 11)) {
-      phoneNumber = '+31' + phoneNumber;
+      phoneNumber = '+31' + phoneNumber.substring(1);
     } else if (phoneNumber.startsWith('6') && phoneNumber.length === 9) {
       phoneNumber = '+31' + phoneNumber;
+    } else if (phoneNumber.startsWith('31') && phoneNumber.length === 11) {
+        phoneNumber = '+' + phoneNumber;
+    } else if (phoneNumber.startsWith('+31')) {
+    } else if (phoneNumber.startsWith('0031')) {
+      phoneNumber = '+' + phoneNumber.substring(2);
     } else {
       console.error('Ongeldig telefoonnummer');
       return null;
     }
 
-    if (phoneNumber.length !== 12 || !phoneNumber.match(/^\+316\d{8}$/)) {
-      console.error('Telefoonnummer moet in het formaat +316XXXXXXXX zijn.');
+    if (phoneNumber.length !== 12) {
+      console.error('Telefoonnummer moet in het formaat +31XXXXXXXXX zijn.');
       return null;
     }
 
@@ -216,21 +226,26 @@ export default {
     return true;
   },  
 
-  async checkPostcode() {
-      if (this.postcode.length === 6) {
+  async  checkPostcode() {
+    // Verwijder spaties uit de postcode voor verdere verwerking
+    const cleanPostcode = this.postcode.replace(/\s+/g, '');
+
+    if (cleanPostcode.length === 6) {
+        // Regex die postcodes in het formaat 1234AB controleert
         const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
-        if (postcodeRegex.test(this.postcode)) {
-          await this.findNearestDealers();
-          this.errors.postcode = '';
+        if (postcodeRegex.test(cleanPostcode)) {
+            await this.findNearestDealers();
+            this.errors.postcode = '';
         } else {
-          this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
+            this.errors.postcode = 'Voer een geldige postcode in (1234AB).';
         }
-      } else if (this.postcode.length > 0) {
+    } else if (cleanPostcode.length > 0) {
         this.errors.postcode = 'Een postcode moet 6 tekens bevatten.';
-      } else {
+    } else {
         this.errors.postcode = '';
-      }
-    },
+    }
+},
+    
     validateDealer() {
       console.log("Validating dealer:", this.formData.dealer.id);
       if (!this.formData.dealer || !this.formData.dealer.id) {
@@ -450,7 +465,6 @@ export default {
         <div class="Telefoonnummer">
           <label for="telefoonnummer-input"></label>
           <div class="telefoonnummer-input">
-            <input type="text" class="input-formulier landcode-select" value="+31" readonly>
             <input class="input-formulier telefoonnummer" type="text" id="telefoonnummer-input" name="Telefoonnummer" placeholder="Telefoonnummer" v-model="formData.telefoonnummer" @blur="validateTelefoonnummer">
           </div>
           <div class="error-message" v-if="errors.telefoonnummer">{{ errors.telefoonnummer }}</div>
@@ -601,7 +615,7 @@ export default {
 .bedankt {
     color: var(--Primary-blue, #002E6B);
     font-family:  'Hyundai Sans Head Office-Bold', Helvetica;
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
@@ -624,7 +638,7 @@ export default {
 
 
 .input-formulier {
-    width: 40vw;
+    width: 45vw;
     height: 3vw;    
     margin-top: 1vw;
     border-radius: 10px;
@@ -634,7 +648,6 @@ export default {
 }
 
 .input-formulier::placeholder {
-    padding-left: 2vw;    
     font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
 }
 
@@ -701,7 +714,7 @@ export default {
 
 .telefoonnummer-input {
   display: inline-flex;
-  width: 40vw;
+  width: 55vw;
 }
 
 .landcode-select {
@@ -712,6 +725,7 @@ export default {
 .geslacht-container {
   display: inline-flex;
   margin-right: 1rem;
+  margin-top: 1rem;
 }
 
 .geslacht {
@@ -719,7 +733,7 @@ export default {
   font-family: 'Hyundai Sans Head Office-Regular', Helvetica;
   margin-top: 5px;
   margin-left: 0.8rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 
@@ -736,6 +750,16 @@ export default {
 .selecteer-een-dealer {
   margin-left: 1rem;
 }
+
+input[type="text"], input[type="number"], input[type="email"], select {
+  padding-left: 2vw;
+}
+
+input[type="text"], input[type="number"], input[type="email"] {
+  color: black;
+}
+
+
 
 
 
