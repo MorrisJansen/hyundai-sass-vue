@@ -1,18 +1,16 @@
-
-
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import vragenPijlVorige from "/img/vragen-pijl-vorige.svg";
 import vragenPijlVolgende from "/img/vragen-pijl-volgende.svg";
-import Tabel from "./tabel.vue";
+import Tabel2 from "./tabel2.vue";
 import { addAntwoord } from "/src/antwoorden.js";
 
 export default {
   name: "DesktopVraag",
   components: {
     Keurmerk,
-    Tabel,
+    Tabel2,
   },
   data() {
     return {
@@ -54,10 +52,6 @@ export default {
 };
 </script>
 
-
-
-
-
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
@@ -78,7 +72,7 @@ export default {
         <div class="vraag-hoeveel">Vraag 3 van de 5</div>
         <div class="vraag">Welk model heeft jouw voorkeur?</div>
         <div class="tussen-haakjes">(meerdere antwoorden mogelijk)</div>
-        <div class="onderstreept">Bekijk <a href="/link-naar-functionaliteiten" class="link">hier</a> de functionaliteiten per model</div>
+        <div class="onderstreept">Bekijk <a href="#" class="link" @click.prevent="openPopup">hier</a> de functionaliteiten per model</div>
         <div class="vraag-optie-container" v-for="(optie, index) in antwoordOpties" :key="index">
           <label 
             class="vraag-optie" 
@@ -94,8 +88,7 @@ export default {
             {{ optie.answer }}
             <button 
               v-if="optie.answer === 'i10 Comfort'" 
-              class="i10-knop" 
-              @click="openPopup"
+              class="i10-knop"
             >
               Aanbieding!
             </button>
@@ -117,16 +110,15 @@ export default {
       </div>
       
       <div v-if="showPopup" class="popup-overlay" @click="closePopup">
-        <div class="popup">
+        <div class="popup" @click.stop>
           <button class="close-button" @click="closePopup">&times;</button>
           <div class="popup-content">
-            <Tabel />
+            <Tabel2 />
           </div>
         </div>
       </div>
       
     </div>
-
 
     <div class="footer-vragen-achtergrond">
       <div class="footer-vragen-1">
@@ -139,6 +131,7 @@ export default {
 
   </div>
 </template>
+
 
 
 
@@ -438,6 +431,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  
 }
 
 .close-button {
