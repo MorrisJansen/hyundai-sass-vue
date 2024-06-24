@@ -551,8 +551,12 @@ export default {
 
 
 
-      <a href="https://leadgen.republish.nl/api/content/hyundai-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-      <a href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden" target="_blank" rel="noopener noreferrer">Voorwaarden</a>
+    <a href="/hyundai-sass-vue/vraag1">
+      <div class="offerte-knop midden onder knop-onder-tabel" onclick="navigateToQuestions()">
+        <div class="vraag-offerte-aan">Vraag offerte aan</div>
+        <img class="arrow" src="https://cdn.animaapp.com/projects/661e79bddf63ebb14c06d39b/releases/6630ea3cc463853056e73b2d/img/arrow-4@2x.png" alt="Arrow button" />
+      </div>
+    </a>
 
 
 
