@@ -227,11 +227,9 @@ export default {
   },  
 
   async  checkPostcode() {
-    // Verwijder spaties uit de postcode voor verdere verwerking
     const cleanPostcode = this.postcode.replace(/\s+/g, '');
 
     if (cleanPostcode.length === 6) {
-        // Regex die postcodes in het formaat 1234AB controleert
         const postcodeRegex = /^[1-9][0-9]{3}[a-zA-Z]{2}$/;
         if (postcodeRegex.test(cleanPostcode)) {
             await this.findNearestDealers();

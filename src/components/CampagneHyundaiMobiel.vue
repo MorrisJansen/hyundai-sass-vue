@@ -4,7 +4,6 @@ import XLabel from "./XLabel";
 import Voordeel1 from "./Voordeel1";
 import overlayImage from '/img/overlay.png';
 import Carousel from './carousel.vue';
-// import Carousel from './carousel';
 import Tabel2 from "./tabel2.vue"
 
 
@@ -320,18 +319,6 @@ export default {
     "voordeel13Props",
     "voordeel14Props",
     "voordeel15Props",
-
-
-
-
-
-
-
-
-
-
-
-
     "profileGroups",
     "separators1",
     "accountViwers",
@@ -386,22 +373,45 @@ export default {
   data() {
     return {
       currentImage: '',
-      overlayImage: overlayImage
-
-
+      overlayImage: overlayImage,
     };
   },
   created() {
     this.currentImage = this.grootBeeldSlider;
   },
+  mounted() {
+    this.addEventListeners();
+  },
   methods: {
+    addEventListeners() {
+      const privacyLink = document.getElementById('privacy-link');
+      const voorwaardenLink = document.getElementById('voorwaarden-link');
+
+      if (privacyLink) {
+        privacyLink.addEventListener('click', this.handlePrivacyLinkClick);
+      }
+
+      if (voorwaardenLink) {
+        voorwaardenLink.addEventListener('click', this.handleVoorwaardenLinkClick);
+      }
+    },
+    handlePrivacyLinkClick(event) {
+      event.preventDefault();
+      const popupUrl = document.getElementById('privacy-link').getAttribute('href');
+      this.openPopup(popupUrl);
+    },
+    handleVoorwaardenLinkClick(event) {
+      event.preventDefault();
+      const popupUrl = document.getElementById('voorwaarden-link').getAttribute('href');
+      this.openPopup(popupUrl);
+    },
+    openPopup(url) {
+      window.open(url, 'popupWindow', 'width=800,height=600');
+    },
     toggleImage() {
-    this.currentImage = this.currentImage === this.grootBeeldSlider ? this.overlayImage : this.grootBeeldSlider;
-}
-
-  }
-
-
+      this.currentImage = this.currentImage === this.grootBeeldSlider ? this.overlayImage : this.grootBeeldSlider;
+    },
+  },
 };
 </script>
 
@@ -682,9 +692,10 @@ export default {
 
         <div class="footer-vragen-achtergrond">
           <div class="footer-vragen-1">
-            Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
+            Bekijk de <a id="privacy-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & 
+            <a id="voorwaarden-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> 
+            <span class="footer-klein-scherm"><br></span> van deze actie.
           </div>
-       
         </div>
         
       </footer>

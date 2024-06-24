@@ -127,9 +127,11 @@ export default {
   },
   mounted() {
     this.startImageToggleTimer();
+    this.addEventListeners();
   },
   beforeDestroy() {
     this.stopImageToggleTimer();
+    this.removeEventListeners();
   },
   methods: {
     toggleImage() {
@@ -155,9 +157,47 @@ export default {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }
-  }
+    },
+    addEventListeners() {
+      const privacyLink = document.getElementById('privacy-link');
+      const voorwaardenLink = document.getElementById('voorwaarden-link');
+
+      if (privacyLink) {
+        privacyLink.addEventListener('click', this.handlePrivacyLinkClick);
+      }
+
+      if (voorwaardenLink) {
+        voorwaardenLink.addEventListener('click', this.handleVoorwaardenLinkClick);
+      }
+    },
+    removeEventListeners() {
+      const privacyLink = document.getElementById('privacy-link');
+      const voorwaardenLink = document.getElementById('voorwaarden-link');
+
+      if (privacyLink) {
+        privacyLink.removeEventListener('click', this.handlePrivacyLinkClick);
+      }
+
+      if (voorwaardenLink) {
+        voorwaardenLink.removeEventListener('click', this.handleVoorwaardenLinkClick);
+      }
+    },
+    handlePrivacyLinkClick(event) {
+      event.preventDefault();
+      const popupUrl = document.getElementById('privacy-link').getAttribute('href');
+      this.openPopup(popupUrl);
+    },
+    handleVoorwaardenLinkClick(event) {
+      event.preventDefault();
+      const popupUrl = document.getElementById('voorwaarden-link').getAttribute('href');
+      this.openPopup(popupUrl);
+    },
+    openPopup(url) {
+      window.open(url, 'popupWindow', 'width=800,height=600');
+    },
+  },
 };
+
 
 
 
@@ -457,11 +497,9 @@ export default {
 
 
     <div class="footer-vragen-achtergrond">
-      <div class="footer-vragen-1">
-        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
-      </div>
       <div class="footer-vragen">
-        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+        Bekijk de <a id="privacy-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & 
+        <a id="voorwaarden-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
       </div>
     </div>
     
