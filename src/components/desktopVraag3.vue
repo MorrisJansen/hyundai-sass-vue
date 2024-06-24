@@ -318,6 +318,7 @@ export default {
   display: inline-flex;
   height: 4.7vw;
   width: 200px;
+  padding-right: 40px;
   align-items: center;
   gap: 1vw;
   border-radius: 0.4375rem;
@@ -377,13 +378,7 @@ export default {
   }
 }
 
-@media (max-width: 1060px) {
-  .i10-knop {
-    padding: 0.3rem 0.6rem!important;
-  }
 
-
-}
 
 
 
@@ -468,8 +463,68 @@ export default {
 
 .i10-comfort {
   position: relative;
-  top: -0.4vw;
+  top: -0.1vw;
 }
+
+@media (max-width: 1360px) and (min-width: 1000px)  {
+  .i10-comfort {
+    top: -0.3vw;
+  }
+}
+
+@media (max-width: 1500px) {
+  .i10-knop {
+    zoom: 80%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .volgende {
+    margin-left: 100%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .volgende {
+    margin-left: 80%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .volgende {
+    margin-left: 60%;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .i10-knop {
+    zoom: 70%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .i10-knop {
+    zoom: 60%;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .i10-knop {
+    zoom: 60%;
+  }
+
+  .volgende {
+    margin-left: 40%;
+    margin-top: 12px;
+    zoom: 70%;
+
+  }
+}
+
+
+
 
 
 
@@ -751,11 +806,11 @@ export default {
     height: 43rem;
     width: 90vw;
     position: relative;
-    top: -48rem;
+    top: -230vw;
   }
 
   .vraag {
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 90vw;
   }
 
@@ -884,9 +939,9 @@ export default {
 
 .close-button {
   position: absolute;
-  top: 1vw;
-  right: 1vw;
-  background: none;
+  top: 2vw;
+  right: 2.5vw;
+  background: none; 
   border: none;
   font-size: 5vw;
   z-index: 999;
@@ -901,6 +956,8 @@ export default {
 .section-uitvoeringen-tabel {
   background-color: white;
 }
+
+
 
 
 

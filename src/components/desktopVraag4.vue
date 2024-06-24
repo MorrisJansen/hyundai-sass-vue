@@ -412,7 +412,7 @@ export default {
     height: 41rem;
     width: 90vw;
     position: relative;
-    top: -44rem;
+    top: -215vw;
   }
 
   .vraag {

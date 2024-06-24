@@ -436,24 +436,31 @@ export default {
   
 
 
-  .knop-onder-tabel
-    margin-top: -90%!important
+.knop-onder-tabel
+  margin-top: -90%!important
 
-  .prijzentabel-i10-comfort-1
-    width:  100%!important
+.prijzentabel-i10-comfort-1
+  width:  100%!important
 
-  .tabel-slider 
-    display: flex
-    margin-left: 33%
+.tabel-slider 
+  display: flex
+  margin-left: 33%
 
-  .tabel-slider-item
-    height: 90px
-    position: relative
-    top: -40%
-    z-index: 999
+.tabel-slider-item
+  height: 90px
+  position: relative
+  top: -40%
+  z-index: 999
 
-  .tabel-slider-item:first-child
-    margin-right: 10%
+.tabel-slider-item:first-child
+  margin-right: 10%
+
+
+@media (min-width: 480px)
+.tabel-slider-item 
+  display: none
+
+
 
 
 </style>

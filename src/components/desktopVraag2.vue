@@ -132,6 +132,8 @@ export default {
   zoom: 90%;
 }
 
+
+
 .vraag-hoeveel {
   color: var(--Primary-blue, #002E6B);
   font-family:  'Hyundai Sans Head Office-Regular', Helvetica;
@@ -386,7 +388,7 @@ export default {
     height: 36rem;
     width: 90vw;
     position: relative;
-    top: -41rem;
+    top: -175vw;
   }
 
   .vraag {
