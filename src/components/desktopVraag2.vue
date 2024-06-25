@@ -14,15 +14,17 @@ export default {
       vragenPijlVorige: vragenPijlVorige,
       achtergrondVraag: achtergrondVraag,
       antwoordOpties: [
-      { id: 4990, answer: "3 jaar" },
-      { id: 4993, answer: "4 jaar" },
-      { id: 4996, answer: "5 jaar" },
-      { id: 4999, answer: "6 jaar" },
-      { id: 5002, answer: "Weet ik nog niet" }
-
+        { id: 4990, answer: "3 jaar" },
+        { id: 4993, answer: "4 jaar" },
+        { id: 4996, answer: "5 jaar" },
+        { id: 4999, answer: "6 jaar" },
+        { id: 5002, answer: "Weet ik nog niet" }
       ],
       geselecteerdAntwoord: null,
     };
+  },
+  mounted() {
+    this.setupFooterLinks(); // Roep setupFooterLinks() op na het mounten van de component
   },
   watch: {
     geselecteerdAntwoord(newVal) {
@@ -32,6 +34,32 @@ export default {
           window.scrollTo(0, 0);
           this.$router.push('/hyundai-sass-vue/vraag3');
         }, 1000);
+      }
+    }
+  },
+  methods: {
+    setupFooterLinks() {
+      const privacyLink = document.getElementById('privacy-link');
+      const voorwaardenLink = document.getElementById('voorwaarden-link');
+
+      function openPopup(url) {
+        window.open(url, 'popupWindow', 'width=800,height=600');
+      }
+
+      if (privacyLink) {
+        privacyLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          const popupUrl = privacyLink.getAttribute('href');
+          openPopup(popupUrl);
+        });
+      }
+
+      if (voorwaardenLink) {
+        voorwaardenLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          const popupUrl = voorwaardenLink.getAttribute('href');
+          openPopup(popupUrl);
+        });
       }
     }
   }
@@ -84,7 +112,7 @@ export default {
         Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
       </div>
       <div class="footer-vragen">
-        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+        Bekijk de <a id="privacy-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a id="voorwaarden-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
       </div>
     </div>
   

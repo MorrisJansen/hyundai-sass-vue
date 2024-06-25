@@ -33,6 +33,35 @@ export default {
         }, 1000);
       }
     }
+  },
+  mounted() {
+    this.setupFooterLinks();
+  },
+  methods: {
+    setupFooterLinks() {
+      const privacyLink = document.getElementById('privacy-link');
+      const voorwaardenLink = document.getElementById('voorwaarden-link');
+
+      function openPopup(url) {
+        window.open(url, 'popupWindow', 'width=800,height=600');
+      }
+
+      if (privacyLink) {
+        privacyLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          const popupUrl = privacyLink.getAttribute('href');
+          openPopup(popupUrl);
+        });
+      }
+
+      if (voorwaardenLink) {
+        voorwaardenLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          const popupUrl = voorwaardenLink.getAttribute('href');
+          openPopup(popupUrl);
+        });
+      }
+    }
   }
 };
 </script>
@@ -77,7 +106,7 @@ export default {
         Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> <span class="footer-klein-scherm"><br></span> van deze actie.
       </div>
       <div class="footer-vragen">
-        Bekijk de <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
+        Bekijk de <a id="privacy-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-privacy">Privacy</a> & <a id="voorwaarden-link" class="footer-link" href="https://leadgen.republish.nl/api/content/hyundai-voorwaarden">voorwaarden</a> van deze actie.
       </div>
     </div>
 
