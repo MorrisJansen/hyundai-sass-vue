@@ -590,7 +590,7 @@ export default {
   align-items: center;
   gap: 0.694vw;
   width: 61.111vw;
-  height: 66.667vw;
+  height: 69vw;
   background-color: white;
   margin: 0 auto;
   position: relative;

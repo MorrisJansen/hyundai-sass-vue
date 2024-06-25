@@ -613,7 +613,8 @@ export default {
   z-index: 2000
 
 .cta-offerte-knop
-  height: 5rem
+  height: 5vw
+  width: 18vw
   padding: 0 1.4rem!important
 
 
@@ -865,15 +866,16 @@ export default {
     .vraag-offerte-aan
       font-size: 27px
 
+@media (min-width: 768px) and (max-width: 1210px)
+  .vraag-offerte-aan
+    font-size: 20px!important
+
 
 @media (min-width: 768px) and (max-width: 1150px)
   .midden-knop
     margin-top: 75px
     
-  .offerte-knop
-    width: 22.917vw
-    height: 7.014vw
-    gap: 0.8rem!important
+
   
   .vraag-offerte-aan
     font-size: 1.375vw!important
