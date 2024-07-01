@@ -17,7 +17,6 @@ import {
   campagneHyundaiDesktopTestData, 
   campagneHyundaiMobielData,
 } from "./data";
-import { component } from "vue/types/umd";
 
 Vue.use(Router);
 
