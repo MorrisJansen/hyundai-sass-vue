@@ -17,6 +17,7 @@ import {
   campagneHyundaiDesktopTestData, 
   campagneHyundaiMobielData,
 } from "./data";
+import { component } from "vue/types/umd";
 
 Vue.use(Router);
 
@@ -68,6 +69,11 @@ const routes = [
   },
   {
     path: '/hyundai-sass-vue/bedankt',
+    component: Bedankt,
+    name: 'bedankt'
+  },
+  {
+    path: 'hyundai-sass-vue/bedankt-img',
     component: Bedankt,
     name: 'bedankt'
   },
