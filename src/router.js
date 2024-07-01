@@ -71,11 +71,11 @@ const routes = [
     component: Bedankt,
     name: 'bedankt'
   },
-  {
-    path: '/hyundai-sass-vue/bedanktimg',
-    component: BedanktImg,
-    name: 'bedanktImg'
-  },
+  // {
+  //   path: '/hyundai-sass-vue/bedanktimg',
+  //   component: BedanktImg,
+  //   name: 'bedanktImg'
+  // },
   {
     path: '/hyundai-sass-vue/:queryParams(.*)',
     name: 'Result',
