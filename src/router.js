@@ -74,7 +74,7 @@ const routes = [
   },
   {
     path: '/hyundai-sass-vue/bedankt-img',
-    component: Bedankt-img,
+    component: BedanktImg,
     name: 'bedankt-img'
   },
   {
