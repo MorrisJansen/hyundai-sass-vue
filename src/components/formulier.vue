@@ -367,7 +367,7 @@ export default {
 
           console.log('Formulier succesvol verstuurd', response.data);
           if (response.status === 201) {
-            this.$router.push('hyundai-sass-vue/bedanktimg')
+            this.$router.push('hyundai-sass-vue/bedankt-img')
             this.triggerPixel(isNewLead); // Trigger pixel met isNewLead waarde
           }
 

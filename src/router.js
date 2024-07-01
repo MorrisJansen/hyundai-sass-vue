@@ -71,6 +71,7 @@ const routes = [
     component: Bedankt,
     name: 'bedankt'
   },
+
   {
     path: '/hyundai-sass-vue/:queryParams(.*)',
     name: 'Result',
