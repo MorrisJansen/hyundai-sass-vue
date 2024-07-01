@@ -367,6 +367,7 @@ export default {
 
           console.log('Formulier succesvol verstuurd', response.data);
           if (response.status === 201) {
+            this.$router.push('hyundai-sass-vue/bedanktimg')
             this.triggerPixel(isNewLead); // Trigger pixel met isNewLead waarde
           }
 
@@ -395,14 +396,6 @@ export default {
         return true;
       }
     },
-
-    triggerPixel(isNewLead) {
-      const pixelData = {
-        Supplier_pixel_fired: isNewLead ? 'yes' : 'no'
-      };
-      console.log('Pixel data:', pixelData);
-      // Hier kun je logica toevoegen om de pixel te verzenden naar de API of een externe service
-    }
   }
 };
 </script>

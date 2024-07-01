@@ -38,6 +38,7 @@ export default {
         <div class="vragen-achtergrond">
           <div class="vraag">Bedankt voor het invullen van het formulier.</div>
           <div class="vraag-hoeveel">Onze dealer neemt binnenkort contact met jou op.</div>
+          <div class="weghalen">dit is de img pixel bedankt pagina</div>
         </div>
       </div>
     </div>
