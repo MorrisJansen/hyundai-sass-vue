@@ -92,7 +92,6 @@ export default {
         site_custom_name: 'Hyundai-i10', 
         ip: '',  
         answers: [] 
-        
       },
       errors: {
         geslacht: '',
@@ -314,87 +313,70 @@ export default {
       console.log("Form valid:", isValid);
       return isValid;
     },
-    async submitForm() {
-      console.log("Submitting form...");
-      if (this.validateForm()) {
-        console.log("Form is valid, submitting...");
+    submitForm() {
+  console.log("Submitting form...");
+  if (this.validateForm()) {
+    console.log("Form is valid, submitting...");
+    console.log("Form data before processing:", this.formData);
 
-        this.formData['Supplier pixel fired'] = isNewLead ? 'yes' : 'no';
+    this.formData.answers = getAntwoorden();
+    this.formData.answers.push(4659);
 
-        this.formData.answers = getAntwoorden();
-        this.formData.answers.push(4659);
-        this.formData.firstname = this.formData.voornaam;
-        this.formData.lastname = this.formData.achternaam;
+    this.formData.firstname = this.formData.voornaam;
+    this.formData.lastname = this.formData.achternaam;
 
-        const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
-        if (!formattedPhoneNumber) {
-          console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
-          return;
-        }
-        this.formData.phone_number = formattedPhoneNumber;
-        this.formData.gender = this.formData.geslacht;
-
-        const dealerAnswer = this.formData.dealer.id;
-        this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
-        this.formData.answers.push(dealerAnswer);
-
-        delete this.formData.voornaam;
-        delete this.formData.achternaam;
-        delete this.formData.telefoonnummer;
-        delete this.formData.geslacht;
-
-        console.log("Form data after processing:", JSON.stringify(this.formData));
-
-        const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
-
-        try {
-          // API-aanroep om het formulier te verzenden
-          const response = await axios.post(
-            'https://leadgen.republish.nl/api/sponsors/2358/leads',
-            this.formData,
-            {
-              headers: {
-                'Authorization': authHeader,
-                'Content-Type': 'application/json; charset=utf-8'
-              }
-            }
-          );
-
-          console.log('Formulier succesvol verstuurd', response.data);
-          if (response.status === 201) {
-            this.triggerPixel(isNewLead);
-          }
-
-          this.$router.push('/hyundai-sass-vue/bedankt');
-        } catch (error) {
-          console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
-          if (error.response && error.response.status === 409) {
-            console.log('Duplicaat e-mailadres gedetecteerd.');
-            this.triggerPixel(false);
-            this.$router.push('/hyundai-sass-vue/bedankt');
-          }
-        }
-      } else {
-        console.log("Form is invalid, not submitting.");
-      }
-    },
-
-    async checkIfNewLead(email) {
-      try {
-        const response = await axios.get(`https://leadgen.republish.nl/api/sponsors/2358/leads?email=${email}`);
-        return response.data.length === 0;
-      } catch (error) {
-        console.error('Fout bij het controleren op nieuwe lead:', error);
-        return true;
-      }
-    },
-
-    triggerPixel(isNewLead) {
-      const pixelData = {
-        Supplier_pixel_fired: isNewLead ? 'yes' : 'no'
-      };
-      console.log('Pixel data:', pixelData);
+    const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+    if (!formattedPhoneNumber) {
+      console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
+      return;
     }
+    this.formData.phone_number = formattedPhoneNumber;
+
+    this.formData.gender = this.formData.geslacht;
+
+    const dealerAnswer = this.formData.dealer.id;
+    this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
+    this.formData.answers.push(dealerAnswer);
+
+    delete this.formData.voornaam;
+    delete this.formData.achternaam;
+    delete this.formData.telefoonnummer;
+    delete this.formData.geslacht;
+
+    console.log("Form data after processing:", JSON.stringify(this.formData));
+
+    const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
+    axios.post(
+      'https://leadgen.republish.nl/api/sponsors/2358/leads',
+      this.formData,
+      {
+        headers: { 
+          'Authorization': authHeader,
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      }
+    )
+    .then(response => {
+      console.log('Formulier succesvol verstuurd', response.data);
+      this.$router.push('/hyundai-sass-vue/bedankt');
+    })
+    .catch(error => {
+      console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
+      if (error.response) {
+        console.error('Server response:', error.response.data);
+      }
+    });
+  } else {
+    console.log("Form is invalid, not submitting.");
+  }
+}
+
+
+
+
+
+
+    
   }
 };
 </script>
