@@ -51,4 +51,5 @@ export default {
 
 .tabel-item-1-1.tabel-item-1 .titel-11
   height: 2.66vw
+  
 </style>
