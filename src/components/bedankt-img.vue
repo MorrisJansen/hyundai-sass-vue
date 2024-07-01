@@ -16,8 +16,12 @@ export default {
 </script>
 
 <template>
+
   <div>
-    <img referrerpolicy="no-referrer-when-downgrade" src="https://republish.topleaseauto.nl/m/6190/13f48bd4ecfb/?event=7228&unique_conversion_id={YOUR_unique_conversion_id}" style="width: 1px; height: 1px; border: 0px;" alt="tracking-pixel">
+    <head>
+      <img referrerpolicy="no-referrer-when-downgrade" src="https://republish.topleaseauto.nl/m/6190/13f48bd4ecfb/?event=7228&unique_conversion_id={YOUR_unique_conversion_id}" style="width: 1px; height: 1px; border: 0px;" alt="tracking-pixel">
+
+    </head>
     <div class="container-center-horizontal">
       <div class="top-balk">
         <a href="/">

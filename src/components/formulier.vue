@@ -367,7 +367,6 @@ export default {
 
           console.log('Formulier succesvol verstuurd', response.data);
           if (response.status === 201) {
-            // Gebaseerd op of het een nieuwe lead is, naar de juiste bedankpagina navigeren
             if (isNewLead) {
               this.$router.push('/hyundai-sass-vue/bedankt-img');
             } else {
@@ -390,11 +389,9 @@ export default {
     async checkIfNewLead(email) {
       try {
         const response = await axios.get(`https://leadgen.republish.nl/api/sponsors/2358/leads?email=${email}`);
-        // Als de lead al bestaat, wordt het beschouwd als geen nieuwe lead
         return response.data.length === 0;
       } catch (error) {
         console.error('Fout bij het controleren op nieuwe lead:', error);
-        // Default terugkeren true om pixel fired te activeren (niet aanbevolen voor productie)
         return true;
       }
     }
