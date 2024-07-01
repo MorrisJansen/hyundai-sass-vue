@@ -414,13 +414,6 @@ export default {
 
 
 
-
-
-
-
-
-
-
 <template>
   <div class="container-center-horizontal">
     <div class="top-balk">
