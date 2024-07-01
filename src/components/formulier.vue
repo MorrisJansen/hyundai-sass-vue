@@ -319,15 +319,10 @@ export default {
       if (this.validateForm()) {
         console.log("Form is valid, submitting...");
 
-        // Aanpassing om te controleren of het een nieuwe lead is
-        const isNewLead = await this.checkIfNewLead(this.formData.email);
-
-        // Voeg Supplier pixel fired toe aan formData
         this.formData['Supplier pixel fired'] = isNewLead ? 'yes' : 'no';
 
-        // Voorbereidende stappen voor het verzenden van formuliergegevens
-        this.formData.answers = this.getAntwoorden();
-        this.formData.answers.push(4659); // Voorbeeld van toevoegen van antwoorden
+        this.formData.answers = getAntwoorden();
+        this.formData.answers.push(4659);
         this.formData.firstname = this.formData.voornaam;
         this.formData.lastname = this.formData.achternaam;
 
@@ -340,7 +335,7 @@ export default {
         this.formData.gender = this.formData.geslacht;
 
         const dealerAnswer = this.formData.dealer.id;
-        this.formData.answers = this.formData.answers.filter(answer => !this.dealers.some(dealer => dealer.id === answer));
+        this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
         this.formData.answers.push(dealerAnswer);
 
         delete this.formData.voornaam;
@@ -367,17 +362,15 @@ export default {
 
           console.log('Formulier succesvol verstuurd', response.data);
           if (response.status === 201) {
-            if (isNewLead) {
-              this.$router.push('/hyundai-sass-vue/bedankt-img');
-            } else {
-              this.$router.push('/hyundai-sass-vue/bedankt');
-            }
+            this.triggerPixel(isNewLead);
           }
 
+          this.$router.push('/hyundai-sass-vue/bedankt');
         } catch (error) {
           console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
           if (error.response && error.response.status === 409) {
             console.log('Duplicaat e-mailadres gedetecteerd.');
+            this.triggerPixel(false);
             this.$router.push('/hyundai-sass-vue/bedankt');
           }
         }
@@ -394,6 +387,13 @@ export default {
         console.error('Fout bij het controleren op nieuwe lead:', error);
         return true;
       }
+    },
+
+    triggerPixel(isNewLead) {
+      const pixelData = {
+        Supplier_pixel_fired: isNewLead ? 'yes' : 'no'
+      };
+      console.log('Pixel data:', pixelData);
     }
   }
 };
