@@ -4,6 +4,7 @@ import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
 import pijlVoren from "/img/vragen-pijl-volgende.svg";
 import { getAntwoorden } from "/src/antwoorden.js";
+import Bedankt2 from './bedankt-img.vue';
 
 const dealers = [
     { "id": 4816, "name": "Van Mossel Hyundai Leeuwarden", "latitude": 53.200770023103, "longitude": 5.8407729035167 },
@@ -315,87 +316,79 @@ export default {
       return isValid;
     },
     async submitForm() {
-      console.log("Submitting form...");
-      if (this.validateForm()) {
-        console.log("Form is valid, submitting...");
+  console.log("Submitting form...");
+  if (this.validateForm()) {
+    console.log("Form is valid, submitting...");
 
-        // Aanpassing om te controleren of het een nieuwe lead is
-        const isNewLead = await this.checkIfNewLead(this.formData.email);
+    // Voorbereidende stappen voor het verzenden van formuliergegevens
+    this.formData.answers = getAntwoorden();
+    this.formData.answers.push(4659); // Voorbeeld van toevoegen van antwoorden
+    this.formData.firstname = this.formData.voornaam;
+    this.formData.lastname = this.formData.achternaam;
 
-        // Voeg Supplier pixel fired toe aan formData
-        this.formData['Supplier pixel fired'] = isNewLead ? 'yes' : 'no';
+    const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
+    if (!formattedPhoneNumber) {
+      console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
+      return;
+    }
+    this.formData.phone_number = formattedPhoneNumber;
+    this.formData.gender = this.formData.geslacht;
 
-        // Voorbereidende stappen voor het verzenden van formuliergegevens
-        this.formData.answers = getAntwoorden();
-        this.formData.answers.push(4659); // Voorbeeld van toevoegen van antwoorden
-        this.formData.firstname = this.formData.voornaam;
-        this.formData.lastname = this.formData.achternaam;
+    const dealerAnswer = this.formData.dealer.id;
+    this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
+    this.formData.answers.push(dealerAnswer);
 
-        const formattedPhoneNumber = this.validateAndFormatPhoneNumber(this.formData.telefoonnummer);
-        if (!formattedPhoneNumber) {
-          console.error('Ongeldig telefoonnummer, formulier niet verzonden.');
-          return;
-        }
-        this.formData.phone_number = formattedPhoneNumber;
-        this.formData.gender = this.formData.geslacht;
+    delete this.formData.voornaam;
+    delete this.formData.achternaam;
+    delete this.formData.telefoonnummer;
+    delete this.formData.geslacht;
 
-        const dealerAnswer = this.formData.dealer.id;
-        this.formData.answers = this.formData.answers.filter(answer => !dealers.some(dealer => dealer.id === answer));
-        this.formData.answers.push(dealerAnswer);
+    console.log("Form data after processing:", JSON.stringify(this.formData));
 
-        delete this.formData.voornaam;
-        delete this.formData.achternaam;
-        delete this.formData.telefoonnummer;
-        delete this.formData.geslacht;
+    const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
 
-        console.log("Form data after processing:", JSON.stringify(this.formData));
-
-        const authHeader = 'Basic MTg1OmFiODIyMWQ0YTMxNzBkODk1NDI4ODA0NTlhYmY3OTgxN2FlMzY3YzI=';
-
-        try {
-          // API-aanroep om het formulier te verzenden
-          const response = await axios.post(
-            'https://leadgen.republish.nl/api/sponsors/2358/leads',
-            this.formData,
-            {
-              headers: {
-                'Authorization': authHeader,
-                'Content-Type': 'application/json; charset=utf-8'
-              }
-            }
-          );
-
-          console.log('Formulier succesvol verstuurd', response.data);
-          if (response.status === 201) {
-            this.$router.push('hyundai-sass-vue/bedankt-img')
-            this.triggerPixel(isNewLead); // Trigger pixel met isNewLead waarde
-          }
-
-          this.$router.push('/hyundai-sass-vue/bedankt');
-        } catch (error) {
-          console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
-          if (error.response && error.response.status === 409) {
-            console.log('Duplicaat e-mailadres gedetecteerd.');
-            this.triggerPixel(false); // Geen pixel triggeren bij duplicaat
-            this.$router.push('/hyundai-sass-vue/bedankt');
+    try {
+      // API-aanroep om het formulier te verzenden
+      const response = await axios.post(
+        'https://leadgen.republish.nl/api/sponsors/2358/leads',
+        this.formData,
+        {
+          headers: {
+            'Authorization': authHeader,
+            'Content-Type': 'application/json; charset=utf-8'
           }
         }
+      );
+
+      console.log('Formulier succesvol verstuurd', response.data);
+      if (response.status === 201) {
+        this.$router.push('/hyundai-sass-vue/bedankt2');
       } else {
-        console.log("Form is invalid, not submitting.");
+        this.$router.push('/hyundai-sass-vue/bedankt');
       }
-    },
+    } catch (error) {
+      console.error('Er is een fout opgetreden bij het versturen van het formulier', error);
+      if (error.response && error.response.status === 409) {
+        console.log('Duplicaat e-mailadres gedetecteerd.');
+        this.$router.push('/hyundai-sass-vue/bedankt');
+      }
+    }
+  } else {
+    console.log("Form is invalid, not submitting.");
+  }
+}
 
-    async checkIfNewLead(email) {
-      try {
-        const response = await axios.get(`https://leadgen.republish.nl/api/sponsors/2358/leads?email=${email}`);
-        // Als de lead al bestaat, wordt het beschouwd als geen nieuwe lead
-        return response.data.length === 0;
-      } catch (error) {
-        console.error('Fout bij het controleren op nieuwe lead:', error);
-        // Default terugkeren true om pixel fired te activeren (niet aanbevolen voor productie)
-        return true;
-      }
-    },
+    // async checkIfNewLead(email) {
+    //   try {
+    //     const response = await axios.get(`https://leadgen.republish.nl/api/sponsors/2358/leads?email=${email}`);
+    //     // Als de lead al bestaat, wordt het beschouwd als geen nieuwe lead
+    //     return response.data.length === 0;
+    //   } catch (error) {
+    //     console.error('Fout bij het controleren op nieuwe lead:', error);
+    //     // Default terugkeren true om pixel fired te activeren (niet aanbevolen voor productie)
+    //     return true;
+    //   }
+    // },
   }
 };
 </script>

@@ -11,7 +11,7 @@ import vraag4 from "./components/desktopVraag4.vue";
 import vraag5 from "./components/desktopVraag5.vue";
 import Formulier from "./components/formulier.vue";
 import Bedankt from "./components/bedankt.vue";
-import Tabel2 from "./components/tabel2.vue";
+import Bedankt2 from "./components/bedankt-img.vue"
 
 import { 
   campagneHyundaiDesktopTestData, 
@@ -65,6 +65,11 @@ const routes = [
     path: '/hyundai-sass-vue/formulier',
     component: Formulier,
     name: 'formulier'
+  },
+  {
+    path: '/hyundai-sass-vue/bedankt2',
+    component: Bedankt2,
+    name: 'bedankt2'
   },
   {
     path: '/hyundai-sass-vue/bedankt',
