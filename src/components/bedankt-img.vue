@@ -1,6 +1,7 @@
 <script>
 import Keurmerk from "./Keurmerk";
 import achtergrondVraag from "/img/achtergrondVraag.png";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: "DesktopVraag",
@@ -10,17 +11,29 @@ export default {
   data() {
     return {
       achtergrondVraag: achtergrondVraag,
+      uniqueConversionId: uuidv4(),
     };
   },
+  computed: {
+    pixelUrl() {
+      return `https://republish.topleaseauto.nl/m/6190/13f48bd4ecfb/?event=7228&unique_conversion_id=${this.uniqueConversionId}`;
+    }
+  }
 }
 </script>
 
 <template>
-
   <div>
     <head>
-      <img referrerpolicy="no-referrer-when-downgrade" src="https://republish.topleaseauto.nl/m/6190/13f48bd4ecfb/?event=7228&unique_conversion_id={YOUR_unique_conversion_id}" style="width: 1px; height: 1px; border: 0px;" alt="tracking-pixel">
+      <img 
+        referrerpolicy="no-referrer-when-downgrade"
+        :src="pixelUrl" 
+        style="width: 1px; height: 1px; border: 0px;" 
+        alt="tracking-pixel">
     </head>
+
+
+
     <div class="container-center-horizontal">
       <div class="top-balk">
         <a href="/">
